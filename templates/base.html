@@ -6,7 +6,7 @@
 <html class="h-100" lang="en">
 
 <head>
-    <title>CodeStar Blog</title>
+    <title>Cityfur Dog Day Care</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Fonts CSS -->
@@ -18,58 +18,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Custom JS -->
+    <link rel="script" href="{% static 'js/script.js' %}">
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
-                        href="{% url 'home' %}">Home</a>
-                    </li>
-
-                </ul>
-                <span class="navbar-text text-muted">
-                    adventures of a software developer
-                </span>
-            </div>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="col-4">
+            <h1>Cityfur</h1>
         </div>
-    </nav>
+        <div class="col-8">
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="">Link 1</a></li>
+                    <li class="nav-item"><a href="">Link 2</a></li>
+                    <li class="nav-item"><a href="">Link 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
 
     <!-- Main -->
     <main class="flex-shrink-0 main-bg">
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Content goes here -->
         {% endblock content %}
     </main>
 
-    <!-- Footer -->
+
+<!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
-        {% block copyright %}
-        <!-- Copyright Goes here -->
-        {% endblock copyright %}
+        <p class="m-0 text-center"> 
+           Created by Dennis Schenkel
+        </p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
-    
-        <script src="{% static 'js/script.js' %}"></script>
 </body>
-
 </html>
