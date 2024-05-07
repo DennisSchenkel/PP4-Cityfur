@@ -18,7 +18,6 @@ def guests_list(request):
         'guests/guests_list.html', 
         context
         )
-    
 
 # View function for guest details
 def guest_details(request, slug):

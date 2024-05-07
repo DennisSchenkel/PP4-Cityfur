@@ -1,0 +1,114 @@
+
+header {
+
+}
+
+
+main {
+    background-color: #D9D9D9;
+    
+}
+
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+
+
+
+
+.sidebar {
+    background-color: #39489f;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    line-height: 2;
+    padding-top: 75px;
+}
+
+
+#sidebarToggle {
+    cursor: pointer;
+}
+
+#sidebar-menu {
+
+}
+
+
+.side-nav {
+    width: 140px;
+}
+
+.icon-width {
+    width: 35px;
+}
+
+
+
+.header-menu {
+    background-color: #EDEDED;
+    align-content: center;
+}
+
+
+.main-content {
+    min-height: 100vh;
+}
+
+
+.content-box {
+
+}
+
+.content-w90 {
+    width: 90%;
+
+    margin: 20px 0px 20px 0px;
+    align-self: center;
+}
+
+.content-item {
+    background-color: white;
+}
+
+.img-prev-md {
+    width: 150px;
+    height: 150px;
+}
+
+.img-prev-sm {
+    width: 100px;
+    height: 100px;
+}
+
+.icon-fa {
+    vertical-align: middle;
+}
+
+
+.bottom-box {
+    height: 50px;
+    background-color: #39489f;
+    color: white;
+}
+
+
+.button-box {
+    display: grid;
+    place-items: center;
+}
+
+.btn-90 {
+    width: 90%;
+    margin: 5px 0px 5px 0px;
+}
+
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Don't show under 768px */
+    }
+}

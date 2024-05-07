@@ -1,5 +1,5 @@
 from . import views
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path('', views.guests_list, name='home'),
