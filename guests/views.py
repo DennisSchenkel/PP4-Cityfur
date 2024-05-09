@@ -6,10 +6,7 @@ from django.core.paginator import Paginator
 # View class for guest list
 def guests_list(request):
     queryset = Guest.objects.all()
-    paginator = Paginator(queryset, 2)  # Show 2 guests per page.
-
-    page_number = request.GET.get('page')
-    guests_list = paginator.get_page(page_number)
+    guests_list = queryset
 
     context = {'guests_list': guests_list,}
 

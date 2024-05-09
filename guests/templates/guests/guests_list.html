@@ -4,101 +4,85 @@
 {% block content %}
 
 
-    <div class="row pt-4 mx-auto container-fluid">
-        
-        {% for guest in guests_list %}
-        
-            <div class="col-12 col-md-6">
-                <div class="content-item p-1 rounded-1">
-                    <div class="row">
-
-                        <!-- Profile image -->    
-                        <div class="col-auto">
-                            <!-- Change to static image path later -->
-                            <img src={{guest.picture_url}} alt="placeholder" class="img-prev-sm">
-                        </div>
-
-                        <!-- Profile name & gender -->
-                        <div class="col px-0">
-                            <div class="row">
-                                <!-- Show name and name_addon -->
-                                <div class="col-auto">
-                                    <h4 class="mb-0">{{guest.first_name}}</h4>
-                                    <!-- Show name addon if it exists -->
-                                    {% if guest.name_addon %}
-                                    <span>{{guest.name_addon}}</span>
-                                    {% else %}
-                                    <span><br></span>
-                                    {% endif %}                                     
-                                </div>
-                                <!-- Show gender depending on the database entry -->
-                                <div class="col px-0">
-                                    {% if guest.get_gender_display == "Male" %}
-                                    <span class="fa-solid fa-mars fa-lg icon-fa"></span>
-                                    {% elif guest.get_gender_display == "Female" %}
-                                    <span class="fa-solid fa-venus fa-lg icon-fa"></span>
-                                    {% else %} 
-                                    <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Profile alerts -->
-                            <div class="row gx-2">
-                                <!-- Alert medication --> 
-                                {% if guest.medication %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
-                                </div>
-                                {% endif %}
-                                <!-- Alert food --> 
-                                {% if guest.food %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
-                                </div>
-                                {% endif %}
-                                <!-- Alert report --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
-                                </div>
-                                <!-- Alert pickup --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Profile expand options -->
-                        <div class="col-auto">
-                            <a href="{% url 'guest_details' guest.slug %}" class="guest-link"><span class="fa-solid fa-chevron-down fa-lg icon-fa"></span></a>
-                        </div>
-
-                    </div>    
-                </div>
-            </div>
-        
-        {% endfor %}
+<div class="row pt-4 mx-auto container-fluid">
     
+    {% for guest in guests_list %}
+    
+        <div class="col-12 col-md-6 my-2">
+            <div class="content-item p-1 rounded-1">
+                <div class="row no-gutters">
+
+                    <!-- Profile image -->    
+                    <div class="col-auto">
+                        <!-- Change to static image path later -->
+                        <img src={{guest.picture_url}} alt="placeholder" class="img-prev-sm">
+                    </div>
+
+                    <!-- Profile name & gender -->
+                    <div class="col px-0">
+                        <div class="row">
+                            <!-- Show name and name_addon -->
+                            <div class="col-auto">
+                                <h4 class="mb-0">{{guest.first_name}}</h4>
+                                <!-- Show name addon if it exists -->
+                                {% if guest.name_addon %}
+                                <span>{{guest.name_addon}}</span>
+                                {% else %}
+                                <span><br></span>
+                                {% endif %}                                     
+                            </div>
+                            <!-- Show gender depending on the database entry -->
+                            <div class="col px-0">
+                                {% if guest.get_gender_display == "Male" %}
+                                <span class="fa-solid fa-mars fa-lg icon-fa"></span>
+                                {% elif guest.get_gender_display == "Female" %}
+                                <span class="fa-solid fa-venus fa-lg icon-fa"></span>
+                                {% else %} 
+                                <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Profile alerts -->
+                        <div class="row gx-2">
+                            <!-- Alert medication --> 
+                            {% if guest.medication %}
+                            <div class="col-auto text-center">
+                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                            </div>
+                            {% endif %}
+                            <!-- Alert food --> 
+                            {% if guest.food %}
+                            <div class="col-auto text-center">
+                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                            </div>
+                            {% endif %}
+                            <!-- Alert report --> 
+                            <div class="col-auto text-center">
+                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                            </div>
+                            <!-- Alert pickup --> 
+                            <div class="col-auto text-center">
+                                <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile expand options -->
+                    <div class="col-auto">
+                        <a href="{% url 'guest_details' guest.slug %}" class="guest-link"><span class="fa-solid fa-chevron-down fa-lg icon-fa"></span></a>
+                    </div>
+
+                </div>    
+            </div>
+        </div>
+    
+    {% endfor %}
+
 </div>
 
-
-<ul class="pagination justify-content-center">
-    {% if page_obj.has_previous %}
-    <li>
-        <a href="?page={{ page_obj.previous_page_number }}"
-          class="page-link">&laquo; PREV</a>
-    </li>
-    {% endif %}
-    {% if page_obj.has_next %}
-    <li>
-        <a href="?page={{ page_obj.next_page_number }}"
-          class="page-link">NEXT &raquo;</a>
-    </li>
-    {% endif %}
-</ul>
-
 <!-- Check-In button -->
-<div class="row p-4">
+<div class="row pt-4 gx-0">
     <div class="col-2"></div>
         <div class="col-8 text-center">
             <div class="button-box">
@@ -109,7 +93,7 @@
 </div>
 
 <!-- Gender selector footer -->
-<div class="row text-center bottom-box align-items-center">
+<div class="row text-center bottom-box align-items-center gx-0">
     <div class="col-2"></div>
     <div class="col-3">
         <span class="fa-solid fa-venus fa-2x icon-fa"></span>

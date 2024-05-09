@@ -84,3 +84,18 @@ class Guest(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.get_last_name()} ({self.name_addon}) {self.get_gender()}'
     
+# Create model for tracking guest presence
+class Presence(models.Model):
+    id = models.AutoField(primary_key=True)
+    guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
+    date = models.DateField()
+    check_in = models.TimeField(blank=True, null=True)
+    check_out = models.TimeField(blank=True, null=True)
+
+    # Only one entry of the combination of guest and date allowed
+    class Meta:
+        unique_together = ('guest', 'date')  
+
+    # Return all necessary information about the presence of a guest
+    def __str__(self):
+        return f"{self.date} {self.check_in} {self.check_out} {self.guest.first_name} {self.guest.last_name}"
