@@ -2,8 +2,6 @@
 
 {% url 'home' as home_url %}
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +16,8 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     
+    <script src="{% static 'js/debug.js' %}"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 

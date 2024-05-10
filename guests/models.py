@@ -84,6 +84,7 @@ class Guest(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.get_last_name()} ({self.name_addon}) {self.get_gender()}'
     
+    
 # Create model for tracking guest presence
 class Presence(models.Model):
     id = models.AutoField(primary_key=True)
@@ -98,4 +99,4 @@ class Presence(models.Model):
 
     # Return all necessary information about the presence of a guest
     def __str__(self):
-        return f"{self.date} {self.check_in} {self.check_out} {self.guest.first_name} {self.guest.last_name}"
+        return f"{self.date} {self.check_in} {self.check_out} {self.guest.first_name} {self.guest.last_name} {self.guest.id}"
