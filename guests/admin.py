@@ -5,8 +5,8 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Customer)
 class CustomerAdmin(SummernoteModelAdmin):
 
-    list_display = ('last_name', 'first_name')
-    search_fields = ['first_name', 'last_name', 'guests__first_name', 'id']
+    list_display = ('last_name', 'first_name', 'id')
+    search_fields = ['first_name', 'last_name', 'guests__first_name']
     ### Add search_field for dog name
 
 @admin.register(Guest)

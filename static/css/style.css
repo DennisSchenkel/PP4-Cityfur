@@ -91,7 +91,6 @@ footer {
 }
 
 
-
 @media (max-width: 768px) {
     .sidebar {
         display: none; /* Don't show under 768px */

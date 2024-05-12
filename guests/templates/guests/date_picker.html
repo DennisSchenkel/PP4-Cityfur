@@ -1,0 +1,14 @@
+{% load static %}
+
+{% block date_selector %}
+
+<div class="date-display">
+    <div>
+        <label for="datePicker">Select date:</label>
+        <input type="text" class="form-control datepicker" id="datePicker" value="">
+    </div>
+</div>
+
+{% endblock %}
+
+<script src="{% static '/js/date_picker.js' %}"></script>

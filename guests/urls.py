@@ -1,8 +1,9 @@
-from . import views
-from django.urls import include, path
+from .views.guests_list_views import guests_list
+from .views.guest_details_views import guest_details
+from django.urls import path
 
 urlpatterns = [
-    path('', views.guests_list, name='home'),
-    path('guests/', views.guests_list, name='guests_list'),
-    path('guests/<slug:slug>/', views.guest_details, name='guest_details'),
+    path('', guests_list, name='home'),
+    path('guests/', guests_list, name='guests_list'),
+    path('guests/<slug:slug>/', guest_details, name='guest_details'),
 ]
