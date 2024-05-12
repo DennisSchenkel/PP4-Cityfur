@@ -10,7 +10,7 @@ var formattedDate = year + '-' + month + '-' + day;
 
 // Set the default value of the date picker to the current date
 $(document).ready(function() {
-    $('#datePicker').val(formattedDate);
+    $('#datepicker').val(formattedDate);
 });
 
 // Add calender functionality to the date picker
@@ -20,3 +20,5 @@ $(document).ready(function() {
         autoclose: true
     });
 });
+
+

@@ -1,0 +1,18 @@
+{% load static %}
+
+{% block date_selector %}
+
+
+
+    <div class="date-selector-container">           
+        <input type="text" class="form-control text-center datepicker" id="datepicker" value="" aria-label="Date selector"/>
+        <div class="date-selector-icon">
+            <span class="fa-solid fa-chevron-down fa-lg icon-fa"></span>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+<script src="{% static '/js/date_picker.js' %}"></script>

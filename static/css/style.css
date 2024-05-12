@@ -36,6 +36,7 @@ footer {
 .header-menu {
     background-color: #EDEDED;
     align-content: center;
+    height: 65px;
 }
 
 
@@ -88,6 +89,29 @@ footer {
 .btn-90 {
     width: 90%;
     margin: 5px 0px 5px 0px;
+}
+
+
+.date-selector-container {
+    max-width: 200px;
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    z-index: 1;
+    width: 100%;
+}
+
+.date-selector {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+}
+
+.date-selector-icon{
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    top: 3px;
+    right: 20px;
 }
 
 
