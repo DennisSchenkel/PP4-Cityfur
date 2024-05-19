@@ -33,9 +33,9 @@ class Guest(models.Model):
     last_name = models.CharField(max_length=50, null=True, blank=True)
     name_addon = models.CharField(max_length=50, null=True, blank=True)
     gender = models.IntegerField(choices=GENDER, default=0)
+    image = models.ImageField(null=True, blank=True, upload_to="images/")
     date_of_birth = models.DateField(null=True, blank=True)
     information = models.TextField(null=True, blank=True)
-    picture_url = models.URLField(null=True, blank=True)
     food = models.BooleanField(default=False)
     food_time_1 = models.TimeField(null=True, blank=True)
     food_time_2 = models.TimeField(null=True, blank=True)
@@ -48,6 +48,7 @@ class Guest(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, null=True, blank=True)
+    
 
     # Orders guests by first name
     class Meta:

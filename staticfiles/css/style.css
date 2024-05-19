@@ -1,22 +1,11 @@
-
-header {
-
-}
-
-
 main {
     background-color: #D9D9D9;
-    
 }
 
 footer {
     background-color: #f8f9fa;
     text-align: center;
 }
-
-
-
-
 
 .sidebar {
     background-color: #39489f;
@@ -27,15 +16,14 @@ footer {
     padding-top: 75px;
 }
 
-
 #sidebarToggle {
     cursor: pointer;
 }
 
 #sidebar-menu {
+    padding-left: 0;
 
 }
-
 
 .side-nav {
     width: 140px;
@@ -45,26 +33,26 @@ footer {
     width: 35px;
 }
 
-
-
 .header-menu {
     background-color: #EDEDED;
     align-content: center;
+    height: 65px;
 }
 
 
 .main-content {
     min-height: 100vh;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
 .content-box {
-
+    background-color: white;
 }
 
 .content-w90 {
     width: 90%;
-
     margin: 20px 0px 20px 0px;
     align-self: center;
 }
@@ -87,13 +75,11 @@ footer {
     vertical-align: middle;
 }
 
-
 .bottom-box {
     height: 50px;
     background-color: #39489f;
     color: white;
 }
-
 
 .button-box {
     display: grid;
@@ -106,9 +92,26 @@ footer {
 }
 
 
+.date-selector-container {
+    max-width: 200px;
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    z-index: 1;
+    width: 100%;
+}
+
 .date-selector {
-    background-color: #EDEDED;
-    border-radius: 2;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+}
+
+.date-selector-icon{
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    top: 3px;
+    right: 20px;
 }
 
 

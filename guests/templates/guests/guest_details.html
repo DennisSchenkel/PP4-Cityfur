@@ -1,32 +1,49 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
+
 {% block content %}
 
+<div class="row p-4  mx-auto container-fluid">
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <h1 class="guest-name">{{ guest.first_name }}</h1>
-                <p class="guest-name_addon">{{ guest.name_addon }} | {{ guest.gender }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/maya.jpg' %}" class="scale" alt="placeholder">
-            </div>
-        </div>
+    <div class="col-4">
+        <img src="{% static "images/lilo.jpg" %}" class="img-fluid" alt="placeholder">
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <p class="card-text">
-                    {{ guest.gender }}
-                </p>
+
+    <div class="col-8">
+        <div class="col px-0">
+            <div class="row">
+                <!-- Show name and name_addon -->
+                <div class="col-auto">
+                    <h4 class="mb-0">{{ guest.first_name }}</h4>
+                    <!-- Show name addon if it exists -->
+                    {% if guest.name_addon %}
+                    <span>{{ guest.name_addon }}</span>
+                    {% else %}
+                    <span><br></span>
+                    {% endif %}                                     
+                </div>
+                <!-- Show gender depending on the database entry -->
+                <div class="col px-0">
+                    {% if guest.get_gender_display == "Male" %}
+                    <span class="fa-solid fa-mars fa-lg icon-fa"></span>
+                    {% elif guest.get_gender_display == "Female" %}
+                    <span class="fa-solid fa-venus fa-lg icon-fa"></span>
+                    {% else %} 
+                    <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
+                    {% endif %}
+                </div>
             </div>
-        </div>
+            <div>
+                {{ guest.customer_id.address }}<br />
+                {{ guest.customer_id.first_name }}<br />
+                {{ guest.customer_id.last_name }}<br />
+                {{ guest.customer_id.phone }}<br />
+                {{ guest.customer_id.information }}<br />
+                <span>Go to customer profil</span>
+            </div>
     </div>
+
 </div>
 
 {% endblock content %}
