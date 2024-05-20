@@ -18,7 +18,12 @@
                                 <!-- Profile image -->    
                                 <div class="col-auto">
                                     <!-- Change to static image path later -->
-                                    <img src="{{ guest.image.url }}" alt="placeholder" class="img-prev-sm">
+                                    
+                                    {% if guest.image %}
+                                        <img src="{{ guest.image.url }}" alt="placeholder" class="img-prev-sm">
+                                    {% else %}
+                                        <img src="static/images/anonymdog.jpg" alt="placeholder" class="img-prev-sm">
+                                    {% endif %}
                                 </div>
 
                                 <!-- Profile name & gender -->
@@ -101,7 +106,11 @@
                                 <!-- Profile image -->    
                                 <div class="col-auto">
                                     <!-- Change to static image path later -->
-                                    <img src="{{ guest.image.url }}" alt="placeholder" class="img-prev-sm">
+                                    {% if guest.image %}
+                                        <img src="{{ guest.image.url }}" alt="placeholder" class="img-prev-sm">
+                                    {% else %}
+                                        <img src="static/images/anonymdog.jpg" alt="placeholder" class="img-prev-sm">
+                                    {% endif %}
                                 </div>
     
                                 <!-- Profile name & gender -->
