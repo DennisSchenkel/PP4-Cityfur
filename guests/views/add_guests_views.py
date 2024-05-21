@@ -3,11 +3,11 @@ from django.http import HttpResponseRedirect
 from ..models import Guest
 from ..forms import AddGuest
 
-# View class for guest list
+# Function for adding guest to database including an image upload.
 def add_guest(request):
 
     request.method == 'Post'
-    form = AddGuest(request.POST)
+    form = AddGuest(request.POST, request.FILES)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/')
@@ -15,4 +15,3 @@ def add_guest(request):
     form = AddGuest
     return render(request, 'guests/add_guest.html', {'form': form})
     
-
