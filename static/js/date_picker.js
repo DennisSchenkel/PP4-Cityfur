@@ -13,12 +13,13 @@ $(document).ready(function() {
     $('#datepicker').val(formattedDate);
 });
 
-// Add calender functionality to the date picker
-$(document).ready(function() {
-    $('.datepicker').datepicker({
-        format: 'yyyy-m-dd',
-        autoclose: true
-    });
+// Add calendar functionality to the date picker
+$('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true
+}).on('changeDate', function() {
+    var selectedDate = $(this).val();
+    window.location.href = '/?date=' + selectedDate;
 });
 
 

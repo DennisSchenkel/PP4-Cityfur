@@ -1,7 +1,7 @@
+from django.urls import path
 from .views.guests_list_views import guests_list
 from .views.guest_details_views import guest_details
 from .views.add_guests_views import add_guest_form
-from django.urls import path
 
 urlpatterns = [
     path('', guests_list, name='home'),

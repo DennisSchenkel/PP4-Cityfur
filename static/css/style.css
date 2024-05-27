@@ -114,6 +114,10 @@ footer {
     right: 20px;
 }
 
+.profil-option {
+    background-color: #a8a8a8;
+    margin: -2px 0px -2px 0px;
+}
 
 @media (max-width: 768px) {
     .sidebar {
