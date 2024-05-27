@@ -22,7 +22,6 @@ footer {
 
 #sidebar-menu {
     padding-left: 0;
-
 }
 
 .side-nav {
@@ -114,13 +113,23 @@ footer {
     right: 20px;
 }
 
-.profil-option {
-    background-color: #a8a8a8;
-    margin: -2px 0px -2px 0px;
+.profil-options-dropout {
+
 }
 
-@media (max-width: 768px) {
-    .sidebar {
-        display: none; /* Don't show under 768px */
-    }
+.profil-option {
+    background-color: #a8a8a8;
+    color: white;
+}
+.profil-option:hover {
+    background-color: #797979;
+    color: white;
+}
+.profil-check-out {
+    background-color: #db4545;
+    color: white;
+}
+.profil-check-out:hover {
+    background-color: #af3131;
+    color: white;
 }
