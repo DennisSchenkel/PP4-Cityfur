@@ -5,7 +5,7 @@
 
 <div class="row pt-4 mx-auto container-fluid">
 
-    <h1>Present</h1>
+    <h1>Checked-In</h1>
 
     {% for guest in guests_list %}
         {% with present=guest.presence_set.first %}
@@ -20,9 +20,9 @@
                                     <!-- Change to static image path later -->
                                     
                                     {% if guest.image %}
-                                        <img src="{{ guest.image.url }}" alt="placeholder" class="img-prev-sm">
+                                        <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}" class="img-prev-sm">
                                     {% else %}
-                                        <img src="static/images/anonymdog.jpg" alt="placeholder" class="img-prev-sm">
+                                        <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-prev-sm">
                                     {% endif %}
                                 </div>
 
@@ -93,7 +93,7 @@
 
 <div class="row pt-4 mx-auto container-fluid">
 
-    <h1>Not present</h1>
+    <h1>Not Checked-In</h1>
 
     {% for guest in guests_list %}
         {% with present=guest.presence_set.first %}
@@ -107,9 +107,9 @@
                                 <div class="col-auto">
                                     <!-- Change to static image path later -->
                                     {% if guest.image %}
-                                        <img src="{{ guest.image.url }}" alt="placeholder" class="img-prev-sm">
+                                        <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}" class="img-prev-sm">
                                     {% else %}
-                                        <img src="static/images/anonymdog.jpg" alt="placeholder" class="img-prev-sm">
+                                        <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-prev-sm">
                                     {% endif %}
                                 </div>
     

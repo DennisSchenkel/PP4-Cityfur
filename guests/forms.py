@@ -61,5 +61,21 @@ class AddGuest(forms.ModelForm):
             'customer_id': forms.Select(attrs={'class': 'form-control'}),
         }
         
+    # First validate if first_name already exists. If so, add name_addon. 
+    # Second validate if combination of first_name and name_addon exists. If so, get a different name_addon.    
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = cleaned_data.get('first_name')
+        name_addon = cleaned_data.get('name_addon')
         
+        # Prüfen, ob der first_name bereits existiert
+        if Guest.objects.filter(first_name=first_name).exists():
+            # Wenn kein name_addon eingetragen wurde, einen Fehler auslösen
+            if not name_addon:
+                self.add_error('name_addon', "Please provide a name addon as this first name already exists.")
+            else:
+                # Prüfen, ob die Kombination aus first_name und name_addon existiert
+                if Guest.objects.filter(first_name=first_name, name_addon=name_addon).exists():
+                    self.add_error('name_addon', "This combination of first name and name addon already exists. Please choose a different name addon.")
         
+        return cleaned_data
