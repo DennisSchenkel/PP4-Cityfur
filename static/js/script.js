@@ -12,7 +12,16 @@ $(document).ready(function() {
 // Toggle for dropdown menu in profile
 
 $(document).ready(function() {
-    $(".img-prev-sm").click(function() {
-        $(".profil-options-dropout").toggleClass("visually-hidden");
+    $(".profile").click(function(event) {
+        event.stopPropagation();
+        var $dropdown = $(this).find(".profil-options-dropout");
+        $(".profil-options-dropout").not($dropdown).addClass("visually-hidden");
+        $dropdown.toggleClass("visually-hidden");
+    });
+
+    $(document).click(function(event) {
+        if (!$(event.target).closest(".profile").length) {
+            $(".profil-options-dropout").addClass("visually-hidden");
+        }
     });
 });

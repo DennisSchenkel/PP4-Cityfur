@@ -56,10 +56,6 @@ footer {
     align-self: center;
 }
 
-.content-item {
-    background-color: white;
-}
-
 .img-prev-md {
     width: 150px;
     height: 150px;
@@ -113,6 +109,11 @@ footer {
     right: 20px;
 }
 
+.profile {
+    background-color: white;
+}
+
+
 .profil-options-dropout {
 
 }
@@ -120,6 +121,8 @@ footer {
 .profil-option {
     background-color: #a8a8a8;
     color: white;
+    font-weight: 700;
+    text-decoration: none;
 }
 .profil-option:hover {
     background-color: #797979;
@@ -128,6 +131,8 @@ footer {
 .profil-check-out {
     background-color: #db4545;
     color: white;
+    font-weight: 700;
+    text-decoration: none;
 }
 .profil-check-out:hover {
     background-color: #af3131;

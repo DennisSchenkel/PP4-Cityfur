@@ -11,7 +11,7 @@
             {% if present %}
                     <!-- Guest profile -->
                     <div class="col-12 col-md-6 my-2">
-                        <div class="content-item rounded">
+                        <div class="profile rounded" id="{{ guest.first_name }}">
                             <div class="row no-gutters p-1">
 
                                 <!-- Profile image -->    
@@ -19,7 +19,7 @@
                                     <!-- Change to static image path later -->
                                     
                                     {% if guest.image %}
-                                        <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}" class="img-prev-sm">
+                                        <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-prev-sm">
                                     {% else %}
                                         <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-prev-sm">
                                     {% endif %}
@@ -82,7 +82,11 @@
                             </div>
                             <div class="profil-options-dropout visually-hidden">
                                 <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Undo Check-In</div>
-                                <div class="profil-option text-center p-1 border-dark border-bottom">Open file</div>
+                                <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
+                                    <div class="profil-option text-center p-1 border-dark border-bottom">
+                                    Open file
+                                    </div>
+                                </a>
                                 <div class="profil-check-out text-center rounded-bottom p-1">Check-Out</div>  
                             </div>             
                         </div>
