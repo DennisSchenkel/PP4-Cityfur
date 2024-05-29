@@ -6,7 +6,11 @@
 <div class="row p-4  mx-auto container-fluid">
 
     <div class="col-4">
-        <img src="{{ guest.image.url }}" alt="placeholder" class="img-fluid">
+        {% if guest.image %}
+            <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-fluid">
+        {% else %}
+            <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-fluid">
+        {% endif %}
     </div>
 
 
