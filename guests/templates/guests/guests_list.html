@@ -1,16 +1,22 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block content %}
 
-<div class="row pt-4 mx-auto container-fluid">
-    <h1>Checked-In {{ selected_date }}</h1>
-
+<!-- Header -->
+<header>
+    {% block header_nav %}
+      {% include "guests/components/header_list.html" %}
+    {% endblock header_nav %}
+</header>
+<h1>Checked-In {{ selected_date }}</h1>
+<div class="row pt-4 mx-auto container-fluid" id="list">
     {% for guest in guests_list %}
         {% with present=guest.presence_set.first %}
             {% if present %}
                     <!-- Guest profile -->
-                    <div class="col-12 col-md-6 my-2">
+                    <div class="col-12 col-md-6 my-2 list-item">
                         <div class="profile rounded" id="{{ guest.first_name }}">
                             <div class="row no-gutters p-1">
 
@@ -30,7 +36,7 @@
                                     <div class="row">
                                         <!-- Show name and name_addon -->
                                         <div class="col-auto">
-                                            <h4 class="mb-0">{{ guest.first_name }}</h4>
+                                            <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
                                             <!-- Show name addon if it exists -->
                                             {% if guest.name_addon %}
                                             <span>{{ guest.name_addon }}</span>
@@ -100,34 +106,38 @@
 
 
 
+<div class="guest-tools">
 
+    <!-- Check-In button -->
+    <div class="row pt-4 gx-0">
+        <div class="col-2"></div>
+            <div class="col-lg-10 text-center">
+                <div class="button-box">
+                    <button type="button" class="btn btn-primary btn-90">Check-In</button>
+                </div>
+            </div>
+        <div class="col-2"></div>
+    </div>
 
-<!-- Check-In button -->
-<div class="row pt-4 gx-0">
-    <div class="col-2"></div>
-        <div class="col-8 text-center">
-            <div class="button-box">
-                <button type="button" class="btn btn-primary btn-90">Check-In</button>
+    <!-- Gender selector footer -->
+    <div class="row text-center bottom-box gx-0">
+        <div class="col-lg-2 d-lg-block"></div>
+        <div class="col-12 col-lg-10 row align-items-center">
+            <div class="col-5">
+                <span class="fa-solid fa-venus fa-2x icon-fa"></span>
+            </div>
+            <div class="col-2">
+                <span>All</span>
+                <br>
+                <span>(32)</span>
+            </div>
+            <div class="col-5">
+                <span class="fa-solid fa-mars fa-2x icon-fa"></span>
             </div>
         </div>
-    <div class="col-2"></div>
-</div>
 
-<!-- Gender selector footer -->
-<div class="row text-center bottom-box align-items-center gx-0">
-    <div class="col-2"></div>
-    <div class="col-3">
-        <span class="fa-solid fa-venus fa-2x icon-fa"></span>
     </div>
-    <div class="col-2">
-        <span>All</span>
-        <br>
-        <span>(32)</span>
-    </div>
-    <div class="col-3">
-        <span class="fa-solid fa-mars fa-2x icon-fa"></span>
-    </div>
-    <div class="col-2"></div>
+
 </div>
 
 {% endblock content %}

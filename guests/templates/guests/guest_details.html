@@ -3,6 +3,14 @@
 
 {% block content %}
 
+<!-- Header -->
+<header>
+    {% block header_nav %}
+    {% include "guests/components/header_details.html" %}
+    {% endblock header_nav %}
+</header>
+
+
 <div class="row p-4  mx-auto container-fluid">
 
     <div class="col-4">

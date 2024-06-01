@@ -31,6 +31,7 @@
 
     <!-- Custom JS -->
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/sidebar_toggle.js' %}"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@
             <div class="row justify-content-center">    
                 <nav class="side-nav">
                     <ul class="nav flex-column">
-                        <a href="/" target="_blank"><li class="nav-item" id="navbar-toggle"><span class="fa-solid fa-dog fa-lg icon-fa icon-width"></span>Guest</li></a>
+                        <a href="/"><li class="nav-item" id="navbar-toggle"><span class="fa-solid fa-dog fa-lg icon-fa icon-width"></span>Guest</li></a>
                         <li class="nav-item"><span class="fa-solid fa-pen fa-lg icon-fa icon-width"></span>Reports</li>
                         <li class="nav-item"><span class="fa-solid fa-check fa-lg icon-fa icon-width"></span>Lists</li>
                         <li class="nav-item"><span class="fa-solid fa-bars fa-lg icon-fa icon-width"></span>More</li>
@@ -55,13 +56,6 @@
         <!-- Content right -->
         <div class="col-lg-10 main-content d-flex flex-column">
 
-            <!-- Header -->
-            <header>
-                {% block header_nav %}
-                    {% include "header.html" %}
-                {% endblock header_nav %}
-            </header>
-
             <!-- Main -->
             <main>
                 {% block content %}
@@ -71,18 +65,6 @@
     
         </div>
     </div>
-
-    <!-- Main -->
-  
-
-    <!-- Footer -->
-    <footer class="footer dark-bg">
-        {% block footer %}
-            {% include "footer.html" %}
-        {% endblock footer %}
-    </footer>
-
-
 
 </body>
 

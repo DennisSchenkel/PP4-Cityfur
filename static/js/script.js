@@ -1,31 +1,3 @@
-
-
-
-// Toggle open mobile sidebar
-$(document).ready(function() {
-    $('#sidebarToggle').click(function() {
-        $('#sidebar-menu').removeClass('d-none');
-    });
-});
-
-// Toggle close mobile sidebar
-$(document).ready(function() {
-    $('#closeSidebar').click(function() {
-        $('#sidebar-menu').addClass('d-none');
-    });
-});
-
-// Close mobile sidebar when clicking outside
-/*
-$(document).ready(function() {
-    $(document).click(function() {
-        if (!$('#sidebar-menu').hasClass('d-none')) {
-            $('#sidebar-menu').addClass('d-none');
-        }
-    });
-});
-*/
-
 // Toggle for dropdown menu in profile
 $(document).ready(function() {
     $(".profile").click(function(event) {
