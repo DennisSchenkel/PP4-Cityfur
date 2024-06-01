@@ -4,27 +4,45 @@ from datetime import datetime
 
 # View function for guest list
 def guests_list(request):
+    # Get the selected date from the request
     selected_date = request.GET.get('date')
     
+    #If no date is selected, default to today
     if not selected_date:
         selected_date = datetime.now().strftime('%Y-%m-%d')
 
     
-    guests = []
-
+    guests_checked_in = []
+    guests_checked_out = []
+    
+    # If a date is selected, get the guests for that date
     if selected_date:
         try:
-            date_obj = datetime.strptime(selected_date, '%Y-%m-%d').date()
+            # Convert the selected date to a date object
+            date = datetime.strptime(selected_date, '%Y-%m-%d').date()
+            
             # Find all presences for the selected date
-            presences = Presence.objects.filter(date=date_obj).select_related('guest')
+            presences_checked_in = Presence.objects.filter(date=date, check_in__isnull=False, check_out__isnull=True).select_related('guest')
             # Extract the guests from the presences
-            guests = [presence.guest for presence in presences]
+            guests_checked_in = [presence.guest for presence in presences_checked_in]
+            
+            # Find all presences for the selected date where guests have checked out
+            presences_checked_out = Presence.objects.filter(date=date, check_out__isnull=False).select_related('guest')
+            # Extract the guests from the presences
+            guests_checked_out = [presence.guest for presence in presences_checked_out]
+            
         except ValueError:
-            guests = []
+            guests_checked_in = []
+            guests_checked_out = []
     else:
-        guests = []
+        guests_checked_in = []
+        guests_checked_out = []
 
-    context = {'guests_list': guests, 'selected_date': selected_date}
+    context = {
+        'guests_checked_in': guests_checked_in,
+        'guests_checked_out': guests_checked_out,
+        'selected_date': selected_date
+        }
     
     return render(
         request, 

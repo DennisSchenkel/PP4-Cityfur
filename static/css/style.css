@@ -4,6 +4,7 @@ body {
 }
 
 .sidebar {
+    position: fixed;
     background-color: #39489f;
     color: white;
     font-weight: bold;
@@ -45,6 +46,9 @@ body {
     padding-right: 0;
 }
 
+.spacer {
+    height: 130px;
+}   
 
 .guest-tools {
     position: fixed;
