@@ -1,6 +1,7 @@
 from django import forms
-from .models import Guest
+from .models import Guest, Presence
 
+# Form for adding guests
 class AddGuest(forms.ModelForm):
     class Meta:
         model = Guest
@@ -78,3 +79,27 @@ class AddGuest(forms.ModelForm):
                     self.add_error('name_addon', "This combination of first name and name addon already exists. Please choose a different name addon.")
         
         return cleaned_data
+    
+# Form for checking in guests    
+class CheckInGuest(forms.ModelForm):
+    class Meta:
+        model = Presence
+        fields = ['guest']  # Only the guest field is needed
+        labels = {
+            'guest': 'Guest'
+        }
+        widgets = {
+            'guest': forms.HiddenInput()  # Hide the guest field
+        }
+        
+# Form for checking out guests    
+class CheckOutGuest(forms.ModelForm):
+    class Meta:
+        model = Presence
+        fields = ['guest']  # Only the guest field is needed
+        labels = {
+            'guest': 'Guest'
+        }
+        widgets = {
+            'guest': forms.HiddenInput()  # Hide the guest field
+        }

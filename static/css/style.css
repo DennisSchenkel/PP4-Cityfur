@@ -58,7 +58,6 @@ body {
     color: white;
 }
 
-
 .content-box {
     background-color: white;
 }
@@ -129,11 +128,6 @@ body {
     background-color: white;
 }
 
-
-.profil-options-dropout {
-
-}
-
 .profil-option {
     background-color: #a8a8a8;
     color: white;
@@ -144,6 +138,7 @@ body {
     background-color: #797979;
     color: white;
 }
+
 .profil-check-out {
     background-color: #db4545;
     color: white;
@@ -153,6 +148,21 @@ body {
 .profil-check-out:hover {
     background-color: #af3131;
     color: white;
+}
+
+.profil-check-in {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+.profil-check-in:hover {
+    background-color: #0d52b9;
+    color: white;
+}
+
+.checked-out {
+    opacity: 0.4;
 }
 
 @media (max-width: 991px) {
