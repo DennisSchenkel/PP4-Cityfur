@@ -88,7 +88,9 @@
                         </div>
                     </div>
                     <div class="profil-options-dropout visually-hidden">
-                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Undo Check-In</div>
+                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
+                            Undo Check-In
+                        </div>
                         <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
                             <div class="profil-option text-center p-1 border-dark border-bottom">
                             Open file
@@ -96,6 +98,40 @@
                         </a>
                         <div class="profil-check-out text-center rounded-bottom p-1 modal-trigger" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
                             Check-Out
+                        </div>
+
+                        <!-- Modal for undo-check-in confirmation -->
+                        <div class="modal fade" id="undo-checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckinModal{{ guest.id }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="undoCheckinModalTitle{{ guest.id }}">
+                                        Undo Check-In {{ guest.first_name }} 
+                                        {% if guest.name_addon %}
+                                        <span>{{ guest.name_addon }}</span>
+                                        {% else %}
+                                        <span><br></span>
+                                        {% endif %}  
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="{% url 'home' %}" id="undo-checkin-form-{{ guest.id }}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="guest" value="{{ guest.id }}">
+                                            <input type="hidden" name="undo_checkin" value="true">
+                                        </form>
+                                        <div class="profil-check-out text-center rounded-bottom p-1" onclick="document.getElementById('undo-checkin-form-{{ guest.id }}').submit();">
+                                            Undo Check-In
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Undo Check-In</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Modal for check-out confirmation -->
@@ -118,7 +154,6 @@
                                     <div class="modal-body">
                                         <form method="POST" action="{% url 'home' %}" id="checkout-form-{{ guest.id }}">
                                             {% csrf_token %}
-                                            {{ check_out_form.as_p }}
                                             <input type="hidden" name="guest" value="{{ guest.id }}">
                                             <input type="hidden" name="checkout" value="true">
                                         </form>
@@ -141,7 +176,7 @@
 </div>
 
 <!-- Render checked-out guests -->
-<div class="row pt-4 mx-auto container-fluid list checked-out">
+<div class="row pt-4 mx-auto container-fluid list">
     <h1>Checked-Out</h1>
     {% for guest in guests_checked_out %}
         {% with present=guest.presence_set.first %}
@@ -217,18 +252,63 @@
                         </div>
                     </div>
                     <div class="profil-options-dropout visually-hidden">
-                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Undo Check-Out</div>
+                        <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
+                            {% csrf_token %}
+                            <input type="hidden" name="guest" value="{{ guest.id }}">
+                            <input type="hidden" name="undo_checkout" value="true">
+                        </form>
+                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
+                            Undo Check-Out
+                        </div>
                         <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
                             <div class="profil-option text-center p-1 rounded-bottom">
-                            Open file
+                                Open file
                             </div>
                         </a>
+
+                        <!-- Modal for undo-check-out confirmation -->
+                        <div class="modal fade" id="undo-checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckoutModal{{ guest.id }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="undoCheckoutModalTitle{{ guest.id }}">
+                                        Undo Check-Out {{ guest.first_name }} 
+                                        {% if guest.name_addon %}
+                                        <span>{{ guest.name_addon }}</span>
+                                        {% else %}
+                                        <span><br></span>
+                                        {% endif %}  
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="guest" value="{{ guest.id }}">
+                                            <input type="hidden" name="undo_checkout" value="true">
+                                        </form>
+                                        <div class="profil-check-out text-center rounded-bottom p-1" onclick="document.getElementById('undo-checkout-form-{{ guest.id }}').submit();">
+                                            Undo Check-Out
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Undo Check-Out</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>             
                 </div>
             </div>
         {% endwith %}
     {% endfor %}
 </div>
+
+
+
 
 <!-- Render not checked-in guests -->
 <div class="row pt-4 mx-auto container-fluid list not-checked-in">
@@ -335,7 +415,6 @@
                                     <div class="modal-body">
                                         <form method="POST" action="{% url 'home' %}" id="checkin-form-{{ guest.id }}">
                                             {% csrf_token %}
-                                            {{ check_in_form.as_p }}
                                             <input type="hidden" name="guest" value="{{ guest.id }}">
                                             <input type="hidden" name="checkin" value="true">
                                         </form>

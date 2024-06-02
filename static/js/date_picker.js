@@ -30,8 +30,6 @@ function getDateFromURL() {
 // Get the final formatted date for datepicker
 function getFormattedDate() {
     const dateFromURL = getDateFromURL();
-    console.log(getCurrentDate());
-    console.log(dateFromURL);
     return dateFromURL ? dateFromURL : getCurrentDate();
 }
 

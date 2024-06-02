@@ -44,6 +44,9 @@ def guests_list(request):
             guests_checked_out = []
             guests_not_checked_in = Guest.objects.all()
 
+    check_in = CheckInGuest()
+    check_out = CheckOutGuest()
+
     if request.method == 'POST':
         # Check-In
         if 'checkin' in request.POST:
@@ -87,11 +90,27 @@ def guests_list(request):
                     presence.save()
 
                 return redirect('home')
-            
-    else:
-        check_in = CheckInGuest()
-        check_out = CheckOutGuest()
         
+        # Undo Check-In
+        elif 'undo_checkin' in request.POST:
+            guest_id = request.POST.get('guest')
+            today = timezone.now().date()
+
+            Presence.objects.filter(guest_id=guest_id, date=today).delete()
+                
+            return redirect('home')
+
+        # Undo Check-Out
+        elif 'undo_checkout' in request.POST:
+            guest_id = request.POST.get('guest')
+            today = timezone.now().date()
+
+            presence = Presence.objects.filter(guest_id=guest_id, date=today).first()
+            if presence and presence.check_out is not None:
+                presence.check_out = None
+                presence.save()
+
+            return redirect('home')     
 
     context = {
         'guests_checked_in': guests_checked_in,

@@ -161,10 +161,6 @@ body {
     color: white;
 }
 
-.checked-out {
-    opacity: 0.4;
-}
-
 @media (max-width: 991px) {
     #sidebar-menu {
         position:absolute;
