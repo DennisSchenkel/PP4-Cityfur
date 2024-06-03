@@ -4,6 +4,9 @@
 
 {% block content %}
 
+<!-- Import of JS for guest list -->
+<script src="{% static 'js/guest_list.js' %}"></script>
+
 <!-- Header -->
 <header>
     {% block header_nav %}
@@ -12,7 +15,7 @@
 </header>
 
 <!-- Render checked-in guests -->
-<div class="row pt-4 mx-auto container-fluid list checked-in">
+<div class="row pt-4 mx-auto container-fluid list" id="checked-in">
     <h1>Checked-In</h1>
     {% for guest in guests_checked_in %}
         {% with present=guest.presence_set.first %}
@@ -88,7 +91,7 @@
                         </div>
                     </div>
                     <div class="profil-options-dropout visually-hidden">
-                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
+                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
                             Undo Check-In
                         </div>
                         <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
@@ -96,7 +99,7 @@
                             Open file
                             </div>
                         </a>
-                        <div class="profil-check-out text-center rounded-bottom p-1 modal-trigger" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
+                        <div class="profil-check-out text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
                             Check-Out
                         </div>
 
@@ -122,8 +125,9 @@
                                             {% csrf_token %}
                                             <input type="hidden" name="guest" value="{{ guest.id }}">
                                             <input type="hidden" name="undo_checkin" value="true">
+                                            <input type="hidden" name="date" value="{{ selected_date }}">
                                         </form>
-                                        <div class="profil-check-out text-center rounded-bottom p-1" onclick="document.getElementById('undo-checkin-form-{{ guest.id }}').submit();">
+                                        <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkin-form-{{ guest.id }}').submit();">
                                             Undo Check-In
                                         </div>
                                     </div>
@@ -156,8 +160,9 @@
                                             {% csrf_token %}
                                             <input type="hidden" name="guest" value="{{ guest.id }}">
                                             <input type="hidden" name="checkout" value="true">
+                                            <input type="hidden" name="date" value="{{ selected_date }}">
                                         </form>
-                                        <div class="profil-check-out text-center rounded-bottom p-1" onclick="document.getElementById('checkout-form-{{ guest.id }}').submit();">
+                                        <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkout-form-{{ guest.id }}').submit();">
                                             Check-Out
                                         </div>
                                     </div>
@@ -176,7 +181,7 @@
 </div>
 
 <!-- Render checked-out guests -->
-<div class="row pt-4 mx-auto container-fluid list">
+<div class="row pt-4 mx-auto container-fluid list" id="checked-out">
     <h1>Checked-Out</h1>
     {% for guest in guests_checked_out %}
         {% with present=guest.presence_set.first %}
@@ -256,8 +261,9 @@
                             {% csrf_token %}
                             <input type="hidden" name="guest" value="{{ guest.id }}">
                             <input type="hidden" name="undo_checkout" value="true">
+                            <input type="hidden" name="date" value="{{ selected_date }}">
                         </form>
-                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
+                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
                             Undo Check-Out
                         </div>
                         <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
@@ -288,8 +294,9 @@
                                             {% csrf_token %}
                                             <input type="hidden" name="guest" value="{{ guest.id }}">
                                             <input type="hidden" name="undo_checkout" value="true">
+                                            <input type="hidden" name="date" value="{{ selected_date }}">
                                         </form>
-                                        <div class="profil-check-out text-center rounded-bottom p-1" onclick="document.getElementById('undo-checkout-form-{{ guest.id }}').submit();">
+                                        <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkout-form-{{ guest.id }}').submit();">
                                             Undo Check-Out
                                         </div>
                                     </div>
@@ -311,7 +318,7 @@
 
 
 <!-- Render not checked-in guests -->
-<div class="row pt-4 mx-auto container-fluid list not-checked-in">
+<div id="not-checked-in" class="row pt-4 mx-auto container-fluid list d-none" >
     <h1>Not Checked-In</h1>
     {% for guest in guests_not_checked_in %}
         {% with present=guest.presence_set.first %}
@@ -391,7 +398,7 @@
                         <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
                             <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Open file</div>
                         </a>
-                        <div class="profil-check-in text-center rounded-bottom p-1 modal-trigger" data-toggle="modal" data-target="#checkin-modal-{{ guest.id }}">
+                        <div class="profil-check-in text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkin-modal-{{ guest.id }}">
                             Check-In
                         </div>
 
@@ -417,8 +424,9 @@
                                             {% csrf_token %}
                                             <input type="hidden" name="guest" value="{{ guest.id }}">
                                             <input type="hidden" name="checkin" value="true">
+                                            <input type="hidden" name="date" value="{{ selected_date }}">
                                         </form>
-                                        <div class="profil-check-in text-center rounded-bottom p-1" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">
+                                        <div class="profil-check-in text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">
                                             Check-In
                                         </div>
                                     </div>
@@ -443,7 +451,7 @@
         <div class="col-2"></div>
             <div class="col-lg-10 text-center">
                 <div class="button-box">
-                    <button type="button" class="btn btn-primary btn-90">Check-In</button>
+                    <button type="button" class="btn btn-primary btn-90" id="checkin-toggle"><span class="d-none" id="close-checkin">Close </span>Check-In</button>
                 </div>
             </div>
         <div class="col-2"></div>

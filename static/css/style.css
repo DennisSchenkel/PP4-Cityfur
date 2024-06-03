@@ -161,6 +161,14 @@ body {
     color: white;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.visually-hidden {
+    display: none;
+}
+
 @media (max-width: 991px) {
     #sidebar-menu {
         position:absolute;
