@@ -112,6 +112,8 @@ def guests_list(request):
                 presence.save()
 
                 return redirect(f"{request.path}?date={selected_date}")
+        
+    todays_guest_count = len(guests_checked_in) + len(guests_checked_out)
 
     context = {
         'guests_checked_in': guests_checked_in,
@@ -119,7 +121,8 @@ def guests_list(request):
         'guests_not_checked_in': guests_not_checked_in,
         'selected_date': selected_date,
         'check_in_form': check_in,
-        'check_out_form': check_out
+        'check_out_form': check_out,
+        'todays_guest_count': todays_guest_count
         }
     
     return render(

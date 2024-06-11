@@ -15,23 +15,29 @@
 </header>
 
 <!-- Render checked-in guests -->
-<div class="row pt-4 mx-auto container-fluid list" id="checked-in">
+<div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
     <h1>Checked-In</h1>
+    <br>
+    {% block gender_selection %}
+        <span id="count-checked-in" class="count-checked-in">
+            
+        </span>
+    {% endblock %}
+
     {% for guest in guests_checked_in %}
         {% with present=guest.presence_set.first %}
             <!-- Guest profile -->
-            <div class="col-12 col-md-6 my-2 list-item">
+            <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
                 <div class="profile rounded" id="{{ guest.first_name }}">
                     <div class="row no-gutters p-1">
 
                         <!-- Profile image -->    
                         <div class="col-auto">
                             <!-- Change to static image path later -->
-                            
                             {% if guest.image %}
-                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-prev-sm">
+                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
                             {% else %}
-                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-prev-sm">
+                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
                             {% endif %}
                         </div>
 
@@ -43,19 +49,19 @@
                                     <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
                                     <!-- Show name addon if it exists -->
                                     {% if guest.name_addon %}
-                                    <span>{{ guest.name_addon }}</span>
+                                        <span>{{ guest.name_addon }}</span>
                                     {% else %}
-                                    <span><br></span>
+                                        <span><br></span>
                                     {% endif %}                                     
                                 </div>
                                 <!-- Show gender depending on the database entry -->
                                 <div class="col px-0">
                                     {% if guest.get_gender_display == "Male" %}
-                                    <span class="fa-solid fa-mars fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
                                     {% elif guest.get_gender_display == "Female" %}
-                                    <span class="fa-solid fa-venus fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
                                     {% else %} 
-                                    <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
                                     {% endif %}
                                 </div>
                             </div>
@@ -64,15 +70,15 @@
                             <div class="row gx-2">
                                 <!-- Alert medication --> 
                                 {% if guest.medication %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
-                                </div>
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                    </div>
                                 {% endif %}
                                 <!-- Alert food --> 
                                 {% if guest.food %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
-                                </div>
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                    </div>
                                 {% endif %}
                                 <!-- Alert report --> 
                                 <div class="col-auto text-center">
@@ -111,9 +117,9 @@
                                     <h5 class="modal-title" id="undoCheckinModalTitle{{ guest.id }}">
                                         Undo Check-In {{ guest.first_name }} 
                                         {% if guest.name_addon %}
-                                        <span>{{ guest.name_addon }}</span>
+                                            <span>{{ guest.name_addon }}</span>
                                         {% else %}
-                                        <span><br></span>
+                                            <span><br></span>
                                         {% endif %}  
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -146,9 +152,9 @@
                                     <h5 class="modal-title" id="checkoutModalTitle{{ guest.id }}">
                                         Check-Out {{ guest.first_name }} 
                                         {% if guest.name_addon %}
-                                        <span>{{ guest.name_addon }}</span>
+                                            <span>{{ guest.name_addon }}</span>
                                         {% else %}
-                                        <span><br></span>
+                                            <span><br></span>
                                         {% endif %}  
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -186,7 +192,7 @@
     {% for guest in guests_checked_out %}
         {% with present=guest.presence_set.first %}
             <!-- Guest profile -->
-            <div class="col-12 col-md-6 my-2 list-item">
+            <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
                 <div class="profile rounded" id="{{ guest.first_name }}">
                     <div class="row no-gutters p-1">
 
@@ -195,9 +201,9 @@
                             <!-- Change to static image path later -->
                             
                             {% if guest.image %}
-                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-prev-sm">
+                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
                             {% else %}
-                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-prev-sm">
+                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
                             {% endif %}
                         </div>
 
@@ -209,19 +215,19 @@
                                     <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
                                     <!-- Show name addon if it exists -->
                                     {% if guest.name_addon %}
-                                    <span>{{ guest.name_addon }}</span>
+                                        <span>{{ guest.name_addon }}</span>
                                     {% else %}
-                                    <span><br></span>
+                                        <span><br></span>
                                     {% endif %}                                     
                                 </div>
                                 <!-- Show gender depending on the database entry -->
                                 <div class="col px-0">
                                     {% if guest.get_gender_display == "Male" %}
-                                    <span class="fa-solid fa-mars fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
                                     {% elif guest.get_gender_display == "Female" %}
-                                    <span class="fa-solid fa-venus fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
                                     {% else %} 
-                                    <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
                                     {% endif %}
                                 </div>
                             </div>
@@ -230,15 +236,15 @@
                             <div class="row gx-2 checked-out">
                                 <!-- Alert medication --> 
                                 {% if guest.medication %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
-                                </div>
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                    </div>
                                 {% endif %}
                                 <!-- Alert food --> 
                                 {% if guest.food %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
-                                </div>
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                    </div>
                                 {% endif %}
                                 <!-- Alert report --> 
                                 <div class="col-auto text-center">
@@ -280,9 +286,9 @@
                                     <h5 class="modal-title" id="undoCheckoutModalTitle{{ guest.id }}">
                                         Undo Check-Out {{ guest.first_name }} 
                                         {% if guest.name_addon %}
-                                        <span>{{ guest.name_addon }}</span>
+                                            <span>{{ guest.name_addon }}</span>
                                         {% else %}
-                                        <span><br></span>
+                                            <span><br></span>
                                         {% endif %}  
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -323,7 +329,7 @@
     {% for guest in guests_not_checked_in %}
         {% with present=guest.presence_set.first %}
             <!-- Guest profile -->
-            <div class="col-12 col-md-6 my-2 list-item">
+            <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
                 <div class="profile rounded" id="{{ guest.first_name }}">
                     <div class="row no-gutters p-1">
 
@@ -332,9 +338,9 @@
                             <!-- Change to static image path later -->
                             
                             {% if guest.image %}
-                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-prev-sm">
+                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
                             {% else %}
-                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-prev-sm">
+                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
                             {% endif %}
                         </div>
 
@@ -346,19 +352,19 @@
                                     <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
                                     <!-- Show name addon if it exists -->
                                     {% if guest.name_addon %}
-                                    <span>{{ guest.name_addon }}</span>
+                                        <span>{{ guest.name_addon }}</span>
                                     {% else %}
-                                    <span><br></span>
+                                        <span><br></span>
                                     {% endif %}                                     
                                 </div>
                                 <!-- Show gender depending on the database entry -->
                                 <div class="col px-0">
                                     {% if guest.get_gender_display == "Male" %}
-                                    <span class="fa-solid fa-mars fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
                                     {% elif guest.get_gender_display == "Female" %}
-                                    <span class="fa-solid fa-venus fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
                                     {% else %} 
-                                    <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
+                                        <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
                                     {% endif %}
                                 </div>
                             </div>
@@ -367,15 +373,15 @@
                             <div class="row gx-2 checked-out">
                                 <!-- Alert medication --> 
                                 {% if guest.medication %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
-                                </div>
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                    </div>
                                 {% endif %}
                                 <!-- Alert food --> 
                                 {% if guest.food %}
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
-                                </div>
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                    </div>
                                 {% endif %}
                                 <!-- Alert report --> 
                                 <div class="col-auto text-center">
@@ -410,9 +416,9 @@
                                     <h5 class="modal-title" id="checkinModalTitle{{ guest.id }}">
                                         Check-In {{ guest.first_name }} 
                                         {% if guest.name_addon %}
-                                        <span>{{ guest.name_addon }}</span>
+                                            <span>{{ guest.name_addon }}</span>
                                         {% else %}
-                                        <span><br></span>
+                                            <span><br></span>
                                         {% endif %}  
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -461,15 +467,15 @@
     <div class="row text-center bottom-box gx-0">
         <div class="col-lg-2 d-lg-block"></div>
         <div class="col-12 col-lg-10 row align-items-center">
-            <div class="col-5">
+            <div id="female-selector" class="col-5 female-selector">
                 <span class="fa-solid fa-venus fa-2x icon-fa"></span>
             </div>
-            <div class="col-2">
-                <span>All</span>
+            <div id="all-selector" class="col-2 all-selector selected-selector">
+                <span class=""><strong>All</strong></span>
                 <br>
-                <span>(32)</span>
+                (Guests today: {{ todays_guest_count }})
             </div>
-            <div class="col-5">
+            <div id="male-selector" class="col-5 male-selector">
                 <span class="fa-solid fa-mars fa-2x icon-fa"></span>
             </div>
         </div>
@@ -477,5 +483,3 @@
 </div>
 
 {% endblock content %}
-
-
