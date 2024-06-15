@@ -41,5 +41,6 @@
          "password": "4DU68baAJ30H"
       }
    ],
-   "python.analysis.autoImportCompletions": true
+   "python.analysis.autoImportCompletions": true,
+   "markdown.preview.fontSize": 12
 }

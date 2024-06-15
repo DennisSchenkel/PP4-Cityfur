@@ -1,16 +1,22 @@
 $(document).ready(function() {
     
-    // Toggle for dropdout menu in profile
+    // Toggle for dropout menu in profile
     $(".profile").click(function(event) {
         // Check if the click is on a modal-trigger element, so the it doesn't stop the opening of the modal
         if (!$(event.target).hasClass('modal-trigger')) {
             event.stopPropagation();
             const $dropout = $(this).find(".profil-options-dropout");
             const $guestImg = $(this).find(".guest-img");
+            const $alerts = $(this).find(".alerts");
+            const $alertsDrowout = $(this).find(".alerts-dropout");
             $(".profil-options-dropout").not($dropout).addClass("visually-hidden");
             $(".guest-img").not($guestImg).removeClass("img-prev-md").addClass("img-prev-sm");
             $dropout.toggleClass("visually-hidden");
             $guestImg.toggleClass("img-prev-md img-prev-sm");
+            $(".alerts").not($alerts).removeClass("visually-hidden");
+            $(".alerts-dropout").not($alertsDrowout).addClass("visually-hidden");
+            $alerts.toggleClass("visually-hidden");
+            $alertsDrowout.toggleClass("visually-hidden");
         }
     });
 
@@ -19,6 +25,8 @@ $(document).ready(function() {
         if (!$(event.target).closest(".profile").length) {
             $(".profil-options-dropout").addClass("visually-hidden");
             $(".guest-img").removeClass("img-prev-md").addClass("img-prev-sm");
+            $(".alerts").removeClass("visually-hidden");
+            $(".alerts-dropout").addClass("visually-hidden");
         }
     });
 
@@ -34,6 +42,7 @@ $(document).ready(function() {
     });
 
     // Toggle for gender selection in guest list 
+    // Select male guests
     $("#male-selector").click(function() {
         $(".Male").removeClass("d-none");
         $(".Female").addClass("d-none");
@@ -42,6 +51,7 @@ $(document).ready(function() {
         $("#all-selector").removeClass("selected-selector");
     });
 
+    // Select female guests
     $("#female-selector").click(function() {
         $(".Female").removeClass("d-none");
         $(".Male").addClass("d-none");
@@ -50,6 +60,7 @@ $(document).ready(function() {
         $("#all-selector").removeClass("selected-selector");
     });
 
+    // Select all guests
     $("#all-selector").click(function() {
         $(".Female").removeClass("d-none");
         $(".Male").removeClass("d-none");
@@ -59,5 +70,4 @@ $(document).ready(function() {
     });
     }   
 );
-
 

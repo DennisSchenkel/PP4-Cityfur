@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load guest_extras %}
 
 {% block content %}
 
@@ -10,7 +11,7 @@
 <!-- Header -->
 <header>
     {% block header_nav %}
-      {% include "guests/components/header_list.html" %}
+      {% include "guests/components/header_list_temp.html" %}
     {% endblock header_nav %}
 </header>
 
@@ -25,7 +26,7 @@
     {% endblock %}
 
     {% for guest in guests_checked_in %}
-        {% with present=guest.presence_set.first %}
+        {% with present=presences|get_item:guest.id %}
             <!-- Guest profile -->
             <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
                 <div class="profile rounded" id="{{ guest.first_name }}">
@@ -67,27 +68,88 @@
                             </div>
 
                             <!-- Profile alerts -->
-                            <div class="row gx-2">
-                                <!-- Alert medication --> 
+                            <div class="row gx-2 alerts">
+                                <!-- Alert medication -->
                                 {% if guest.medication %}
                                     <div class="col-auto text-center">
                                         <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
                                     </div>
                                 {% endif %}
+                                
                                 <!-- Alert food --> 
                                 {% if guest.food %}
                                     <div class="col-auto text-center">
                                         <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
                                     </div>
                                 {% endif %}
+
                                 <!-- Alert report --> 
                                 <div class="col-auto text-center">
                                     <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
                                 </div>
+
                                 <!-- Alert pickup --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                </div>
+                                {% if present and present.pickup %}
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+
+                            <div class="row alerts-dropout visually-hidden">
+                                <!-- Alert medication dropout -->
+                                {% if guest.medication %}
+                                    <div class="col-4">
+                                        {% if guest.medication_time_1 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.medication_time_2 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.medication_time_3 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Alert food dropout -->
+                                {% if guest.food %}
+                                    <div class="col-4">
+                                        {% if guest.food_time_1 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.food_time_2 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.food_time_3 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Alert report dropout -->
+
+
+                                <!-- Alert pickup dropout -->                                
+                                {% if present and present.pickup %}
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                {% endif %}
+                                
                             </div>
                         </div>
                         
@@ -100,11 +162,17 @@
                         <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
                             Undo Check-In
                         </div>
-                        <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
+                        <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
                             <div class="profil-option text-center p-1 border-dark border-bottom">
-                            Open file
+                                Open file
                             </div>
                         </a>
+                        <a href="" class="text-decoration-none">
+                            <div class="profil-report text-center p-1 border-dark border-bottom">
+                                Read report
+                            </div>
+                        </a>
+                        
                         <div class="profil-check-out text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
                             Check-Out
                         </div>
@@ -190,7 +258,7 @@
 <div class="row pt-4 mx-auto container-fluid list" id="checked-out">
     <h1>Checked-Out</h1>
     {% for guest in guests_checked_out %}
-        {% with present=guest.presence_set.first %}
+        {% with present=presences|get_item:guest.id %}
             <!-- Guest profile -->
             <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
                 <div class="profile rounded" id="{{ guest.first_name }}">
@@ -233,7 +301,7 @@
                             </div>
 
                             <!-- Profile alerts -->
-                            <div class="row gx-2 checked-out">
+                            <div class="row gx-2 alerts checked-out">
                                 <!-- Alert medication --> 
                                 {% if guest.medication %}
                                     <div class="col-auto text-center">
@@ -251,10 +319,68 @@
                                     <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
                                 </div>
                                 <!-- Alert pickup --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                </div>
+                                {% if present and present.pickup %}
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                {% endif %}
                             </div>
+
+                            <div class="row alerts-dropout visually-hidden">
+                                <!-- Alert medication dropout -->
+                                {% if guest.medication %}
+                                    <div class="col-4">
+                                        {% if guest.medication_time_1 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.medication_time_2 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.medication_time_3 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Alert food dropout -->
+                                {% if guest.food %}
+                                    <div class="col-4">
+                                        {% if guest.food_time_1 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.food_time_2 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if guest.food_time_3 %}
+                                            <div class="col-auto">
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Alert report dropout -->
+
+
+                                <!-- Alert pickup dropout -->                                
+                                {% if present and present.pickup %}
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+
                         </div>
 
                         <!-- Profile expand options -->
@@ -272,7 +398,7 @@
                         <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
                             Undo Check-Out
                         </div>
-                        <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
+                        <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
                             <div class="profil-option text-center p-1 rounded-bottom">
                                 Open file
                             </div>
@@ -401,7 +527,7 @@
                     </div>
                     
                     <div class="profil-options-dropout visually-hidden">
-                        <a href="{% url "guest_details" guest.slug %}" class="text-decoration-none">
+                        <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
                             <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Open file</div>
                         </a>
                         <div class="profil-check-in text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkin-modal-{{ guest.id }}">

@@ -1,11 +1,11 @@
 from django.urls import path
-from .views.guests_list_views import guests_list
-from .views.guest_details_views import guest_details
-from .views.add_guests_views import add_guest_form
+from .views.guests_list_views import guests_list_view
+from .views.guest_details_views import guest_details_view
+from .views.add_guests_views import add_guest_view
 
 urlpatterns = [
-    path('', guests_list, name='home'),
-    path('guests/', guests_list, name='guests_list'),
-    path('guests/add_guest/', add_guest_form, name='add_guest'),
-    path('guests/<slug:slug>/', guest_details, name='guest_details'),
+    path('', guests_list_view, name='home'),
+    path('guests/', guests_list_view, name='guests_list_temp'),
+    path('guests/add_guest/', add_guest_view, name='add_guest_temp'),
+    path('guests/<slug:slug>/', guest_details_view, name='guest_details_temp'),
 ]

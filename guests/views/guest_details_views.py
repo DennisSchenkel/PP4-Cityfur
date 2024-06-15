@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from ..models import Guest
 
 # View function for guest details
-def guest_details(request, slug):
+def guest_details_view(request, slug):
     queryset = Guest.objects.all()
     guest = get_object_or_404(queryset, slug=slug)
     
@@ -20,7 +20,7 @@ def guest_details(request, slug):
 
     return render(
         request,
-        './guests/guest_details.html',
+        './guests/guest_details_temp.html',
         context
         )
 

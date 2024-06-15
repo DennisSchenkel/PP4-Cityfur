@@ -36,6 +36,15 @@ body {
     width: 35px;
 }
 
+.primary-nav-item {
+    
+}
+
+.secondary-nav-item {
+    padding-left: 20px;
+    font-size: medium;
+}
+
 /* Header menu */
 .header-menu {
     background-color: #EDEDED;
@@ -112,6 +121,19 @@ body {
     background-color: #797979;
     color: white;
 }
+
+.profil-report {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+.profil-report:hover {
+    background-color: #064fbd;
+    color: white;
+}
+
+
 
 .profil-check-out {
     background-color: #db4545;

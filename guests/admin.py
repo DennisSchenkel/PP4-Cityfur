@@ -19,7 +19,7 @@ class GuestAdmin(SummernoteModelAdmin):
 @admin.register(Presence)
 class GuestAdmin(SummernoteModelAdmin):
 
-    list_display = ('date', 'guest', 'check_in', 'check_out', 'id')
+    list_display = ('date', 'guest', 'check_in', 'check_out', 'pickup', 'id')
     search_fields = ['guest', 'date']
     list_filter = ('date',)
 

@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from ..forms import AddGuest
 
 # Function for adding guest to database including an image upload.
-def add_guest_form(request):
+def add_guest_view(request):
 
     request.method == 'Post'
     form = AddGuest(request.POST, request.FILES)
@@ -12,5 +12,5 @@ def add_guest_form(request):
         form.save()
         return HttpResponseRedirect('/')
         
-    return render(request, 'guests/add_guest.html', {'form': form})
+    return render(request, 'guests/add_guest_temp.html', {'form': form})
     
