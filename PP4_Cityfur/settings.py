@@ -34,27 +34,6 @@ ALLOWED_HOSTS = [
     '.herokuapp.com',    
 ]
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug.log'),
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
-
-
-
 
 # Application definition
 
@@ -67,7 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_summernote",
     "bootstrap5",
-    'bootstrap_datepicker_plus', # Adding better looking datepicker
+    'bootstrap_datepicker_plus', # Adding better looking 
     "guests",
     "reports",
 ]
@@ -169,8 +148,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 # Folder for image upload
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
