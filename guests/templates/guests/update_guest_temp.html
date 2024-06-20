@@ -7,11 +7,11 @@
 {{ form.media }}
 
 <div class="form-group">
-    Add guest
+    Update guest
     <form action="" method=POST enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input type="submit" value="Add" class="btn btn-secondary">
+        <input type="submit" value="Update" class="btn btn-secondary">
     </form>
 </div>
 

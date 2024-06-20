@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_summernote",
     "bootstrap5",
+    'bootstrap_datepicker_plus', # Adding better looking datepicker
     "guests",
     "reports",
 ]

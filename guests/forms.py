@@ -1,5 +1,16 @@
 from django import forms
 from .models import Guest, Presence
+from bootstrap_datepicker_plus.widgets import TimePickerInput
+from django.utils.safestring import mark_safe
+
+class ImagePreviewWidget(forms.ClearableFileInput):
+    def render(self, name, value, attrs=None, renderer=None):
+        output = []
+        if value and hasattr(value, "url"):
+            output.append(f'<img src="{value.url}" width="200" height="200" style="object-fit: cover;"/>')
+        output.append(super().render(name, value, attrs, renderer))
+        return mark_safe(''.join(output))
+
 
 # Form for adding guests
 class AddGuest(forms.ModelForm):
@@ -47,17 +58,17 @@ class AddGuest(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'name_addon': forms.TextInput(attrs={'class': 'form-control'}),
             'gender': forms.Select(attrs={'class': 'form-control'}),
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'image': ImagePreviewWidget(attrs={'class': 'form-control'}),
             'date_of_birth' : forms.DateInput(attrs={'class': 'form-control'}),
             'information': forms.Textarea(attrs={'class': 'form-control'}),
-#            'food': forms.SelectMultiple(attrs={'class': 'form-control'}),
-#            'food_time_1': forms.TimeField(attrs={'class': 'form-control'}),
-#            'food_time_2': forms.TimeField(attrs={'class': 'form-control'}),
-#            'food_time_3': forms.TimeField(attrs={'class': 'form-control'}),
-#            'medication': forms.SelectMultiple(attrs={'class': 'form-control'}),
-#            'medication_time_1': forms.TimeField(attrs={'class': 'form-control'}),
-#            'medication_time_2': forms.TimeField(attrs={'class': 'form-control'}),
-#            'medication_time_3': forms.TimeField(attrs={'class': 'form-control'}),
+            'food': forms.SelectMultiple(attrs={'class': 'form-control'}),
+            'food_time_1': TimePickerInput(attrs={'class': 'form-control'}),
+            'food_time_2': TimePickerInput(attrs={'class': 'form-control'}),
+            'food_time_3': TimePickerInput(attrs={'class': 'form-control'}),
+            'medication': forms.SelectMultiple(attrs={'class': 'form-control'}),
+            'medication_time_1': TimePickerInput(attrs={'class': 'form-control'}),
+            'medication_time_2': TimePickerInput(attrs={'class': 'form-control'}),
+            'medication_time_3': TimePickerInput(attrs={'class': 'form-control'}),
             'customer_id': forms.Select(attrs={'class': 'form-control'}),
         }
         
@@ -67,15 +78,16 @@ class AddGuest(forms.ModelForm):
         cleaned_data = super().clean()
         first_name = cleaned_data.get('first_name')
         name_addon = cleaned_data.get('name_addon')
+        instance = self.instance
         
         # Prüfen, ob der first_name bereits existiert
-        if Guest.objects.filter(first_name=first_name).exists():
+        if Guest.objects.filter(first_name=first_name).exclude(id=instance.id).exists():
             # Wenn kein name_addon eingetragen wurde, einen Fehler auslösen
             if not name_addon:
                 self.add_error('name_addon', "Please provide a name addon as this first name already exists.")
             else:
                 # Prüfen, ob die Kombination aus first_name und name_addon existiert
-                if Guest.objects.filter(first_name=first_name, name_addon=name_addon).exists():
+                if Guest.objects.filter(first_name=first_name, name_addon=name_addon).exclude(id=instance.id).exists():
                     self.add_error('name_addon', "This combination of first name and name addon already exists. Please choose a different name addon.")
         
         return cleaned_data
