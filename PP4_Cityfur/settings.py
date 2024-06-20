@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django_summernote",
     "bootstrap5",
     'bootstrap_datepicker_plus', # Adding better looking 
+    'whitenoise.runserver_nostatic',
     "guests",
     "reports",
 ]
@@ -150,6 +151,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
