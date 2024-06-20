@@ -1,2 +1,2 @@
-web: gunicorn PP4_Cityfur.wsgi
+web: gunicorn PP4_Cityfur.wsgi --log-file -
 
