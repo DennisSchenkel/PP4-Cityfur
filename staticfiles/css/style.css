@@ -3,14 +3,17 @@ body {
     position: inherit;
 }
 
+/* Sidebar */
 .sidebar {
-    background-color: #39489f;
+    position: fixed;
+    background-color: #202958;
     color: white;
     font-weight: bold;
     font-size: larger;
     line-height: 2;
     height: 100vh;
     padding-top: 75px;
+    z-index: 1;
     a {
         color: white;
         text-decoration: none;
@@ -33,67 +36,23 @@ body {
     width: 35px;
 }
 
+.primary-nav-item {
+    
+}
+
+.secondary-nav-item {
+    padding-left: 20px;
+    font-size: medium;
+}
+
+/* Header menu */
 .header-menu {
     background-color: #EDEDED;
     align-content: center;
     height: 65px;
 }
 
-.main-content {
-    min-height: calc(100vh - 22px);
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.guest-tools {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    color: white;
-}
-
-
-.content-box {
-    background-color: white;
-}
-
-.content-w90 {
-    width: 90%;
-    margin: 20px 0px 20px 0px;
-    align-self: center;
-}
-
-.img-prev-md {
-    width: 150px;
-    height: 150px;
-}
-
-.img-prev-sm {
-    width: 100px;
-    height: 100px;
-}
-
-.icon-fa {
-    vertical-align: middle;
-}
-
-.bottom-box {
-    height: 50px;
-    background-color: #39489f;
-    color: white;
-}
-
-.button-box {
-    display: grid;
-    place-items: center;
-}
-
-.btn-90 {
-    width: 90%;
-    margin: 5px 0px 15px 0px;
-}
-
+/* Datepicker */
 .datepicker {
     font-size: large;
 }
@@ -120,13 +79,36 @@ body {
     right: 20px;
 }
 
-.profile {
-    background-color: white;
+/* Main content */
+.main-content {
+    min-height: calc(100vh - 22px);
+    padding-left: 0;
+    padding-right: 0;
 }
 
+.spacer {
+    height: 130px;
+}   
 
-.profil-options-dropout {
 
+
+.img-prev-md {
+    width: 150px;
+    height: 150px;
+}
+
+.img-prev-sm {
+    width: 100px;
+    height: 100px;
+}
+
+.icon-fa {
+    vertical-align: middle;
+}
+
+/* Profile */
+.profile {
+    background-color: white;
 }
 
 .profil-option {
@@ -139,6 +121,20 @@ body {
     background-color: #797979;
     color: white;
 }
+
+.profil-report {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+.profil-report:hover {
+    background-color: #064fbd;
+    color: white;
+}
+
+
+
 .profil-check-out {
     background-color: #db4545;
     color: white;
@@ -148,6 +144,54 @@ body {
 .profil-check-out:hover {
     background-color: #af3131;
     color: white;
+}
+
+.profil-check-in {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+.profil-check-in:hover {
+    background-color: #0d52b9;
+    color: white;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* Guest tools bottom */
+.guest-tools {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+}
+
+.bottom-box {
+    height: 50px;
+    background-color: #39489f;
+    color: white;
+}
+
+.button-box {
+    display: grid;
+    place-items: center;
+}
+
+.btn-90 {
+    width: 90%;
+    margin: 5px 0px 15px 0px;
+}
+
+.selected-selector{
+    background: radial-gradient(#848aa7, #39489f 50%);
+}
+
+.visually-hidden {
+    display: none;
 }
 
 @media (max-width: 991px) {
