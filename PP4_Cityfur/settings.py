@@ -63,11 +63,17 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_summernote",
-    "bootstrap5",
-    'bootstrap_datepicker_plus', # Adding better looking 
-    'whitenoise.runserver_nostatic',
+
+    # Apps
     "guests",
     "reports",
+    
+    #Other
+    "bootstrap5",
+    "bootstrap_datepicker_plus", # Adding better looking 
+    "whitenoise.runserver_nostatic",
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -164,9 +170,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
-# Folder for image upload
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Settings for image upload
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUIDNARY_URL = os.environ.get('CLOUDINARY_URL')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
