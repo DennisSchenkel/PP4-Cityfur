@@ -1,9 +1,17 @@
 from django import forms
-from .models import Guest, Presence
-from bootstrap_datepicker_plus.widgets import TimePickerInput
 from django.utils.safestring import mark_safe
+from bootstrap_datepicker_plus.widgets import TimePickerInput
+from .models import Guest, Presence
 
+
+# Widget for displaying an image preview
 class ImagePreviewWidget(forms.ClearableFileInput):
+    """_summary_
+
+    Args:
+        forms (_type_): _description_
+    """
+    
     def render(self, name, value, attrs=None, renderer=None):
         output = []
         if value and hasattr(value, "url"):
@@ -14,6 +22,15 @@ class ImagePreviewWidget(forms.ClearableFileInput):
 
 # Form for adding guests
 class AddGuest(forms.ModelForm):
+    """
+
+    Args:
+        forms (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     class Meta:
         model = Guest
         fields = (
@@ -91,9 +108,16 @@ class AddGuest(forms.ModelForm):
                     self.add_error('name_addon', "This combination of first name and name addon already exists. Please choose a different name addon.")
         
         return cleaned_data
-    
+
+
 # Form for checking in guests    
 class CheckInGuest(forms.ModelForm):
+    """_summary_
+
+    Args:
+        forms (_type_): _description_
+    """
+    
     class Meta:
         model = Presence
         fields = ['guest']  # Only the guest field is needed
@@ -103,9 +127,16 @@ class CheckInGuest(forms.ModelForm):
         widgets = {
             'guest': forms.HiddenInput()  # Hide the guest field
         }
-        
+
+ 
 # Form for checking out guests    
 class CheckOutGuest(forms.ModelForm):
+    """_summary_
+
+    Args:
+        forms (_type_): _description_
+    """
+    
     class Meta:
         model = Presence
         fields = ['guest']  # Only the guest field is needed

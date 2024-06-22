@@ -1,12 +1,19 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-
 from ..models import Guest
 from ..forms import AddGuest
 
 # Function for adding guest to database including an image upload.
 def add_guest_view(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     if request.method == 'POST':
         form = AddGuest(request.POST, request.FILES)
@@ -27,6 +34,16 @@ def add_guest_view(request):
     
 # Function for updating guest information
 def update_guest_view(request, id):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+        id (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     guest = get_object_or_404(Guest, id=id)
     guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
     if request.method == 'POST':

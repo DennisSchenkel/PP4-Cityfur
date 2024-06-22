@@ -7,6 +7,15 @@ GENDER = ((0, 'Male'), (1, 'Female'), (2, 'Other'))
 
 # Create model for customer
 class Customer(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -28,6 +37,15 @@ class Customer(models.Model):
 
 # Create model for guest
 class Guest(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50, null=True, blank=True)
@@ -88,6 +106,12 @@ class Guest(models.Model):
     
 # Create model for tracking guest presence
 class Presence(models.Model):
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
+    
     id = models.AutoField(primary_key=True)
     guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
     date = models.DateField()

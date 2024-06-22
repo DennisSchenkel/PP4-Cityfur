@@ -1,13 +1,21 @@
 from django.shortcuts import render, redirect
-from datetime import datetime
 from django.utils import timezone
 from django.contrib import messages
+from datetime import datetime
 from ..models import Presence, Guest
 from ..forms import CheckInGuest, CheckOutGuest
 
 
 # View function for guest list
 def guests_list_view(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     # Get the selected date from the request
     selected_date = request.GET.get('date')
