@@ -33,15 +33,15 @@ def guests_list_view(request):
     # Extract the guests from the presences
     guests_checked_in = [presence.guest for presence in presences_checked_in]
     
-    # Find all presences for the selected date where guests have checked out
+    # Find all presences for the selected date where guests have checked-out
     presences_checked_out = Presence.objects.filter(date=date, check_out__isnull=False).select_related('guest')
     # Extract the guests from the presences
     guests_checked_out = [presence.guest for presence in presences_checked_out]
     
-    # Find all guests that are not checked in
-    # Exclude guests that are already checked in
+    # Find all guests that are not checked-in
+    # Exclude guests that are already checked-in
     guests_not_checked_in = guests_not_checked_in.exclude(id__in=[guest.id for guest in guests_checked_in])
-    # Exclude guests that are already checked out
+    # Exclude guests that are already checked-out
     guests_not_checked_in = guests_not_checked_in.exclude(id__in=[guest.id for guest in guests_checked_out])
 
     # Find all guests that have a pickup scheduled
@@ -71,14 +71,14 @@ def guests_list_view(request):
                 guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
                 checkin_time = timezone.now().time()
 
-                # Check if the guest is already checked at the selected date
+                # Check if the guest is already checked-in at the selected date
                 presence, created = Presence.objects.get_or_create(
                     guest=guest,
                     date=date,
                     defaults={'check_in': checkin_time}
                 )
 
-                # If the guest is not checked in at the selected date, check them in
+                # If the guest is not checked-in at the selected date, check them in
                 if created:
                     messages.add_message(
                         request, messages.SUCCESS,
@@ -94,7 +94,7 @@ def guests_list_view(request):
                 else:
                     messages.add_message(
                         request, messages.ERROR,
-                        'Check-In failed: {guest_name} is already checked in or presence already exists.'
+                        'Check-In failed: {guest_name} is already checked-in or presence already exists.'
                     )
 
                 return redirect(f"{request.path}?date={selected_date}")
@@ -114,13 +114,13 @@ def guests_list_view(request):
                 guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
                 checkout_time = timezone.now().time()
 
-                # Check if the guest is already checked out at the selected date
+                # Check if the guest is already checked-out at the selected date
                 presence = Presence.objects.filter(
                     guest=guest,
                     date=date
                 ).first()
                             
-                # If the guest is checked in at the selected date, check them out
+                # If the guest is checked-in at the selected date, check them out
                 if presence:
                     if presence.check_in is not None and presence.check_out is None:
                         presence.check_out = checkout_time
@@ -132,7 +132,7 @@ def guests_list_view(request):
                     else:
                         messages.add_message(
                             request, messages.ERROR,
-                            f'Check-Out failed: {guest_name} is not checked in or already checked out.'
+                            f'Check-Out failed: {guest_name} is not checked-in or already checked-out.'
                         )
                 else:
                     messages.add_message(
@@ -159,12 +159,12 @@ def guests_list_view(request):
                 presence.delete()
                 messages.add_message(
                     request, messages.SUCCESS,
-                    f'Check-In for {guest_name} was undone successfully.'
+                    f'Check-In for {guest_name} was undone.'
                 )
             else:
                 messages.add_message(
                     request, messages.ERROR,
-                    f'Undo Check-In failed: no check-in record found for {guest_name}.'
+                    f'Undo Check-In failed: no check-in found for {guest_name}.'
                 )
 
             return redirect(f"{request.path}?date={selected_date}")
@@ -180,7 +180,7 @@ def guests_list_view(request):
             
             
             
-            # If the guest is checked out, set the check-out time to None to undo the check-out
+            # If the guest is checked-out, set the check-out time to None to undo the check-out
             if presence and presence.check_out is not None:
                 guest = presence.guest
                 guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"              
@@ -188,18 +188,18 @@ def guests_list_view(request):
                 presence.save()
                 messages.add_message(
                     request, messages.SUCCESS,
-                    f'Check-Out for {guest_name} was undone successfully.'
+                    f'Check-Out for {guest_name} was undone.'
                 )
             else:
                 messages.add_message(
                     request, messages.ERROR,
-                    f'Undo Check-Out failed: no check-out record found for {guest_name}.'
+                    f'Undo Check-Out failed: no check-out found for {guest_name}.'
                 )
 
             return redirect(f"{request.path}?date={selected_date}")
     
     
-    # Get the total number of guests checked in and checked out today    
+    # Get the total number of guests checked-in and checked-out today    
     todays_guest_count = len(guests_checked_in) + len(guests_checked_out)
 
 

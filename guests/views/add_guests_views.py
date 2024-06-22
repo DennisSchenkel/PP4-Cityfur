@@ -12,9 +12,11 @@ def add_guest_view(request):
         form = AddGuest(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            guest = form.save()
+            guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
             messages.add_message(
                 request, messages.SUCCESS,
-                'Profile has been added successfully.'
+                f'Profile for { guest_name } has been added successfully.'
                 )
             return HttpResponseRedirect('/')
         
@@ -26,18 +28,18 @@ def add_guest_view(request):
 # Function for updating guest information
 def update_guest_view(request, id):
     guest = get_object_or_404(Guest, id=id)
-    
+    guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
     if request.method == 'POST':
         form = AddGuest(request.POST, request.FILES, instance=guest)
         if form.is_valid():
             form.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Profile has been updated successfully.'
+                f'Profile of { guest_name } has been updated successfully.'
                 )
             return HttpResponseRedirect('/')
         
     else:
         form = AddGuest(instance=guest)
     
-    return render(request, 'guests/update_guest_temp.html', {'form': form})
+    return render(request, 'guests/update_guest_temp.html', {'form': form, 'guest': guest})
