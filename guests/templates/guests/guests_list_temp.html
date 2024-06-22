@@ -5,607 +5,627 @@
 
 {% block content %}
 
-<!-- Import of JS for guest list -->
-<script src="{% static 'js/guest_list.js' %}"></script>
+    {% if user.is_authenticated %}
 
-<!-- Header -->
-<header>
-    {% block header_nav %}
-      {% include "guests/components/header_list_temp.html" %}
-    {% endblock header_nav %}
-</header>
+    <!-- Import of JS for guest list -->
+    <script src="{% static 'js/guest_list.js' %}"></script>
 
-<!-- Render checked-in guests -->
-<div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
-    <h1>Checked-In</h1>
-    <br>
-    {% block gender_selection %}
-        <span id="count-checked-in" class="count-checked-in">
-            
-        </span>
-    {% endblock %}
+    <!-- Header -->
+    <header>
+        {% block header_nav %}
+            {% include "guests/components/header_list_temp.html" %}
+        {% endblock header_nav %}
+    </header>
 
-    {% for guest in guests_checked_in %}
-        {% with present=presences|get_item:guest.id %}
-            <!-- Guest profile -->
-            <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
-                <div class="profile rounded" id="{{ guest.first_name }}">
-                    <div class="row no-gutters p-1">
-
-                        <!-- Profile image -->    
-                        <div class="col-auto">
-                            <!-- Change to static image path later -->
-                            {% if guest.image %}
-                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
-                            {% else %}
-                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
-                            {% endif %}
-                        </div>
-
-                        <!-- Profile name & gender -->
-                        <div class="col px-0">
-                            <div class="row">
-                                <!-- Show name and name_addon -->
-                                <div class="col-auto">
-                                    <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
-                                    <!-- Show name addon if it exists -->
-                                    {% if guest.name_addon %}
-                                        <span>{{ guest.name_addon }}</span>
-                                    {% else %}
-                                        <span><br></span>
-                                    {% endif %}                                     
-                                </div>
-                                <!-- Show gender depending on the database entry -->
-                                <div class="col px-0">
-                                    {% if guest.get_gender_display == "Male" %}
-                                        <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
-                                    {% elif guest.get_gender_display == "Female" %}
-                                        <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
-                                    {% else %} 
-                                        <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Profile alerts -->
-                            <div class="row gx-2 alerts">
-                                <!-- Alert medication -->
-                                {% if guest.medication %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
-                                    </div>
-                                {% endif %}
-                                
-                                <!-- Alert food --> 
-                                {% if guest.food %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
-                                    </div>
-                                {% endif %}
-
-                                <!-- Alert report --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
-                                </div>
-
-                                <!-- Alert pickup --> 
-                                {% if present and present.pickup %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                    </div>
-                                {% endif %}
-
-                            </div>
-
-                            <div class="row alerts-dropout visually-hidden">
-                                <!-- Alert medication dropout -->
-                                {% if guest.medication %}
-                                    <div class="col-4">
-                                        {% if guest.medication_time_1 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.medication_time_2 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.medication_time_3 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                                
-                                <!-- Alert food dropout -->
-                                {% if guest.food %}
-                                    <div class="col-4">
-                                        {% if guest.food_time_1 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.food_time_2 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.food_time_3 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                                
-                                <!-- Alert report dropout -->
-
-
-                                <!-- Alert pickup dropout -->                                
-                                {% if present and present.pickup %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                        </div>
-                        
-                        <!-- Profile expand options -->
-                        <div class="col-auto">
-                            <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
-                        </div>
-                    </div>
-                    <div class="profil-options-dropout visually-hidden">
-                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
-                            Undo Check-In
-                        </div>
-                        <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
-                            <div class="profil-option text-center p-1 border-dark border-bottom">
-                                Open file
-                            </div>
-                        </a>
-                        <a href="" class="text-decoration-none">
-                            <div class="profil-report text-center p-1 border-dark border-bottom">
-                                Read report
-                            </div>
-                        </a>
-                        
-                        <div class="profil-check-out text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
-                            Check-Out
-                        </div>
-
-                        <!-- Modal for undo-check-in confirmation -->
-                        <div class="modal fade" id="undo-checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckinModal{{ guest.id }}" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="undoCheckinModalTitle{{ guest.id }}">
-                                        Undo Check-In {{ guest.first_name }} 
-                                        {% if guest.name_addon %}
-                                            <span>{{ guest.name_addon }}</span>
-                                        {% else %}
-                                            <span><br></span>
-                                        {% endif %}  
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" action="{% url 'home' %}" id="undo-checkin-form-{{ guest.id }}">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="guest" value="{{ guest.id }}">
-                                            <input type="hidden" name="undo_checkin" value="true">
-                                            <input type="hidden" name="date" value="{{ selected_date }}">
-                                        </form>
-                                        <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkin-form-{{ guest.id }}').submit();">
-                                            Undo Check-In
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Undo Check-In</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Modal for check-out confirmation -->
-                        <div class="modal fade" id="checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkoutModal{{ guest.id }}" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="checkoutModalTitle{{ guest.id }}">
-                                        Check-Out {{ guest.first_name }} 
-                                        {% if guest.name_addon %}
-                                            <span>{{ guest.name_addon }}</span>
-                                        {% else %}
-                                            <span><br></span>
-                                        {% endif %}  
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" action="{% url 'home' %}" id="checkout-form-{{ guest.id }}">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="guest" value="{{ guest.id }}">
-                                            <input type="hidden" name="checkout" value="true">
-                                            <input type="hidden" name="date" value="{{ selected_date }}">
-                                        </form>
-                                        <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkout-form-{{ guest.id }}').submit();">
-                                            Check-Out
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Check-Out</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>             
-                </div>
+    <!-- displaying Django messages -->
+    <div class="container">
+        <div class="row">
+        <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible
+            fade show" id="msg" role="alert">
+            {{ message | safe }}
+            <button type="button" class="btn-close"
+                data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        {% endwith %}
-    {% endfor %}
-</div>
-
-<!-- Render checked-out guests -->
-<div class="row pt-4 mx-auto container-fluid list" id="checked-out">
-    <h1>Checked-Out</h1>
-    {% for guest in guests_checked_out %}
-        {% with present=presences|get_item:guest.id %}
-            <!-- Guest profile -->
-            <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
-                <div class="profile rounded" id="{{ guest.first_name }}">
-                    <div class="row no-gutters p-1">
-
-                        <!-- Profile image -->    
-                        <div class="col-auto checked-out">
-                            <!-- Change to static image path later -->
-                            
-                            {% if guest.image %}
-                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
-                            {% else %}
-                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
-                            {% endif %}
-                        </div>
-
-                        <!-- Profile name & gender -->
-                        <div class="col px-0">
-                            <div class="row">
-                                <!-- Show name and name_addon -->
-                                <div class="col-auto">
-                                    <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
-                                    <!-- Show name addon if it exists -->
-                                    {% if guest.name_addon %}
-                                        <span>{{ guest.name_addon }}</span>
-                                    {% else %}
-                                        <span><br></span>
-                                    {% endif %}                                     
-                                </div>
-                                <!-- Show gender depending on the database entry -->
-                                <div class="col px-0">
-                                    {% if guest.get_gender_display == "Male" %}
-                                        <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
-                                    {% elif guest.get_gender_display == "Female" %}
-                                        <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
-                                    {% else %} 
-                                        <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Profile alerts -->
-                            <div class="row gx-2 alerts checked-out">
-                                <!-- Alert medication --> 
-                                {% if guest.medication %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
-                                    </div>
-                                {% endif %}
-                                <!-- Alert food --> 
-                                {% if guest.food %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
-                                    </div>
-                                {% endif %}
-                                <!-- Alert report --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
-                                </div>
-                                <!-- Alert pickup --> 
-                                {% if present and present.pickup %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                    </div>
-                                {% endif %}
-                            </div>
-
-                            <div class="row alerts-dropout visually-hidden">
-                                <!-- Alert medication dropout -->
-                                {% if guest.medication %}
-                                    <div class="col-4">
-                                        {% if guest.medication_time_1 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.medication_time_2 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.medication_time_3 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                                
-                                <!-- Alert food dropout -->
-                                {% if guest.food %}
-                                    <div class="col-4">
-                                        {% if guest.food_time_1 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.food_time_2 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
-                                            </div>
-                                        {% endif %}
-                                        {% if guest.food_time_3 %}
-                                            <div class="col-auto">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                                
-                                <!-- Alert report dropout -->
-
-
-                                <!-- Alert pickup dropout -->                                
-                                {% if present and present.pickup %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-
-                        </div>
-
-                        <!-- Profile expand options -->
-                        <div class="col-auto">
-                            <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
-                        </div>
-                    </div>
-                    <div class="profil-options-dropout visually-hidden">
-                        <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
-                            {% csrf_token %}
-                            <input type="hidden" name="guest" value="{{ guest.id }}">
-                            <input type="hidden" name="undo_checkout" value="true">
-                            <input type="hidden" name="date" value="{{ selected_date }}">
-                        </form>
-                        <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
-                            Undo Check-Out
-                        </div>
-                        <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
-                            <div class="profil-option text-center p-1 rounded-bottom">
-                                Open file
-                            </div>
-                        </a>
-
-                        <!-- Modal for undo-check-out confirmation -->
-                        <div class="modal fade" id="undo-checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckoutModal{{ guest.id }}" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="undoCheckoutModalTitle{{ guest.id }}">
-                                        Undo Check-Out {{ guest.first_name }} 
-                                        {% if guest.name_addon %}
-                                            <span>{{ guest.name_addon }}</span>
-                                        {% else %}
-                                            <span><br></span>
-                                        {% endif %}  
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="guest" value="{{ guest.id }}">
-                                            <input type="hidden" name="undo_checkout" value="true">
-                                            <input type="hidden" name="date" value="{{ selected_date }}">
-                                        </form>
-                                        <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkout-form-{{ guest.id }}').submit();">
-                                            Undo Check-Out
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Undo Check-Out</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>             
-                </div>
-            </div>
-        {% endwith %}
-    {% endfor %}
-</div>
-
-
-
-
-<!-- Render not checked-in guests -->
-<div id="not-checked-in" class="row pt-4 mx-auto container-fluid list d-none" >
-    <h1>Not Checked-In</h1>
-    {% for guest in guests_not_checked_in %}
-        {% with present=guest.presence_set.first %}
-            <!-- Guest profile -->
-            <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
-                <div class="profile rounded" id="{{ guest.first_name }}">
-                    <div class="row no-gutters p-1">
-
-                        <!-- Profile image -->    
-                        <div class="col-auto">
-                            <!-- Change to static image path later -->
-                            
-                            {% if guest.image %}
-                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
-                            {% else %}
-                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
-                            {% endif %}
-                        </div>
-
-                        <!-- Profile name & gender -->
-                        <div class="col px-0">
-                            <div class="row">
-                                <!-- Show name and name_addon -->
-                                <div class="col-auto">
-                                    <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
-                                    <!-- Show name addon if it exists -->
-                                    {% if guest.name_addon %}
-                                        <span>{{ guest.name_addon }}</span>
-                                    {% else %}
-                                        <span><br></span>
-                                    {% endif %}                                     
-                                </div>
-                                <!-- Show gender depending on the database entry -->
-                                <div class="col px-0">
-                                    {% if guest.get_gender_display == "Male" %}
-                                        <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
-                                    {% elif guest.get_gender_display == "Female" %}
-                                        <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
-                                    {% else %} 
-                                        <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Profile alerts -->
-                            <div class="row gx-2 checked-out">
-                                <!-- Alert medication --> 
-                                {% if guest.medication %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
-                                    </div>
-                                {% endif %}
-                                <!-- Alert food --> 
-                                {% if guest.food %}
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
-                                    </div>
-                                {% endif %}
-                                <!-- Alert report --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
-                                </div>
-                                <!-- Alert pickup --> 
-                                <div class="col-auto text-center">
-                                    <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Profile expand options -->
-                        <div class="col-auto">
-                            <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="profil-options-dropout visually-hidden">
-                        <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
-                            <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Open file</div>
-                        </a>
-                        <div class="profil-check-in text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkin-modal-{{ guest.id }}">
-                            Check-In
-                        </div>
-
-                        <!-- Modal for check-in confirmation -->
-                        <div class="modal fade" id="checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkinModal{{ guest.id }}" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="checkinModalTitle{{ guest.id }}">
-                                        Check-In {{ guest.first_name }} 
-                                        {% if guest.name_addon %}
-                                            <span>{{ guest.name_addon }}</span>
-                                        {% else %}
-                                            <span><br></span>
-                                        {% endif %}  
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" action="{% url 'home' %}" id="checkin-form-{{ guest.id }}">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="guest" value="{{ guest.id }}">
-                                            <input type="hidden" name="checkin" value="true">
-                                            <input type="hidden" name="date" value="{{ selected_date }}">
-                                        </form>
-                                        <div class="profil-check-in text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">
-                                            Check-In
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Check-In</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                      
-                </div>
-            </div>
-        {% endwith %}
-    {% endfor %}
-</div>
-
-<div class="spacer"></div>
-
-<div class="guest-tools">
-    <!-- Check-In button -->
-    <div class="row gx-0">
-        <div class="col-2"></div>
-            <div class="col-lg-10 text-center">
-                <div class="button-box">
-                    <button type="button" class="btn btn-primary btn-90" id="checkin-toggle"><span class="d-none" id="close-checkin">Close </span>Check-In</button>
-                </div>
-            </div>
-        <div class="col-2"></div>
+            {% endfor %}
+        </div>
+        </div>
     </div>
 
-    <!-- Gender selector footer -->
-    <div class="row text-center bottom-box gx-0">
-        <div class="col-lg-2 d-lg-block"></div>
-        <div class="col-12 col-lg-10 row align-items-center">
-            <div id="female-selector" class="col-5 female-selector">
-                <span class="fa-solid fa-venus fa-2x icon-fa"></span>
-            </div>
-            <div id="all-selector" class="col-2 all-selector selected-selector">
-                <span class=""><strong>All</strong></span>
-                <br>
-                (Guests today: {{ todays_guest_count }})
-            </div>
-            <div id="male-selector" class="col-5 male-selector">
-                <span class="fa-solid fa-mars fa-2x icon-fa"></span>
+    <!-- Render checked-in guests -->
+    <div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
+        <h1>Checked-In</h1>
+        <br>
+        {% block gender_selection %}
+            <span id="count-checked-in" class="count-checked-in">
+                
+            </span>
+        {% endblock %}
+
+        {% for guest in guests_checked_in %}
+            {% with present=presences|get_item:guest.id %}
+                <!-- Guest profile -->
+                <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
+                    <div class="profile rounded" id="{{ guest.first_name }}">
+                        <div class="row no-gutters p-1">
+
+                            <!-- Profile image -->    
+                            <div class="col-auto">
+                                <!-- Change to static image path later -->
+                                {% if guest.image %}
+                                    <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
+                                {% else %}
+                                    <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
+                                {% endif %}
+                            </div>
+
+                            <!-- Profile name & gender -->
+                            <div class="col px-0">
+                                <div class="row">
+                                    <!-- Show name and name_addon -->
+                                    <div class="col-auto">
+                                        <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
+                                        <!-- Show name addon if it exists -->
+                                        {% if guest.name_addon %}
+                                            <span>{{ guest.name_addon }}</span>
+                                        {% else %}
+                                            <span><br></span>
+                                        {% endif %}                                     
+                                    </div>
+                                    <!-- Show gender depending on the database entry -->
+                                    <div class="col px-0">
+                                        {% if guest.get_gender_display == "Male" %}
+                                            <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
+                                        {% elif guest.get_gender_display == "Female" %}
+                                            <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
+                                        {% else %} 
+                                            <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <!-- Profile alerts -->
+                                <div class="row gx-2 alerts">
+                                    <!-- Alert medication -->
+                                    {% if guest.medication %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Alert food --> 
+                                    {% if guest.food %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                        </div>
+                                    {% endif %}
+
+                                    <!-- Alert report --> 
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                    </div>
+
+                                    <!-- Alert pickup --> 
+                                    {% if present and present.pickup %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+
+                                <div class="row alerts-dropout visually-hidden">
+                                    <!-- Alert medication dropout -->
+                                    {% if guest.medication %}
+                                        <div class="col-4">
+                                            {% if guest.medication_time_1 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.medication_time_2 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.medication_time_3 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Alert food dropout -->
+                                    {% if guest.food %}
+                                        <div class="col-4">
+                                            {% if guest.food_time_1 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.food_time_2 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.food_time_3 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Alert report dropout -->
+
+
+                                    <!-- Alert pickup dropout -->                                
+                                    {% if present and present.pickup %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                        </div>
+                                    {% endif %}
+                                    
+                                </div>
+                            </div>
+                            
+                            <!-- Profile expand options -->
+                            <div class="col-auto">
+                                <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
+                            </div>
+                        </div>
+                        <div class="profil-options-dropout visually-hidden">
+                            <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
+                                Undo Check-In
+                            </div>
+                            <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
+                                <div class="profil-option text-center p-1 border-dark border-bottom">
+                                    Open file
+                                </div>
+                            </a>
+                            <a href="" class="text-decoration-none">
+                                <div class="profil-report text-center p-1 border-dark border-bottom">
+                                    Read report
+                                </div>
+                            </a>
+                            
+                            <div class="profil-check-out text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
+                                Check-Out
+                            </div>
+
+                            <!-- Modal for undo-check-in confirmation -->
+                            <div class="modal fade" id="undo-checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckinModal{{ guest.id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="undoCheckinModalTitle{{ guest.id }}">
+                                            Undo Check-In {{ guest.first_name }} 
+                                            {% if guest.name_addon %}
+                                                <span>{{ guest.name_addon }}</span>
+                                            {% else %}
+                                                <span><br></span>
+                                            {% endif %}  
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="{% url 'home' %}" id="undo-checkin-form-{{ guest.id }}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="guest" value="{{ guest.id }}">
+                                                <input type="hidden" name="undo_checkin" value="true">
+                                                <input type="hidden" name="date" value="{{ selected_date }}">
+                                            </form>
+                                            <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkin-form-{{ guest.id }}').submit();">
+                                                Undo Check-In
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Undo Check-In</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal for check-out confirmation -->
+                            <div class="modal fade" id="checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkoutModal{{ guest.id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="checkoutModalTitle{{ guest.id }}">
+                                            Check-Out {{ guest.first_name }} 
+                                            {% if guest.name_addon %}
+                                                <span>{{ guest.name_addon }}</span>
+                                            {% else %}
+                                                <span><br></span>
+                                            {% endif %}  
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="{% url 'home' %}" id="checkout-form-{{ guest.id }}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="guest" value="{{ guest.id }}">
+                                                <input type="hidden" name="checkout" value="true">
+                                                <input type="hidden" name="date" value="{{ selected_date }}">
+                                            </form>
+                                            <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkout-form-{{ guest.id }}').submit();">
+                                                Check-Out
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Check-Out</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>             
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+
+    <!-- Render checked-out guests -->
+    <div class="row pt-4 mx-auto container-fluid list" id="checked-out">
+        <h1>Checked-Out</h1>
+        {% for guest in guests_checked_out %}
+            {% with present=presences|get_item:guest.id %}
+                <!-- Guest profile -->
+                <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
+                    <div class="profile rounded" id="{{ guest.first_name }}">
+                        <div class="row no-gutters p-1">
+
+                            <!-- Profile image -->    
+                            <div class="col-auto checked-out">
+                                <!-- Change to static image path later -->
+                                
+                                {% if guest.image %}
+                                    <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
+                                {% else %}
+                                    <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
+                                {% endif %}
+                            </div>
+
+                            <!-- Profile name & gender -->
+                            <div class="col px-0">
+                                <div class="row">
+                                    <!-- Show name and name_addon -->
+                                    <div class="col-auto">
+                                        <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
+                                        <!-- Show name addon if it exists -->
+                                        {% if guest.name_addon %}
+                                            <span>{{ guest.name_addon }}</span>
+                                        {% else %}
+                                            <span><br></span>
+                                        {% endif %}                                     
+                                    </div>
+                                    <!-- Show gender depending on the database entry -->
+                                    <div class="col px-0">
+                                        {% if guest.get_gender_display == "Male" %}
+                                            <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
+                                        {% elif guest.get_gender_display == "Female" %}
+                                            <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
+                                        {% else %} 
+                                            <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <!-- Profile alerts -->
+                                <div class="row gx-2 alerts checked-out">
+                                    <!-- Alert medication --> 
+                                    {% if guest.medication %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                        </div>
+                                    {% endif %}
+                                    <!-- Alert food --> 
+                                    {% if guest.food %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                        </div>
+                                    {% endif %}
+                                    <!-- Alert report --> 
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                    <!-- Alert pickup --> 
+                                    {% if present and present.pickup %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="row alerts-dropout visually-hidden">
+                                    <!-- Alert medication dropout -->
+                                    {% if guest.medication %}
+                                        <div class="col-4">
+                                            {% if guest.medication_time_1 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.medication_time_2 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.medication_time_3 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Alert food dropout -->
+                                    {% if guest.food %}
+                                        <div class="col-4">
+                                            {% if guest.food_time_1 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.food_time_2 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if guest.food_time_3 %}
+                                                <div class="col-auto">
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Alert report dropout -->
+
+
+                                    <!-- Alert pickup dropout -->                                
+                                    {% if present and present.pickup %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                        </div>
+                                    {% endif %}
+                                    
+                                </div>
+
+                            </div>
+
+                            <!-- Profile expand options -->
+                            <div class="col-auto">
+                                <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
+                            </div>
+                        </div>
+                        <div class="profil-options-dropout visually-hidden">
+                            <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
+                                {% csrf_token %}
+                                <input type="hidden" name="guest" value="{{ guest.id }}">
+                                <input type="hidden" name="undo_checkout" value="true">
+                                <input type="hidden" name="date" value="{{ selected_date }}">
+                            </form>
+                            <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
+                                Undo Check-Out
+                            </div>
+                            <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
+                                <div class="profil-option text-center p-1 rounded-bottom">
+                                    Open file
+                                </div>
+                            </a>
+
+                            <!-- Modal for undo-check-out confirmation -->
+                            <div class="modal fade" id="undo-checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckoutModal{{ guest.id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="undoCheckoutModalTitle{{ guest.id }}">
+                                            Undo Check-Out {{ guest.first_name }} 
+                                            {% if guest.name_addon %}
+                                                <span>{{ guest.name_addon }}</span>
+                                            {% else %}
+                                                <span><br></span>
+                                            {% endif %}  
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="guest" value="{{ guest.id }}">
+                                                <input type="hidden" name="undo_checkout" value="true">
+                                                <input type="hidden" name="date" value="{{ selected_date }}">
+                                            </form>
+                                            <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkout-form-{{ guest.id }}').submit();">
+                                                Undo Check-Out
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Undo Check-Out</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>             
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+
+
+
+
+    <!-- Render not checked-in guests -->
+    <div id="not-checked-in" class="row pt-4 mx-auto container-fluid list d-none" >
+        <h1>Not Checked-In</h1>
+        {% for guest in guests_not_checked_in %}
+            {% with present=guest.presence_set.first %}
+                <!-- Guest profile -->
+                <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
+                    <div class="profile rounded" id="{{ guest.first_name }}">
+                        <div class="row no-gutters p-1">
+
+                            <!-- Profile image -->    
+                            <div class="col-auto">
+                                <!-- Change to static image path later -->
+                                
+                                {% if guest.image %}
+                                    <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
+                                {% else %}
+                                    <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
+                                {% endif %}
+                            </div>
+
+                            <!-- Profile name & gender -->
+                            <div class="col px-0">
+                                <div class="row">
+                                    <!-- Show name and name_addon -->
+                                    <div class="col-auto">
+                                        <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
+                                        <!-- Show name addon if it exists -->
+                                        {% if guest.name_addon %}
+                                            <span>{{ guest.name_addon }}</span>
+                                        {% else %}
+                                            <span><br></span>
+                                        {% endif %}                                     
+                                    </div>
+                                    <!-- Show gender depending on the database entry -->
+                                    <div class="col px-0">
+                                        {% if guest.get_gender_display == "Male" %}
+                                            <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
+                                        {% elif guest.get_gender_display == "Female" %}
+                                            <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
+                                        {% else %} 
+                                            <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <!-- Profile alerts -->
+                                <div class="row gx-2 checked-out">
+                                    <!-- Alert medication --> 
+                                    {% if guest.medication %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                        </div>
+                                    {% endif %}
+                                    <!-- Alert food --> 
+                                    {% if guest.food %}
+                                        <div class="col-auto text-center">
+                                            <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                        </div>
+                                    {% endif %}
+                                    <!-- Alert report --> 
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                    <!-- Alert pickup --> 
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Profile expand options -->
+                            <div class="col-auto">
+                                <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="profil-options-dropout visually-hidden">
+                            <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
+                                <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Open file</div>
+                            </a>
+                            <div class="profil-check-in text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkin-modal-{{ guest.id }}">
+                                Check-In
+                            </div>
+
+                            <!-- Modal for check-in confirmation -->
+                            <div class="modal fade" id="checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkinModal{{ guest.id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="checkinModalTitle{{ guest.id }}">
+                                            Check-In {{ guest.first_name }} 
+                                            {% if guest.name_addon %}
+                                                <span>{{ guest.name_addon }}</span>
+                                            {% else %}
+                                                <span><br></span>
+                                            {% endif %}  
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="{% url 'home' %}" id="checkin-form-{{ guest.id }}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="guest" value="{{ guest.id }}">
+                                                <input type="hidden" name="checkin" value="true">
+                                                <input type="hidden" name="date" value="{{ selected_date }}">
+                                            </form>
+                                            <div class="profil-check-in text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">
+                                                Check-In
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stop Check-In</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                      
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="guest-tools">
+        <!-- Check-In button -->
+        <div class="row gx-0">
+            <div class="col-2"></div>
+                <div class="col-lg-10 text-center">
+                    <div class="button-box">
+                        <button type="button" class="btn btn-primary btn-90" id="checkin-toggle"><span class="d-none" id="close-checkin">Close </span>Check-In</button>
+                    </div>
+                </div>
+            <div class="col-2"></div>
+        </div>
+
+        <!-- Gender selector footer -->
+        <div class="row text-center bottom-box gx-0">
+            <div class="col-lg-2 d-lg-block"></div>
+            <div class="col-12 col-lg-10 row align-items-center">
+                <div id="female-selector" class="col-5 female-selector">
+                    <span class="fa-solid fa-venus fa-2x icon-fa"></span>
+                </div>
+                <div id="all-selector" class="col-2 all-selector selected-selector">
+                    <span class=""><strong>All</strong></span>
+                    <br>
+                    (Guests today: {{ todays_guest_count }})
+                </div>
+                <div id="male-selector" class="col-5 male-selector">
+                    <span class="fa-solid fa-mars fa-2x icon-fa"></span>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    {% endif %}
 
 {% endblock content %}

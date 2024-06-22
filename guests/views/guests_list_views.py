@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
-from ..models import Presence, Guest
-from ..forms import CheckInGuest, CheckOutGuest
 from datetime import datetime
 from django.utils import timezone
+from django.contrib import messages
+from ..models import Presence, Guest
+from ..forms import CheckInGuest, CheckOutGuest
+
 
 # View function for guest list
 def guests_list_view(request):
@@ -66,6 +68,7 @@ def guests_list_view(request):
             check_in = CheckInGuest(request.POST)
             if check_in.is_valid():
                 guest = check_in.cleaned_data['guest']
+                guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
                 checkin_time = timezone.now().time()
 
                 # Check if the guest is already checked at the selected date
@@ -75,12 +78,32 @@ def guests_list_view(request):
                     defaults={'check_in': checkin_time}
                 )
 
-                # If the guest is not checked at the selected date, check them in
-                if not created and presence.check_in is None:
+                # If the guest is not checked in at the selected date, check them in
+                if created:
+                    messages.add_message(
+                        request, messages.SUCCESS,
+                        f'Check-In for {guest_name} was successful.'
+                    )
+                elif presence.check_in is None:
                     presence.check_in = checkin_time
                     presence.save()
+                    messages.add_message(
+                        request, messages.SUCCESS,
+                        f'Check-In for {guest_name} was successful.'
+                    )
+                else:
+                    messages.add_message(
+                        request, messages.ERROR,
+                        'Check-In failed: {guest_name} is already checked in or presence already exists.'
+                    )
 
                 return redirect(f"{request.path}?date={selected_date}")
+            else:
+                messages.add_message(
+                    request, messages.ERROR,
+                    'Check-In form is not valid.'
+                )
+
 
         # Check-Out
         # If the check-out button is clicked, create a form for checking out guests
@@ -88,6 +111,7 @@ def guests_list_view(request):
             check_out = CheckOutGuest(request.POST)
             if check_out.is_valid():
                 guest = check_out.cleaned_data['guest']
+                guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
                 checkout_time = timezone.now().time()
 
                 # Check if the guest is already checked out at the selected date
@@ -97,21 +121,54 @@ def guests_list_view(request):
                 ).first()
                             
                 # If the guest is checked in at the selected date, check them out
-                if presence and presence.check_out is None:
-                    presence.check_out = checkout_time
-                    presence.save()
+                if presence:
+                    if presence.check_in is not None and presence.check_out is None:
+                        presence.check_out = checkout_time
+                        presence.save()
+                        messages.add_message(
+                            request, messages.SUCCESS,
+                            f'Check-Out for {guest_name} was successful.'
+                        )
+                    else:
+                        messages.add_message(
+                            request, messages.ERROR,
+                            f'Check-Out failed: {guest_name} is not checked in or already checked out.'
+                        )
+                else:
+                    messages.add_message(
+                        request, messages.ERROR,
+                        f'Check-Out failed: presence for {guest_name}record does not exist.'
+                    )
 
                 return redirect(f"{request.path}?date={selected_date}")
-
+            else:
+                messages.add_message(
+                    request, messages.ERROR,
+                    'Check-Out form is not valid.'
+                )
+        
         
         # Undo Check-In
         # If the undo check-in button is clicked, delete the presence to undo the check-in
         elif 'undo_checkin' in request.POST:
             guest_id = request.POST.get('guest')
+            presence = Presence.objects.filter(guest_id=guest_id, date=date).first()
+            if presence and presence.check_in is not None:
+                guest = presence.guest
+                guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"  
+                presence.delete()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    f'Check-In for {guest_name} was undone successfully.'
+                )
+            else:
+                messages.add_message(
+                    request, messages.ERROR,
+                    f'Undo Check-In failed: no check-in record found for {guest_name}.'
+                )
 
-            Presence.objects.filter(guest_id=guest_id, date=date).delete()
-                
             return redirect(f"{request.path}?date={selected_date}")
+
 
         # Undo Check-Out
         # If the undo check-out button is clicked, set the check-out time to None
@@ -121,12 +178,26 @@ def guests_list_view(request):
             # Find the presence for the guest at the selected date
             presence = Presence.objects.filter(guest_id=guest_id, date=date).first()
             
+            
+            
             # If the guest is checked out, set the check-out time to None to undo the check-out
             if presence and presence.check_out is not None:
+                guest = presence.guest
+                guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"              
                 presence.check_out = None
                 presence.save()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    f'Check-Out for {guest_name} was undone successfully.'
+                )
+            else:
+                messages.add_message(
+                    request, messages.ERROR,
+                    f'Undo Check-Out failed: no check-out record found for {guest_name}.'
+                )
 
-                return redirect(f"{request.path}?date={selected_date}")
+            return redirect(f"{request.path}?date={selected_date}")
+    
     
     # Get the total number of guests checked in and checked out today    
     todays_guest_count = len(guests_checked_in) + len(guests_checked_out)

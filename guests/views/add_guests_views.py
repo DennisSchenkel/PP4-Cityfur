@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+
 from ..models import Guest
 from ..forms import AddGuest
 
@@ -10,6 +12,10 @@ def add_guest_view(request):
         form = AddGuest(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Profile has been added successfully.'
+                )
             return HttpResponseRedirect('/')
         
     else:
@@ -25,6 +31,10 @@ def update_guest_view(request, id):
         form = AddGuest(request.POST, request.FILES, instance=guest)
         if form.is_valid():
             form.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Profile has been updated successfully.'
+                )
             return HttpResponseRedirect('/')
         
     else:
