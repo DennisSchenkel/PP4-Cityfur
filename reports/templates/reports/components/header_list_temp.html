@@ -1,5 +1,5 @@
 {% load static %}
-<script src="{% static 'js/guest_search.js' %}"></script>
+
 
 {% block header_nav %}
 
@@ -18,18 +18,15 @@
     <!-- Date selector -->
     <div class="col-6 col-md-4 text-center">
         {% block date_selector %}
-            {% include "guests/components/date_picker_guests.html" %}
+            {% include "reports/components/date_picker_reports.html" %}
         {% endblock date_selector %}
     </div>
 
     <!-- Header right column -->
     <!-- Search icon -->
     <div class="col-4 d-none d-lg-block text-center">
-        <input placeholder="Search" id="search"></input>
-        <span class="fa-solid fa-search fa-xl icon-fa"></span>
     </div>
     <div class="col-3 d-lg-none text-center">
-        <span class="fa-solid fa-search fa-xl icon-fa"></span>
     </div>
 </nav>
 

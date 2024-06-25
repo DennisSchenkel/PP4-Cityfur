@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    {% block header_nav %}
+        {% include "reports/components/header_list_temp.html" %}
+    {% endblock header_nav %}
+
+    <div>
+        <h1>Reports list</h1>
+        <h2 class="date-selection"></h2>
+        {% if reports_list|length > 0  %}
+
+
+            {% for report in reports_list %}
+            <h2>{{ forloop.counter }}</h2>
+            <p>Report text: {{report.report_text}}</p>
+            {% endfor %}
+
+        {% else %}
+            <p>No reports for this date found found</p>
+        {% endif %}
+    </div>
+
+    <!-- Import of JS for getting date from datepicker -->
+    <script src="{% static 'js/get_date.js' %}"></script>
+
+
+{% endblock content %}

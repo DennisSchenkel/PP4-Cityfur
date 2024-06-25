@@ -7,9 +7,6 @@
 
     {% if user.is_authenticated %}
 
-    <!-- Import of JS for guest list -->
-    <script src="{% static 'js/guest_list.js' %}"></script>
-
     <!-- Header -->
     <header>
         {% block header_nav %}
@@ -32,6 +29,8 @@
         </div>
         </div>
     </div>
+
+    <h2 class="date-selection"></h2>
 
     <!-- Render checked-in guests -->
     <div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
@@ -627,5 +626,10 @@
     </div>
 
     {% endif %}
+
+    <!-- Import of JS for guest list -->
+    <script src="{% static 'js/guest_list.js' %}"></script>
+    <!-- Import of JS for getting date from datepicker -->
+    <script src="{% static 'js/get_date.js' %}"></script>
 
 {% endblock content %}

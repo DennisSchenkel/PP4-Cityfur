@@ -7,6 +7,11 @@ Technologies and services used
 - Heroku
 - Cloudinary
 
+
+Plugins used
+- bootstrap_datepicker_plus
+
+
 Steps of development:
 - Starting with a basic html and css layout
 - Adding the core functionality of guest checkin and checkout.

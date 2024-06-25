@@ -44,7 +44,7 @@ $('.datepicker').datepicker({
     autoclose: true
 }).on('changeDate', function() {
     const selectedDate = $(this).val();
-    window.location.href = '/?date=' + selectedDate;
+    window.location.href = '/reports/?date=' + selectedDate;
 });
 
 

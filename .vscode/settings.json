@@ -42,5 +42,8 @@
       }
    ],
    "python.analysis.autoImportCompletions": true,
-   "markdown.preview.fontSize": 12
+   "markdown.preview.fontSize": 12,
+   "[python]": {
+      "editor.defaultFormatter": "mikoz.black-py"
+   }
 }

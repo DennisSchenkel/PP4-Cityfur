@@ -29,7 +29,7 @@ body {
 }
 
 .side-nav {
-    width: 140px;
+    width: 150px;
 }
 
 .icon-width {
@@ -42,7 +42,7 @@ body {
 
 .secondary-nav-item {
     padding-left: 20px;
-    font-size: medium;
+    font-size: 0.8em;
 }
 
 /* Header menu */

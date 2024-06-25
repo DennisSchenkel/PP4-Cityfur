@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+
 if os.path.isfile("env.py"):
     import env
-    
+
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
@@ -31,7 +32,7 @@ DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    ".herokuapp.com",    
+    ".herokuapp.com",
 ]
 
 # Logging configuration
@@ -64,18 +65,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_summernote",
-
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-
     # Apps
     "guests",
     "reports",
-    
-    #Other
+    # Other
     "bootstrap5",
-    "bootstrap_datepicker_plus", # Adding better looking 
+    "bootstrap_datepicker_plus",  # Adding better looking
     "whitenoise.runserver_nostatic",
     "cloudinary",
     "cloudinary_storage",
@@ -93,9 +91,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "allauth.account.middleware.AccountMiddleware"
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "PP4_Cityfur.urls"
@@ -138,10 +135,7 @@ DATABASES = {
 }
 
 # Authorised origin for requests
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
-    "https://*.herokuapp.com"
-]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8000", "https://*.herokuapp.com"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -180,7 +174,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Settings for image upload
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"

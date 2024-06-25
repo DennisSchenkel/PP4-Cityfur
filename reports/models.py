@@ -1,10 +1,10 @@
 from django.db import models
 
-# Create your models here.
-class Reports(models.Model):
+# Create your models for report
+class Report(models.Model):
     id = models.AutoField(primary_key=True)
-    report_date = models.DateField(auto_now_add=True)
-    report_text = models.TextField()
+    report_date = models.DateField(null=False)
+    report_text = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     

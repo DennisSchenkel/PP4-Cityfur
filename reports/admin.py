@@ -1,7 +1,10 @@
 from django.contrib import admin
-from .models import Reports  # Import of the models Reports from the models.py file
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Report  # Import of the models Reports from the models.py file
 
 
-# Register your models here.
-admin.site.register(Reports)
+@admin.register(Report)
+class CustomAdmin(SummernoteModelAdmin):
+    
+    list_display = ("report_date", "report_text", "created_on", "id")
+ 
