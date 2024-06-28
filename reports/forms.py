@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.safestring import mark_safe
-from bootstrap_datepicker_plus.widgets import TimePickerInput
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 from .models import Report
 
 
@@ -27,7 +27,7 @@ class AddReport(forms.ModelForm):
         }
 
         widgets = {
-            "report_date": forms.DateInput(attrs={"class": "form-control"}),
+            "report_date": DatePickerInput(attrs={"class": "form-control"}),
             "report_text": forms.TextInput(attrs={"class": "form-control"}),
         }
 

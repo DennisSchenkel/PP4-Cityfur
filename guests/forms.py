@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.safestring import mark_safe
-from bootstrap_datepicker_plus.widgets import TimePickerInput
+from bootstrap_datepicker_plus.widgets import TimePickerInput, DatePickerInput
 from .models import Guest, Presence
 
 
@@ -78,7 +78,7 @@ class AddGuest(forms.ModelForm):
             "name_addon": forms.TextInput(attrs={"class": "form-control"}),
             "gender": forms.Select(attrs={"class": "form-control"}),
             "image": ImagePreviewWidget(attrs={"class": "form-control"}),
-            "date_of_birth": forms.DateInput(attrs={"class": "form-control"}),
+            "date_of_birth": DatePickerInput(attrs={"class": "form-control"}),
             "information": forms.Textarea(attrs={"class": "form-control"}),
             "food": forms.SelectMultiple(attrs={"class": "form-control"}),
             "food_time_1": TimePickerInput(attrs={"class": "form-control"}),
