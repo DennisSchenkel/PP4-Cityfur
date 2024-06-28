@@ -17,6 +17,11 @@
             {% for report in reports_list %}
             <h2>{{ forloop.counter }}</h2>
             <p>Report text: {{report.report_text}}</p>
+                {% for guest in report.guests.all %}
+                    <li>
+                        {{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}
+                    </li>
+                {% endfor %}
             {% endfor %}
 
         {% else %}

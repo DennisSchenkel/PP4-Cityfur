@@ -194,6 +194,22 @@ body {
     display: none;
 }
 
+
+/* Add Guest Form */
+
+
+
+/* Add Report Form */
+.guest-check-list{
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #797979; 
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+
 @media (max-width: 991px) {
     #sidebar-menu {
         position:absolute;

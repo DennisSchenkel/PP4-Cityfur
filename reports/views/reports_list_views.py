@@ -20,8 +20,7 @@ def reports_list_view(request):
     
     
     
-    queryset = Report.objects.filter(
-        report_date=date)
+    queryset = Report.objects.filter(report_date=date)
     reports_list = queryset
     
     context = {'reports_list': reports_list,}

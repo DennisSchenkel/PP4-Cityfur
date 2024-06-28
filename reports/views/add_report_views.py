@@ -17,7 +17,7 @@ def add_report_view(request):
     """
 
     if request.method == "POST":
-        form = AddReport(request.POST, request.FILES)
+        form = AddReport(request.POST)
         if form.is_valid():
             form.save()
             report = form.save()
