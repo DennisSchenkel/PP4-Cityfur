@@ -1,3 +1,4 @@
+import re
 from django import forms
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 from .models import Report
@@ -18,7 +19,8 @@ class AddReport(forms.ModelForm):
     guests = forms.ModelMultipleChoiceField(
         queryset=Guest.objects.all(),
         widget=forms.CheckboxSelectMultiple(attrs={"class": "guest-check-list"}),
-        label="Guests mentioned in the report"
+        label="Guests mentioned in the report",
+        required=False
     )
 
 

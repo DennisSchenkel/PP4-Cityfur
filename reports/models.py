@@ -8,7 +8,7 @@ class Report(models.Model):
     report_text = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    guests = models.ManyToManyField(Guest, related_name='reports')
+    guests = models.ManyToManyField(Guest, related_name='reports', null=True, blank=True)
 
     
     class Meta:
