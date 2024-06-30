@@ -41,7 +41,7 @@ body {
 }
 
 .secondary-nav-item {
-    padding-left: 20px;
+    padding-left: 35px;
     font-size: 0.8em;
 }
 
@@ -50,6 +50,22 @@ body {
     background-color: #EDEDED;
     align-content: center;
     height: 65px;
+}
+
+.menu-bubble {
+    background-color: #202958;
+    color: white;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    line-height: 30px;
+    position: fixed;
+    z-index: 10;
+    top: 30px;
+    right: 30px;
+    display: grid;
+	align-items: center;
 }
 
 /* Datepicker */
@@ -103,6 +119,20 @@ body {
 .icon-fa {
     vertical-align: middle;
 }
+
+.alert-box {
+    background-color: #ffffff;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #0d6efd;
+    height: 56px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.alert-box-btn {
+    padding: 1rem;
+}   
 
 /* Profile */
 .profile {

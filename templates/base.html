@@ -53,29 +53,31 @@
                 <div class="d-lg-none" id="closeSidebar"><span class="fa-solid fa-xmark fa-lg icon-fa icon-width"></span>Close Nav</div>
                 <div class="row justify-content-center">    
                     <nav class="side-nav">
-                        <ul class="nav flex-column">
-                            <a href="/">
-                                <li>
-                                    <span class="fa-solid fa-dog fa-lg icon-fa icon-width"></span>Guest</a>
-                                    <ul class="nav flex-column">
-                                        <a href="/guests/add_guest/"><li class="secondary-nav-item">Add Guest</li></a>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="/reports/"><span class="fa-solid fa-pen fa-lg icon-fa icon-width"></span>Reports</a>
-                                    <ul class="nav flex-column">
-                                        <a href="/reports/add_report/"><li class="secondary-nav-item">Add Report</li></a>
-                                    </ul>
-                                </li>
+                        <ul class="nav flex-column">                          
+                            <li class="primary-nav-item mb-3">
+                                <a href="/">
+                                    <span class="fa-solid fa-dog fa-lg icon-fa icon-width"></span>Guest
+                                </a>
+                                <ul class="nav flex-column">
+                                    <a href="/guests/add_guest/"><li class="secondary-nav-item">Add Guest</li></a>
+                                </ul>
+                            </li>
+                            <li class="primary-nav-item">
+                                <a href="/reports/">
+                                    <span class="fa-solid fa-pen fa-lg icon-fa icon-width"></span>Reports
+                                </a>
+                                <ul class="nav flex-column">
+                                    <a href="/reports/add_report/"><li class="secondary-nav-item">Add Report</li></a>
+                                </ul>
+                            </li>
 
-                                {% if user.is_authenticated %}
-                                    <li class="pt-4">
-                                        <a class="{% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">
-                                            <span class="fa-solid fa-right-from-bracket fa-lg icon-fa icon-width"></span>Logout
-                                        </a>
-                                    </li>
-                                {% endif %}
-
+                            {% if user.is_authenticated %}
+                                <li class="pt-4">
+                                    <a class="{% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">
+                                        <span class="fa-solid fa-right-from-bracket fa-lg icon-fa icon-width"></span>Logout
+                                    </a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </nav>
                 </div>
@@ -88,7 +90,7 @@
             <div class="col-lg-10 main-content d-flex flex-column">
 
                 <!-- Main -->
-                <main>
+                <main class="pb-3">
                     {% block content %}
                     <!-- Content goes here -->
                     {% endblock content %}
