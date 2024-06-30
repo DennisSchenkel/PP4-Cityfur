@@ -15,7 +15,7 @@
             {{ form.media }}
 
             <div class="form-group">
-                <h1>Update guest</h1>
+                <h1>Update report</h1>
                 <br>
                 <form action="" method=POST enctype="multipart/form-data">
                     {% csrf_token %}
@@ -23,7 +23,7 @@
 
                     <div class="pt-3">
                         <input type="submit" value="Update" class="btn btn-primary btn-lg active">
-                        <a class="btn btn-primary btn-lg active" role="button"  href="/guests/{{ guest.slug }}/">
+                        <a class="btn btn-primary btn-lg active" role="button"  href="/">
                             Cancel
                         </a>
                     </div>
@@ -46,7 +46,7 @@
             {% endif %}
 
         {% endif %}
-
+        
     </div>
 
 {% endblock content %}

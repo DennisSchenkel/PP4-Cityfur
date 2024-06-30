@@ -8,7 +8,7 @@
         {% include "reports/components/header_list_temp.html" %}
     {% endblock header_nav %}
 
-    <div class="row pt-4 mx-auto container-fluid list">
+    <div class="row pt-4 mx-auto container-fluid">
         <h1>Reports list</h1>
         {% if reports_list|length > 0  %}
             {% for report in reports_list %}
@@ -33,6 +33,12 @@
                             </div>
                             {% endif %}
                         </div>
+                    
+                        <div class="m-2 text-end">
+                            <span>Edit</span>
+                             | 
+                            <span>Delete</span>
+                        </div>    
                     </div>
                 </div>
             {% endfor %}

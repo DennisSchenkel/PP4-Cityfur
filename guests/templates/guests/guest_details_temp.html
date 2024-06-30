@@ -13,7 +13,7 @@
         </header>
 
 
-        <div class="row p-4  mx-auto container-fluid">
+        <div class="row p-4 mx-auto container-fluid">
 
             <div class="col-4">
                 {% if guest.image %}
@@ -54,7 +54,7 @@
                         {{ guest.customer_id.last_name }}<br />
                         {{ guest.customer_id.phone }}<br />
                         {{ guest.customer_id.information }}<br />
-                        <span>Go to customer profil</span>
+                        <span>Go to customer profile</span>
                     </div>
             </div>
             <div class="pt-3">
@@ -95,7 +95,7 @@
                         <form method="POST" action="{% url 'guest_details_temp' guest.slug %}" id="delete-form-{{ guest.id }}">
                             {% csrf_token %}
                             <input type="hidden" name="delete" value="true">
-                            <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('delete-form-{{ guest.id }}').submit();">
+                            <div class="profile-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('delete-form-{{ guest.id }}').submit();">
                                 Delete profile
                             </div>
                         </form>

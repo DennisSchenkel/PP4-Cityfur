@@ -165,22 +165,22 @@
                                     <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
                                 </div>
                             </div>
-                            <div class="profil-options-dropout visually-hidden">
-                                <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
+                            <div class="profile-options-dropout visually-hidden">
+                                <div class="profile-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
                                     Undo Check-In
                                 </div>
                                 <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
-                                    <div class="profil-option text-center p-1 border-dark border-bottom">
+                                    <div class="profile-option text-center p-1 border-dark border-bottom">
                                         Open file
                                     </div>
                                 </a>
                                 <a href="" class="text-decoration-none">
-                                    <div class="profil-report text-center p-1 border-dark border-bottom">
+                                    <div class="profile-report text-center p-1 border-dark border-bottom">
                                         Read report
                                     </div>
                                 </a>
                                 
-                                <div class="profil-check-out text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
+                                <div class="profile-check-out text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
                                     Check-Out
                                 </div>
 
@@ -208,7 +208,7 @@
                                                     <input type="hidden" name="undo_checkin" value="true">
                                                     <input type="hidden" name="date" value="{{ selected_date }}">
                                                 </form>
-                                                <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkin-form-{{ guest.id }}').submit();">
+                                                <div class="profile-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkin-form-{{ guest.id }}').submit();">
                                                     Undo Check-In
                                                 </div>
                                             </div>
@@ -243,7 +243,7 @@
                                                     <input type="hidden" name="checkout" value="true">
                                                     <input type="hidden" name="date" value="{{ selected_date }}">
                                                 </form>
-                                                <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkout-form-{{ guest.id }}').submit();">
+                                                <div class="profile-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkout-form-{{ guest.id }}').submit();">
                                                     Check-Out
                                                 </div>
                                             </div>
@@ -397,18 +397,18 @@
                                     <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
                                 </div>
                             </div>
-                            <div class="profil-options-dropout visually-hidden">
+                            <div class="profile-options-dropout visually-hidden">
                                 <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
                                     {% csrf_token %}
                                     <input type="hidden" name="guest" value="{{ guest.id }}">
                                     <input type="hidden" name="undo_checkout" value="true">
                                     <input type="hidden" name="date" value="{{ selected_date }}">
                                 </form>
-                                <div class="profil-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
+                                <div class="profile-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
                                     Undo Check-Out
                                 </div>
                                 <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
-                                    <div class="profil-option text-center p-1 rounded-bottom">
+                                    <div class="profile-option text-center p-1 rounded-bottom">
                                         Open file
                                     </div>
                                 </a>
@@ -437,7 +437,7 @@
                                                     <input type="hidden" name="undo_checkout" value="true">
                                                     <input type="hidden" name="date" value="{{ selected_date }}">
                                                 </form>
-                                                <div class="profil-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkout-form-{{ guest.id }}').submit();">
+                                                <div class="profile-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('undo-checkout-form-{{ guest.id }}').submit();">
                                                     Undo Check-Out
                                                 </div>
                                             </div>
@@ -533,11 +533,11 @@
                             </div>
                         </div>
                         
-                        <div class="profil-options-dropout visually-hidden">
+                        <div class="profile-options-dropout visually-hidden">
                             <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
-                                <div class="profil-option text-center p-1 border-dark border-bottom mt-1">Open file</div>
+                                <div class="profile-option text-center p-1 border-dark border-bottom mt-1">Open file</div>
                             </a>
-                            <div class="profil-check-in text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkin-modal-{{ guest.id }}">
+                            <div class="profile-check-in text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkin-modal-{{ guest.id }}">
                                 Check-In
                             </div>
 
@@ -565,7 +565,7 @@
                                                 <input type="hidden" name="checkin" value="true">
                                                 <input type="hidden" name="date" value="{{ selected_date }}">
                                             </form>
-                                            <div class="profil-check-in text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">
+                                            <div class="profile-check-in text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">
                                                 Check-In
                                             </div>
                                         </div>

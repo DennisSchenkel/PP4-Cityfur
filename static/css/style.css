@@ -139,48 +139,48 @@ body {
     background-color: white;
 }
 
-.profil-option {
+.profile-option {
     background-color: #a8a8a8;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-option:hover {
+.profile-option:hover {
     background-color: #797979;
     color: white;
 }
 
-.profil-report {
+.profile-report {
     background-color: #0d6efd;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-report:hover {
+.profile-report:hover {
     background-color: #064fbd;
     color: white;
 }
 
 
 
-.profil-check-out {
+.profile-check-out {
     background-color: #db4545;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-check-out:hover {
+.profile-check-out:hover {
     background-color: #af3131;
     color: white;
 }
 
-.profil-check-in {
+.profile-check-in {
     background-color: #0d6efd;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-check-in:hover {
+.profile-check-in:hover {
     background-color: #0d52b9;
     color: white;
 }
@@ -233,6 +233,20 @@ body {
     border: 1px solid #797979;
     border-radius: 5px;
     color: black;
+}
+
+.edit-report-btn {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.delete-report-btn {
+    background-color: #db4545;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 

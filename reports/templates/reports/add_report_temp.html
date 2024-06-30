@@ -4,49 +4,49 @@
 
 {% block content %}
 
-<div class="menu-bubble d-lg-none" id="sidebarToggle">
-    <span class="fa-solid fa-bars fa-2x icon-fa" ></span>
-</div>
+    <div class="menu-bubble d-lg-none" id="sidebarToggle">
+        <span class="fa-solid fa-bars fa-2x icon-fa" ></span>
+    </div>
 
-<div class="row pt-4 mx-auto">
+    <div class="row pt-4 mx-auto container-fluid">
 
-    {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
 
-        {{ form.media }}
+            {{ form.media }}
 
-        <div class="form-group">
-            <h1>Add report</h1>
-            <br>
-            <form action="" method=POST enctype="multipart/form-data">
-                {% csrf_token %}
-                {% bootstrap_form form %}               
+            <div class="form-group">
+                <h1>Add report</h1>
+                <br>
+                <form action="" method=POST enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}               
 
-                <div class="px-3">
-                    <input type="submit" value="Add" class="btn btn-primary btn-lg active">
-                    <a class="btn btn-primary btn-lg active" role="button"  href="/">
-                        Cancel
-                    </a>
-                </div>
-            </form>
-        </div>
+                    <div class="px-3">
+                        <input type="submit" value="Add" class="btn btn-primary btn-lg active">
+                        <a class="btn btn-primary btn-lg active" role="button"  href="/">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
 
-        {% if form.errors %}
-        <div class="alert alert-danger">
-            <ul>
-                {% for field in form %}
-                    {% for error in field.errors %}
-                        <li>{{ field.label }}: {{ error }}</li>
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-                {% for error in form.non_field_errors %}
-                    <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
         {% endif %}
 
-    {% endif %}
-
-</div>
+    </div>
 
 {% endblock content %}
