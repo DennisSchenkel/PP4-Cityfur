@@ -30,18 +30,11 @@
         </div>
     </div>
 
-    <h2 class="date-selection"></h2>
+
 
     <!-- Render checked-in guests -->
     <div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
         <h1>Checked-In</h1>
-        <br>
-        {% block gender_selection %}
-            <span id="count-checked-in" class="count-checked-in">
-                
-            </span>
-        {% endblock %}
-
         {% for guest in guests_checked_in %}
             {% with present=presences|get_item:guest.id %}
                 <!-- Guest profile -->

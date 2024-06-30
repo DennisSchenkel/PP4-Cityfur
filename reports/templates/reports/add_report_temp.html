@@ -4,17 +4,20 @@
 
 {% block content %}
 
+<div class="row pt-4 mx-auto">
+
     {% if user.is_authenticated %}
 
         {{ form.media }}
 
         <div class="form-group">
-            Add guest
+            <h1>Add report</h1>
+            <br>
             <form action="" method=POST enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}               
 
-                <div class="pt-3">
+                <div class="px-3">
                     <input type="submit" value="Add" class="btn btn-primary btn-lg active">
                     <a class="btn btn-primary btn-lg active" role="button"  href="/">
                         Cancel
@@ -39,5 +42,7 @@
         {% endif %}
 
     {% endif %}
+
+</div>
 
 {% endblock content %}

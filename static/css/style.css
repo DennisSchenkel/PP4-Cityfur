@@ -90,8 +90,6 @@ body {
     height: 130px;
 }   
 
-
-
 .img-prev-md {
     width: 150px;
     height: 150px;
@@ -197,6 +195,15 @@ body {
 
 /* Add Guest Form */
 
+
+
+/* Reports */
+.report-guest {
+    background-color: #D9D9D9;
+    border: 1px solid #797979;
+    border-radius: 5px;
+    color: black;
+}
 
 
 /* Add Report Form */

@@ -19,7 +19,7 @@ class AddReport(forms.ModelForm):
     guests = forms.ModelMultipleChoiceField(
         queryset=Guest.objects.all(),
         widget=forms.CheckboxSelectMultiple(attrs={"class": "guest-check-list"}),
-        label="Guests mentioned in the report",
+        label="Guests to mention in the report",
         required=False
     )
 
@@ -32,8 +32,8 @@ class AddReport(forms.ModelForm):
             "guests",
         )
         labels = {
-            "report_date": "Date",
-            "report_text": "Report",
+            "report_date": "Select date",
+            "report_text": "Keep your report short and sweet",
         }
 
         widgets = {

@@ -8,20 +8,33 @@
         {% include "reports/components/header_list_temp.html" %}
     {% endblock header_nav %}
 
-    <div>
+    <div class="row pt-4 mx-auto container-fluid list">
         <h1>Reports list</h1>
-        <h2 class="date-selection"></h2>
         {% if reports_list|length > 0  %}
-
-
             {% for report in reports_list %}
-            <h2>{{ forloop.counter }}</h2>
-            <p>Report text: {{report.report_text}}</p>
-                {% for guest in report.guests.all %}
-                    <li>
-                        {{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}
-                    </li>
-                {% endfor %}
+
+                <div class="col-12 col-md-6 my-2 list-item">
+                    <div class="profile rounded">
+                        <div class="row p-2">
+                            <div class="mb-2">
+                                <b>{{report.report_date}}</b>
+                                <br>
+                                {{report.report_text}}
+                            </div>
+                            {% if report.guests.all|length > 0 %}
+                            <div>
+                                <b>Guests:</b>
+                                <br>
+                                {% for guest in report.guests.all %}
+                                    <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">    
+                                        <span class="report-guest p-1">{{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}</span>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
 
         {% else %}
@@ -31,6 +44,5 @@
 
     <!-- Import of JS for getting date from datepicker -->
     <script src="{% static 'js/get_date.js' %}"></script>
-
 
 {% endblock content %}

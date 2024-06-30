@@ -5,7 +5,7 @@ from guests.models import Guest
 class Report(models.Model):
     id = models.AutoField(primary_key=True)
     report_date = models.DateField(null=False)
-    report_text = models.TextField(max_length=200)
+    report_text = models.TextField(max_length=300)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     guests = models.ManyToManyField(Guest, related_name='reports', null=True, blank=True)
