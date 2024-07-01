@@ -8,6 +8,20 @@
         {% include "reports/components/header_list_temp.html" %}
     {% endblock header_nav %}
 
+    <!-- Displaying django messages -->
+    <div class="container">
+        <div class="row">
+        <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+                <div class="alert alert-dismissible fade show alert-box" id="msg" role="alert">
+                    <div class="my-1">{{ message | safe }}</div>
+                    <button type="button" class="btn-close alert-box-btn" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
     <div class="row pt-4 mx-auto container-fluid">
         <h1>Reports list</h1>
         {% if reports_list|length > 0  %}
@@ -26,7 +40,7 @@
                                 <b>Guests:</b>
                                 <br>
                                 {% for guest in report.guests.all %}
-                                    <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">    
+                                    <a href="{% url 'guest_details_temp' guest.slug %}" class="text-decoration-none">    
                                         <span class="report-guest p-1">{{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}</span>
                                     </a>
                                 {% endfor %}
@@ -35,9 +49,9 @@
                         </div>
                     
                         <div class="m-2 text-end">
-                            <span>Edit</span>
-                             | 
-                            <span>Delete</span>
+                            <a  href="{% url 'report_details_temp' report.id %}" class="report-link">
+                                <span>Report details</span>
+                            </a>
                         </div>    
                     </div>
                 </div>

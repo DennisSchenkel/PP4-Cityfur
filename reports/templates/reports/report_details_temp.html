@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <!-- Header -->
+        <header>
+            {% block header_nav %}
+                {% include "reports/components/header_list_temp.html" %}
+            {% endblock header_nav %}
+        </header>
+
+        <div class="row p-4 mx-auto container-fluid">
+
+            <div class="profile rounded p-3">
+                <div class="col px-0">
+                    <div class="row">
+                        <!-- Show report date and text -->
+                        <div class="col-auto">
+                            <h3 class="mb-0">Report for {{ report.report_date }}</h3>
+                            <p>{{ report.report_text }}</p>                                    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-3">
+                    <h5>Guests Mentioned:</h5>
+                    {% for guest in report.guests.all %}
+                        <a href="{% url 'guest_details_temp' guest.slug %}" class="text-decoration-none">    
+                            <span class="report-guest p-1">{{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+
+                <div class="pt-3">
+                    <a class="btn btn-primary btn-lg active" role="button" href="/reports/update_report/{{ report.id }}">
+                        Edit Report
+                    </a>
+                </div>
+                <div class="pt-3">
+                    <a class="btn btn-danger btn-lg active modal-trigger" role="button" data-toggle="modal" data-target="#delete-modal-{{ report.id }}">
+                        Delete Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for confirmation to delete report -->
+        <div class="modal fade" id="delete-modal-{{ report.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ report.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="DeleteModalTitle{{ report.id }}">
+                            Delete Report of {{ report.report_date }}
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="{% url 'report_details_temp' report.id %}" id="delete-form-{{ report.id }}">
+                            {% csrf_token %}
+                            <input type="hidden" name="delete" value="true">
+                            <div class="profile-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('delete-form-{{ report.id }}').submit();">
+                                Delete Report
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock content %}

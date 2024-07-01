@@ -235,17 +235,8 @@ body {
     color: black;
 }
 
-.edit-report-btn {
-    background-color: #0d6efd;
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.delete-report-btn {
-    background-color: #db4545;
-    color: white;
-    font-weight: 700;
+.report-link {
+    color: #000000;
     text-decoration: none;
 }
 

@@ -29,7 +29,7 @@ body {
 }
 
 .side-nav {
-    width: 140px;
+    width: 150px;
 }
 
 .icon-width {
@@ -41,8 +41,8 @@ body {
 }
 
 .secondary-nav-item {
-    padding-left: 16px;
-    font-size: medium;
+    padding-left: 35px;
+    font-size: 0.8em;
 }
 
 /* Header menu */
@@ -50,6 +50,22 @@ body {
     background-color: #EDEDED;
     align-content: center;
     height: 65px;
+}
+
+.menu-bubble {
+    background-color: #202958;
+    color: white;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    line-height: 30px;
+    position: fixed;
+    z-index: 10;
+    top: 30px;
+    right: 30px;
+    display: grid;
+	align-items: center;
 }
 
 /* Datepicker */
@@ -90,8 +106,6 @@ body {
     height: 130px;
 }   
 
-
-
 .img-prev-md {
     width: 150px;
     height: 150px;
@@ -106,53 +120,67 @@ body {
     vertical-align: middle;
 }
 
+.alert-box {
+    background-color: #ffffff;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #0d6efd;
+    height: 56px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.alert-box-btn {
+    padding: 1rem;
+}   
+
 /* Profile */
 .profile {
     background-color: white;
 }
 
-.profil-option {
+.profile-option {
     background-color: #a8a8a8;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-option:hover {
+.profile-option:hover {
     background-color: #797979;
     color: white;
 }
 
-.profil-report {
+.profile-report {
     background-color: #0d6efd;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-report:hover {
+.profile-report:hover {
     background-color: #064fbd;
     color: white;
 }
 
 
 
-.profil-check-out {
+.profile-check-out {
     background-color: #db4545;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-check-out:hover {
+.profile-check-out:hover {
     background-color: #af3131;
     color: white;
 }
 
-.profil-check-in {
+.profile-check-in {
     background-color: #0d6efd;
     color: white;
     font-weight: 700;
     text-decoration: none;
 }
-.profil-check-in:hover {
+.profile-check-in:hover {
     background-color: #0d52b9;
     color: white;
 }
@@ -193,6 +221,36 @@ body {
 .visually-hidden {
     display: none;
 }
+
+
+/* Add Guest Form */
+
+
+
+/* Reports */
+.report-guest {
+    background-color: #D9D9D9;
+    border: 1px solid #797979;
+    border-radius: 5px;
+    color: black;
+}
+
+.report-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+
+/* Add Report Form */
+.guest-check-list{
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #797979; 
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
 
 @media (max-width: 991px) {
     #sidebar-menu {

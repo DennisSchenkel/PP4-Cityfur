@@ -2,6 +2,7 @@
 $(document).ready(function() {
     $('#sidebarToggle').click(function() {
         $('#sidebar-menu').removeClass('d-none');
+        $('#sidebarToggle').addClass('d-none');
     });
 });
 
@@ -9,5 +10,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#closeSidebar').click(function() {
         $('#sidebar-menu').addClass('d-none');
+        $('#sidebarToggle').removeClass('d-none');
     });
 });

@@ -19,11 +19,10 @@ def reports_list_view(request):
         date = datetime.now().date()
     
     
-    
     queryset = Report.objects.filter(report_date=date)
     reports_list = queryset
     
-    context = {'reports_list': reports_list,}
+    context = {'reports_list': reports_list}
 
     return render(
         request, 

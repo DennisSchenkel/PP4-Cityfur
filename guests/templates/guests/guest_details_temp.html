@@ -13,95 +13,96 @@
         </header>
 
 
-        <div class="row p-4 mx-auto container-fluid">
-
-            <div class="col-4">
-                {% if guest.image %}
-                    <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-fluid">
-                {% else %}
-                    <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-fluid">
-                {% endif %}
-            </div>
-
-
-            <div class="col-8">
-                <div class="col px-0">
-                    <div class="row">
-                        <!-- Show name and name_addon -->
-                        <div class="col-auto">
-                            <h4 class="mb-0">{{ guest.first_name }}</h4>
-                            <!-- Show name addon if it exists -->
-                            {% if guest.name_addon %}
-                            <span>{{ guest.name_addon }}</span>
-                            {% else %}
-                            <span><br></span>
-                            {% endif %}                                     
-                        </div>
-                        <!-- Show gender depending on the database entry -->
-                        <div class="col px-0">
-                            {% if guest.get_gender_display == "Male" %}
-                            <span class="fa-solid fa-mars fa-lg icon-fa"></span>
-                            {% elif guest.get_gender_display == "Female" %}
-                            <span class="fa-solid fa-venus fa-lg icon-fa"></span>
-                            {% else %} 
-                            <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div>
-                        {{ guest.customer_id.address }}<br />
-                        {{ guest.customer_id.first_name }}<br />
-                        {{ guest.customer_id.last_name }}<br />
-                        {{ guest.customer_id.phone }}<br />
-                        {{ guest.customer_id.information }}<br />
-                        <span>Go to customer profile</span>
-                    </div>
-            </div>
-            <div class="pt-3">
-                <a class="btn btn-primary btn-lg active" role="button"  href="/guests/update_guest/{{ guest.id }}">
-                    Edit guest profile
-                </a>
-            </div>
-            <div class="pt-3">
-                <a class="btn btn-danger btn-lg active modal-trigger" role="button"  data-toggle="modal" data-target="#delete-modal-{{ guest.id }}">
-                    Delete profile
-                </a>
-            </div>
-        </div>
+        <div class="p-4 mx-auto container-fluid">
+            <div class="row profile rounded p-3">
+                <div class="col-4">
+                    {% if guest.image %}
+                        <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-fluid">
+                    {% else %}
+                        <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-fluid">
+                    {% endif %}
+                </div>
 
 
-
-
-
-
-        <!-- Modal for confirmation to delete profile -->
-        <div class="modal fade" id="delete-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ guest.id }}" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="DeleteModalTitle{{ guest.id }}">
-                            Delete profile of {{ guest.first_name }} 
-                            {% if guest.name_addon %}
+                <div class="col-8">
+                    <div class="col px-0">
+                        <div class="row">
+                            <!-- Show name and name_addon -->
+                            <div class="col-auto">
+                                <h4 class="mb-0">{{ guest.first_name }}</h4>
+                                <!-- Show name addon if it exists -->
+                                {% if guest.name_addon %}
                                 <span>{{ guest.name_addon }}</span>
-                            {% else %}
+                                {% else %}
                                 <span><br></span>
-                            {% endif %}
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="{% url 'guest_details_temp' guest.slug %}" id="delete-form-{{ guest.id }}">
-                            {% csrf_token %}
-                            <input type="hidden" name="delete" value="true">
-                            <div class="profile-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('delete-form-{{ guest.id }}').submit();">
-                                Delete profile
+                                {% endif %}                                     
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <!-- Show gender depending on the database entry -->
+                            <div class="col px-0">
+                                {% if guest.get_gender_display == "Male" %}
+                                <span class="fa-solid fa-mars fa-lg icon-fa"></span>
+                                {% elif guest.get_gender_display == "Female" %}
+                                <span class="fa-solid fa-venus fa-lg icon-fa"></span>
+                                {% else %} 
+                                <spanclass="fa-solid fa-genderless fa-lg icon-fa"></span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div>
+                            {{ guest.customer_id.address }}<br />
+                            {{ guest.customer_id.first_name }}<br />
+                            {{ guest.customer_id.last_name }}<br />
+                            {{ guest.customer_id.phone }}<br />
+                            {{ guest.customer_id.information }}<br />
+                            <span>Go to customer profile</span>
+                        </div>
+                </div>
+                <div class="pt-3">
+                    <a class="btn btn-primary btn-lg active" role="button"  href="/guests/update_guest/{{ guest.id }}">
+                        Edit guest profile
+                    </a>
+                </div>
+                <div class="pt-3">
+                    <a class="btn btn-danger btn-lg active modal-trigger" role="button" data-toggle="modal" data-target="#delete-modal-{{ guest.id }}">
+                        Delete profile
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- Modal for confirmation to delete profile -->
+            <div class="modal fade" id="delete-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ guest.id }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="DeleteModalTitle{{ guest.id }}">
+                                Delete profile of {{ guest.first_name }} 
+                                {% if guest.name_addon %}
+                                    <span>{{ guest.name_addon }}</span>
+                                {% else %}
+                                    <span><br></span>
+                                {% endif %}
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="{% url 'guest_details_temp' guest.slug %}" id="delete-form-{{ guest.id }}">
+                                {% csrf_token %}
+                                <input type="hidden" name="delete" value="true">
+                                <div class="profile-check-out text-center rounded-bottom p-1 pointer" onclick="document.getElementById('delete-form-{{ guest.id }}').submit();">
+                                    Delete profile
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
                     </div>
                 </div>
             </div>
