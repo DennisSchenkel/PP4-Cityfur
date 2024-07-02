@@ -132,9 +132,13 @@ class CheckInGuest(forms.ModelForm):
 
     class Meta:
         model = Presence
-        fields = ["guest"]  # Only the guest field is needed
-        labels = {"guest": "Guest"}
-        widgets = {"guest": forms.HiddenInput()}  # Hide the guest field
+        fields = ["guest", "pickup", "pickup_name"]  # Only the guest field is needed
+        labels = {
+            "guest": "Guest",
+            "pickup": "Pickup",
+            "pickup_name": "Name of the person picking guest up",
+            }
+        widgets = {"guest": forms.HiddenInput()}   # Hide the guest field
 
 
 # Form for checking out guests

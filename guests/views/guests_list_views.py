@@ -89,6 +89,8 @@ def guests_list_view(request):
                     f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
                 )
                 checkin_time = timezone.now().time()
+                pickup = check_in.cleaned_data["pickup"]
+                pickup_name = check_in.cleaned_data.get("pickup_name", "")
 
                 # Check if the guest is already checked-in at the selected date
                 presence, created = Presence.objects.get_or_create(
@@ -96,14 +98,10 @@ def guests_list_view(request):
                 )
 
                 # If the guest is not checked-in at the selected date, check them in
-                if created:
-                    messages.add_message(
-                        request,
-                        messages.SUCCESS,
-                        f"Check-In for {guest_name} was successful.",
-                    )
-                elif presence.check_in is None:
+                if created or presence.check_in is None:
                     presence.check_in = checkin_time
+                    presence.pickup = pickup
+                    presence.pickup_name = pickup_name if pickup else None
                     presence.save()
                     messages.add_message(
                         request,

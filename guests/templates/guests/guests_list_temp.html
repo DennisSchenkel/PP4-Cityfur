@@ -104,56 +104,46 @@
 
                                     </div>
 
-                                    <div class="row alerts-dropout visually-hidden">
+                                    <div class="alerts-dropout visually-hidden">
                                         <!-- Alert medication dropout -->
                                         {% if guest.medication %}
-                                            <div class="col-4">
+                                            <div class="mb-3">
+                                                <strong>Medication:</strong><br>
                                                 {% if guest.medication_time_1 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_2 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span>  {{ guest.medication_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_3 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span>  {{ guest.medication_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
                                         
                                         <!-- Alert food dropout -->
                                         {% if guest.food %}
-                                            <div class="col-4">
+                                            <div class="mb-3">
+                                                <strong>Food:</strong><br>
                                                 {% if guest.food_time_1 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_2 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_3 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
                                         
                                         <!-- Alert report dropout -->
 
-
                                         <!-- Alert pickup dropout -->                                
                                         {% if present and present.pickup %}
-                                            <div class="col-auto text-center">
-                                                <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                            <div class="mb-3">
+                                                <strong>Pickup:</strong><br>
+                                                {{ present.pickup_name }}
                                             </div>
                                         {% endif %}
                                         
@@ -564,6 +554,14 @@
                                                 <input type="hidden" name="guest" value="{{ guest.id }}">
                                                 <input type="hidden" name="checkin" value="true">
                                                 <input type="hidden" name="date" value="{{ selected_date }}">
+                                                <div>
+                                                    <label for="pickup-{{ guest.id }}">Pickup</label>
+                                                    <input type="checkbox" id="pickup-{{ guest.id }}" name="pickup">
+                                                </div>
+                                                <div>
+                                                    <label for="pickup_name-{{ guest.id }}">Pickup Name</label>
+                                                    <input type="text" id="pickup_name-{{ guest.id }}" name="pickup_name" value="">
+                                                </div>
                                             </form>
                                             <div class="profile-check-in text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">
                                                 Check-In
@@ -621,5 +619,20 @@
     <script src="{% static 'js/guest_list.js' %}"></script>
     <!-- Import of JS for getting date from datepicker -->
     <script src="{% static 'js/get_date.js' %}"></script>
+
+    <!-- Script to prevent modal from closing when not wanted -->
+    <script>
+        $(document).ready(function() {
+            $('.modal').on('click', function(event) {
+                if ($(event.target).hasClass('modal') || $(event.target).hasClass('close')) {
+                    $(this).modal('hide');
+                }
+            });
+        
+            $('.modal .modal-content').on('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
 
 {% endblock content %}

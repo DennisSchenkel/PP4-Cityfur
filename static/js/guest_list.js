@@ -2,7 +2,7 @@ $(document).ready(function() {
     
     // Toggle for dropout menu in profile
     $(".profile").click(function(event) {
-        // Check if the click is on a modal-trigger element, so the it doesn't stop the opening of the modal
+        // Check if the click is on a modal-trigger element, so that it doesn't stop the opening of the modal
         if (!$(event.target).hasClass('modal-trigger')) {
             event.stopPropagation();
             const $dropout = $(this).find(".profile-options-dropout");
@@ -68,6 +68,5 @@ $(document).ready(function() {
         $("#female-selector").removeClass("selected-selector");
         $("#male-selector").removeClass("selected-selector");
     });
-    }   
-);
-
+    
+});
