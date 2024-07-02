@@ -4,6 +4,16 @@ from django.contrib import messages
 from ..models import Report
 
 def report_details_view(request, id):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+        id (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     report = get_object_or_404(Report, id=id)
     
     if request.method == 'POST':

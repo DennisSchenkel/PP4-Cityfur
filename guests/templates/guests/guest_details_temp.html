@@ -32,7 +32,7 @@
                                 <h4 class="mb-0">{{ guest.first_name }}</h4>
                                 <!-- Show name addon if it exists -->
                                 {% if guest.name_addon %}
-                                <span>{{ guest.name_addon }}</span>
+                                <span>({{ guest.name_addon }})</span>
                                 {% else %}
                                 <span><br></span>
                                 {% endif %}                                     
@@ -48,13 +48,39 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <div>
-                            {{ guest.customer_id.address }}<br />
-                            {{ guest.customer_id.first_name }}<br />
-                            {{ guest.customer_id.last_name }}<br />
-                            {{ guest.customer_id.phone }}<br />
-                            {{ guest.customer_id.information }}<br />
-                            <span>Go to customer profile</span>
+                        <div class="mb-3">
+                            <span>Address: {{ guest.customer_id.address }}</span><br />
+                            <span>First name {{ guest.customer_id.first_name }}</span><br />
+                            <span>Last name: {{ guest.customer_id.last_name }}<br />
+                            <span>Phone: {{ guest.customer_id.phone }}<br />
+                            <span>Information: {{ guest.customer_id.information }}<br />
+                        </div>
+                        <div class="mb-3">
+                            {% if guest.food %}
+                                <h3>Food Times</h3>
+                                <p>Food has to be served at these times:</p>
+                                {{ guest.food_time_1 }}<br />
+                                    {% if guest.food_time_2 != None %}
+                                        {{ guest.food_time_2 }}<br />
+                                    {% endif %}
+                                    {% if guest.food_time_3 != None %}
+                                        {{ guest.food_time_3 }}<br />
+                                    {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            {% if guest.medication %}
+                                <h3>Medication Times</h3>
+                                <p>Medication has to be applied at these times:</p>
+                                {{ guest.medication_time_1 }}<br />
+                                {% if guest.medication_time_2 != None %}
+                                    {{ guest.medication_time_2 }}<br />
+                                {% endif %}
+                                {% if guest.medication_time_3 != None %}
+                                    {{ guest.medication_time_3 }}<br />
+                                {% endif %}
+                        {% endif %}
+
                         </div>
                 </div>
                 <div class="pt-3">

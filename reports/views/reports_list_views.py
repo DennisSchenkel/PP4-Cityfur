@@ -4,6 +4,14 @@ from ..models import Report
 
 # View class for report list
 def reports_list_view(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     
     # Get the selected date from the request
     selected_date = request.GET.get("date")

@@ -3,6 +3,15 @@ from guests.models import Guest
 
 # Create your models for report
 class Report(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     id = models.AutoField(primary_key=True)
     report_date = models.DateField(null=False)
     report_text = models.TextField(max_length=300)
@@ -20,6 +29,15 @@ class Report(models.Model):
     
 # Create your models for mentioned guests
 class MentionedGuest(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     id = models.AutoField(primary_key=True)
     report = models.ForeignKey(Report, on_delete=models.CASCADE)
     guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
