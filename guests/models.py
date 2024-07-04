@@ -118,7 +118,6 @@ class Presence(models.Model):
     check_in = models.TimeField(blank=True, null=True)
     check_out = models.TimeField(blank=True, null=True)
     report = models.BooleanField(default=False)
-    pickup = models.BooleanField(default=False)
     pickup_name = models.CharField(max_length=50, null=True, blank=True)
 
     # Only one entry of the combination of guest and date allowed
@@ -127,4 +126,4 @@ class Presence(models.Model):
 
     # Return all necessary information about the presence of a guest
     def __str__(self):
-        return f"{self.date} {self.check_in} {self.check_out} {self.guest.first_name} {self.guest.last_name} {self.guest.id} {self.report} {self.pickup}"
+        return f"{self.date} {self.check_in} {self.check_out} {self.guest.first_name} {self.guest.last_name} {self.guest.id} {self.report} {self.pickup_name}"

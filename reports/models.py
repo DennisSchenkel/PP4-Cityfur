@@ -17,7 +17,7 @@ class Report(models.Model):
     report_text = models.TextField(max_length=300)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    guests = models.ManyToManyField(Guest, related_name='reports', null=True, blank=True)
+    guests = models.ManyToManyField(Guest, related_name='reports', blank=True)
 
     
     class Meta:
@@ -43,7 +43,7 @@ class MentionedGuest(models.Model):
     guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
     
     class Meta:
-        ordering = ['report_id']
+        ordering = ['report']
         
     def __str__(self):
         return f'{self.report} <br> {self.guest}'

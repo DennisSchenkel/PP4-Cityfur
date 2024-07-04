@@ -41,6 +41,6 @@ class GuestAdmin(SummernoteModelAdmin):
         SummernoteModelAdmin (_type_): _description_
     """
 
-    list_display = ("date", "guest", "check_in", "check_out", "pickup", "id")
+    list_display = ("date", "guest", "check_in", "check_out", "id")
     search_fields = ["guest", "date"]
     list_filter = ("date",)

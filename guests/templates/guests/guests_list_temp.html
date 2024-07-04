@@ -96,7 +96,7 @@
                                         </div>
 
                                         <!-- Alert pickup --> 
-                                        {% if present and present.pickup %}
+                                        {% if present and present.pickup_name %}
                                             <div class="col-auto text-center">
                                                 <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
                                             </div>
@@ -140,7 +140,7 @@
                                         <!-- Alert report dropout -->
 
                                         <!-- Alert pickup dropout -->                                
-                                        {% if present and present.pickup %}
+                                        {% if present and present.pickup_name %}
                                             <div class="mb-3">
                                                 <strong>Pickup:</strong><br>
                                                 {{ present.pickup_name }}
@@ -554,10 +554,6 @@
                                                 <input type="hidden" name="guest" value="{{ guest.id }}">
                                                 <input type="hidden" name="checkin" value="true">
                                                 <input type="hidden" name="date" value="{{ selected_date }}">
-                                                <div>
-                                                    <label for="pickup-{{ guest.id }}">Pickup</label>
-                                                    <input type="checkbox" id="pickup-{{ guest.id }}" name="pickup">
-                                                </div>
                                                 <div>
                                                     <label for="pickup_name-{{ guest.id }}">Pickup Name</label>
                                                     <input type="text" id="pickup_name-{{ guest.id }}" name="pickup_name" value="">
