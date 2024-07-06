@@ -531,14 +531,6 @@
                                             <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
                                         </div>
                                     {% endif %}
-                                    <!-- Alert report --> 
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
-                                    </div>
-                                    <!-- Alert pickup --> 
-                                    <div class="col-auto text-center">
-                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
-                                    </div>
                                 </div>
                             </div>
                             
@@ -619,15 +611,15 @@
         <div class="row text-center bottom-box gx-0">
             <div class="col-lg-2 d-lg-block"></div>
             <div class="col-12 col-lg-10 row align-items-center">
-                <div id="female-selector" class="col-5 female-selector">
+                <div id="female-selector" class="col-4 female-selector">
                     <span class="fa-solid fa-venus fa-2x icon-fa"></span>
                 </div>
-                <div id="all-selector" class="col-2 all-selector selected-selector">
+                <div id="all-selector" class="col-4 all-selector selected-selector">
                     <span class=""><strong>All</strong></span>
                     <br>
-                    (Guests today: {{ todays_guest_count }})
+                    Daycount: {{ todays_guest_count }}
                 </div>
-                <div id="male-selector" class="col-5 male-selector">
+                <div id="male-selector" class="col-4 male-selector">
                     <span class="fa-solid fa-mars fa-2x icon-fa"></span>
                 </div>
             </div>
