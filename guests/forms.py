@@ -69,7 +69,7 @@ class AddGuest(forms.ModelForm):
             "medication_time_1": "Medication time 1",
             "medication_time_2": "Medication time 2",
             "medication_time_3": "Medication time 3",
-            "customer_id": "",
+            "customer_id": "Owner",
         }
 
         widgets = {
