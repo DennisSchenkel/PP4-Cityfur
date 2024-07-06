@@ -2,6 +2,9 @@
 Real world use:
 Mention the real world scenario for the app.
 
+User management
+- In the usecase of this app only the system admin should be allowed to create new users. So there is no public registration form of any kind.
+
 
 Technologies and services used
 - Heroku

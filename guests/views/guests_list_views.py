@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect
+from multiprocessing import context
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.contrib import messages
 from datetime import datetime
-from ..models import Presence, Guest
-from ..forms import CheckInGuest, CheckOutGuest
 
+import guests
+from ..models import Presence, Guest
+from reports.models import Report
+from ..forms import CheckInGuest, CheckOutGuest
 
 # View function for guest list
 def guests_list_view(request):
@@ -34,7 +37,7 @@ def guests_list_view(request):
     guests_checked_in = []
     guests_checked_out = []
     guests_not_checked_in = Guest.objects.all()
-
+    
     # If a date is selected, get the present guests for that date
     # Find all presences for the selected date
     presences_checked_in = Presence.objects.filter(
@@ -65,6 +68,15 @@ def guests_list_view(request):
         presence.guest.id: presence for presence in Presence.objects.filter(date=date)
     }
 
+    # Find all reports for the selected date
+    reports_for_date = Report.objects.filter(report_date=date)
+    
+    # Extract the guests from the reports
+    guests_in_report = set()
+    for report in reports_for_date:
+        guests_in_report.update(report.guests.all())
+    
+
     # Create forms for check-in and check-out guests
     check_in = CheckInGuest()
     check_out = CheckOutGuest()
@@ -89,7 +101,6 @@ def guests_list_view(request):
                     f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
                 )
                 checkin_time = timezone.now().time()
-                pickup = check_in.cleaned_data["pickup"]
                 pickup_name = check_in.cleaned_data.get("pickup_name", "")
 
                 # Check if the guest is already checked-in at the selected date
@@ -100,8 +111,7 @@ def guests_list_view(request):
                 # If the guest is not checked-in at the selected date, check them in
                 if created or presence.check_in is None:
                     presence.check_in = checkin_time
-                    presence.pickup = pickup
-                    presence.pickup_name = pickup_name if pickup else None
+                    presence.pickup_name = pickup_name
                     presence.save()
                     messages.add_message(
                         request,
@@ -219,13 +229,14 @@ def guests_list_view(request):
     todays_guest_count = len(guests_checked_in) + len(guests_checked_out)
 
     context = {
+        "selected_date": selected_date,
+        "check_in_form": check_in,
+        "check_out_form": check_out,
         "guests_checked_in": guests_checked_in,
         "guests_checked_out": guests_checked_out,
         "guests_not_checked_in": guests_not_checked_in,
         "presences": presences,
-        "selected_date": selected_date,
-        "check_in_form": check_in,
-        "check_out_form": check_out,
+        "guests_in_report": guests_in_report,
         "todays_guest_count": todays_guest_count,
     }
 

@@ -18,7 +18,6 @@ class Report(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     guests = models.ManyToManyField(Guest, related_name='reports', blank=True)
-
     
     class Meta:
         ordering = ['report_date']
@@ -27,23 +26,3 @@ class Report(models.Model):
         return f'{self.report_date} <br> {self.report_text}'
     
     
-# Create your models for mentioned guests
-class MentionedGuest(models.Model):
-    """_summary_
-
-    Args:
-        models (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
-    
-    id = models.AutoField(primary_key=True)
-    report = models.ForeignKey(Report, on_delete=models.CASCADE)
-    guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
-    
-    class Meta:
-        ordering = ['report']
-        
-    def __str__(self):
-        return f'{self.report} <br> {self.guest}'

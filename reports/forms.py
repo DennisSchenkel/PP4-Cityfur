@@ -1,4 +1,3 @@
-import re
 from django import forms
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 from .models import Report

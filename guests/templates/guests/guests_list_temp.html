@@ -33,6 +33,7 @@
         {% if guests_checked_in|length > 0 %}
             <h1>Checked-In</h1>
             {% for guest in guests_checked_in %}
+
                 {% with present=presences|get_item:guest.id %}
                     <!-- Guest profile -->
                     <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
@@ -92,7 +93,9 @@
 
                                         <!-- Alert report --> 
                                         <div class="col-auto text-center">
-                                            <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                            {% if guest in guests_in_report %}        
+                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                            {% endif %}
                                         </div>
 
                                         <!-- Alert pickup --> 
@@ -113,10 +116,10 @@
                                                         <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_2 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span>  {{ guest.medication_time_2 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_3 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span>  {{ guest.medication_time_3 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
@@ -138,6 +141,12 @@
                                         {% endif %}
                                         
                                         <!-- Alert report dropout -->
+                                        {% if guest in guests_in_report %}      
+                                            <div class="mb-3">  
+                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span><span> Mentioned in a report!<br></span>
+                                            </div>
+                                        {% endif %}
+                                    
 
                                         <!-- Alert pickup dropout -->                                
                                         {% if present and present.pickup_name %}
@@ -164,11 +173,13 @@
                                         Open file
                                     </div>
                                 </a>
-                                <a href="" class="text-decoration-none">
-                                    <div class="profile-report text-center p-1 border-dark border-bottom">
-                                        Read report
-                                    </div>
-                                </a>
+                                {% if guest in guests_in_report %} 
+                                    <a href="/reports/?date={{ selected_date }}" class="text-decoration-none">
+                                        <div class="profile-report text-center p-1 border-dark border-bottom">
+                                            Read reports
+                                        </div>
+                                    </a>
+                                {% endif %}
                                 
                                 <div class="profile-check-out text-center rounded-bottom p-1 modal-trigger pointer" data-toggle="modal" data-target="#checkout-modal-{{ guest.id }}">
                                     Check-Out
@@ -315,8 +326,11 @@
                                         {% endif %}
                                         <!-- Alert report --> 
                                         <div class="col-auto text-center">
-                                            <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                            {% if guest in guests_in_report %}        
+                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                            {% endif %}
                                         </div>
+
                                         <!-- Alert pickup --> 
                                         {% if present and present.pickup %}
                                             <div class="col-auto text-center">
@@ -369,7 +383,11 @@
                                         {% endif %}
                                         
                                         <!-- Alert report dropout -->
-
+                                        {% if guest in guests_in_report %}      
+                                            <div class="mb-3">  
+                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span><span> Mentioned in a report!<br></span>
+                                            </div>
+                                        {% endif %}
 
                                         <!-- Alert pickup dropout -->                                
                                         {% if present and present.pickup %}
@@ -402,6 +420,13 @@
                                         Open file
                                     </div>
                                 </a>
+                                {% if guest in guests_in_report %} 
+                                    <a href="/reports/?date={{ selected_date }}" class="text-decoration-none">
+                                        <div class="profile-report text-center p-1 border-dark border-bottom">
+                                            Read reports
+                                        </div>
+                                    </a>
+                                {% endif %}
 
                                 <!-- Modal for undo-check-out confirmation -->
                                 <div class="modal fade" id="undo-checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckoutModal{{ guest.id }}" aria-hidden="true">
