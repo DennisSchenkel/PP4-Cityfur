@@ -25,6 +25,22 @@ Steps of development:
 - Adding guest mentions to report system and showing related reports in guest profile
 
 
+Features:
+- Guest profiles (CRUD)
+- Search
+- Date selector
+- Gender filter
+- Check-in/Check-out
+- Undo Check-in/Check-out
+- Confirmations with modals
+- Report system (CRUD)
+- Report indicator on guest list
+- Medication indicator on guest list
+- Food indicator on guest list
+- Alternativ pickup with indicator on guest list
+- Messages for user feedback
+- User authentication
+
 Bugs to mention: 
 - Upload of images and the way I fixed it with pillow.
 - Buggy closing of modals. Modals did not close properly when clicking outside of the modal.

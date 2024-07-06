@@ -311,19 +311,21 @@
                                     </div>
 
                                     <!-- Profile alerts -->
-                                    <div class="row gx-2 alerts checked-out">
-                                        <!-- Alert medication --> 
+                                    <div class="row gx-2 alerts">
+                                        <!-- Alert medication -->
                                         {% if guest.medication %}
                                             <div class="col-auto text-center">
                                                 <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
                                             </div>
                                         {% endif %}
+                                        
                                         <!-- Alert food --> 
                                         {% if guest.food %}
                                             <div class="col-auto text-center">
                                                 <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
                                             </div>
                                         {% endif %}
+
                                         <!-- Alert report --> 
                                         <div class="col-auto text-center">
                                             {% if guest in guests_in_report %}        
@@ -332,52 +334,43 @@
                                         </div>
 
                                         <!-- Alert pickup --> 
-                                        {% if present and present.pickup %}
+                                        {% if present and present.pickup_name %}
                                             <div class="col-auto text-center">
                                                 <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
                                             </div>
                                         {% endif %}
+
                                     </div>
 
-                                    <div class="row alerts-dropout visually-hidden">
+                                    <div class="alerts-dropout visually-hidden">
                                         <!-- Alert medication dropout -->
                                         {% if guest.medication %}
-                                            <div class="col-4">
+                                            <div class="mb-3">
+                                                <strong>Medication:</strong><br>
                                                 {% if guest.medication_time_1 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_1 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_2 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_2 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_3 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"> {{ guest.medication_time_3 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
                                         
                                         <!-- Alert food dropout -->
                                         {% if guest.food %}
-                                            <div class="col-4">
+                                            <div class="mb-3">
+                                                <strong>Food:</strong><br>
                                                 {% if guest.food_time_1 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_1 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_2 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_2 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_3 %}
-                                                    <div class="col-auto">
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"> {{ guest.food_time_3 }}</span>
-                                                    </div>
+                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
@@ -388,16 +381,17 @@
                                                 <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span><span> Mentioned in a report!<br></span>
                                             </div>
                                         {% endif %}
+                                    
 
                                         <!-- Alert pickup dropout -->                                
-                                        {% if present and present.pickup %}
-                                            <div class="col-auto text-center">
-                                                <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                        {% if present and present.pickup_name %}
+                                            <div class="mb-3">
+                                                <strong>Pickup:</strong><br>
+                                                {{ present.pickup_name }}
                                             </div>
                                         {% endif %}
                                         
                                     </div>
-
                                 </div>
 
                                 <!-- Profile expand options -->
@@ -518,19 +512,54 @@
                                 </div>
 
                                 <!-- Profile alerts -->
-                                <div class="row gx-2 checked-out">
-                                    <!-- Alert medication --> 
+                                <div class="row gx-2 alerts">
+                                    <!-- Alert medication -->
                                     {% if guest.medication %}
                                         <div class="col-auto text-center">
                                             <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
                                         </div>
                                     {% endif %}
+                                    
                                     <!-- Alert food --> 
                                     {% if guest.food %}
                                         <div class="col-auto text-center">
                                             <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
                                         </div>
                                     {% endif %}
+                                </div>
+
+                                <div class="alerts-dropout visually-hidden">
+                                    <!-- Alert medication dropout -->
+                                    {% if guest.medication %}
+                                        <div class="mb-3">
+                                            <strong>Medication:</strong><br>
+                                            {% if guest.medication_time_1 %}
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
+                                            {% endif %}
+                                            {% if guest.medication_time_2 %}
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
+                                            {% endif %}
+                                            {% if guest.medication_time_3 %}
+                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <!-- Alert food dropout -->
+                                    {% if guest.food %}
+                                        <div class="mb-3">
+                                            <strong>Food:</strong><br>
+                                            {% if guest.food_time_1 %}
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
+                                            {% endif %}
+                                            {% if guest.food_time_2 %}
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
+                                            {% endif %}
+                                            {% if guest.food_time_3 %}
+                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}                                    
                                 </div>
                             </div>
                             
