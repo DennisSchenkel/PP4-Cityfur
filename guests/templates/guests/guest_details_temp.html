@@ -26,10 +26,10 @@
 
                 <div class="col-8">
                     <div class="col px-0">
-                        <div class="row">
+                        <div class="row mb-3">
                             <!-- Show name and name_addon -->
                             <div class="col-auto">
-                                <h4 class="mb-0">{{ guest.first_name }}</h4>
+                                <h3 class="mb-0">{{ guest.first_name }}</h3>
                                 <!-- Show name addon if it exists -->
                                 {% if guest.name_addon %}
                                 <span>({{ guest.name_addon }})</span>
@@ -49,15 +49,16 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <span>Address: {{ guest.customer_id.address }}</span><br />
+                            <h4>Owner Information</h4>
                             <span>First name {{ guest.customer_id.first_name }}</span><br />
                             <span>Last name: {{ guest.customer_id.last_name }}<br />
+                            <span>Address: {{ guest.customer_id.address }}</span><br />
                             <span>Phone: {{ guest.customer_id.phone }}<br />
                             <span>Information: {{ guest.customer_id.information }}<br />
                         </div>
                         <div class="mb-3">
                             {% if guest.food %}
-                                <h3>Food Times</h3>
+                                <h4>Food Times</h4>
                                 <p>Food has to be served at these times:</p>
                                 {{ guest.food_time_1 }}<br />
                                     {% if guest.food_time_2 != None %}
@@ -70,7 +71,7 @@
                         </div>
                         <div class="mb-3">
                             {% if guest.medication %}
-                                <h3>Medication Times</h3>
+                                <h4>Medication Times</h4>
                                 <p>Medication has to be applied at these times:</p>
                                 {{ guest.medication_time_1 }}<br />
                                 {% if guest.medication_time_2 != None %}

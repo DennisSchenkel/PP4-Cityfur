@@ -22,7 +22,6 @@ class AddReport(forms.ModelForm):
         required=False
     )
 
-
     class Meta:
         model = Report
         fields = (
