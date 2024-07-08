@@ -1,6 +1,170 @@
+# Cityfur - Dog Day Care Guest Management System
 
-Real world use:
-Mention the real world scenario for the app.
+## Introduction
+
+Code Institute - Prortfilio Project 3 - Django Full-Stack Application
+
+This application is developed for the real world use in a dog day care center in Cologne, Germany.
+
+On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.
+The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them. 
+
+With the help of this system, the employees at the facility are always aware of:
+- Guests present that day
+- Guests checked-out and how many are still present
+- Times for applying individual medication
+- Times for individual feeding schedule
+- Information about pickup from different individuals
+- Look of a dog with profile picture
+- Important information about every dog in an individual profile
+- Situations that happened and were noted as a report with related dogs tagged
+
+
+## Table of Contents
+
+* [Introduction](#introduction)
+
+* [User Experience](#user-experience)
+  * [Login Credentials](#login-credentials)
+  * [User Stories](#user-stories)
+
+
+
+
+## User Experience
+
+### Login Credentials
+
+
+### Milestones
+
+### User Stories
+
+
+## Design
+
+### Color Scheme
+
+### Imagery
+
+### Typography
+
+### Wireframes
+
+### Database
+
+
+## Features
+
+### Technical Features
+
+### Future Features
+
+### Accessibility
+
+
+## Technologies Used
+
+### Languages
+
+### Frameworks
+
+### Modules & Libraries
+
+### Programs & Tools
+
+
+## Deployment
+
+### Version Control
+
+This application was developed using Visuel Studio Code as the IDE and GitHub for hosting the repository.
+
+Git was used for version control by using the following comments:
+
+- git add filename - Select the files that should be uploaded and updated to the GitHub repository.
+- git commit -m "commit message" - Commenting the commit to better understand the changes in this specific commit.
+- git push - Upload the commit to GitHub.
+
+### Heroku Deployment
+
+**Step 0: Create requirements.txt**
+- Create the requirements.txt (pip freeze > requirements.txt)
+- Make sure it contains all needed modules and libraries.
+- Modify settings.py
+    - Add Heroku to ALLOWED_HOSTS
+    - Set DEBUG to "False"
+- Create Procfile in root directory with the following content: web: gunicorn PP4_Cityfur.wsgi --log-file -
+- Use python manage.py collectstatic in the local IDE terminal to collect all static files
+
+**Step 1: Use Account**
+- Create a Heroku account
+- Log into the Heroku account
+
+**Step 2: Create New App**
+- On the dashboard, click "New" in the upper right corner.
+- Select "Create new app"
+- Select a name for the application - the name should only contain lowercase letters, numbers, and dashes.
+- Choose a region. (Europe as we are in Europe)
+
+**Step 3: Define Deployment Methode**
+- Select GitHub as deployment methode
+- Connect GitHub account to Heroku
+- Select account and search for repository
+- Connect to found repository
+
+**Step 4: Settings**
+- Switch to the settings page (Menu in the top)
+- Click on "Reveal Config Vars"
+- The following Key/Value pairs have been added:
+    - CLOUDINARY_URL
+    - DB_ENGINE
+    - DB_HOST
+    - DB_OPTIONS 
+    - DB_PASSWORD
+    - DB_PORT
+    - DB_SSLMODE
+    - DB_USER
+    - SECRET_KEY
+- In the next section, click on "Add buildpack"
+- If not already selected, add Python.
+
+**Step 5: Deploy Application**
+- Switch to the deploy page (Menu in the top)
+- Look under manual deployment
+- Select a branch to deploy (Main in my case)
+- Click "Deploy Branche"
+
+**Step 6: Use App**
+- Heroku will then set up the virtual envirement with all packages, modules and libraries needed. (This can take some time)
+- When Heroku is done with the deployment, click "View" and start to use the
+- Use app
+
+
+### Cloudinary
+
+
+## Testing
+
+### Validator Testing
+
+### Lighthouse Testing
+
+### Automated Testing
+
+### Manual Testing
+
+
+
+### Bugs During Development
+
+### Possible Improvements
+
+
+## Credits
+
+### Acknowledgments
+
 
 User management
 - In the usecase of this app only the system admin should be allowed to create new users. So there is no public registration form of any kind.
@@ -27,12 +191,15 @@ Steps of development:
 
 Features:
 - Guest profiles (CRUD)
-- Search
+- Image upload with default profile image
+- Search (no query but filter)
 - Date selector
 - Gender filter
+- Mobile sidebar
 - Check-in/Check-out
 - Undo Check-in/Check-out
 - Confirmations with modals
+- Dynamic dropout system on guest list
 - Report system (CRUD)
 - Report indicator on guest list
 - Medication indicator on guest list
@@ -50,4 +217,4 @@ Bugs to mention:
 
 
 Agile project management: 
-During the process of deveolment, the kanban board and backlog, userstories and milestones where constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
+During the process of deveolment, the kanban board and backlog, userstories, tasks and milestones where constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
