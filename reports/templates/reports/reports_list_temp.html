@@ -4,65 +4,69 @@
 
 {% block content %}
 
-    {% block header_nav %}
-        {% include "reports/components/header_list_temp.html" %}
-    {% endblock header_nav %}
+    {% if user.is_authenticated %}
 
-    <!-- Displaying django messages -->
-    <div class="container">
-        <div class="row">
-        <div class="col-md-8 offset-md-2">
-            {% for message in messages %}
-                <div class="alert alert-dismissible fade show alert-box" id="msg" role="alert">
-                    <div class="my-1">{{ message | safe }}</div>
-                    <button type="button" class="btn-close alert-box-btn" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        </div>
-        </div>
-    </div>
+        {% block header_nav %}
+            {% include "reports/components/header_list_temp.html" %}
+        {% endblock header_nav %}
 
-    <div class="row pt-4 mx-auto container-fluid">
-        <h1>Reports list</h1>
-        {% if reports_list|length > 0  %}
-            {% for report in reports_list %}
-
-                <div class="col-12 col-md-6 my-2 list-item">
-                    <div class="profile rounded">
-                        <div class="row p-2">
-                            <div class="mb-2">
-                                <b>{{report.report_date}}</b>
-                                <br>
-                                {{report.report_text}}
-                            </div>
-                            {% if report.guests.all|length > 0 %}
-                            <div>
-                                <b>Guests:</b>
-                                <br>
-                                {% for guest in report.guests.all %}
-                                    <a href="{% url 'guest_details_temp' guest.slug %}" class="text-decoration-none">    
-                                        <span class="report-guest p-1">{{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}</span>
-                                    </a>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                    
-                        <div class="m-2 text-end">
-                            <a  href="{% url 'report_details_temp' report.id %}" class="report-link">
-                                <span>Report details</span>
-                            </a>
-                        </div>    
+        <!-- Displaying django messages -->
+        <div class="container">
+            <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                    <div class="alert alert-dismissible fade show alert-box" id="msg" role="alert">
+                        <div class="my-1">{{ message | safe }}</div>
+                        <button type="button" class="btn-close alert-box-btn" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            </div>
+        </div>
 
-        {% else %}
-            <p>No reports for this date found found</p>
-        {% endif %}
-    </div>
+        <div class="row pt-4 mx-auto container-fluid">
+            <h1>Reports list</h1>
+            {% if reports_list|length > 0  %}
+                {% for report in reports_list %}
 
-    <!-- Import of JS for getting date from datepicker -->
-    <script src="{% static 'js/get_date.js' %}"></script>
+                    <div class="col-12 col-md-6 my-2 list-item">
+                        <div class="profile rounded">
+                            <div class="row p-2">
+                                <div class="mb-2">
+                                    <b>{{report.report_date}}</b>
+                                    <br>
+                                    {{report.report_text}}
+                                </div>
+                                {% if report.guests.all|length > 0 %}
+                                <div>
+                                    <b>Guests:</b>
+                                    <br>
+                                    {% for guest in report.guests.all %}
+                                        <a href="{% url 'guest_details_temp' guest.slug %}" class="text-decoration-none">    
+                                            <span class="report-guest p-1">{{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        
+                            <div class="m-2 text-end">
+                                <a  href="{% url 'report_details_temp' report.id %}" class="report-link">
+                                    <span>Report details</span>
+                                </a>
+                            </div>    
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                <p>No reports for this date found found</p>
+            {% endif %}
+        </div>
+
+        <!-- Import of JS for getting date from datepicker -->
+        <script src="{% static 'js/get_date.js' %}"></script>
+
+    {% endif %}
 
 {% endblock content %}
