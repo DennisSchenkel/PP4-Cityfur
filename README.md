@@ -58,6 +58,13 @@ With the help of this system, the employees at the facility are always aware of:
 
 ### Technical Features
 
+#### Search
+
+The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.
+
+To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.
+This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.
+
 ### Future Features
 
 ### Accessibility
