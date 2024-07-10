@@ -7,32 +7,20 @@
     {% if user.is_authenticated %}
 
         {% block header_nav %}
-            {% include "reports/components/header_list_temp.html" %}
+           {% include "reports/components/header_list_temp.html" %}
         {% endblock header_nav %}
 
-        <!-- Displaying django messages -->
-        <div class="container">
-            <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                    <div class="alert alert-dismissible fade show alert-box" id="msg" role="alert">
-                        <div class="my-1">{{ message | safe }}</div>
-                        <button type="button" class="btn-close alert-box-btn" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                {% endfor %}
-            </div>
-            </div>
-        </div>
-
         <div class="row pt-4 mx-auto container-fluid">
-            <h1>Reports list</h1>
-            {% if reports_list|length > 0  %}
-                {% for report in reports_list %}
 
-                    <div class="col-12 col-md-6 my-2 list-item">
-                        <div class="profile rounded">
+            <h1>All Reports</h1>
+            {% if reports_list_all|length > 0  %}
+            
+                {% for report in reports_list_all %}
+
+                    <div class="my-2 list-item">
+                        <div class="row profile rounded">
                             <div class="row p-2">
-                                <div class="mb-2">
+                                <div class="col-9 mb-2">
                                     <b>{{report.report_date}}</b>
                                     <br>
                                     {{report.report_text}}
@@ -49,19 +37,21 @@
                                     {% endfor %}
                                 </div>
                                 {% endif %}
+                                <div class="m-2 text-end">
+                                    <a  href="{% url 'report_details_temp' report.id %}" class="report-link">
+                                        <span>Report details</span>
+                                    </a>
+                                </div>    
                             </div>
                         
-                            <div class="m-2 text-end">
-                                <a  href="{% url 'report_details_temp' report.id %}" class="report-link">
-                                    <span>Report details</span>
-                                </a>
-                            </div>    
+
                         </div>
                     </div>
+
                 {% endfor %}
 
             {% else %}
-                <p>No reports for this date found</p>
+                <p>No reports where found</p>
             {% endif %}
         </div>
 

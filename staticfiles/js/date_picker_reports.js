@@ -1,4 +1,3 @@
-
 // Get the current date and set it as the default value for the date picker
 
 // Get the current date in the format yyyy-mm-dd
