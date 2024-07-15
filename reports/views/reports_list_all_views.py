@@ -13,8 +13,6 @@ def reports_list_all_view(request):
         _type_: _description_
     """
     
-
-    
     queryset = Report.objects.order_by('-report_date')
     reports_list_all = queryset
     

@@ -233,6 +233,7 @@ body {
     border: 1px solid #797979;
     border-radius: 5px;
     color: black;
+    margin-bottom: 5px;
 }
 
 .report-link {
