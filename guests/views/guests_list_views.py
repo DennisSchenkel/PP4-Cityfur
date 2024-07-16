@@ -1,10 +1,9 @@
 from multiprocessing import context
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.contrib import messages
 from datetime import datetime
 
-import guests
 from ..models import Presence, Guest
 from reports.models import Report
 from ..forms import CheckInGuest, CheckOutGuest
@@ -36,6 +35,8 @@ def guests_list_view(request):
     # Create empty lists for guests
     guests_checked_in = []
     guests_checked_out = []
+    
+    # Create a querysets for all guests
     guests_not_checked_in = Guest.objects.all()
     
     # If a date is selected, get the present guests for that date
@@ -250,3 +251,28 @@ def guests_list_view(request):
     }
 
     return render(request, "./guests/guests_list_temp.html", context)
+
+
+# View function for guest list with all guests
+def guests_list_all_view(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
+    # Create a queryset for all guests
+    guests_all = Guest.objects.all()
+    
+    # Get the total number of guests
+    overall_guest_count = len(guests_all)
+    
+    context = {
+        "guests_all": guests_all,
+        "overall_guest_count": overall_guest_count,
+    }
+    
+    return render(request, "./guests/guests_list_all_temp.html", context)

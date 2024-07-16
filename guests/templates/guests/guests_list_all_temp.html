@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load guest_extras %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+    <!-- Header -->
+    <header>
+        {% block header_nav %}
+            {% include "guests/components/header_list_temp.html" %}
+        {% endblock header_nav %}
+    </header>
+
+    <!-- Displaying django messages -->
+    <div class="container">
+        <div class="row">
+        <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+                <div class="alert alert-dismissible fade show alert-box" id="msg" role="alert">
+                    <div class="my-1">{{ message | safe }}</div>
+                    <button type="button" class="btn-close alert-box-btn" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+    <!-- Render all guest profiles -->
+    <div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
+        {% for guest in guests_all %}
+            <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
+                <div class="profile rounded" id="{{ guest.first_name }}">
+                    <div class="row no-gutters p-1">
+
+                        <!-- Profile image -->    
+                        <div class="col-auto">
+                            <!-- Change to static image path later -->
+                            {% if guest.image %}
+                                <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="guest-img img-prev-sm">
+                            {% else %}
+                                <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="guest-img img-prev-sm">
+                            {% endif %}
+                        </div>
+
+                        <!-- Profile name & gender -->
+                        <div class="col px-0">
+                            <div class="row">
+                                <!-- Show name and name_addon -->
+                                <div class="col-auto">
+                                    <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
+                                    <!-- Show name addon if it exists -->
+                                    {% if guest.name_addon %}
+                                        <span>{{ guest.name_addon }}</span>
+                                    {% else %}
+                                        <span><br></span>
+                                    {% endif %}                                     
+                                </div>
+                                <!-- Show gender depending on the database entry -->
+                                <div class="col px-0">
+                                    {% if guest.get_gender_display == "Male" %}
+                                        <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
+                                    {% elif guest.get_gender_display == "Female" %}
+                                        <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
+                                    {% else %} 
+                                        <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Profile alerts -->
+                            <div class="row gx-2 alerts">
+                                <!-- Alert medication -->
+                                {% if guest.medication %}
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Alert food --> 
+                                {% if guest.food %}
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                    </div>
+                                {% endif %}
+
+                                <!-- Alert report --> 
+                                <div class="col-auto text-center">
+                                    {% if guest in guests_in_report %}        
+                                        <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Alert pickup --> 
+                                {% if present and present.pickup_name %}
+                                    <div class="col-auto text-center">
+                                        <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="alerts-dropout visually-hidden">
+                                <!-- Alert medication dropout -->
+                                {% if guest.medication %}
+                                    <div class="mb-3">
+                                        <strong>Medication:</strong><br>
+                                        {% if guest.medication_time_1 %}
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
+                                        {% endif %}
+                                        {% if guest.medication_time_2 %}
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
+                                        {% endif %}
+                                        {% if guest.medication_time_3 %}
+                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Alert food dropout -->
+                                {% if guest.food %}
+                                    <div class="mb-3">
+                                        <strong>Food:</strong><br>
+                                        {% if guest.food_time_1 %}
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
+                                        {% endif %}
+                                        {% if guest.food_time_2 %}
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
+                                        {% endif %}
+                                        {% if guest.food_time_3 %}
+                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Alert report dropout -->
+                                {% if guest in guests_in_report %}      
+                                    <div class="mb-3">  
+                                        <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span><span> Mentioned in a report!<br></span>
+                                    </div>
+                                {% endif %}
+                            
+
+                                <!-- Alert pickup dropout -->                                
+                                {% if present and present.pickup_name %}
+                                    <div class="mb-3">
+                                        <strong>Pickup:</strong><br>
+                                        {{ present.pickup_name }}
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                        </div>
+                    
+                        <!-- Profile expand options -->
+                        <div class="col-auto">
+                            <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
+                        </div>
+                    </div>
+                    <div class="profile-options-dropout visually-hidden">
+
+                        <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
+                            <div class="profile-option text-center p-1 rounded-bottom border-bottom">
+                                Open file
+                            </div>
+                        </a>
+                        
+                    </div>             
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="guest-tools">
+
+        <!-- Gender selector footer -->
+        <div class="row text-center bottom-box gx-0">
+            <div class="col-lg-2 d-lg-block"></div>
+            <div class="col-12 col-lg-10 row align-items-center">
+                <div id="female-selector" class="col-4 female-selector">
+                    <span class="fa-solid fa-venus fa-2x icon-fa"></span>
+                </div>
+                <div id="all-selector" class="col-4 all-selector selected-selector">
+                    <span class=""><strong>All</strong></span>
+                    <br>
+                    Count: {{ overall_guest_count }}
+                </div>
+                <div id="male-selector" class="col-4 male-selector">
+                    <span class="fa-solid fa-mars fa-2x icon-fa"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+    <!-- Import of JS for guest list -->
+    <script src="{% static 'js/guest_list.js' %}"></script>
+    <!-- Import of JS for getting date from datepicker -->
+    <script src="{% static 'js/get_date.js' %}"></script>
+
+{% endblock content %}
+
