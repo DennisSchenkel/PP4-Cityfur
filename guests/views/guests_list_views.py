@@ -95,6 +95,15 @@ def guests_list_view(request):
         # If the check-in button is clicked, create a form for checking in guests
         if "checkin" in request.POST:
             check_in = CheckInGuest(request.POST)
+            
+            if selected_date > datetime.now().strftime("%Y-%m-%d"):
+                messages.add_message(
+                    request,
+                    messages.ERROR,
+                    "Check-In failed: cannot check-in guests for future dates.",
+                )
+                return redirect(f"{request.path}?date={selected_date}")
+            
             if check_in.is_valid():
                 guest = check_in.cleaned_data["guest"]
                 guest_name = (
