@@ -26,6 +26,7 @@ With the help of this system, the employees at the facility are always aware of:
 
 * [User Experience](#user-experience)
   * [Login Credentials](#login-credentials)
+  * [System Explained](#system-explained)
   * [User Stories](#user-stories)
 
 
@@ -35,10 +36,36 @@ With the help of this system, the employees at the facility are always aware of:
 
 ### Login Credentials
 
+### System explained
+
+
+
 
 ### Milestones
 
+This project was structured in seven milestones with one or multiple user stories or tasks.
+
+- [Basic project setup](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/1)
+
+- [Guest list and profiles](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/3)
+
+- [Guests profiles management (Add/Change/Delete)](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/8)
+
+- [Report system](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/6)
+
+- [User management & authentication](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/2)
+
+- [Final touch](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/9)
+
+- [The extra mile](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/10)
+
+### Epics
+
+
 ### User Stories
+
+
+
 
 
 ## Design
@@ -47,11 +74,31 @@ With the help of this system, the employees at the facility are always aware of:
 
 ### Imagery
 
+Images used as content for test purposes were created with ChatGPT and DALL-E 3.
+
 ### Typography
+
+For this project, no special typography was used. 
+The font is the standard font of the used browser.
+Only different font-size and boldness were used.
 
 ### Wireframes
 
 ### Database
+
+- Guest
+
+- Presence
+
+- Customer
+Customers are the owners of the dogs. When adding a new guest, a customer has to be selected.
+Although customers are a required field for creating new guests, at this point they can't be edited by users.
+The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.
+
+- Report
+
+- Report-Guest Many:Many
+
 
 
 ## Features
@@ -74,12 +121,32 @@ This method is only useful with a limited amount of profiles in the database. In
 
 ### Languages
 
+
+
 ### Frameworks
+
+The following frameworks have been used.
+
+- [Django](https://www.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+- [FontAwesome](https://fontawesome.com/)
 
 ### Modules & Libraries
 
 ### Programs & Tools
 
+During the development of this application, the following programs and tools have been used.
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Figma](https://www.figma.com/)
+- [dbdiagram.io](https://dbdiagram.io/)
+- [Heroku](https://www.heroku.com/home)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [CI Postgres Database]
+- [CI Python Linter]
+- [DALL-E 3 - for creating dog images]()
 
 ## Deployment
 

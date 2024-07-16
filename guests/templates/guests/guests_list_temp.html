@@ -31,7 +31,7 @@
     <!-- Render checked-in guests -->
     <div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
         {% if guests_checked_in|length > 0 %}
-            <h1>Checked-In</h1>
+            <h1>Checked-In Guests</h1>
             {% for guest in guests_checked_in %}
 
                 {% with present=presences|get_item:guest.id %}
@@ -266,7 +266,7 @@
     <!-- Render checked-out guests -->
     <div class="row pt-4 mx-auto container-fluid list" id="checked-out">
         {% if guests_checked_out|length > 0 %}
-            <h1>Checked-Out</h1>
+            <h1>Checked-Out Guests</h1>
             {% for guest in guests_checked_out %}
                 {% with present=presences|get_item:guest.id %}
                     <!-- Guest profile -->
@@ -467,7 +467,7 @@
 
     <!-- Render not checked-in guests -->
     <div id="not-checked-in" class="row pt-4 mx-auto container-fluid list d-none" >
-        <h1>Not Checked-In</h1>
+        <h1>Not Checked-In Guests</h1>
         {% for guest in guests_not_checked_in %}
             {% with present=guest.presence_set.first %}
                 <!-- Guest profile -->
