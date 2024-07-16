@@ -8,11 +8,23 @@
         <div class="p-4 mx-auto container-fluid">
             <div class="row profile rounded p-3">
                 <div class="col-4">
+                    <div>
                     {% if guest.image %}
                         <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-fluid">
                     {% else %}
                         <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-fluid">
                     {% endif %}
+                    </div>
+                    <div class="pt-3">
+                        <a class="btn btn-primary btn-md active" role="button" href="/guests/update_guest/{{ guest.id }}">
+                            Edit guest profile
+                        </a>
+                    </div>
+                    <div class="pt-3">
+                        <a class="btn btn-danger btn-ms active modal-trigger" role="button" data-toggle="modal" data-target="#delete-modal-{{ guest.id }}">
+                            Delete profile
+                        </a>
+                    </div>
                 </div>
 
 
@@ -73,25 +85,10 @@
                                     {{ guest.medication_time_3 }}<br />
                                 {% endif %}
                         {% endif %}
-
                         </div>
+                        
+                    </div>
                 </div>
-                <div class="pt-3">
-                    <a class="btn btn-primary btn-lg active" role="button"  href="/guests/update_guest/{{ guest.id }}">
-                        Edit guest profile
-                    </a>
-                </div>
-                <div class="pt-3">
-                    <a class="btn btn-danger btn-lg active modal-trigger" role="button" data-toggle="modal" data-target="#delete-modal-{{ guest.id }}">
-                        Delete profile
-                    </a>
-                </div>
-            </div>
-
-
-
-
-
 
             <!-- Modal for confirmation to delete profile -->
             <div class="modal fade" id="delete-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ guest.id }}" aria-hidden="true">
@@ -127,6 +124,53 @@
             </div>
         </div>
 
+
+        <div class="row pt-4 mx-auto container-fluid">
+            <h4>Reports mentioned:</h4>
+            <div>
+                {% if guest_reports %}
+                    {% for report in guest_reports %}
+                        <div class="my-2 list-item">
+                            <div class="row profile rounded">
+                                <div class="row p-2">
+                                    <div class="col-9 mb-2">
+                                        <b>{{report.report_date}}</b>
+                                        <br>
+                                        {{report.report_text}}
+                                    </div>
+                                    {% if report.guests.all|length > 0 %}
+                                    <div>
+                                        <div class="mb-2">
+                                            <b>Guests:</b>
+                                        </div>
+                                        {% for guest in report.guests.all %}
+                                            <a href="{% url 'guest_details_temp' guest.slug %}" class="text-decoration-none">    
+                                                <span class="report-guest p-1">{{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}</span>
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    <div class="m-2 text-end">
+                                        <a  href="{% url 'report_details_temp' report.id %}" class="report-link">
+                                            <span>Report details</span>
+                                        </a>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <span>No Reports for this guest available</span>
+                {% endif %}
+
+            </div>
+        </div>
+
+
     {% endif %}
 
+
+
+    
 {% endblock content %}

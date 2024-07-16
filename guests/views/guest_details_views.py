@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+
+import guests
 from ..models import Guest
+from reports.models import Report
 
 
 # View function for guest details
@@ -38,6 +41,12 @@ def guest_details_view(request, slug):
         )
         return redirect("/")
 
-    context = {"guest": guest, "customer": customer}
+    
+    guest_reports = Report.objects.filter(guests=guest).order_by('-report_date')
+
+    context = {"guest": guest,
+               "customer": customer, 
+               "guest_reports": guest_reports,
+               }
 
     return render(request, "./guests/guest_details_temp.html", context)

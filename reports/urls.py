@@ -1,9 +1,7 @@
-from .views.reports_list_views import reports_list_view
-from .views.reports_list_all_views import reports_list_all_view
-from .views.add_report_views import add_report_view
-from .views.add_report_views import update_report_view
-from .views.report_details_views import report_details_view
 from django.urls import path
+from .views.reports_list_views import reports_list_view, reports_list_all_view
+from .views.add_report_views import update_report_view, add_report_view
+from .views.report_details_views import report_details_view
 
 urlpatterns = [
     path('', reports_list_view, name='home'),

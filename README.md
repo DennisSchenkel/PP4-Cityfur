@@ -218,6 +218,7 @@ Features:
 Bugs to mention: 
 - Upload of images and the way I fixed it with pillow.
 - Buggy closing of modals. Modals did not close properly when clicking outside of the modal.
+- In development it came to the situation that the search field was not showing in the mobil view due to wrong use of bootstrap.
 
 - When adding the Guest Update feature, the updated data was not saves, because the form validation has noticed the existing database entry as duplicate of the same dataset and so the validation threw an error.
     - To solve this, the validation has to ignore the duplicate of their own dataset. So exclude the dataset with given ID in the validation process.
