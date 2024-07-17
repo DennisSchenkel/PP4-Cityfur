@@ -66,11 +66,11 @@
                                         <!-- Show gender depending on the database entry -->
                                         <div class="col px-0">
                                             {% if guest.get_gender_display == "Male" %}
-                                                <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
+                                                <span class="fa-solid fa-mars fa-lg male"></span>
                                             {% elif guest.get_gender_display == "Female" %}
-                                                <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
+                                                <span class="fa-solid fa-venus fa-lg female"></span>
                                             {% else %} 
-                                                <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
+                                                <span class="fa-solid fa-genderless fa-lg no-gender"></span>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -80,28 +80,28 @@
                                         <!-- Alert medication -->
                                         {% if guest.medication %}
                                             <div class="col-auto text-center">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                                <span class="fa-solid fa-pills fa-lg text-danger"></span>
                                             </div>
                                         {% endif %}
                                         
                                         <!-- Alert food --> 
                                         {% if guest.food %}
                                             <div class="col-auto text-center">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                                <span class="fa-solid fa-utensils fa-lg text-danger"></span>
                                             </div>
                                         {% endif %}
 
                                         <!-- Alert report --> 
                                         <div class="col-auto text-center">
                                             {% if guest in guests_in_report %}        
-                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                                <span class="fa-solid fa-pen fa-lg text-primary"></span>
                                             {% endif %}
                                         </div>
 
                                         <!-- Alert pickup --> 
                                         {% if present and present.pickup_name %}
                                             <div class="col-auto text-center">
-                                                <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                                <span class="fa-solid fa-user fa-lg text-primary"></span>
                                             </div>
                                         {% endif %}
 
@@ -113,13 +113,13 @@
                                             <div class="mb-3">
                                                 <strong>Medication:</strong><br>
                                                 {% if guest.medication_time_1 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_2 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_3 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
@@ -129,13 +129,13 @@
                                             <div class="mb-3">
                                                 <strong>Food:</strong><br>
                                                 {% if guest.food_time_1 %}
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
+                                                        <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_2 %}
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
+                                                        <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_3 %}
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
+                                                        <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
@@ -143,7 +143,7 @@
                                         <!-- Alert report dropout -->
                                         {% if guest in guests_in_report %}      
                                             <div class="mb-3">  
-                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span><span> Mentioned in a report!<br></span>
+                                                <span class="fa-solid fa-pen fa-lg text-primary"></span><span> Mentioned in a report!<br></span>
                                             </div>
                                         {% endif %}
                                     
@@ -161,7 +161,7 @@
                                 
                                 <!-- Profile expand options -->
                                 <div class="col-auto">
-                                    <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
+                                    <span class="fa-solid fa-chevron-down fa-lg mx-2"></span>
                                 </div>
                             </div>
                             <div class="profile-options-dropout visually-hidden">
@@ -301,11 +301,11 @@
                                         <!-- Show gender depending on the database entry -->
                                         <div class="col px-0">
                                             {% if guest.get_gender_display == "Male" %}
-                                                <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
+                                                <span class="fa-solid fa-mars fa-lg male"></span>
                                             {% elif guest.get_gender_display == "Female" %}
-                                                <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
+                                                <span class="fa-solid fa-venus fa-lg female"></span>
                                             {% else %} 
-                                                <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
+                                                <span class="fa-solid fa-genderless fa-lg no-gender"></span>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -315,28 +315,28 @@
                                         <!-- Alert medication -->
                                         {% if guest.medication %}
                                             <div class="col-auto text-center">
-                                                <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                                <span class="fa-solid fa-pills fa-lg text-danger"></span>
                                             </div>
                                         {% endif %}
                                         
                                         <!-- Alert food --> 
                                         {% if guest.food %}
                                             <div class="col-auto text-center">
-                                                <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                                <span class="fa-solid fa-utensils fa-lg text-danger"></span>
                                             </div>
                                         {% endif %}
 
                                         <!-- Alert report --> 
                                         <div class="col-auto text-center">
                                             {% if guest in guests_in_report %}        
-                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span>
+                                                <span class="fa-solid fa-pen fa-lg text-primary"></span>
                                             {% endif %}
                                         </div>
 
                                         <!-- Alert pickup --> 
                                         {% if present and present.pickup_name %}
                                             <div class="col-auto text-center">
-                                                <span class="fa-solid fa-user fa-lg icon-fa text-primary"></span>
+                                                <span class="fa-solid fa-user fa-lg text-primary"></span>
                                             </div>
                                         {% endif %}
 
@@ -348,13 +348,13 @@
                                             <div class="mb-3">
                                                 <strong>Medication:</strong><br>
                                                 {% if guest.medication_time_1 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_2 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.medication_time_3 %}
-                                                        <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
+                                                        <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
@@ -364,13 +364,13 @@
                                             <div class="mb-3">
                                                 <strong>Food:</strong><br>
                                                 {% if guest.food_time_1 %}
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
+                                                        <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_2 %}
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
+                                                        <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
                                                 {% endif %}
                                                 {% if guest.food_time_3 %}
-                                                        <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
+                                                        <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
                                                 {% endif %}
                                             </div>
                                         {% endif %}
@@ -378,7 +378,7 @@
                                         <!-- Alert report dropout -->
                                         {% if guest in guests_in_report %}      
                                             <div class="mb-3">  
-                                                <span class="fa-solid fa-pen fa-lg icon-fa text-primary"></span><span> Mentioned in a report!<br></span>
+                                                <span class="fa-solid fa-pen fa-lg text-primary"></span><span> Mentioned in a report!<br></span>
                                             </div>
                                         {% endif %}
                                     
@@ -396,7 +396,7 @@
 
                                 <!-- Profile expand options -->
                                 <div class="col-auto">
-                                    <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
+                                    <span class="fa-solid fa-chevron-down fa-lg mx-2"></span>
                                 </div>
                             </div>
                             <div class="profile-options-dropout visually-hidden">
@@ -502,11 +502,11 @@
                                     <!-- Show gender depending on the database entry -->
                                     <div class="col px-0">
                                         {% if guest.get_gender_display == "Male" %}
-                                            <span class="fa-solid fa-mars fa-lg icon-fa male"></span>
+                                            <span class="fa-solid fa-mars fa-lg male"></span>
                                         {% elif guest.get_gender_display == "Female" %}
-                                            <span class="fa-solid fa-venus fa-lg icon-fa female"></span>
+                                            <span class="fa-solid fa-venus fa-lg female"></span>
                                         {% else %} 
-                                            <span class="fa-solid fa-genderless fa-lg icon-fa no-gender"></span>
+                                            <span class="fa-solid fa-genderless fa-lg no-gender"></span>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -516,14 +516,14 @@
                                     <!-- Alert medication -->
                                     {% if guest.medication %}
                                         <div class="col-auto text-center">
-                                            <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span>
+                                            <span class="fa-solid fa-pills fa-lg text-danger"></span>
                                         </div>
                                     {% endif %}
                                     
                                     <!-- Alert food --> 
                                     {% if guest.food %}
                                         <div class="col-auto text-center">
-                                            <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span>
+                                            <span class="fa-solid fa-utensils fa-lg text-danger"></span>
                                         </div>
                                     {% endif %}
                                 </div>
@@ -534,13 +534,13 @@
                                         <div class="mb-3">
                                             <strong>Medication:</strong><br>
                                             {% if guest.medication_time_1 %}
-                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
+                                                    <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_1 }}<br></span>
                                             {% endif %}
                                             {% if guest.medication_time_2 %}
-                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
+                                                    <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_2 }}<br></span>
                                             {% endif %}
                                             {% if guest.medication_time_3 %}
-                                                    <span class="fa-solid fa-pills fa-lg icon-fa text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
+                                                    <span class="fa-solid fa-pills fa-lg text-danger"></span><span> {{ guest.medication_time_3 }}<br></span>
                                             {% endif %}
                                         </div>
                                     {% endif %}
@@ -550,13 +550,13 @@
                                         <div class="mb-3">
                                             <strong>Food:</strong><br>
                                             {% if guest.food_time_1 %}
-                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
+                                                    <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_1 }}<br></span>
                                             {% endif %}
                                             {% if guest.food_time_2 %}
-                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
+                                                    <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_2 }}<br></span>
                                             {% endif %}
                                             {% if guest.food_time_3 %}
-                                                    <span class="fa-solid fa-utensils fa-lg icon-fa text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
+                                                    <span class="fa-solid fa-utensils fa-lg text-danger"></span><span> {{ guest.food_time_3 }}<br></span>
                                             {% endif %}
                                         </div>
                                     {% endif %}                                    
@@ -565,7 +565,7 @@
                             
                             <!-- Profile expand options -->
                             <div class="col-auto">
-                                <span class="fa-solid fa-chevron-down fa-lg icon-fa mx-2"></span>
+                                <span class="fa-solid fa-chevron-down fa-lg mx-2"></span>
                             </div>
                         </div>
                         
@@ -626,6 +626,18 @@
     <div class="spacer"></div>
 
     <div class="guest-tools">
+        {% if guests_checked_in|length == 0 %}
+        <div class="row text-center" id="check-in-tutorial">
+            <div class="col-0 col-lg-2">
+            </div>
+                <div class="text-center align-bottom col-12 col-lg-10">
+                    <h1>No guest is checked-in today!</h1>
+                    <h2>Check-in a guest by clicking the button below.</h2>
+                    <span class="fa-solid fa-arrow-down-long fa-xl icon-width py-4"></span>
+                </div>
+            </div>
+        {% endif %}
+
         <!-- Check-In button -->
         <div class="row gx-0">
             <div class="col-2"></div>
@@ -637,12 +649,22 @@
             <div class="col-2"></div>
         </div>
 
+        {% if guests_checked_in|length == 0 %}
+            <div class="row text-center" id="filter-tutorial">
+                <div class="col-0 col-lg-2">
+                </div>
+                <div class="col-12 col-lg-10">
+                    <h4>You need to check in a few guests to use the filter on this page!</h4>
+                    <span class="fa-solid fa-arrow-down-long fa-xl icon-width py-4"></span>
+                </div>
+            </div>
+        {% endif %}
         <!-- Gender selector footer -->
         <div class="row text-center bottom-box gx-0">
             <div class="col-lg-2 d-lg-block"></div>
             <div class="col-12 col-lg-10 row align-items-center">
                 <div id="female-selector" class="col-4 female-selector">
-                    <span class="fa-solid fa-venus fa-2x icon-fa"></span>
+                    <span class="fa-solid fa-venus fa-2x"></span>
                 </div>
                 <div id="all-selector" class="col-4 all-selector selected-selector">
                     <span class=""><strong>All</strong></span>
@@ -650,7 +672,7 @@
                     Daycount: {{ todays_guest_count }}
                 </div>
                 <div id="male-selector" class="col-4 male-selector">
-                    <span class="fa-solid fa-mars fa-2x icon-fa"></span>
+                    <span class="fa-solid fa-mars fa-2x"></span>
                 </div>
             </div>
         </div>

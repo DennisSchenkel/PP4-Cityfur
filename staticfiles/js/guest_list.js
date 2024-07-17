@@ -41,6 +41,12 @@ $(document).ready(function() {
         $("#count-not-checked-in").toggleClass("d-none");
     });
 
+    // Toggle for check-in list in guest list
+    $("#checkin-toggle").click(function() {
+        $("#check-in-tutorial").addClass("d-none");
+        $("#filter-tutorial").addClass("d-none");
+    });
+
     // Toggle for gender selection in guest list 
     // Select male guests
     $("#male-selector").click(function() {

@@ -32,6 +32,8 @@ $(document).ready(function() {
 
     // Toggle for check-in list in guest list
     $("#checkin-toggle").click(function() {
+        $("#check-in-tutorial").addClass("d-none");
+        $("#filter-tutorial").addClass("d-none");
         $("#checked-in").toggleClass("d-none");
         $("#checked-out").toggleClass("d-none");
         $("#not-checked-in").toggleClass("d-none");

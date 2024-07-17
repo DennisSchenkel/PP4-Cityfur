@@ -61,7 +61,7 @@
             <!-- Sidebar left -->
             <div class="col-lg-2 d-none d-lg-block sidebar" id="sidebar-menu">
                 <div class="d-lg-none text-center mb-5" id="closeSidebar">
-                    <span class="fa-solid fa-xmark fa-lg icon-fa icon-width"></span><br>
+                    <span class="fa-solid fa-xmark fa-lg  icon-width"></span><br>
                     <span>Close Nav</span>
                 </div>
                 <div class="row justify-content-center">    
@@ -69,7 +69,7 @@
                         <ul class="nav flex-column">                          
                             <li class="primary-nav-item mb-3">
                                 <a href="/">
-                                    <span class="fa-solid fa-dog fa-lg icon-fa icon-width"></span>Guest
+                                    <span class="fa-solid fa-dog fa-lg icon-width"></span>Guest
                                 </a>
                                 <ul class="nav flex-column">
                                     <li class="secondary-nav-item">
@@ -82,7 +82,7 @@
                             </li>
                             <li class="primary-nav-item">
                                 <a href="/reports/">
-                                    <span class="fa-solid fa-pen fa-lg icon-fa icon-width"></span>Reports
+                                    <span class="fa-solid fa-pen fa-lg  icon-width"></span>Reports
                                 </a>
                                 <ul class="nav flex-column">
                                     <li class="secondary-nav-item">
@@ -97,7 +97,7 @@
                             {% if user.is_authenticated %}
                                 <li class="pt-4">
                                     <a class="{% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">
-                                        <span class="fa-solid fa-right-from-bracket fa-lg icon-fa icon-width"></span>Logout
+                                        <span class="fa-solid fa-right-from-bracket fa-lg icon-width"></span>Logout
                                     </a>
                                 </li>
                             {% endif %}
