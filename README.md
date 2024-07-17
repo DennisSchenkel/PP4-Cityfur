@@ -146,6 +146,7 @@ During the development of this application, the following programs and tools hav
 - [GitHub](https://github.com/)
 - [CI Postgres Database]
 - [CI Python Linter]
+- [Affinity Design 2](https://affinity.serif.com/de/designer/)
 - [DALL-E 3 - for creating dog images]()
 
 ## Deployment
