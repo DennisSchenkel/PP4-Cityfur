@@ -600,9 +600,10 @@
                                                 <input type="hidden" name="guest" value="{{ guest.id }}">
                                                 <input type="hidden" name="checkin" value="true">
                                                 <input type="hidden" name="date" value="{{ selected_date }}">
-                                                <div>
-                                                    <label for="pickup_name-{{ guest.id }}">Pickup Name</label>
+                                                <div class="pb-2">
+                                                    <label for="pickup_name-{{ guest.id }}"><b>Pickup Name</b></label>
                                                     <input type="text" id="pickup_name-{{ guest.id }}" name="pickup_name" value="">
+                                                    <p>Leave empty if the known owner is picking up the guest today.</p>
                                                 </div>
                                             </form>
                                             <div class="profile-check-in text-center rounded-bottom p-1 pointer" onclick="document.getElementById('checkin-form-{{ guest.id }}').submit();">

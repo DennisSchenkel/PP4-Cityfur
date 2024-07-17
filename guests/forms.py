@@ -54,22 +54,22 @@ class AddGuest(forms.ModelForm):
             "customer_id",
         )
         labels = {
-            "first_name": "First name",
-            "last_name": "Last name",
-            "name_addon": "Name addon",
+            "first_name": "First name (Guest)",
+            "last_name": "Last name (Guest)",
+            "name_addon": "Name addon (To better identidy when first name already exists with another guest)",
             "gender": "Gender",
             "image": "Image",
-            "date_of_birth": "Date of Birth",
-            "information": "Information",
-            "food": "Food",
+            "date_of_birth": "Date of Birth (Guest)",
+            "information": "Additional Information (About guest)",
+            "food": "Food (Check if the guest needs to be fed)",
             "food_time_1": "Food time 1",
             "food_time_2": "Food time 2",
             "food_time_3": "Food time 3",
-            "medication": "Medication",
+            "medication": "Medication (Check if the guest needs to be medicated)",
             "medication_time_1": "Medication time 1",
             "medication_time_2": "Medication time 2",
             "medication_time_3": "Medication time 3",
-            "customer_id": "Owner",
+            "customer_id": "Owner (Select an existing customer only)",
         }
 
         widgets = {
