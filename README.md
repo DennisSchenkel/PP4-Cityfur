@@ -6,7 +6,7 @@ Code Institute - Prortfilio Project 3 - Django Full-Stack Application
 
 This application is developed for the real world use in a dog day care center in Cologne, Germany.
 
-On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.
+On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.<br>
 The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them. 
 
 With the help of this system, the employees at the facility are always aware of:
@@ -78,30 +78,32 @@ Images used as content for test purposes were created with ChatGPT and DALL-E 3.
 
 ### Typography
 
-For this project, no special typography was used.  
-The font is the standard font of the used browser.  
-Only different font-size and boldness were used.  
+For this project, no special typography was used.<br>
+The font is the standard font of the used browser.<br>
+Only different font-size and boldness were used.<br>
 
 ### Mockups
 
 <details>
 <summary>Mobile Nav</summary>
-This is the navigation for the mobile version of the application.
+<br>
+This is the navigation for the mobile version of the application.<br>
 
 ![Mobile Nav Wireframe](/documentation/images/wireframes/0-mobile-nav.png)
 </details>
 
+
 <details>
 <summary>Guests List</summary>
-In this overview all checked-in and already checked-out guests of the day are listed.  
-The day can be selected in the top menu bar and all profiles on the page can be searched.  
-On smaller screens the search bar disapears and is exchanged by a search icon. When clicking the icon, the search bar shows up.
+<br>
+In this overview all checked-in and already checked-out guests of the day are listed.<br>
+The day can be selected in the top menu bar and all profiles on the page can be searched.<br>
+On smaller screens the search bar disapears and is exchanged by a search icon. When clicking the icon, the search bar shows up.<br>
 
-To check-in a new guest, users can click on the blue "Check-In" button on the bottom.  
-The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.
+To check-in a new guest, users can click on the blue "Check-In" button on the bottom.<br>
+The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.<br>
 
 ![Guests List Wireframe](/documentation/images/wireframes/1-guests-list.png)
-
 
 Each small profile listed can be clicked on and the following informations are shown:
 
@@ -121,67 +123,77 @@ When clicked on the small profile a dropdown menu opens with the following optio
 ![Guest Profile Widget Wireframe](/documentation/images/wireframes/1-1-guest-profile-widget.png)
 </details>
 
+
 <details>
 <summary>Guest Check-In</summary>
-When clicking on the "Check-In" button on the guest list (previous chapter), a list of all not checked-in guest of the selected date show up.  
-Each profile can be clicked and the check-in button can be clicked. After the confirmation modal, the guest will be checked-in for the selected date.
+<br>
+When clicking on the "Check-In" button on the guest list (previous chapter), a list of all not checked-in guest of the selected date show up.<br>
+Each profile can be clicked and the check-in button can be clicked. After the confirmation modal, the guest will be checked-in for the selected date.<br>
 
-When clicking on the "Close Ckeck-In" button, the view will switch to the guest list for the selected date.
+When clicking on the "Close Check-In" button, the view will switch to the guest list for the selected date.<br>
 
-The date picker and search field are working as described in the chapter above.  
-The gender selector on the bottom is also working als already described.
+The date picker and search field are working as described in the chapter above.<br>
+The gender selector on the bottom is also working als already described.<br>
 
 ![Guest Check-In Wireframe](/documentation/images/wireframes/2-guest-check-in.png)
 </details>
 
+
 <details>
 <summary>All Guests</summary>
-
+<br>
 
 ![All Guests Wireframe](/documentation/images/wireframes/3-all-guests.png)
 </details>
 
+
 <details>
 <summary>Add/Edit Guest</summary>
-
+<br>
 
 ![Add/Edit Guest Wireframe](/documentation/images/wireframes/4-add-edit-guest.png)
 </details>
 
+
 <details>
 <summary>Guest Details</summary>
-
+<br>
 
 ![Guest Details Wireframe](/documentation/images/wireframes/5-guest-details.png)
 </details>
 
+
 <details>
 <summary>Reports List</summary>
-
+<br>
 
 ![Reports List Wireframe](/documentation/images/wireframes/6-reports-list.png)
 </details>
 
+
 <details>
 <summary>All Reports</summary>
-
+<br>
 
 ![All Reports Wireframe](/documentation/images/wireframes/7-all-reports.png)
 </details>
 
+
 <details>
 <summary>Report Details</summary>
-
+<br>
 
 ![Report Details Wireframe](/documentation/images/wireframes/8-report-details.png)
 </details>
 
+
 <details>
 <summary>Add/Edit Report</summary>
-
+<br>
 
 ![Add/Edit Report Wireframe](/documentation/images/wireframes/9-add-edit-report.png)
 </details>
+
 
 ### Database
 
@@ -190,9 +202,9 @@ The gender selector on the bottom is also working als already described.
 - Presence
 
 - Customer
-Customers are the owners of the dogs. When adding a new guest, a customer has to be selected.  
-Although customers are a required field for creating new guests, at this point they can't be edited by users.  
-The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.
+Customers are the owners of the dogs. When adding a new guest, a customer has to be selected.<br>
+Although customers are a required field for creating new guests, at this point they can't be edited by users.<br>
+The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.<br>
 
 - Report
 
@@ -206,10 +218,10 @@ The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.
 
 #### Search
 
-The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.
+The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.<br>
 
-To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.  
-This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.
+To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.<br>
+This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.<br>
 
 ### Future Features
 
@@ -252,7 +264,7 @@ During the development of this application, the following programs and tools hav
 
 ### Version Control
 
-This application was developed using Visuel Studio Code as the IDE and GitHub for hosting the repository.
+This application was developed using Visuel Studio Code as the IDE and GitHub for hosting the repository.<br>
 
 Git was used for version control by using the following comments:
 
@@ -330,7 +342,7 @@ Git was used for version control by using the following comments:
 
 #### Navigation Testing
 
-Test if the navigation and their items are showing up and are working correctly on each site.
+Test if the navigation and their items are showing up and are working correctly on each site.<br>
 
 ![Nav-Testing](documentation/images/nav-test.png)
 
@@ -396,5 +408,5 @@ Bugs to mention:
     - To solve this, the validation has to ignore the duplicate of their own dataset. So exclude the dataset with given ID in the validation process.
 
 
-Agile project management:  
+Agile project management:  <br>
 During the process of deveolment, the kanban board and backlog, userstories, tasks and milestones where constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
