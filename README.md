@@ -2,14 +2,15 @@
 
 ## Introduction
 
-Code Institute - Prortfilio Project 3 - Django Full-Stack Application
-
-This application is developed for the real world use in a dog day care center in Cologne, Germany.
-
+Code Institute - Prortfilio Project 3 - Django Full-Stack Application<br>
+<br>
+This application is developed for the real world use in a dog day care center in Cologne, Germany.<br>
+<br>
 On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.<br>
 The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them. 
-
+<br>
 With the help of this system, the employees at the facility are always aware of:
+
 - Guests present that day
 - Guests checked-out and how many are still present
 - Times for applying individual medication
@@ -99,9 +100,10 @@ This is the navigation for the mobile version of the application.<br>
 In this overview all checked-in and already checked-out guests of the day are listed.<br>
 The day can be selected in the top menu bar and all profiles on the page can be searched.<br>
 On smaller screens the search bar disapears and is exchanged by a search icon. When clicking the icon, the search bar shows up.<br>
-
+<br>
 To check-in a new guest, users can click on the blue "Check-In" button on the bottom.<br>
 The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.<br>
+<br>
 
 ![Guests List Wireframe](/documentation/images/wireframes/1-guests-list.png)
 
@@ -129,11 +131,12 @@ When clicked on the small profile a dropdown menu opens with the following optio
 <br>
 When clicking on the "Check-In" button on the guest list (previous chapter), a list of all not checked-in guest of the selected date show up.<br>
 Each profile can be clicked and the check-in button can be clicked. After the confirmation modal, the guest will be checked-in for the selected date.<br>
-
+<br>
 When clicking on the "Close Check-In" button, the view will switch to the guest list for the selected date.<br>
-
+<br>
 The date picker and search field are working as described in the chapter above.<br>
 The gender selector on the bottom is also working als already described.<br>
+<br>
 
 ![Guest Check-In Wireframe](/documentation/images/wireframes/2-guest-check-in.png)
 </details>
@@ -205,6 +208,7 @@ The gender selector on the bottom is also working als already described.<br>
 Customers are the owners of the dogs. When adding a new guest, a customer has to be selected.<br>
 Although customers are a required field for creating new guests, at this point they can't be edited by users.<br>
 The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.<br>
+<br>
 
 - Report
 
@@ -219,7 +223,7 @@ The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.
 #### Search
 
 The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.<br>
-
+<br>
 To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.<br>
 This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.<br>
 
@@ -265,7 +269,7 @@ During the development of this application, the following programs and tools hav
 ### Version Control
 
 This application was developed using Visuel Studio Code as the IDE and GitHub for hosting the repository.<br>
-
+<br>
 Git was used for version control by using the following comments:
 
 - git add filename - Select the files that should be uploaded and updated to the GitHub repository.
