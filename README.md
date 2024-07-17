@@ -78,9 +78,9 @@ Images used as content for test purposes were created with ChatGPT and DALL-E 3.
 
 ### Typography
 
-For this project, no special typography was used. 
-The font is the standard font of the used browser.
-Only different font-size and boldness were used.
+For this project, no special typography was used.  
+The font is the standard font of the used browser.  
+Only different font-size and boldness were used.  
 
 ### Mockups
 
@@ -93,11 +93,11 @@ This is the navigation for the mobile version of the application.
 
 <details>
 <summary>Guests List</summary>
-In this overview all checked-in and already checked-out guests of the day are listed.
-The day can be selected in the top menu bar and all profiles on the page can be searched.
+In this overview all checked-in and already checked-out guests of the day are listed.  
+The day can be selected in the top menu bar and all profiles on the page can be searched.  
 On smaller screens the search bar disapears and is exchanged by a search icon. When clicking the icon, the search bar shows up.
 
-To check-in a new guest, users can click on the blue "Check-In" button on the bottom.
+To check-in a new guest, users can click on the blue "Check-In" button on the bottom.  
 The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.
 
 ![Guests List Wireframe](/documentation/images/wireframes/1-guests-list.png)
@@ -123,12 +123,12 @@ When clicked on the small profile a dropdown menu opens with the following optio
 
 <details>
 <summary>Guest Check-In</summary>
-When clicking on the "Check-In" button on the guest list (previous chapter), a list of all not checked-in guest of the selected date show up.
+When clicking on the "Check-In" button on the guest list (previous chapter), a list of all not checked-in guest of the selected date show up.  
 Each profile can be clicked and the check-in button can be clicked. After the confirmation modal, the guest will be checked-in for the selected date.
 
 When clicking on the "Close Ckeck-In" button, the view will switch to the guest list for the selected date.
 
-The date picker and search field are working as described in the chapter above.
+The date picker and search field are working as described in the chapter above.  
 The gender selector on the bottom is also working als already described.
 
 ![Guest Check-In Wireframe](/documentation/images/wireframes/2-guest-check-in.png)
@@ -190,8 +190,8 @@ The gender selector on the bottom is also working als already described.
 - Presence
 
 - Customer
-Customers are the owners of the dogs. When adding a new guest, a customer has to be selected.
-Although customers are a required field for creating new guests, at this point they can't be edited by users.
+Customers are the owners of the dogs. When adding a new guest, a customer has to be selected.  
+Although customers are a required field for creating new guests, at this point they can't be edited by users.  
 The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.
 
 - Report
@@ -208,7 +208,7 @@ The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.
 
 The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.
 
-To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.
+To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.  
 This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.
 
 ### Future Features
@@ -396,5 +396,5 @@ Bugs to mention:
     - To solve this, the validation has to ignore the duplicate of their own dataset. So exclude the dataset with given ID in the validation process.
 
 
-Agile project management: 
+Agile project management:  
 During the process of deveolment, the kanban board and backlog, userstories, tasks and milestones where constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
