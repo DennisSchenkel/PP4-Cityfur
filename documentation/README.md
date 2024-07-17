@@ -228,6 +228,11 @@ Git was used for version control by using the following comments:
 
 ### Manual Testing
 
+#### Navigation Testing
+
+Test if the navigation and their items are showing up and are working correctly on each site.
+
+![Nav-Testing](documentation/images/nav-test.png)
 
 
 ### Bugs During Development
