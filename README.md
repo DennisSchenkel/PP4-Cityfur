@@ -82,7 +82,106 @@ For this project, no special typography was used.
 The font is the standard font of the used browser.
 Only different font-size and boldness were used.
 
-### Wireframes
+### Mockups
+
+<details>
+<summary>Mobile Nav</summary>
+This is the navigation for the mobile version of the application.
+
+![Mobile Nav Wireframe](/documentation/images/wireframes/0-mobile-nav.png)
+</details>
+
+<details>
+<summary>Guests List</summary>
+In this overview all checked-in and already checked-out guests of the day are listed.
+The day can be selected in the top menu bar and all profiles on the page can be searched.
+On smaller screens the search bar disapears and is exchanged by a search icon. When clicking the icon, the search bar shows up.
+
+To check-in a new guest, users can click on the blue "Check-In" button on the bottom.
+The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.
+
+![Guests List Wireframe](/documentation/images/wireframes/1-guests-list.png)
+
+
+Each small profile listed can be clicked on and the following informations are shown:
+
+- Possible medication times
+- Possible feeding times
+- Different person then the owner to pick up the guest
+- An icon to indicate that the guest was mentioned in a report that day
+
+
+When clicked on the small profile a dropdown menu opens with the following options:
+
+- Undo check-in/check-out
+- Open guest file
+- Read report if guest was mentiones in one on selected day
+- Check-out guest if the guest is checked-in
+
+![Guest Profile Widget Wireframe](/documentation/images/wireframes/1-1-guest-profile-widget.png)
+</details>
+
+<details>
+<summary>Guest Check-In</summary>
+When clicking on the "Check-In" button on the guest list (previous chapter), a list of all not checked-in guest of the selected date show up.
+Each profile can be clicked and the check-in button can be clicked. After the confirmation modal, the guest will be checked-in for the selected date.
+
+When clicking on the "Close Ckeck-In" button, the view will switch to the guest list for the selected date.
+
+The date picker and search field are working as described in the chapter above.
+The gender selector on the bottom is also working als already described.
+
+![Guest Check-In Wireframe](/documentation/images/wireframes/2-guest-check-in.png)
+</details>
+
+<details>
+<summary>All Guests</summary>
+
+
+![All Guests Wireframe](/documentation/images/wireframes/3-all-guests.png)
+</details>
+
+<details>
+<summary>Add/Edit Guest</summary>
+
+
+![Add/Edit Guest Wireframe](/documentation/images/wireframes/4-add-edit-guest.png)
+</details>
+
+<details>
+<summary>Guest Details</summary>
+
+
+![Guest Details Wireframe](/documentation/images/wireframes/5-guest-details.png)
+</details>
+
+<details>
+<summary>Reports List</summary>
+
+
+![Reports List Wireframe](/documentation/images/wireframes/6-reports-list.png)
+</details>
+
+<details>
+<summary>All Reports</summary>
+
+
+![All Reports Wireframe](/documentation/images/wireframes/7-all-reports.png)
+</details>
+
+<details>
+<summary>Report Details</summary>
+
+
+![Report Details Wireframe](/documentation/images/wireframes/8-report-details.png)
+</details>
+
+<details>
+<summary>Add/Edit Report</summary>
+
+
+![Add/Edit Report Wireframe](/documentation/images/wireframes/9-add-edit-report.png)
+</details>
 
 ### Database
 
