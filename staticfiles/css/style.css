@@ -20,7 +20,7 @@ body {
     };
 }
 
-#sidebarToggle {
+#sidebar-toggle {
     cursor: pointer;
 }
 
@@ -36,10 +36,6 @@ body {
     width: 35px;
 }
 
-.primary-nav-item {
-    
-}
-
 .secondary-nav-item {
     padding-left: 35px;
     font-size: 0.8em;
@@ -49,7 +45,7 @@ body {
 .header-menu {
     background-color: #EDEDED;
     align-content: center;
-    height: 65px;
+    min-height: 65px;
 }
 
 .menu-bubble {
@@ -160,8 +156,6 @@ body {
     background-color: #064fbd;
     color: white;
 }
-
-
 
 .profile-check-out {
     background-color: #db4545;

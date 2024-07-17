@@ -4,31 +4,40 @@
 {% block header_nav %}
 
 <!-- Navbar -->
-<nav class="row header-menu align-items-center justify-content-center mx-0">
-
-    <!-- Header left column -->
-    <!-- Menu icon -->
-    <div class="col-3 d-lg-none text-center">
-            <div id="sidebarToggle">
+<nav class="header-menu mx-0 py-2">
+    <div class="row align-items-center justify-content-center">
+        <!-- Header left column -->
+        <!-- Menu icon -->
+        <div class="col-3 d-lg-none text-center">
+            <div id="sidebar-toggle">
                 <span class="fa-solid fa-bars fa-2x icon-fa"></span>
             </div>
-    </div>
+        </div>
 
-    <!-- Header center column -->
-    <!-- Date selector -->
-    <div class="col-6 col-md-4 text-center">
-        {% block date_selector %}
-            {% include "guests/components/date_picker_guests.html" %}
-        {% endblock date_selector %}
-    </div>
+        <!-- Header center column -->
+        <!-- Date selector -->
+        <div class="col-6 col-md-4 text-center">
+            {% block date_selector %}
+                {% include "guests/components/date_picker_guests.html" %}
+            {% endblock date_selector %}
+        </div>
 
-    <!-- Header right column -->
-    <!-- Search icon -->
-    <div class="col-4 d-none d-lg-block text-center">
-        <input placeholder="Search" id="search"></input>
-        <span class="fa-solid fa-search fa-xl icon-fa"></span>
+        <!-- Header right column -->
+        <!-- Search icon -->
+        <div class="col-3 d-lg-none text-center">
+            <div id="search-toggle">
+                <span class="fa-solid fa-search fa-xl icon-fa"></span>
+            </div>
+        </div>
+        <!-- Search input full page -->
+        <div class="col-4 d-none d-lg-block text-center">
+            <input placeholder="Search" id="search"></input>
+            <span class="fa-solid fa-search fa-xl icon-fa"></span>
+        </div>
     </div>
-    <div class="col-3 d-lg-none text-center">
+    <!-- Search input mobile page -->
+    <div class="d-lg-none d-none text-center mt-2" id="mobile-search">
+        <input placeholder="Search" id="mobile-search-bar"></input>
         <span class="fa-solid fa-search fa-xl icon-fa"></span>
     </div>
 </nav>
