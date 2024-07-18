@@ -5,6 +5,20 @@
 
     {% if user.is_authenticated %}
 
+        <!-- Displaying django messages -->
+        <div class="container">
+            <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                    <div class="alert alert-dismissible fade show alert-box" id="msg" role="alert">
+                        <div class="my-1">{{ message | safe }}</div>
+                        <button type="button" class="btn-close alert-box-btn" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+
         <!-- Menu bubble -->
         <div class="menu-bubble d-lg-none" id="sidebar-toggle">
             <span class="fa-solid fa-bars fa-2x icon-fa" ></span>

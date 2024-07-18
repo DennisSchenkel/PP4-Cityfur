@@ -29,7 +29,7 @@ def add_guest_view(request):
                 messages.SUCCESS,
                 f"Profile for { guest_name } has been added successfully.",
             )
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect(f"/guests/{guest.slug}")
 
     else:
         form = AddGuest()
@@ -60,7 +60,7 @@ def update_guest_view(request, id):
                 messages.SUCCESS,
                 f"Profile of { guest_name } has been updated successfully.",
             )
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect(f"/guests/{guest.slug}")
 
     else:
         form = AddGuest(instance=guest)

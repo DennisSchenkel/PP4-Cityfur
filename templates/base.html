@@ -48,6 +48,24 @@
 </head>
 
 <body>
+
+    <!-- Displaying django messages -->
+    {% if user.is_authenticated == False %}
+        <div class="container">
+            <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                    <div class="alert alert-dismissible fade show alert-box" id="msg" role="alert">
+                        <div class="my-1">{{ message | safe }}</div>
+                        <button type="button" class="btn-close alert-box-btn" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Navbar -->
     <div>
         {% if user.is_authenticated == False %}
             <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
