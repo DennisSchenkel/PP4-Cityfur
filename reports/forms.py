@@ -17,7 +17,9 @@ class AddReport(forms.ModelForm):
 
     guests = forms.ModelMultipleChoiceField(
         queryset=Guest.objects.all(),
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "guest-check-list"}),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "guest-check-list"}
+            ),
         label="Guests to mention in the report",
         required=False
     )
@@ -38,7 +40,7 @@ class AddReport(forms.ModelForm):
             "report_date": DatePickerInput(attrs={"class": "form-control"}),
             "report_text": forms.Textarea(attrs={"class": "form-control"}),
         }
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['guests'].label_from_instance = self.label_from_instance

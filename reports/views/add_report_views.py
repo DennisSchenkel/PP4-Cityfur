@@ -22,11 +22,12 @@ def add_report_view(request):
             form.save()
             report = form.save()
             report_date = report.report_date
-            
+
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f"Report for { report_date } has been added successfully.",
+                f"Report for {report_date} "
+                f"has been added successfully.",
             )
             return HttpResponseRedirect(f"/reports/?date={report_date}")
 
@@ -64,4 +65,6 @@ def update_report_view(request, id):
     else:
         form = AddReport(instance=report)
 
-    return render(request, "reports/update_report_temp.html", {"form": form, "report": report})
+    return render(
+        request, "reports/update_report_temp.html",
+        {"form": form, "report": report})

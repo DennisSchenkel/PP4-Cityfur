@@ -71,10 +71,11 @@ class Guest(models.Model):
     class Meta:
         ordering = ["first_name"]
 
-    # Automatically creates a slug for the guest by combining first_name and name_addon
+    # Automatically creates a slug for the guest
+    # by combining first_name and name_addon
     def save(self, *args, **kwargs):
         if not self.slug:
-            if self.name_addon == None:
+            if self.name_addon is None:
                 self.slug = slugify(self.first_name)
             else:
                 self.slug = slugify(f"{self.first_name}-{self.name_addon}")
@@ -93,14 +94,17 @@ class Guest(models.Model):
 
     # Returns the full name of the guest
     def get_last_name(self):
-        if self.last_name == None:
+        if self.last_name is None:
             return ""
         else:
             return self.last_name
 
     # Returns all necessary information about the guest
     def __str__(self):
-        return f"{self.first_name} {self.get_last_name()} ({self.name_addon}) {self.get_gender()}"
+        return (
+            f"{self.first_name} {self.get_last_name()} "
+            f"({self.name_addon}) {self.get_gender()}"
+        )
 
 
 # Create model for tracking guest presence
@@ -124,4 +128,9 @@ class Presence(models.Model):
 
     # Return all necessary information about the presence of a guest
     def __str__(self):
-        return f"{self.date} {self.check_in} {self.check_out} {self.guest.first_name} {self.guest.last_name} {self.guest.id} {self.pickup_name}"
+        return (
+            f"{self.date} {self.check_in} "
+            f"{self.check_out} {self.guest.first_name} "
+            f"{self.guest.last_name} {self.guest.id} "
+            f"{self.pickup_name}"
+        )

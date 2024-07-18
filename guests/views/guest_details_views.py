@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
-import guests
 from ..models import Guest
 from reports.models import Report
 
@@ -31,7 +30,8 @@ def guest_details_view(request, slug):
 
     if request.method == "POST" and "delete" in request.POST:
         guest_name = (
-            f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
+            f"{guest.first_name} "
+            f"{guest.name_addon if guest.name_addon else ''}"
         )
         guest.delete()
         messages.add_message(
@@ -41,11 +41,11 @@ def guest_details_view(request, slug):
         )
         return redirect("/")
 
-    
-    guest_reports = Report.objects.filter(guests=guest).order_by('-report_date')
-
+    guest_reports = (
+        Report.objects.filter(guests=guest).order_by('-report_date')
+    )
     context = {"guest": guest,
-               "customer": customer, 
+               "customer": customer,
                "guest_reports": guest_reports,
                }
 

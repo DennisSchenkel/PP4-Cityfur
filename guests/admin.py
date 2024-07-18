@@ -17,7 +17,7 @@ class CustomerAdmin(SummernoteModelAdmin):
 
     list_display = ("last_name", "first_name", "id")
     search_fields = ["first_name", "last_name", "guests__first_name"]
-    
+
 
 @admin.register(Guest)
 class GuestAdmin(SummernoteModelAdmin):

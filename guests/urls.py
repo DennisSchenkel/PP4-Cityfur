@@ -8,6 +8,8 @@ urlpatterns = [
     path('guests/', guests_list_view, name='guests_list_temp'),
     path('guests/all/', guests_list_all_view, name='guests_list_all_temp'),
     path('guests/add_guest/', add_guest_view, name='add_guest_temp'),
-    path('guests/update_guest/<int:id>', update_guest_view, name='update_guest_temp'),
+    path(
+        'guests/update_guest/<int:id>',
+        update_guest_view, name='update_guest_temp'),
     path('guests/<slug:slug>/', guest_details_view, name='guest_details_temp'),
 ]

@@ -22,12 +22,13 @@ def add_guest_view(request):
             form.save()
             guest = form.save()
             guest_name = (
-                f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
+                f"{guest.first_name} "
+                f"{guest.name_addon if guest.name_addon else ''}"
             )
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f"Profile for { guest_name } has been added successfully.",
+                f"Profile for {guest_name} has been added successfully.",
             )
             return HttpResponseRedirect(f"/guests/{guest.slug}")
 
@@ -50,7 +51,10 @@ def update_guest_view(request, id):
     """
 
     guest = get_object_or_404(Guest, id=id)
-    guest_name = f"{guest.first_name} {guest.name_addon if guest.name_addon else ''}"
+    guest_name = (
+        f"{guest.first_name} "
+        f"{guest.name_addon if guest.name_addon else ''}"
+    )
     if request.method == "POST":
         form = AddGuest(request.POST, request.FILES, instance=guest)
         if form.is_valid():
@@ -58,7 +62,7 @@ def update_guest_view(request, id):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f"Profile of { guest_name } has been updated successfully.",
+                f"Profile of {guest_name} has been updated successfully.",
             )
             return HttpResponseRedirect(f"/guests/{guest.slug}")
 
@@ -66,5 +70,6 @@ def update_guest_view(request, id):
         form = AddGuest(instance=guest)
 
     return render(
-        request, "guests/update_guest_temp.html", {"form": form, "guest": guest}
+        request, "guests/update_guest_temp.html",
+        {"form": form, "guest": guest}
     )
