@@ -49,8 +49,9 @@
 
 <body>
 
-    <!-- Displaying django messages -->
+    
     {% if user.is_authenticated == False %}
+    <!-- Displaying django messages -->
         <div class="container">
             <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -63,15 +64,23 @@
             </div>
             </div>
         </div>
-    {% endif %}
 
-    <!-- Navbar -->
-    <div>
-        {% if user.is_authenticated == False %}
-            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-	        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
-        {% endif %}
-    </div>
+        <!-- Navbar -->
+        <div class="row pt-4">
+            <div class="col-2">
+                <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+                <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
+            </div>
+            <!-- Welcome message -->
+            <div class="col-8 text-center">
+                <h1>Cityfur - Dog Day Care Management System</h1>
+                <p>Welcome to the Cityfur - Dog Day Care Management System. Please login or register to access the system.</p>
+                <hr>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    {% endif %}
 
     {% if user.is_authenticated %}
         <!-- Page Structure-->
