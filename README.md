@@ -340,11 +340,13 @@ Git was used for version control by using the following comments:
 
 ### Validator Testing
 
-#### CSS Validation
-
-No errors where found when using the W3C CSS Validator.<br>
+<details>
+<summary>CSS Validation</summary>
+<br>
+No errors where found when using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).<br>
 
 ![CSS Validation](/documentation/images/tests/css-validation.png)
+</details>
 
 ### Lighthouse Testing
 

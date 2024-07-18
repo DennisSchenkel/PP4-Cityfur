@@ -17,8 +17,7 @@ class CustomerAdmin(SummernoteModelAdmin):
 
     list_display = ("last_name", "first_name", "id")
     search_fields = ["first_name", "last_name", "guests__first_name"]
-    ### Add search_field for dog name
-
+    
 
 @admin.register(Guest)
 class GuestAdmin(SummernoteModelAdmin):
@@ -34,7 +33,7 @@ class GuestAdmin(SummernoteModelAdmin):
 
 
 @admin.register(Presence)
-class GuestAdmin(SummernoteModelAdmin):
+class GuestPresence(SummernoteModelAdmin):
     """_summary_
 
     Args:
