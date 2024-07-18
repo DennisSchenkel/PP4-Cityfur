@@ -220,6 +220,8 @@ The sole purpose is to demonstrate 1:1 and 1:Many relationships in the database.
 
 ### Technical Features
 
+### CRUD
+
 #### Search
 
 The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.<br>

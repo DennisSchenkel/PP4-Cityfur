@@ -32,6 +32,8 @@ $(document).ready(function() {
 
     // Toggle for check-in list in guest list
     $("#checkin-toggle").click(function() {
+        $("#check-in-tutorial").addClass("d-none");
+        $("#filter-tutorial").addClass("d-none");
         $("#checked-in").toggleClass("d-none");
         $("#checked-out").toggleClass("d-none");
         $("#not-checked-in").toggleClass("d-none");
@@ -39,12 +41,6 @@ $(document).ready(function() {
         $("#close-checkin").toggleClass("d-none");
         $("#count-checked-in").toggleClass("d-none");
         $("#count-not-checked-in").toggleClass("d-none");
-    });
-
-    // Toggle for check-in list in guest list
-    $("#checkin-toggle").click(function() {
-        $("#check-in-tutorial").addClass("d-none");
-        $("#filter-tutorial").addClass("d-none");
     });
 
     // Toggle for gender selection in guest list 
