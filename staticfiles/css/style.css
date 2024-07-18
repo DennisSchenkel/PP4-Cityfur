@@ -3,6 +3,7 @@ body {
     position: inherit;
 }
 
+
 /* Sidebar */
 .sidebar {
     position: fixed;
@@ -14,10 +15,11 @@ body {
     height: 100vh;
     padding-top: 75px;
     z-index: 1;
-    a {
-        color: white;
-        text-decoration: none;
-    };
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
 }
 
 #sidebar-toggle {
@@ -41,6 +43,7 @@ body {
     font-size: 0.8em;
 }
 
+
 /* Header menu */
 .header-menu {
     background-color: #EDEDED;
@@ -63,6 +66,7 @@ body {
     display: grid;
 	align-items: center;
 }
+
 
 /* Datepicker */
 .datepicker {
@@ -90,6 +94,7 @@ body {
     top: 4px;
     right: 20px;
 }
+
 
 /* Main content */
 .main-content {
@@ -129,6 +134,7 @@ body {
 .alert-box-btn {
     padding: 1rem;
 }   
+
 
 /* Profile */
 .profile {
@@ -182,6 +188,7 @@ body {
 .pointer {
     cursor: pointer;
 }
+
 
 /* Guest tools bottom */
 .guest-tools {
@@ -247,7 +254,6 @@ body {
 .helptext {
     visibility: hidden;
 }
-
 
 
 @media (max-width: 991px) {

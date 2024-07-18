@@ -340,6 +340,12 @@ Git was used for version control by using the following comments:
 
 ### Validator Testing
 
+#### CSS Validation
+
+No errors where found when using the W3C CSS Validator.<br>
+
+![CSS Validation](/documentation/images/tests/css-validation.png)
+
 ### Lighthouse Testing
 
 ### Automated Testing
@@ -350,7 +356,7 @@ Git was used for version control by using the following comments:
 
 Test if the navigation and their items are showing up and are working correctly on each site.<br>
 
-![Nav-Testing](documentation/images/nav-test.png)
+![Nav-Testing](/documentation/images/nav-test.png)
 
 
 ### Bugs During Development
