@@ -263,6 +263,7 @@ During the development of this application, the following programs and tools hav
 - [GitHub](https://github.com/)
 - [CI Postgres Database]
 - [CI Python Linter]
+- [Flake8](https://flake8.pycqa.org/en/latest/)
 - [Affinity Design 2](https://affinity.serif.com/de/designer/)
 - [DALL-E 3 - for creating dog images]()
 
@@ -378,6 +379,7 @@ User management
 Technologies and services used
 - Heroku
 - Cloudinary
+- Flake8
 
 
 Plugins used

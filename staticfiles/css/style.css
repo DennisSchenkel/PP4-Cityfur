@@ -3,6 +3,11 @@ body {
     position: inherit;
 }
 
+h2 {
+    font-size: 1.275em;
+    font-weight: 500;
+    line-height: 1.2;
+}
 
 /* Sidebar */
 .sidebar {

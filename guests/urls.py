@@ -4,6 +4,7 @@ from .views.guest_details_views import guest_details_view
 from .views.add_guests_views import add_guest_view, update_guest_view
 
 urlpatterns = [
+    # path('', guests_list_view, name='home'),
     path('', guests_list_view, name='home'),
     path('guests/', guests_list_view, name='guests_list_temp'),
     path('guests/all/', guests_list_all_view, name='guests_list_all_temp'),

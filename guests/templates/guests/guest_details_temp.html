@@ -53,7 +53,7 @@
                         <div class="row mb-3">
                             <!-- Show name and name_addon -->
                             <div class="col-auto">
-                                <h3 class="mb-0">{{ guest.first_name }}</h3>
+                                <h1 class="mb-0">{{ guest.first_name }}</h1>
                                 <!-- Show name addon if it exists -->
                                 {% if guest.name_addon %}
                                 <span>({{ guest.name_addon }})</span>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <h4>Owner Information</h4>
+                            <h2>Owner Information</h2>
                             <span>First name {{ guest.customer_id.first_name }}</span><br />
                             <span>Last name: {{ guest.customer_id.last_name }}<br />
                             <span>Address: {{ guest.customer_id.address }}</span><br />
@@ -82,7 +82,7 @@
                         </div>
                         <div class="mb-3">
                             {% if guest.food %}
-                                <h4>Food Times</h4>
+                                <h2>Food Times</h2>
                                 <p>Food has to be served at these times:</p>
                                 {{ guest.food_time_1 }}<br />
                                     {% if guest.food_time_2 != None %}
@@ -95,7 +95,7 @@
                         </div>
                         <div class="mb-3">
                             {% if guest.medication %}
-                                <h4>Medication Times</h4>
+                                <h2>Medication Times</h2>
                                 <p>Medication has to be applied at these times:</p>
                                 {{ guest.medication_time_1 }}<br />
                                 {% if guest.medication_time_2 != None %}
@@ -146,7 +146,7 @@
 
 
         <div class="row pt-4 mx-auto container-fluid">
-            <h4>Reports mentioned:</h4>
+            <h2>Reports mentioned:</h2>
             <div>
                 {% if guest_reports %}
                     {% for report in guest_reports %}

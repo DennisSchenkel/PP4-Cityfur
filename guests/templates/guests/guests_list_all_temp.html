@@ -29,7 +29,8 @@
     </div>
 
     <!-- Render all guest profiles -->
-    <div class="row pt-4 mx-auto container-fluid list" id="checked-in"> 
+    <div class="row pt-4 mx-auto container-fluid list" id="checked-in">
+        <h1>All Guests</h1>
         {% for guest in guests_all %}
             <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
                 <div class="profile rounded" id="{{ guest.first_name }}">
@@ -50,7 +51,7 @@
                             <div class="row">
                                 <!-- Show name and name_addon -->
                                 <div class="col-auto">
-                                    <h4 class="item-name mb-0">{{ guest.first_name }}</h4>
+                                    <h2 class="item-name mb-0">{{ guest.first_name }}</h2>
                                     <!-- Show name addon if it exists -->
                                     {% if guest.name_addon %}
                                         <span>{{ guest.name_addon }}</span>
