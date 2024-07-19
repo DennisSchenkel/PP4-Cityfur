@@ -344,9 +344,10 @@ Git was used for version control by using the following comments:
 <details>
 <summary>CSS Validation</summary>
 <br>
+
 No errors where found when using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).<br>
 <br>
-![CSS Validation](/documentation/images/tests/css-validation.png)
+![CSS Validation](/documentation/images/tests/css-validation.png)<br>
 </details>
 
 <details>
@@ -359,7 +360,7 @@ No errors where found when using the [CI Python Linter](https://pep8ci.herokuapp
 <br>
 To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
 <br>
-![CI Python Linter Results](/documentation/images/tests/ci-python-linter-results.png)
+![CI Python Linter Results](/documentation/images/tests/ci-python-linter-results.png)<br>
 </details>
 
 ### Lighthouse Testing
