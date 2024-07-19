@@ -186,7 +186,7 @@
                                 </div>
 
                                 <!-- Modal for undo-check-in confirmation -->
-                                <div class="modal fade" id="undo-checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckinModal{{ guest.id }}" aria-hidden="true">
+                                <div class="modal fade" id="undo-checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckinModalTitle{{ guest.id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -221,7 +221,7 @@
                                 </div>
 
                                 <!-- Modal for check-out confirmation -->
-                                <div class="modal fade" id="checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkoutModal{{ guest.id }}" aria-hidden="true">
+                                <div class="modal fade" id="checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkoutModalTitle{{ guest.id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -400,12 +400,6 @@
                                 </div>
                             </div>
                             <div class="profile-options-dropout visually-hidden">
-                                <form method="POST" action="{% url 'home' %}" id="undo-checkout-form-{{ guest.id }}">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="guest" value="{{ guest.id }}">
-                                    <input type="hidden" name="undo_checkout" value="true">
-                                    <input type="hidden" name="date" value="{{ selected_date }}">
-                                </form>
                                 <div class="profile-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
                                     Undo Check-Out
                                 </div>
@@ -423,7 +417,7 @@
                                 {% endif %}
 
                                 <!-- Modal for undo-check-out confirmation -->
-                                <div class="modal fade" id="undo-checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckoutModal{{ guest.id }}" aria-hidden="true">
+                                <div class="modal fade" id="undo-checkout-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="undoCheckoutModalTitle{{ guest.id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -578,7 +572,7 @@
                             </div>
 
                             <!-- Modal for check-in confirmation -->
-                            <div class="modal fade" id="checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkinModal{{ guest.id }}" aria-hidden="true">
+                            <div class="modal fade" id="checkin-modal-{{ guest.id }}" tabindex="-1" role="dialog" aria-labelledby="checkinModalTitle{{ guest.id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

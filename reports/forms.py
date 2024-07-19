@@ -34,6 +34,7 @@ class AddReport(forms.ModelForm):
         labels = {
             "report_date": "Select date",
             "report_text": "Keep your report short and sweet",
+            "guests": "Guests to mention in the report",
         }
 
         widgets = {

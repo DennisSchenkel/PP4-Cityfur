@@ -17,7 +17,7 @@ class ImagePreviewWidget(forms.ClearableFileInput):
         if value and hasattr(value, "url"):
             output.append(
                 f'<img src="{value.url}" width="200" height="200" '
-                f'style="object-fit: cover;"/>'
+                f'style="object-fit: cover;" alt="{name}"/>'
             )
         output.append(super().render(name, value, attrs, renderer))
         return mark_safe("".join(output))
