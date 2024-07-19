@@ -57,7 +57,10 @@ class AddGuest(forms.ModelForm):
         labels = {
             "first_name": "First name (Guest)",
             "last_name": "Last name (Guest)",
-            "name_addon": "Name addon (To better distinguish guests)",
+            "name_addon": (
+                "Name addon (To better distinguish guests "
+                "if name already exists)"
+            ),
             "gender": "Gender",
             "image": "Image",
             "date_of_birth": "Date of Birth (Guest)",

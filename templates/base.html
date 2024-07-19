@@ -50,14 +50,14 @@
 
 <body>
 
-    <!-- Navbar -->
-    <div>
-        <a href="{% url 'home' %}" class="nav-link">Home</a>
-        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
-    </div>
-
     {% if user.is_authenticated == False %}
+        <!-- Navbar -->
+        <div>
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
+        </div>
+
         <!-- Displaying django messages -->
         <div class="container">
             <div class="row">
