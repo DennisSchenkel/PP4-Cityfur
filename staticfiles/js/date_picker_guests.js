@@ -4,7 +4,7 @@
 function getCurrentDate() {
     const currentDate = new Date();
     const day = currentDate.getDate();
-    const month = addjustMonth(currentDate)
+    const month = addjustMonth(currentDate);
     const year = currentDate.getFullYear();
     const currentFormattedDate = year + '-' + month + '-' + day;
     return currentFormattedDate;
@@ -17,7 +17,7 @@ function addjustMonth(currentDate){
         } 
         else { 
             return currentDate.getMonth() + 1; 
-        };
+        }
 }
 
 // Get the date from the URL
@@ -45,6 +45,3 @@ $('.datepicker').datepicker({
     const selectedDate = $(this).val();
     window.location.href = '/?date=' + selectedDate;
 });
-
-
-

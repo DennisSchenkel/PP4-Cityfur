@@ -48,4 +48,3 @@ $(document).ready(function() {
         $('#mobile-search').toggleClass('d-none');
     });
 });
-
