@@ -381,10 +381,12 @@ All detailed screenshots are linked below.
 
 No errors where found when using the [CI Python Linter](https://pep8ci.herokuapp.com/).<br>
 <br>
+
 ![CI Python Linter](/documentation/images/tests/ci-python-linter.png)<br>
 <br>
 To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
 <br>
+
 ![CI Python Linter Results](/documentation/images/tests/ci-python-linter-results.png)<br>
 </details>
 
@@ -394,12 +396,15 @@ To avoide an endless wall of screenshots with passed test, all conducted test an
 
 ### Manual Testing
 
-#### Navigation Testing
+<details>
+<summary>Navigation Testing</summary>
+<br>
 
-Test if the navigation and their items are showing up and are working correctly on each site.<br>
+Testing, if the navigation and their items are showing up and are working correctly on each site.<br>
+<br>
 
 ![Nav-Testing](/documentation/images/nav-test.png)
-
+</details>
 
 ### Bugs During Development
 
