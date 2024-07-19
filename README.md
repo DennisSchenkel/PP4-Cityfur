@@ -345,8 +345,21 @@ Git was used for version control by using the following comments:
 <summary>CSS Validation</summary>
 <br>
 No errors where found when using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).<br>
-
+<br>
 ![CSS Validation](/documentation/images/tests/css-validation.png)
+</details>
+
+<details>
+<summary>CI Python Linter</summary>
+<br>
+
+No errors where found when using the [CI Python Linter](https://pep8ci.herokuapp.com/).<br>
+<br>
+![CI Python Linter](/documentation/images/tests/ci-python-linter.png)<br>
+<br>
+To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
+<br>
+![CI Python Linter Results](/documentation/images/tests/ci-python-linter-results.png)
 </details>
 
 ### Lighthouse Testing
@@ -426,3 +439,7 @@ Bugs to mention:
 
 Agile project management:  <br>
 During the process of deveolment, the kanban board and backlog, userstories, tasks and milestones where constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
+
+
+Further information:
+Naming conventions for guests: Name Addon helps to better distinguish between two guests with the same name. Often fur color, size or breed are used as name addon.
