@@ -350,6 +350,31 @@ No errors where found when using the [W3C CSS Validator](https://jigsaw.w3.org/c
 ![CSS Validation](/documentation/images/tests/css-validation.png)<br>
 </details>
 
+
+<details>
+<summary>JSHint Validator</summary>
+<br>
+
+No errors where found when using [JSHint](https://jshint.com).<br>
+<br>
+To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
+<br>
+![JSHint Results](/documentation/images/tests/jshint-results.png)<br>
+<br>
+All detailed screenshots are linked below.
+<br>
+
+[date_picker_guests.js](/documentation/images/tests/date-picker-guests-jshint.png)<br>
+[date_picker_reports.js](/documentation/images/tests/date-picker-reports-jshint.png)<br>
+[get_date.js](/documentation/images/tests/get-date-jshint.png)<br>
+[guest_list.js](/documentation/images/tests/guest-list-jshint.png)<br>
+[guest_search.js](/documentation/images/tests/guest-search-jshint.png)<br>
+[redirect.js](/documentation/images/tests/redirect-jshint.png)<br>
+[scripts.js](/documentation/images/tests/scripts-jshint.png)<br>
+[sidebar_toggle.js](/documentation/images/tests/sidebar-toggle-jshint.png)<br>
+</details>
+
+
 <details>
 <summary>CI Python Linter</summary>
 <br>
