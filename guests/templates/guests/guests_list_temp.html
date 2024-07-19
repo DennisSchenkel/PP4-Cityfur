@@ -37,7 +37,7 @@
                 {% with present=presences|get_item:guest.id %}
                     <!-- Guest profile -->
                     <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
-                        <div class="profile rounded" id="{{ guest.first_name }}">
+                        <div class="profile rounded" id="{{ guest.first_name }}-{{guest.name_addon}}">
                             <div class="row no-gutters p-1">
 
                                 <!-- Profile image -->    
@@ -271,7 +271,7 @@
                 {% with present=presences|get_item:guest.id %}
                     <!-- Guest profile -->
                     <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
-                        <div class="profile rounded" id="{{ guest.first_name }}">
+                        <div class="profile rounded" id="{{ guest.first_name }}-{{guest.name_addon}}">
                             <div class="row no-gutters p-1">
 
                                 <!-- Profile image -->    
@@ -472,7 +472,7 @@
             {% with present=guest.presence_set.first %}
                 <!-- Guest profile -->
                 <div class="col-12 col-md-6 my-2 list-item {{guest.get_gender_display}}">
-                    <div class="profile rounded" id="{{ guest.first_name }}">
+                    <div class="profile rounded" id="{{ guest.first_name }}-{{guest.name_addon}}">
                         <div class="row no-gutters p-1">
 
                             <!-- Profile image -->    
