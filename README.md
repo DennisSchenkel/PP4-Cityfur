@@ -342,10 +342,45 @@ Git was used for version control by using the following comments:
 ### Validator Testing
 
 <details>
+<summary>HTML Validation</summary>
+<br>
+
+All test were conducted by copying the HTML code from the Google Chrome developers tool and pasting into the [W3C HTML Validator](https://validator.w3.org/).
+No errors were found when using the W3C HTML Validator.<br>
+On three pages, information were shown about closing tags that have been automatically created by Django and don't have any influence on the pages' behavior.<br>
+<br>
+To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
+<br>
+
+![HTML Validation Results](/documentation/images/tests/html-results.png)<br>
+<br>
+All detailed screenshots are linked below.
+<br>
+
+[Reports List](/documentation/images/tests/html-reports-list.png)<br>
+[All Reports](/documentation/images/tests/html-all-reports.png)<br>
+[Report Details](/documentation/images/tests/html-report-details.png)<br>
+[Add Reports](/documentation/images/tests/html-add-report.png)<br>
+[Update Report](/documentation/images/tests/html-update-report.png)<br>
+<br>
+
+[Guests List](/documentation/images/tests/html-guests-list.png)<br>
+[All Guests](/documentation/images/tests/html-all-guests.png)<br>
+[Guest Details](/documentation/images/tests/html-guest-details.png)<br>
+[Add Guest](/documentation/images/tests/html-add-guest.png)<br>
+[Update Guest](/documentation/images/tests/html-update-guest.png)<br>
+<br>
+
+[Landingpage](/documentation/images/tests/html-landingpage.png)<br>
+[404 Page](/documentation/images/tests/html-404.png)<br>
+</details>
+
+
+<details>
 <summary>CSS Validation</summary>
 <br>
 
-No errors where found when using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).<br>
+No errors were found when using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).<br>
 <br>
 ![CSS Validation](/documentation/images/tests/css-validation.png)<br>
 </details>
@@ -355,23 +390,24 @@ No errors where found when using the [W3C CSS Validator](https://jigsaw.w3.org/c
 <summary>JSHint Validator</summary>
 <br>
 
-No errors where found when using [JSHint](https://jshint.com).<br>
+No errors were found when using [JSHint](https://jshint.com).<br>
 <br>
 To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
 <br>
+
 ![JSHint Results](/documentation/images/tests/jshint-results.png)<br>
 <br>
 All detailed screenshots are linked below.
 <br>
 
-[date_picker_guests.js](/documentation/images/tests/date-picker-guests-jshint.png)<br>
-[date_picker_reports.js](/documentation/images/tests/date-picker-reports-jshint.png)<br>
-[get_date.js](/documentation/images/tests/get-date-jshint.png)<br>
-[guest_list.js](/documentation/images/tests/guest-list-jshint.png)<br>
-[guest_search.js](/documentation/images/tests/guest-search-jshint.png)<br>
-[redirect.js](/documentation/images/tests/redirect-jshint.png)<br>
-[scripts.js](/documentation/images/tests/scripts-jshint.png)<br>
-[sidebar_toggle.js](/documentation/images/tests/sidebar-toggle-jshint.png)<br>
+[date_picker_guests.js](/documentation/images/tests/jshint-date-picker-guests.png)<br>
+[date_picker_reports.js](/documentation/images/tests/jshint-date-picker-reports.png)<br>
+[get_date.js](/documentation/images/tests/jshint-get-date.png)<br>
+[guest_list.js](/documentation/images/tests/jshint-guest-list.png)<br>
+[guest_search.js](/documentation/images/tests/jshint-guest-search.png)<br>
+[redirect.js](/documentation/images/tests/jshint-redirect.png)<br>
+[scripts.js](/documentation/images/tests/jshint-scripts.png)<br>
+[sidebar_toggle.js](/documentation/images/tests/jshint-sidebar-toggle.png)<br>
 </details>
 
 
@@ -379,7 +415,7 @@ All detailed screenshots are linked below.
 <summary>CI Python Linter</summary>
 <br>
 
-No errors where found when using the [CI Python Linter](https://pep8ci.herokuapp.com/).<br>
+No errors were found when using the [CI Python Linter](https://pep8ci.herokuapp.com/).<br>
 <br>
 
 ![CI Python Linter](/documentation/images/tests/ci-python-linter.png)<br>
@@ -389,6 +425,7 @@ To avoide an endless wall of screenshots with passed test, all conducted test an
 
 ![CI Python Linter Results](/documentation/images/tests/ci-python-linter-results.png)<br>
 </details>
+
 
 ### Lighthouse Testing
 
@@ -469,7 +506,7 @@ Bugs to mention:
 
 
 Agile project management:  <br>
-During the process of deveolment, the kanban board and backlog, userstories, tasks and milestones where constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
+During the process of deveolment, the kanban board and backlog, userstories, tasks and milestones were constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
 
 
 Further information:
