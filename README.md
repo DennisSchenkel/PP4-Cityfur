@@ -26,16 +26,32 @@ With the help of this system, the employees at the facility are always aware of:
 * [Introduction](#introduction)
 
 * [User Experience](#user-experience)
-  * [Login Credentials](#login-credentials)
   * [System Explained](#system-explained)
+  * [Milestones](#milestones)
   * [User Stories](#user-stories)
-
-
+* [Design](#design)
+  * [Color Scheme](#color-scheme)
+  * [Imagery](#imagery)
+  * [Typography](#typography)
+  * [Mockups](#mockups)
+  * [Database](#database)
+* [Features](#features)
+  * [UX/UI](#ux/ui)
+  * [CRUD](#crud)
+  * [Future Features](#future-features)
+* [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Modules & Libraries](#mudules-&-libraries)
+  * [Programs & Tools](#programs-&-tools)
+* [Deployment](#deployment)
+  * [Version Control](#version-control)
+  * [Cloudinary](#cloudinary)
+  * [Heroku Deployment](#heroku-deployment)
 
 
 ## User Experience
 
-### Login Credentials
+
 
 ### System explained
 
@@ -60,8 +76,6 @@ This project was structured in seven milestones with one or multiple user storie
 
 - [The extra mile](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/10)
 
-### Epics
-
 
 ### User Stories
 
@@ -72,6 +86,11 @@ This project was structured in seven milestones with one or multiple user storie
 ## Design
 
 ### Color Scheme
+
+The color scheme for this project is very simple and primarily consists of four colores. Two darker blue tones as the main colors for navigation elements. Light blue for confirmation buttons and red as a cancle/delete button.<br>
+<br>
+
+![Color Scheme](/documentation/images/color-scheme.png)
 
 ### Imagery
 
@@ -93,6 +112,7 @@ During the development process, the mockups were constantly updated according to
 <summary>Mobile Nav</summary>
 <br>
 This is the navigation for the mobile version of the application.<br>
+<br>
 
 ![Mobile Nav Mockup](/documentation/images/mockups/0-mobile-nav.png)
 </details>
@@ -107,6 +127,7 @@ On smaller screens, the search bar disappears and is exchanged by a search icon.
 <br>
 To check-in a new guest, users can click on the blue "Check-In" button on the bottom.<br>
 The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.<br>
+<br>
 
 ![Guests List Mockup](/documentation/images/mockups/1-guests-list.png)
 
@@ -124,6 +145,7 @@ When clicked on the small profile, a dropdown menu opens with the following opti
 - Open guest file
 - Read report if guest was mentiones in one on selected day
 - Check-out guest if the guest is checked-in
+<br>
 
 ![Guest Profile Widget Mockup](/documentation/images/mockups/1-1-guest-profile-widget.png)
 </details>
@@ -139,6 +161,7 @@ When clicking on the "Close Check-In" button, the view will switch to the guest 
 <br>
 The date picker and search field are working as described in the chapter above.<br>
 The gender selector on the bottom is also working as already described.<br>
+<br>
 
 ![Guest Check-In Mockup](/documentation/images/mockups/2-guest-check-in.png)
 </details>
@@ -154,6 +177,7 @@ The details page for each profile can be opened by using the dropdown menu.<br>
 <br>
 On this page, the user is able to use the search and filter all profiles by gender.<br>
 When using the date picker, the application will load the guest list for the selected date.<br>
+<br>
 
 ![All Guests Mockup](/documentation/images/mockups/3-all-guests.png)
 </details>
@@ -176,6 +200,7 @@ Information for each guest are:
 - Food time
 - Medication time
 - Owner (Choose from list of owners. These are at this version of the app created in the admin backend and only for demo purposes only)
+<br>
 
 ![Add/Edit Guest Mockup](/documentation/images/mockups/4-add-edit-guest.png)
 </details>
@@ -188,6 +213,7 @@ Information for each guest are:
 This is the profile overview for each guest. Here all information are listed.<br>
 On the bottom of the page, all reports are listed, that the guest has been tagged on.<br>
 The user has the chance to edit or delete the profile or go to a specific report the guest was tagged on.<br>
+<br>
 
 ![Guest Details Mockup](/documentation/images/mockups/5-guest-details.png)
 </details>
@@ -199,6 +225,7 @@ The user has the chance to edit or delete the profile or go to a specific report
 
 This page shows a list of all reports written on the selected date.<br>
 All reports include a text, a link to go to the report's details page, and a list of all guests tagged on the report, if any were tagged.<br>
+<br>
 
 ![Reports List Mockup](/documentation/images/mockups/6-reports-list.png)
 </details>
@@ -211,6 +238,7 @@ All reports include a text, a link to go to the report's details page, and a lis
 On this page, a list of all reports written and present in the database is shown.<br>
 The reports are sorted by date, with the newest report on the top.<br>
 When selecting a date in the top, the page with the reports for the selected date loads.<br>
+<br>
 
 ![All Reports Mockup](/documentation/images/mockups/7-all-reports.png)
 </details>
@@ -223,6 +251,7 @@ When selecting a date in the top, the page with the reports for the selected dat
 A page dedicated to the details of a selected report.<br>
 All report details are listed and the user has the options to edit or delete the report.<br>
 When deleting the report, a modal opens where the user has to confirm the deletion.<br>
+<br>
 
 ![Report Details Mockup](/documentation/images/mockups/8-report-details.png)
 </details>
@@ -234,6 +263,7 @@ When deleting the report, a modal opens where the user has to confirm the deleti
 
 On this page a report can be added, or a selected report can be edited.<br>
 Input fields are for the report date, report text and a selection list where the user can select the guests to tag to the report.<br>
+<br>
 
 ![Add/Edit Report Mockup](/documentation/images/mockups/9-add-edit-report.png)
 </details>
@@ -260,7 +290,8 @@ The following fields are worth explaining in more detail:
 - Medication time 1-3: On which times does the guest get medicated.
 - Customer ID: The owner of the guest is selected from a list of pre-defined customers. More on that later down the line.
 - Slug: This field is created automatically and is used to create the domain for the individual's profile.
-
+<br>
+<br>
 
 **Presence**
 
@@ -298,9 +329,7 @@ This table is automatically generated by Django.<br>
 
 ## Features
 
-### Technical Features
-
-### CRUD
+### UX/UI
 
 #### Search
 
@@ -309,9 +338,11 @@ The search is a special topic in this application. It is created by marking all 
 To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.<br>
 This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.<br>
 
+### CRUD
+
+
 ### Future Features
 
-### Accessibility
 
 
 ## Technologies Used
@@ -367,8 +398,8 @@ During the development of this application, the following programs and tools hav
 - [Lighthouse](https://lighthouse-metrics.com/) (Testing of Performance, Accessibility, Best Practices and SEO)
 - [Google Chrome Dev Tools](https://developer.chrome.com/) (Working with console and HTML output)
 - [Flake8](https://flake8.pycqa.org/en/latest/) (Formatting support for Python)
-- [Affinity Design 2](https://affinity.serif.com/de/designer/ )(Image editing)
-- [DALL-E 3 - for creating dog images] (https://openai.com/index/dall-e-3/)(For generating profile images)
+- [Affinity Design 2](https://affinity.serif.com/de/designer/ ) (Image editing)
+- [DALL-E 3](https://openai.com/index/dall-e-3/) (For generating profile images)
 - [Cloudinary](https://cloudinary.com/) (As external hosting services for images)
 
 ## Deployment
@@ -382,6 +413,19 @@ Git was used for version control by using the following comments:
 - git add filename - Select the files that should be uploaded and updated to the GitHub repository.
 - git commit -m "commit message" - Commenting the commit to better understand the changes in this specific commit.
 - git push - Upload the commit to GitHub.
+
+
+### Cloudinary
+
+For using Cloudinary as a hosting provider for images, the following steps have to be conducted:
+- Create a Cloudinary account.
+- Login and visit the Cloudinary user account.
+- On the bottom left side, click on the gear symbol.
+- On the top left, click on "API Keys".
+- Click "Generate New API Key" on the top right.
+- Update the Django settings.py with API key.
+- Use the API in the Heroku deployment settings like described in the next step.
+
 
 ### Heroku Deployment
 
@@ -438,7 +482,6 @@ Git was used for version control by using the following comments:
 - Use app
 
 
-### Cloudinary
 
 
 ## Testing
