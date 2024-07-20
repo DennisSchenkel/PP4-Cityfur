@@ -279,7 +279,11 @@ This method is only useful with a limited amount of profiles in the database. In
 
 ### Languages
 
-
+- HTML
+- CSS
+- JavaScrips
+- Python
+- Django Template Language
 
 ### Frameworks
 
@@ -292,21 +296,40 @@ The following frameworks have been used.
 
 ### Modules & Libraries
 
+- AllAuth (For user uthentication)
+- Black (Code formatter fpr Python)
+- DJ-Database-URL (To configure database URLs)
+- Summernote (As a WYSIWYG editor)
+- Cloudinary (Cloud storage for images)
+- Pillow (For image processing)
+- Gunicorn (Python WSGI HTTP server for UNIX)
+- Pep8 (Check Python code for PEP8 conventions)
+- Python Dateutility (For better date and time handling)
+- Python Slugify (For generating url-slugs)
+- Psycopg 2 (PostgreSQL adapter for the database)
+- Whitenoise (Middleware for serving static files)
+
 ### Programs & Tools
 
 During the development of this application, the following programs and tools have been used.
 
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Figma](https://www.figma.com/)
-- [dbdiagram.io](https://dbdiagram.io/)
-- [Heroku](https://www.heroku.com/home)
-- [Git](https://git-scm.com/)
-- [GitHub](https://github.com/)
-- [CI Postgres Database]
-- [CI Python Linter]
-- [Flake8](https://flake8.pycqa.org/en/latest/)
-- [Affinity Design 2](https://affinity.serif.com/de/designer/)
-- [DALL-E 3 - for creating dog images]()
+- [Visual Studio Code](https://code.visualstudio.com/) (IDE - Integrated Development Environment)
+- [Figma](https://www.figma.com/) (Creating Mockups)
+- [dbdiagram.io](https://dbdiagram.io/) (Creating database visualization)
+- [Heroku](https://www.heroku.com/home) (Deployment of final application)
+- [Git](https://git-scm.com/) (Version control)
+- [GitHub](https://github.com/) (Used as cloud repository)
+- [CI Postgres Database](https://dbs.ci-dbs.net/) (Used for database hosting)
+- [CI Python Linter](https://pep8ci.herokuapp.com/) (Python testing)
+- [JSHint](https://jshint.com/) (JavaScript testing)
+- [W3C HTML Validator](https://validator.w3.org/) (HTML testing)
+- [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) (CSS testing)
+- [Lighthouse](https://lighthouse-metrics.com/) (Testing of Performance, Accessibility, Best Practices and SEO)
+- [Google Chrome Dev Tools](https://developer.chrome.com/) (Working with console and HTML output)
+- [Flake8](https://flake8.pycqa.org/en/latest/) (Formatting support for Python)
+- [Affinity Design 2](https://affinity.serif.com/de/designer/ )(Image editing)
+- [DALL-E 3 - for creating dog images] (https://openai.com/index/dall-e-3/)(For generating profile images)
+- [Cloudinary](https://cloudinary.com/) (As external hosting services for images)
 
 ## Deployment
 
@@ -383,7 +406,7 @@ Git was used for version control by using the following comments:
 ### Validator Testing
 
 <details>
-<summary>HTML Validation</summary>
+<summary>W3C HTML Validation</summary>
 <br>
 
 All tests were conducted by copying the HTML code from the Google Chrome developer's tool and pasting into the [W3C HTML Validator](https://validator.w3.org/).
@@ -416,10 +439,10 @@ All detailed screenshots are linked below:
 
 
 <details>
-<summary>CSS Validation</summary>
+<summary>Jigsaw CSS Validation</summary>
 <br>
 
-No errors were found when using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator).<br>
+No errors were found when using the [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator).<br>
 <br>
 ![CSS Validation](/documentation/images/tests/css-validation.png)<br>
 </details>
@@ -472,12 +495,12 @@ To avoid an endless wall of screenshots with passed test, all conducted test and
 
 This section covers the test done with [Lighthouse](https://lighthouse-metrics.com/).<br>
 <br>
-**Using the Lighthouse test, multiple issues accured leading to low rating for "Best Practices"**<br>
-This happens because of two seperate factors:<br>
-- When showing images hosted on Cloudinary, Cloudinary deployes multiple cookies (15 when testing). Google Chrome will stop supporting 3rd party cookies in the future what leads to a low scoring when it comes to "Best Practices".
+**Using the Lighthouse test, multiple issues showed up, leading to low rating for "Best Practices"**<br>
+This happens because of two separate factors:<br>
+- When showing images hosted on Cloudinary, Cloudinary deploys multiple cookies (15 when testing). Google Chrome will stop supporting 3rd party cookies in the future, what leads to a low scoring when it comes to "Best Practices".
 - When loading a page with a form using the datepicker-widget. This widget uses "deprecated APIs" which will be removed from the browser: "DOM Mutation Events, including `DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMNodeInsertedIntoDocument`, and `DOMCharacterDataModified`".<br>
 <br>
-Both issues are, at this point in time, outside of my controle and finding alternative solutions would take to much time and would lead me to missing the deadline.<br>
+Both issues are, at this point in time, outside my control and finding alternative solutions would take too much time and would lead me to missing the deadline.<br>
 <br>
 
 To avoid an endless wall of screenshots with passed test, all conducted test and results are listed in the table below:
@@ -493,14 +516,12 @@ All detailed screenshots for desktop results are linked below:
 [Guest Details Desktop](/documentation/images/tests/lh-d-guest-details.png)<br>
 [Add Guest Desktop](/documentation/images/tests/lh-d-add-guest.png)<br>
 [Update Guest Desktop](/documentation/images/tests/lh-d-update-guest.png)<br>
-<br>
 
 [Reports List Desktop](/documentation/images/tests/lh-d-reports-list.png)<br>
 [All Reports Desktop](/documentation/images/tests/lh-d-all-reports.png)<br>
 [Report Details Desktop](/documentation/images/tests/lh-d-report-details.png)<br>
 [Add Report Desktop](/documentation/images/tests/lh-d-add-report.png)<br>
 [Update Report Desktop](/documentation/images/tests/lh-d-update-report.png)<br>
-<br>
 
 [Landinpage Desktop](/documentation/images/tests/lh-d-landingpage.png)<br>
 
@@ -514,14 +535,12 @@ All detailed screenshots for mobile results are linked below:
 [Guest Details Mobile](/documentation/images/tests/lh-m-guest-details.png)<br>
 [Add Guest Mobile](/documentation/images/tests/lh-m-add-guest.png)<br>
 [Update Guest Mobile](/documentation/images/tests/lh-m-update-guest.png)<br>
-<br>
 
 [Reports List Mobile](/documentation/images/tests/lh-m-reports-list.png)<br>
 [All Reports Mobile](/documentation/images/tests/lh-m-all-reports.png)<br>
 [Report Details Mobile](/documentation/images/tests/lh-m-report-details.png)<br>
 [Add Report Mobile](/documentation/images/tests/lh-m-add-report.png)<br>
 [Update Report Mobile](/documentation/images/tests/lh-m-update-report.png)<br>
-<br>
 
 [Landinpage Mobile](/documentation/images/tests/lh-m-landingpage.png)<br>
 </details>
