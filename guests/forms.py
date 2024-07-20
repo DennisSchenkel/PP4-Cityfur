@@ -62,7 +62,7 @@ class AddGuest(forms.ModelForm):
                 "if name already exists)"
             ),
             "gender": "Gender",
-            "image": "Image",
+            "image": "Image of guest (best in a 1:1 format)",
             "date_of_birth": "Date of Birth (Guest)",
             "information": "Additional Information (About guest)",
             "food": "Food (Check if the guest needs to be fed)",

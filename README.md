@@ -94,7 +94,7 @@ During the development process, the mockups were constantly updated according to
 This is the navigation for the mobile version of the application.<br>
 <br>
 
-![Mobile Nav Wireframe](/documentation/images/wireframes/0-mobile-nav.png)
+![Mobile Nav Mockup](/documentation/images/mockups/0-mobile-nav.png)
 </details>
 
 
@@ -109,7 +109,7 @@ To check-in a new guest, users can click on the blue "Check-In" button on the bo
 The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.<br>
 <br>
 
-![Guests List Wireframe](/documentation/images/wireframes/1-guests-list.png)
+![Guests List Mockup](/documentation/images/mockups/1-guests-list.png)
 
 Each small profile listed can be clicked on, and the following information are shown:
 
@@ -126,7 +126,7 @@ When clicked on the small profile, a dropdown menu opens with the following opti
 - Read report if guest was mentiones in one on selected day
 - Check-out guest if the guest is checked-in
 
-![Guest Profile Widget Wireframe](/documentation/images/wireframes/1-1-guest-profile-widget.png)
+![Guest Profile Widget Mockup](/documentation/images/mockups/1-1-guest-profile-widget.png)
 </details>
 
 
@@ -142,7 +142,7 @@ The date picker and search field are working as described in the chapter above.<
 The gender selector on the bottom is also working as already described.<br>
 <br>
 
-![Guest Check-In Wireframe](/documentation/images/wireframes/2-guest-check-in.png)
+![Guest Check-In Mockup](/documentation/images/mockups/2-guest-check-in.png)
 </details>
 
 
@@ -158,7 +158,7 @@ On this page, the user is able to use the search and filter all profiles by gend
 When using the date picker, the application will load the guest list for the selected date.<br>
 <br>
 
-![All Guests Wireframe](/documentation/images/wireframes/3-all-guests.png)
+![All Guests Mockup](/documentation/images/mockups/3-all-guests.png)
 </details>
 
 
@@ -180,7 +180,7 @@ Information for each guest are:
 - Medication time
 - Owner (Choose from list of owners. These are at this version of the app created in the admin backend and only for demo purposes only)
 
-![Add/Edit Guest Wireframe](/documentation/images/wireframes/4-add-edit-guest.png)
+![Add/Edit Guest Mockup](/documentation/images/mockups/4-add-edit-guest.png)
 </details>
 
 
@@ -193,7 +193,7 @@ On the bottom of the page, all reports are listed, that the guest has been tagge
 The user has the chance to edit or delete the profile or go to a specific report the guest was tagged on.<br>
 <br>
 
-![Guest Details Wireframe](/documentation/images/wireframes/5-guest-details.png)
+![Guest Details Mockup](/documentation/images/mockups/5-guest-details.png)
 </details>
 
 
@@ -201,7 +201,11 @@ The user has the chance to edit or delete the profile or go to a specific report
 <summary>Reports List</summary>
 <br>
 
-![Reports List Wireframe](/documentation/images/wireframes/6-reports-list.png)
+This page shows a list of all reports written on the selected date.<br>
+All reports include a text, a link to go to the report's details page, and a list of all guests tagged on the report, if any were tagged.<br>
+<br>
+
+![Reports List Mockup](/documentation/images/mockups/6-reports-list.png)
 </details>
 
 
@@ -209,7 +213,11 @@ The user has the chance to edit or delete the profile or go to a specific report
 <summary>All Reports</summary>
 <br>
 
-![All Reports Wireframe](/documentation/images/wireframes/7-all-reports.png)
+On this page, a list of all reports written and present in the database is shown.<br>
+The reports are sorted by date, with the newest report on the top.<br>
+When selecting a date in the top, the page with the reports for the selected date loads.<br>
+
+![All Reports Mockup](/documentation/images/mockups/7-all-reports.png)
 </details>
 
 
@@ -217,7 +225,7 @@ The user has the chance to edit or delete the profile or go to a specific report
 <summary>Report Details</summary>
 <br>
 
-![Report Details Wireframe](/documentation/images/wireframes/8-report-details.png)
+![Report Details Mockup](/documentation/images/mockups/8-report-details.png)
 </details>
 
 
@@ -225,7 +233,7 @@ The user has the chance to edit or delete the profile or go to a specific report
 <summary>Add/Edit Report</summary>
 <br>
 
-![Add/Edit Report Wireframe](/documentation/images/wireframes/9-add-edit-report.png)
+![Add/Edit Report Mockup](/documentation/images/mockups/9-add-edit-report.png)
 </details>
 
 
