@@ -466,9 +466,67 @@ To avoid an endless wall of screenshots with passed test, all conducted test and
 </details>
 
 
-### Lighthouse Testing
+<details>
+<summary>Lighthouse</summary>
+<br>
 
-### Automated Testing
+This section covers the test done with [Lighthouse](https://lighthouse-metrics.com/).<br>
+<br>
+**Using the Lighthouse test, multiple issues accured leading to low rating for "Best Practices"**<br>
+This happens because of two seperate factors:<br>
+- When showing images hosted on Cloudinary, Cloudinary deployes multiple cookies (15 when testing). Google Chrome will stop supporting 3rd party cookies in the future what leads to a low scoring when it comes to "Best Practices".
+- When loading a page with a form using the datepicker-widget. This widget uses "deprecated APIs" which will be removed from the browser: "DOM Mutation Events, including `DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMNodeInsertedIntoDocument`, and `DOMCharacterDataModified`".<br>
+<br>
+Both issues are, at this point in time, outside of my controle and finding alternative solutions would take to much time and would lead me to missing the deadline.<br>
+<br>
+
+To avoid an endless wall of screenshots with passed test, all conducted test and results are listed in the table below:
+<br>
+
+![Lighthouse Results](/documentation/images/tests/lh-results.png)<br>
+<br>
+All detailed screenshots for desktop results are linked below:
+<br>
+
+[Guests List Desktop](/documentation/images/tests/lh-d-guests-list.png)<br>
+[All Guests Desktop](/documentation/images/tests/lh-d-all-guests.png)<br>
+[Guest Details Desktop](/documentation/images/tests/lh-d-guest-details.png)<br>
+[Add Guest Desktop](/documentation/images/tests/lh-d-add-guest.png)<br>
+[Update Guest Desktop](/documentation/images/tests/lh-d-update-guest.png)<br>
+<br>
+
+[Reports List Desktop](/documentation/images/tests/lh-d-reports-list.png)<br>
+[All Reports Desktop](/documentation/images/tests/lh-d-all-reports.png)<br>
+[Report Details Desktop](/documentation/images/tests/lh-d-report-details.png)<br>
+[Add Report Desktop](/documentation/images/tests/lh-d-add-report.png)<br>
+[Update Report Desktop](/documentation/images/tests/lh-d-update-report.png)<br>
+<br>
+
+[Landinpage Desktop](/documentation/images/tests/lh-d-landingpage.png)<br>
+
+
+<br>
+All detailed screenshots for mobile results are linked below:
+<br>
+
+[Guests List Mobile](/documentation/images/tests/lh-m-guests-list.png)<br>
+[All Guests Mobile](/documentation/images/tests/lh-m-all-guests.png)<br>
+[Guest Details Mobile](/documentation/images/tests/lh-m-guest-details.png)<br>
+[Add Guest Mobile](/documentation/images/tests/lh-m-add-guest.png)<br>
+[Update Guest Mobile](/documentation/images/tests/lh-m-update-guest.png)<br>
+<br>
+
+[Reports List Mobile](/documentation/images/tests/lh-m-reports-list.png)<br>
+[All Reports Mobile](/documentation/images/tests/lh-m-all-reports.png)<br>
+[Report Details Mobile](/documentation/images/tests/lh-m-report-details.png)<br>
+[Add Report Mobile](/documentation/images/tests/lh-m-add-report.png)<br>
+[Update Report Mobile](/documentation/images/tests/lh-m-update-report.png)<br>
+<br>
+
+[Landinpage Mobile](/documentation/images/tests/lh-m-landingpage.png)<br>
+</details>
+
+
 
 ### Manual Testing
 
@@ -546,6 +604,10 @@ Bugs to mention:
 
 Agile project management:  <br>
 During the process of development, the kanban board and backlog, user stories, tasks and milestones were constantly adapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
+
+Unresolved Issues:
+- Cloudinary cookies
+- Depricated code in datepicker-widget
 
 
 Further information:
