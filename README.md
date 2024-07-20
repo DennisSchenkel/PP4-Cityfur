@@ -4,21 +4,11 @@
 
 Code Institute - Portfilio Project 3 - Django Full-Stack Application<br>
 <br>
-This application is developed for the real world use in a dog day care center in Cologne, Germany.<br>
+This application is developed for the real world use case in a dog day care center in Cologne, Germany.<br>
 <br>
 On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.<br>
 The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them. 
 <br>
-With the help of this system, the employees at the facility are always aware of:
-
-- Guests present that day
-- Guests checked-out and how many are still present
-- Times for applying individual medication
-- Times for individual feeding schedule
-- Information about pickup from different individuals
-- Look of a dog with profile picture
-- Important information about every dog in an individual profile
-- Situations that happened and were noted as a report with related dogs tagged
 
 
 ## Table of Contents
@@ -61,8 +51,41 @@ With the help of this system, the employees at the facility are always aware of:
 
 ## Use Case
 
-![Original Tracking System](/documentation/images/tracking-system.webp)
+This application is developed for the real world use case in a dog day care center in Cologne, Germany.<br>
+<br>
+On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.<br>
+The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them.<br>
 
+<br>
+Attached below is a picture of the currently used tracking system, based on a calendar book.<br>
+<br>
+In this system, every day has a separate page that is divided into several fields:
+- Guest count of the day
+- Male guests of the day
+- Female guests of the day
+- Guests coming as couples
+- Reports of the day
+<br>
+When a Guest checks in, the name of the guests is written down in the according field. Once the guest checks out in the evening, the name is crossed out.<br>
+Annotations do better distinguish guest are written down behind the name. Used are for example GR for Golden Retriever behind Luke or D for Dalmatiner behind Juna.<br>
+<br>
+Information like a different person to pick up a guest or other important information are also written down on the bottom in the report area.<br>
+
+
+![Original Tracking System](/documentation/images/tracking-system-s.webp)
+
+
+When finally rolled out, with the help of this newly developed system, the employees at the facility are helped with:
+
+- Keeping track of guests present that day
+- Knowing which guests have checked-out and how many are still left at the facility
+- Remembering times for applying individual medication
+- Remembering Times for individual feeding schedule
+- Saving information about pickup from different individuals
+- Recognizing guests that are new by having images of every guest in its profile
+- Getting an overview over important information about every guest in its individual profile
+- Better track situations that happened and were noted as a report with related guests tagged
+- Creating a better shift change with all relevant information handed over in a structured way
 
 
 
