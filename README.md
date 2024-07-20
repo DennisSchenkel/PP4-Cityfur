@@ -25,85 +25,70 @@ With the help of this system, the employees at the facility are always aware of:
 
 * [Introduction](#introduction)
 
+* [Use Case](#use-case)
 * [User Experience](#user-experience)
-  * [System Explained](#system-explained)
+  * [Design](#design)
+    * [Color Scheme](#color-scheme)
+    * [Imagery](#imagery)
+    * [Typography](#typography)
+    * [Mockups](#mockups)
+  * [Features](#features)
+    * [UX/UI](#ux/ui)
+    * [CRUD](#crud)
+    * [Future Features](#future-features)
+* [Agile Project Management](#agile-project-management)
   * [Milestones](#milestones)
   * [User Stories](#user-stories)
-* [Design](#design)
-  * [Color Scheme](#color-scheme)
-  * [Imagery](#imagery)
-  * [Typography](#typography)
-  * [Mockups](#mockups)
+* [Development](#development)
   * [Database](#database)
-* [Features](#features)
-  * [UX/UI](#ux/ui)
-  * [CRUD](#crud)
-  * [Future Features](#future-features)
-* [Technologies Used](#technologies-used)
-  * [Languages](#languages)
-  * [Modules & Libraries](#mudules-&-libraries)
-  * [Programs & Tools](#programs-&-tools)
-* [Deployment](#deployment)
-  * [Version Control](#version-control)
-  * [Cloudinary](#cloudinary)
-  * [Heroku Deployment](#heroku-deployment)
+  * [Technologies Used](#technologies-used)
+    * [Frameworks](#frameworks)
+    * [Languages](#languages)
+    * [Modules & Libraries](#mudules-&-libraries)
+    * [Programs & Tools](#programs-&-tools)
+  * [Deployment](#deployment)
+    * [Version Control](#version-control)
+    * [Cloudinary](#cloudinary)
+    * [Heroku Deployment](#heroku-deployment)
+  * [Testing](#testing)
+    * [Validator Testing](#validator-testing)
+    * [Manual Testing](#manual-testing)
+    * [Possible Improvements](#possible-improvments)
+    * [Bugs During Development](#bugs-during-development)
+* [Credits](#credits)
+  * [Acknowledgements](#acknowledgements)
+
+
+## Use Case
+
+![Original Tracking System](/documentation/images/tracking-system.webp)
+
+
 
 
 ## User Experience
 
+### Design
 
-
-### System explained
-
-
-
-
-### Milestones
-
-This project was structured in seven milestones with one or multiple user stories or tasks.
-
-- [Basic project setup](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/1)
-
-- [Guest list and profiles](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/3)
-
-- [Guests profiles management (Add/Change/Delete)](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/8)
-
-- [Report system](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/6)
-
-- [User management & authentication](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/2)
-
-- [Final touch](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/9)
-
-- [The extra mile](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/10)
-
-
-### User Stories
-
-
-
-
-
-## Design
-
-### Color Scheme
+#### Color Scheme
 
 The color scheme for this project is very simple and primarily consists of four colores. Two darker blue tones as the main colors for navigation elements. Light blue for confirmation buttons and red as a cancle/delete button.<br>
 <br>
 
 ![Color Scheme](/documentation/images/color-scheme.png)
 
-### Imagery
+#### Imagery
 
 Images used as content for test purposes were created with ChatGPT and DALL-E 3.<br>
 The favicon was created by using a FontAwesome icon and a blue background, edited with Affinity Designer 2.<br>
 
-### Typography
+#### Typography
 
 For this project, no special typography was used.<br>
 The font is the standard font of the used browser.<br>
 Only different font-size and boldness were used.<br>
 
-### Mockups
+#### Mockups
 
 For this project, I used mockups created with Figma instead of wireframes to better go into details when laying out the designs.
 During the development process, the mockups were constantly updated according to new findings.
@@ -269,6 +254,56 @@ Input fields are for the report date, report text and a selection list where the
 </details>
 
 
+### Features
+
+#### UX/UI
+
+**Search**
+
+The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.<br>
+<br>
+To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.<br>
+This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.<br>
+
+#### CRUD
+
+
+#### Future Features
+
+
+
+
+
+
+## Agile Project Management
+
+### Milestones
+
+This project was structured in seven milestones with one or multiple user stories or tasks.
+
+- [Basic project setup](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/1)
+
+- [Guest list and profiles](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/3)
+
+- [Guests profiles management (Add/Change/Delete)](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/8)
+
+- [Report system](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/6)
+
+- [User management & authentication](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/2)
+
+- [Final touch](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/9)
+
+- [The extra mile](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/10)
+
+
+### User Stories
+
+
+
+
+
+## Development
+
 ### Database
 
 The following image illustrated the database structure:<br>
@@ -291,7 +326,7 @@ The following fields are worth explaining in more detail:
 - Customer ID: The owner of the guest is selected from a list of pre-defined customers. More on that later down the line.
 - Slug: This field is created automatically and is used to create the domain for the individual's profile.
 <br>
-<br>
+
 
 **Presence**
 
@@ -327,27 +362,11 @@ This table is automatically generated by Django.<br>
 <br>
 
 
-## Features
-
-### UX/UI
-
-#### Search
-
-The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.<br>
-<br>
-To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.<br>
-This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.<br>
-
-### CRUD
 
 
-### Future Features
+### Technologies Used
 
-
-
-## Technologies Used
-
-### Languages
+#### Languages
 
 - HTML
 - CSS
@@ -355,7 +374,7 @@ This method is only useful with a limited amount of profiles in the database. In
 - Python
 - Django Template Language
 
-### Frameworks
+#### Frameworks
 
 The following frameworks have been used.
 
@@ -364,7 +383,7 @@ The following frameworks have been used.
 - [jQuery](https://jquery.com/)
 - [FontAwesome](https://fontawesome.com/)
 
-### Modules & Libraries
+#### Modules & Libraries
 
 - AllAuth (For user uthentication)
 - Black (Code formatter fpr Python)
@@ -380,7 +399,7 @@ The following frameworks have been used.
 - Summernote (As a WYSIWYG editor)
 - Whitenoise (Middleware for serving static files)
 
-### Programs & Tools
+#### Programs & Tools
 
 During the development of this application, the following programs and tools have been used.
 
@@ -402,9 +421,9 @@ During the development of this application, the following programs and tools hav
 - [DALL-E 3](https://openai.com/index/dall-e-3/) (For generating profile images)
 - [Cloudinary](https://cloudinary.com/) (As external hosting services for images)
 
-## Deployment
+### Deployment
 
-### Version Control
+#### Version Control
 
 This application was developed using Visual Studio Code as the IDE and GitHub for hosting the repository.<br>
 <br>
@@ -415,7 +434,7 @@ Git was used for version control by using the following comments:
 - git push - Upload the commit to GitHub.
 
 
-### Cloudinary
+#### Cloudinary
 
 For using Cloudinary as a hosting provider for images, the following steps have to be conducted:
 - Create a Cloudinary account.
@@ -427,7 +446,7 @@ For using Cloudinary as a hosting provider for images, the following steps have 
 - Use the API in the Heroku deployment settings like described in the next step.
 
 
-### Heroku Deployment
+#### Heroku Deployment
 
 **Step 0: Create requirements.txt**
 - Create the requirements.txt (pip freeze > requirements.txt)
@@ -458,7 +477,7 @@ For using Cloudinary as a hosting provider for images, the following steps have 
 - Switch to the settings page (Menu in the top)
 - Click on "Reveal Config Vars"
 - The following Key/Value pairs have been added:
-    - CLOUDINARY_URL
+    - CLOUDINARY_URL (Created in chapter before)
     - DB_ENGINE
     - DB_HOST
     - DB_OPTIONS 
@@ -484,9 +503,9 @@ For using Cloudinary as a hosting provider for images, the following steps have 
 
 
 
-## Testing
+### Testing
 
-### Validator Testing
+#### Validator Testing
 
 <details>
 <summary>W3C HTML Validation</summary>
@@ -630,7 +649,7 @@ All detailed screenshots for mobile results are linked below:
 
 
 
-### Manual Testing
+#### Manual Testing
 
 <details>
 <summary>Navigation Testing</summary>
@@ -642,14 +661,17 @@ Testing, if the navigation and their items are showing up and are working correc
 ![Nav-Testing](/documentation/images/tests/nav-test.png)
 </details>
 
-### Bugs During Development
 
-### Possible Improvements
+#### Possible Improvements
+
+#### Bugs During Development
+
+
 
 
 ## Credits
 
-### Acknowledgments
+### Acknowledgements
 
 
 User management
