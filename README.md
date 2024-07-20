@@ -225,12 +225,21 @@ When selecting a date in the top, the page with the reports for the selected dat
 <summary>Report Details</summary>
 <br>
 
+A page dedicated to the details of a selected report.<br>
+All report details are listed and the user has the options to edit or delete the report.<br>
+When deleting the report, a modal opens where the user has to confirm the deletion.<br>
+<br>
+
 ![Report Details Mockup](/documentation/images/mockups/8-report-details.png)
 </details>
 
 
 <details>
 <summary>Add/Edit Report</summary>
+<br>
+
+On this page a report can be added, or a selected report can be edited.<br>
+Input fields are for the report date, report text and a selection list where the user can select the guests to tag to the report.<br>
 <br>
 
 ![Add/Edit Report Mockup](/documentation/images/mockups/9-add-edit-report.png)
