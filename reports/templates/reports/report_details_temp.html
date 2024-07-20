@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="pt-3">
-                    <h5>Guests Mentioned:</h5>
+                    <h4>Guests Mentioned:</h4>
                     {% for guest in report.guests.all %}
                         <a href="{% url 'guest_details_temp' guest.slug %}" class="text-decoration-none">    
                             <span class="report-guest p-1">{{ guest.first_name }}{% if guest.last_name %} {{ guest.last_name }}{% endif %}{% if guest.name_addon %} ({{ guest.name_addon }}){% endif %}</span>
@@ -50,9 +50,9 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="DeleteModalTitle{{ report.id }}">
+                        <h4 class="modal-title" id="DeleteModalTitle{{ report.id }}">
                             Delete Report of {{ report.report_date }}
-                        </h5>
+                        </h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

@@ -31,7 +31,7 @@
                     {% if guest.image %}
                         <img src="{{ guest.image.url }}" alt="{{ guest.first_name }}-{{ guest.name_addon }}" class="img-fluid">
                     {% else %}
-                        <img src={% static "/images/anonymdog.jpg" %} alt="No image was found" class="img-fluid">
+                        <img src={% static "/images/anonymdog.webp" %} alt="No image was found" class="img-fluid">
                     {% endif %}
                     </div>
                     <div class="pt-3">
@@ -114,14 +114,14 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="DeleteModalTitle{{ guest.id }}">
+                            <h4 class="modal-title" id="DeleteModalTitle{{ guest.id }}">
                                 Delete profile of {{ guest.first_name }} 
                                 {% if guest.name_addon %}
                                     <span>{{ guest.name_addon }}</span>
                                 {% else %}
                                     <span><br></span>
                                 {% endif %}
-                            </h5>
+                            </h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

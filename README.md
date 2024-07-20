@@ -75,7 +75,8 @@ This project was structured in seven milestones with one or multiple user storie
 
 ### Imagery
 
-Images used as content for test purposes were created with ChatGPT and DALL-E 3.
+Images used as content for test purposes were created with ChatGPT and DALL-E 3.<br>
+The favicon was created by using a FontAwesome icon and a blue background, edited with Affinity Designer 2.<br>
 
 ### Typography
 
@@ -92,7 +93,6 @@ During the development process, the mockups were constantly updated according to
 <summary>Mobile Nav</summary>
 <br>
 This is the navigation for the mobile version of the application.<br>
-<br>
 
 ![Mobile Nav Mockup](/documentation/images/mockups/0-mobile-nav.png)
 </details>
@@ -107,7 +107,6 @@ On smaller screens, the search bar disappears and is exchanged by a search icon.
 <br>
 To check-in a new guest, users can click on the blue "Check-In" button on the bottom.<br>
 The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.<br>
-<br>
 
 ![Guests List Mockup](/documentation/images/mockups/1-guests-list.png)
 
@@ -140,7 +139,6 @@ When clicking on the "Close Check-In" button, the view will switch to the guest 
 <br>
 The date picker and search field are working as described in the chapter above.<br>
 The gender selector on the bottom is also working as already described.<br>
-<br>
 
 ![Guest Check-In Mockup](/documentation/images/mockups/2-guest-check-in.png)
 </details>
@@ -156,7 +154,6 @@ The details page for each profile can be opened by using the dropdown menu.<br>
 <br>
 On this page, the user is able to use the search and filter all profiles by gender.<br>
 When using the date picker, the application will load the guest list for the selected date.<br>
-<br>
 
 ![All Guests Mockup](/documentation/images/mockups/3-all-guests.png)
 </details>
@@ -191,7 +188,6 @@ Information for each guest are:
 This is the profile overview for each guest. Here all information are listed.<br>
 On the bottom of the page, all reports are listed, that the guest has been tagged on.<br>
 The user has the chance to edit or delete the profile or go to a specific report the guest was tagged on.<br>
-<br>
 
 ![Guest Details Mockup](/documentation/images/mockups/5-guest-details.png)
 </details>
@@ -203,7 +199,6 @@ The user has the chance to edit or delete the profile or go to a specific report
 
 This page shows a list of all reports written on the selected date.<br>
 All reports include a text, a link to go to the report's details page, and a list of all guests tagged on the report, if any were tagged.<br>
-<br>
 
 ![Reports List Mockup](/documentation/images/mockups/6-reports-list.png)
 </details>
@@ -228,7 +223,6 @@ When selecting a date in the top, the page with the reports for the selected dat
 A page dedicated to the details of a selected report.<br>
 All report details are listed and the user has the options to edit or delete the report.<br>
 When deleting the report, a modal opens where the user has to confirm the deletion.<br>
-<br>
 
 ![Report Details Mockup](/documentation/images/mockups/8-report-details.png)
 </details>
@@ -240,7 +234,6 @@ When deleting the report, a modal opens where the user has to confirm the deleti
 
 On this page a report can be added, or a selected report can be edited.<br>
 Input fields are for the report date, report text and a selection list where the user can select the guests to tag to the report.<br>
-<br>
 
 ![Add/Edit Report Mockup](/documentation/images/mockups/9-add-edit-report.png)
 </details>
