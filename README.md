@@ -395,9 +395,28 @@ Full CRUD functionality is implemented with the following features:
 
 #### Future Features
 
+Since the application is planned to be used in a real facility in Cologne, Germany, the following features are already planned to be developed.
 
+**Customer Management System**
+The already existing model for customers is planned to be extended to a full-fledged customer management system.<br>
+Users will be able to add new customers to the database, change their information and assign guests to them.<br>
+<br>
 
+**Accounting System**
+Based on the customer management system is the planned accounting system. This will help with managing subscriptions and different subscription plans. With different subscription plans, guest are allowed to come in one, two, three, four or five days a week. Beside choosing a subscription tier, customers can book additional days for bringing their dogs. For example, if a customer has a subscription to bring its dog two days a week, but as an exception needs to bring in the dog for one additional day in a week.<br>
+<br>
 
+**Allergies Alert**
+Similar to the alerts for medication or feeding, an alert for allergies is planned. This alert will indicate, that a guest has allergies and more information about the exact allergy is to be found on the profile details page.<br>
+<br>
+
+**To-Do Lists**
+This will be a list of to does for the employees. Possible to does are mowing the lawn, fixing a fence or buying needed materials.<br>
+<br>
+
+**Shopping Lists**
+This will be a list that can be filled with needed material, that needs to get bought.<br>
+<br>
 
 
 ## Agile Project Management
