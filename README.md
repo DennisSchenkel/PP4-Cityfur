@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Code Institute - Prortfilio Project 3 - Django Full-Stack Application<br>
+Code Institute - Portfilio Project 3 - Django Full-Stack Application<br>
 <br>
 This application is developed for the real world use in a dog day care center in Cologne, Germany.<br>
 <br>
@@ -85,10 +85,14 @@ Only different font-size and boldness were used.<br>
 
 ### Mockups
 
+For this project, I used mockups created with Figma instead of wireframes to better go into details when laying out the designs.
+During the development process, the mockups were constantly updated according to new findings.
+
 <details>
 <summary>Mobile Nav</summary>
 <br>
 This is the navigation for the mobile version of the application.<br>
+<br>
 
 ![Mobile Nav Wireframe](/documentation/images/wireframes/0-mobile-nav.png)
 </details>
@@ -97,9 +101,9 @@ This is the navigation for the mobile version of the application.<br>
 <details>
 <summary>Guests List</summary>
 <br>
-In this overview all checked-in and already checked-out guests of the day are listed.<br>
+In this overview, all checked-in and already checked-out guests of the day are listed.<br>
 The day can be selected in the top menu bar and all profiles on the page can be searched.<br>
-On smaller screens the search bar disapears and is exchanged by a search icon. When clicking the icon, the search bar shows up.<br>
+On smaller screens, the search bar disappears and is exchanged by a search icon. When clicking the icon, the search bar shows up.<br>
 <br>
 To check-in a new guest, users can click on the blue "Check-In" button on the bottom.<br>
 The last element of the page is the gender selector that gives the option to select all guests checked-in and already checked-out that day, only female and only male guests.<br>
@@ -107,15 +111,15 @@ The last element of the page is the gender selector that gives the option to sel
 
 ![Guests List Wireframe](/documentation/images/wireframes/1-guests-list.png)
 
-Each small profile listed can be clicked on and the following informations are shown:
+Each small profile listed can be clicked on, and the following information are shown:
 
 - Possible medication times
 - Possible feeding times
-- Different person then the owner to pick up the guest
-- An icon to indicate that the guest was mentioned in a report that day
+- Different person, then the owner, to pick up the guest
+- An icon to indicate that the guest was tagged in a report that day
 
 
-When clicked on the small profile a dropdown menu opens with the following options:
+When clicked on the small profile, a dropdown menu opens with the following options:
 
 - Undo check-in/check-out
 - Open guest file
@@ -130,12 +134,12 @@ When clicked on the small profile a dropdown menu opens with the following optio
 <summary>Guest Check-In</summary>
 <br>
 When clicking on the "Check-In" button on the guest list (previous chapter), a list of all not checked-in guest of the selected date show up.<br>
-Each profile can be clicked and the check-in button can be clicked. After the confirmation modal, the guest will be checked-in for the selected date.<br>
+Each profile can be clicked, and the check-in button can be clicked. After the confirmation modal, the guest will be checked-in for the selected date.<br>
 <br>
 When clicking on the "Close Check-In" button, the view will switch to the guest list for the selected date.<br>
 <br>
 The date picker and search field are working as described in the chapter above.<br>
-The gender selector on the bottom is also working als already described.<br>
+The gender selector on the bottom is also working as already described.<br>
 <br>
 
 ![Guest Check-In Wireframe](/documentation/images/wireframes/2-guest-check-in.png)
@@ -146,6 +150,14 @@ The gender selector on the bottom is also working als already described.<br>
 <summary>All Guests</summary>
 <br>
 
+This page shows an overview of all guests with a profile in the database.<br>
+Every profile shows the basic information like name, name-addon, gender, medication and food times.<br>
+The details page for each profile can be opened by using the dropdown menu.<br>
+<br>
+On this page, the user is able to use the search and filter all profiles by gender.<br>
+When using the date picker, the application will load the guest list for the selected date.<br>
+<br>
+
 ![All Guests Wireframe](/documentation/images/wireframes/3-all-guests.png)
 </details>
 
@@ -154,12 +166,31 @@ The gender selector on the bottom is also working als already described.<br>
 <summary>Add/Edit Guest</summary>
 <br>
 
+Here the user has the chance to add new guests to the system. The same layout is used to change a profile of a guest.<br>
+<br>
+Information for each guest are:
+- First name
+- Last name (Family name of the owner)
+- Name-addon (If a guest with the same first name already exists, to better distinguish the guests)
+- Gender
+- Image
+- Date of birth
+- Information (Anything worth noting that is important and not covered by a dedicated field)
+- Food time
+- Medication time
+- Owner (Choose from list of owners. These are at this version of the app created in the admin backend and only for demo purposes only)
+
 ![Add/Edit Guest Wireframe](/documentation/images/wireframes/4-add-edit-guest.png)
 </details>
 
 
 <details>
 <summary>Guest Details</summary>
+<br>
+
+This is the profile overview for each guest. Here all information are listed.<br>
+On the bottom of the page, all reports are listed, that the guest has been tagged on.<br>
+The user has the chance to edit or delete the profile or go to a specific report the guest was tagged on.<br>
 <br>
 
 ![Guest Details Wireframe](/documentation/images/wireframes/5-guest-details.png)
@@ -271,7 +302,7 @@ During the development of this application, the following programs and tools hav
 
 ### Version Control
 
-This application was developed using Visuel Studio Code as the IDE and GitHub for hosting the repository.<br>
+This application was developed using Visual Studio Code as the IDE and GitHub for hosting the repository.<br>
 <br>
 Git was used for version control by using the following comments:
 
@@ -300,8 +331,8 @@ Git was used for version control by using the following comments:
 - Select a name for the application - the name should only contain lowercase letters, numbers, and dashes.
 - Choose a region. (Europe as we are in Europe)
 
-**Step 3: Define Deployment Methode**
-- Select GitHub as deployment methode
+**Step 3: Define Deployment Method**
+- Select GitHub as deployment method
 - Connect GitHub account to Heroku
 - Select account and search for repository
 - Connect to found repository
@@ -326,10 +357,10 @@ Git was used for version control by using the following comments:
 - Switch to the deploy page (Menu in the top)
 - Look under manual deployment
 - Select a branch to deploy (Main in my case)
-- Click "Deploy Branche"
+- Click "Deploy Branch"
 
 **Step 6: Use App**
-- Heroku will then set up the virtual envirement with all packages, modules and libraries needed. (This can take some time)
+- Heroku will then set up the virtual environment with all packages, modules and libraries needed. (This can take some time)
 - When Heroku is done with the deployment, click "View" and start to use the
 - Use app
 
@@ -345,31 +376,29 @@ Git was used for version control by using the following comments:
 <summary>HTML Validation</summary>
 <br>
 
-All test were conducted by copying the HTML code from the Google Chrome developers tool and pasting into the [W3C HTML Validator](https://validator.w3.org/).
+All tests were conducted by copying the HTML code from the Google Chrome developer's tool and pasting into the [W3C HTML Validator](https://validator.w3.org/).
 No errors were found when using the W3C HTML Validator.<br>
 On three pages, information were shown about closing tags that have been automatically created by Django and don't have any influence on the pages' behavior.<br>
 <br>
-To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
+To avoid an endless wall of screenshots with passed test, all conducted test and results are listed in the table below:
 <br>
 
 ![HTML Validation Results](/documentation/images/tests/html-results.png)<br>
 <br>
-All detailed screenshots are linked below.
+All detailed screenshots are linked below:
 <br>
 
 [Reports List](/documentation/images/tests/html-reports-list.png)<br>
-[All Reports](/documentation/images/tests/html-all-reports.png)<br>
+[All Reports](/documentation/images/tests/html-reports-all.png)<br>
 [Report Details](/documentation/images/tests/html-report-details.png)<br>
 [Add Reports](/documentation/images/tests/html-add-report.png)<br>
 [Update Report](/documentation/images/tests/html-update-report.png)<br>
-<br>
 
 [Guests List](/documentation/images/tests/html-guests-list.png)<br>
-[All Guests](/documentation/images/tests/html-all-guests.png)<br>
+[All Guests](/documentation/images/tests/html-guests-all.png)<br>
 [Guest Details](/documentation/images/tests/html-guest-details.png)<br>
 [Add Guest](/documentation/images/tests/html-add-guest.png)<br>
 [Update Guest](/documentation/images/tests/html-update-guest.png)<br>
-<br>
 
 [Landingpage](/documentation/images/tests/html-landingpage.png)<br>
 [404 Page](/documentation/images/tests/html-404.png)<br>
@@ -392,12 +421,12 @@ No errors were found when using the [W3C CSS Validator](https://jigsaw.w3.org/cs
 
 No errors were found when using [JSHint](https://jshint.com).<br>
 <br>
-To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
+To avoid an endless wall of screenshots with passed test, all conducted test and results are listed in the table below:
 <br>
 
 ![JSHint Results](/documentation/images/tests/jshint-results.png)<br>
 <br>
-All detailed screenshots are linked below.
+All detailed screenshots are linked below:
 <br>
 
 [date_picker_guests.js](/documentation/images/tests/jshint-date-picker-guests.png)<br>
@@ -420,7 +449,7 @@ No errors were found when using the [CI Python Linter](https://pep8ci.herokuapp.
 
 ![CI Python Linter](/documentation/images/tests/ci-python-linter.png)<br>
 <br>
-To avoide an endless wall of screenshots with passed test, all conducted test and results are listed in the table below.
+To avoid an endless wall of screenshots with passed test, all conducted test and results are listed in the table below:
 <br>
 
 ![CI Python Linter Results](/documentation/images/tests/ci-python-linter-results.png)<br>
@@ -454,7 +483,7 @@ Testing, if the navigation and their items are showing up and are working correc
 
 
 User management
-- In the usecase of this app only the system admin should be allowed to create new users. So there is no public registration form of any kind.
+- In the use case of this app only the system admin should be allowed to create new users. So there is no public registration form of any kind.
 
 
 Technologies and services used
@@ -468,11 +497,11 @@ Plugins used
 
 
 Steps of development:
-- Starting with a basic html and css layout
-- Adding the core functionality of guest checkin and checkout.
+- Starting with a basic HTML and CSS layout
+- Adding the core functionality of guest check-in and check-out.
 - Add functionality for searching guests, displaying critical information
 - Building guest profiles and CRUD functionality
-- Adding authentication feature for access controlle
+- Adding authentication feature for access controll
 - Adding basic report system
 - Adding guest mentions to report system and showing related reports in guest profile
 
@@ -498,16 +527,16 @@ Features:
 
 Bugs to mention: 
 - Upload of images and the way I fixed it with pillow.
-- Buggy closing of modals. Modals did not close properly when clicking outside of the modal.
-- In development it came to the situation that the search field was not showing in the mobil view due to wrong use of bootstrap.
+- Buggy closing of modals. Modals did not close properly when clicking outside the modal.
+- In development it came to the situation that the search field was not showing in the mobile view due to wrong use of bootstrap.
 
 - When adding the Guest Update feature, the updated data was not saves, because the form validation has noticed the existing database entry as duplicate of the same dataset and so the validation threw an error.
     - To solve this, the validation has to ignore the duplicate of their own dataset. So exclude the dataset with given ID in the validation process.
 
 
 Agile project management:  <br>
-During the process of deveolment, the kanban board and backlog, userstories, tasks and milestones were constantly addapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
+During the process of development, the kanban board and backlog, user stories, tasks and milestones were constantly adapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
 
 
 Further information:
-Naming conventions for guests: Name Addon helps to better distinguish between two guests with the same name. Often fur color, size or breed are used as name addon.
+Naming conventions for guests: Name addon helps to better distinguish between two guests with the same name. Often fur color, size or breed are used as name addon.
