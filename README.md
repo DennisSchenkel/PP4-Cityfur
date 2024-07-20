@@ -44,7 +44,8 @@ The application helps with the daily tracking of dogs coming in the morning and 
     * [Validator Testing](#validator-testing)
     * [Manual Testing](#manual-testing)
     * [Possible Improvements](#possible-improvments)
-    * [Bugs During Development](#bugs-during-development)
+    * [Fixed Bugs](#fixed-bugs)
+    * [Known Unfixes Bugs](#known-unfixed-bugs)
 * [Credits](#credits)
   * [Acknowledgements](#acknowledgements)
 
@@ -70,7 +71,7 @@ When a Guest checks in, the name of the guests is written down in the according 
 Annotations do better distinguish guest are written down behind the name. Used are for example GR for Golden Retriever behind Luke or D for Dalmatiner behind Juna.<br>
 <br>
 Information like a different person to pick up a guest or other important information are also written down on the bottom in the report area.<br>
-
+<br>
 
 ![Original Tracking System](/documentation/images/tracking-system-s.webp)
 
@@ -281,12 +282,86 @@ Input fields are for the report date, report text and a selection list where the
 
 #### UX/UI
 
-**Search**
+In this section, I point out some of the more advanced or useful features of this application.<br>
+<br>
 
+<details>
+<summary>Search</summary>
+<br>
+
+![Search](/documentation/images/features/search.png)
+<br>
+The search enables users to search for a specific guest from one of the overview lists. The results immediately reload with every key pressed.
+<br>
 The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.<br>
 <br>
 To avoid unnecessary loading times and giving instant feedback, the search was created this way and not by doing a separated get request with every search.<br>
 This method is only useful with a limited amount of profiles in the database. In the case of this application and its real world use, this is doable, since only a maximum of around 100 guests will be in the database simultaneously.<br>
+</details>
+
+<details>
+<summary>Gender Filter</summary>
+<br>
+
+![Gender Filter](/documentation/images/features/gender-filter.png)
+<br>
+The gender filter enables the user to filter guest lists and only show male, female or all guests.<br>
+Similar to the search, the gender selector uses bootstrap classes to show only guests matching the selected filter.<br>
+</details>
+
+<details>
+<summary>Profile Resize & Dropout</summary>
+<br>
+
+![Profile Resize & Dropout](/documentation/images/features/profile-resize-dropout.png)
+<br>
+When clicking on a small profile, the profile extends and shows a dropout menu for more options.<br>
+If a different profile was already opened, this first one gets small again and the new one opens.<br>
+</details>
+
+<details>
+<summary>Profile Alerts</summary>
+<br>
+
+![Alerts Small Profile](/documentation/images/features/alerts-small.png)
+<br>
+Profiles can show icons as alerts for important information. This information can be about needed medication, feeding, different person picking up the guest, or indicating that the guest was tagged on a report of the selected day.<br>
+Depending on the status of the profile, the icons and information is displayed differently. Like seen on a small profile above and an opened profile down below.<br>
+<br>
+
+![Alerts Large Profile](/documentation/images/features/alerts-large.png)
+<br>
+</details>
+
+<details>
+<summary>Confirmation Modals</summary>
+<br>
+
+![Confirmation Modal](/documentation/images/features/confirmation-modal.png)
+
+Every important action has to be confirmed by clicking a button on an opening modal.<br>
+Actions that have to be confirmed with a modal:
+- Check-In
+- Check-Out
+- Undo Check-In
+- Undo Check-Out
+- Delete Guest Profile
+- Delete Report
+</details>
+
+<details>
+<summary>Report Tagging System</summary>
+<br>
+
+![Report Tagging System](/documentation/images/features/report-tagging-system.png)
+<br>
+
+On every report, multiple guest can be tagged. The reports then show up on the profile of the tagged guest.<br>
+When a guest profile is deleted from the database, the tag in the report gets automatically deleted too.<br>
+</details>
+
+
+
 
 #### CRUD
 
@@ -687,8 +762,10 @@ Testing, if the navigation and their items are showing up and are working correc
 
 #### Possible Improvements
 
-#### Bugs During Development
+#### Fixed Bugs
 
+
+#### Known Unfixed Bugs
 
 
 
