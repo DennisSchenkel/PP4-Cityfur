@@ -34,8 +34,8 @@ The application helps with the daily tracking of dogs coming in the morning and 
   * [Technologies Used](#technologies-used)
     * [Frameworks](#frameworks)
     * [Languages](#languages)
-    * [Modules & Libraries](#mudules-&-libraries)
-    * [Programs & Tools](#programs-&-tools)
+    * [Modules & Libraries](#mudules--libraries)
+    * [Programs & Tools](#programs--tools)
   * [Deployment](#deployment)
     * [Version Control](#version-control)
     * [Cloudinary](#cloudinary)
@@ -291,6 +291,7 @@ In this section, I point out some of the more advanced or useful features of thi
 
 ![Search](/documentation/images/features/search.png)
 <br>
+<br>
 The search enables users to search for a specific guest from one of the overview lists. The results immediately reload with every key pressed.
 <br>
 The search is a special topic in this application. It is created by marking all not matching results as hidden using Bootstrap. All matching results are shown.<br>
@@ -305,6 +306,7 @@ This method is only useful with a limited amount of profiles in the database. In
 
 ![Gender Filter](/documentation/images/features/gender-filter.png)
 <br>
+<br>
 The gender filter enables the user to filter guest lists and only show male, female or all guests.<br>
 Similar to the search, the gender selector uses bootstrap classes to show only guests matching the selected filter.<br>
 </details>
@@ -314,6 +316,7 @@ Similar to the search, the gender selector uses bootstrap classes to show only g
 <br>
 
 ![Profile Resize & Dropout](/documentation/images/features/profile-resize-dropout.png)
+<br>
 <br>
 When clicking on a small profile, the profile extends and shows a dropout menu for more options.<br>
 If a different profile was already opened, this first one gets small again and the new one opens.<br>
@@ -325,12 +328,12 @@ If a different profile was already opened, this first one gets small again and t
 
 ![Alerts Small Profile](/documentation/images/features/alerts-small.png)
 <br>
+<br>
 Profiles can show icons as alerts for important information. This information can be about needed medication, feeding, different person picking up the guest, or indicating that the guest was tagged on a report of the selected day.<br>
 Depending on the status of the profile, the icons and information is displayed differently. Like seen on a small profile above and an opened profile down below.<br>
 <br>
 
 ![Alerts Large Profile](/documentation/images/features/alerts-large.png)
-<br>
 </details>
 
 <details>
@@ -338,7 +341,8 @@ Depending on the status of the profile, the icons and information is displayed d
 <br>
 
 ![Confirmation Modal](/documentation/images/features/confirmation-modal.png)
-
+<br>
+<br>
 Every important action has to be confirmed by clicking a button on an opening modal.<br>
 Actions that have to be confirmed with a modal:
 - Check-In
@@ -355,7 +359,7 @@ Actions that have to be confirmed with a modal:
 
 ![Report Tagging System](/documentation/images/features/report-tagging-system.png)
 <br>
-
+<br>
 On every report, multiple guest can be tagged. The reports then show up on the profile of the tagged guest.<br>
 When a guest profile is deleted from the database, the tag in the report gets automatically deleted too.<br>
 </details>
@@ -364,6 +368,29 @@ When a guest profile is deleted from the database, the tag in the report gets au
 
 
 #### CRUD
+
+Full CRUD functionality is implemented with the following features:
+
+**Guests**
+- Create Guest Profile
+- Read Guest Profile
+- Update Guest Profile
+- Delete Guest Profile
+<br>
+
+**Reports**
+- Create Report
+- Read Report
+- Update Report
+- Delete Report
+<br>
+
+**Presences**
+- Create - Check-In Guest
+- Read - See list of checked-in guests
+- Update - Guest Check-out, undo check-in or undo check-out
+- Delete - Undo guest check-in
+<br>
 
 
 #### Future Features
