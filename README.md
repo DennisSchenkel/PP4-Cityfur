@@ -1029,7 +1029,7 @@ Testing functionality of the guest details page, including deletion, tagged repo
 | Report details link | Link to go to report details page. | When clicking on the link on the bottom of a report, the details page of the report loads. | Pass |
 | Edit guest profile | Go to editor for guest profile | When clicking on the blue "Edit guest profile" button, the profile editor opens with all existing information for the guest already filled in the form fields and profile image showing up. | Pass |
 | Delete profile | Open deletion confirmation modal | When clicking in the red "Delete profile" button, a modal to confirm the deletion opens. | Pass |
-| Delete profile confirmation modal | Confirming deletion | When clicking on the confirmation for deleting the profile, the profile gets deleted from the database and the user is redirected to to guest list of the most resent day.  | Pass |
+| Delete profile confirmation modal | Confirming deletion | When clicking on the confirmation for deleting the profile, the profile gets deleted from the database and the user is redirected to the guest list of the most resent day.  | Pass |
 | Closing deletion confirmation modal with button | Closing the deletion confirmation modal by clicking the "Cancel" button. | When the "Cancel" button is clicked, the modal closes and the page is yet again shown like before | Pass |
 | Closing deletion confirmation modal with x-button | Closing the deletion confirmation modal by clicking the "X" button. | When the "X" button is clicked, the modal closes and the page is yet again shown like before | Pass |
 | Closing deletion confirmation modal by clicking outside the modal. | Closing the deletion confirmation modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
@@ -1086,11 +1086,6 @@ Testing functionality of the form to add new guests and edit existing guests.<br
 </details>
 
 
-
-
-
-
-
 <details>
 <summary>Days Reports List</summary>
 <br>
@@ -1101,7 +1096,9 @@ Testing functionality of the reports list of a selected date, including tagged g
 | --- | --- | --- | --- |
 | **Days Reports List** |  |  |  |
 | --- | --- | --- | --- |
-|  |  |  | Pass |
+| Date picker | Used to select the date to list the reports of the day. | When clicking on the date picker and selecting a date, the page with the selected date loads and all reports of the day are showing up correctly. | Pass |
+| Tagged guests | Tagged guests are listed in reports. | When one or more guest have been tagged in a report, the tagged guests are showing up. Clicking on the guest's name loads the guest's profile. | Pass |
+| Report details link | Link to go to report details page. | When clicking on the link on the bottom of a report, the details page of the report loads. | Pass |
 </details>
 
 
@@ -1116,7 +1113,9 @@ Testing functionality of the list with all reports in the system, including tagg
 | --- | --- | --- | --- |
 | **All Reports** |  |  |  |
 | --- | --- | --- | --- |
-|  |  |  | Pass |
+| Date picker | Used to select the date to list the reports of the day. | When clicking on the date picker and selecting a date, the page with the selected date loads and all reports of the day are showing up correctly. | Pass |
+| Tagged guests | Tagged guests are listed in reports. | When one or more guest have been tagged in a report, the tagged guests are showing up. Clicking on the guest's name loads the guest's profile. | Pass |
+| Report details link | Link to go to report details page. | When clicking on the link on the bottom of a report, the details page of the report loads. | Pass |
 </details>
 
 
@@ -1131,36 +1130,30 @@ Testing functionality of the report details page, including deletion, tagged gue
 | --- | --- | --- | --- |
 | **Report Details** |  |  |  |
 | --- | --- | --- | --- |
-|  |  |  | Pass |
+| Tagged guests | Tagged guests are listed in reports. | When one or more guest have been tagged in a report, the tagged guests are showing up. Clicking on the guest's name loads the guest's profile. | Pass |
+| Edit report profile | Go to the editor for the report | When clicking on the blue "Edit Report" button, the report editor opens with all existing information from the report already filled in the form fields. | Pass |
+| Delete report | Open deletion confirmation modal | When clicking in the red "Delete Report" button, a modal to confirm the deletion opens. | Pass |
+| Delete report confirmation modal | Confirming deletion | When clicking on the confirmation for deleting the report, the report gets deleted from the database and the user is redirected to the reports list of the most resent day. | Pass |
+| Closing deletion confirmation modal with button | Closing the deletion confirmation modal by clicking the "Cancel" button. | When the "Cancel" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing deletion confirmation modal with x-button | Closing the deletion confirmation modal by clicking the "X" button. | When the "X" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing deletion confirmation modal by clicking outside the modal. | Closing the deletion confirmation modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
 </details>
 
 
 <details>
-<summary>Add Report Page</summary>
+<summary>Add/Edit Report Page</summary>
 <br>
 
-Testing functionality of the form to add new reports to the system.<br>
+Testing functionality of the form to add or edit reports.<br>
 
 | **Test** | **Description** | **Expected Outcome** | **Result** |
 | --- | --- | --- | --- |
-| **Add Report** |  |  |  |
+| **Add/Edit Report** |  |  |  |
 | --- | --- | --- | --- |
 |  |  |  | Pass |
 </details>
 
 
-<details>
-<summary>Edit Report Page</summary>
-<br>
-
-Testing functionality of the form to edit an existing report.<br>
-
-| **Test** | **Description** | **Expected Outcome** | **Result** |
-| --- | --- | --- | --- |
-| **Edit Report** |  |  |  |
-| --- | --- | --- | --- |
-|  |  |  | Pass |
-</details>
 
 
 #### Possible Improvements
