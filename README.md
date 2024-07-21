@@ -423,7 +423,11 @@ This will be a list that can be filled with needed material, that needs to get b
 
 ## Agile Project Management
 
-This project was developed using an agile approach for planning and tracking the development process. The project was separated into several milestones, each containing one or up to eight separate user stories, tasks, features or bugs, each labeled with the MoSCoW methodology. Due to the low complexity of the project, no epics were used to improve workflow. 
+This project was developed using an agile approach for planning and tracking the development process. The project was separated into several milestones, each containing one or up to eight separate user stories, tasks, features or bugs, each labeled with the MoSCoW methodology. Due to the low complexity of the project, no epics were used to improve workflow.<br>
+
+<br>
+During the process of development, the kanban board and backlog, its user stories, tasks, bugs and milestones were constantly adapting to new findings and changing requirements. Feature request have been modified, added or the priority were changed.<br>
+
 
 ### Milestones
 
@@ -585,6 +589,7 @@ The following frameworks have been used.
 - AllAuth (For user uthentication)
 - Black (Code formatter fpr Python)
 - Cloudinary (Cloud storage for images)
+- Django-Bootstrap-Datapicker-Plus (For datapicker in forms)
 - DJ-Database-URL (To configure database URLs)
 - Gunicorn (Python WSGI HTTP server for UNIX)
 - OS (For operating system interaction)
@@ -799,7 +804,7 @@ This section covers the test done with [Lighthouse](https://lighthouse-metrics.c
 **Using the Lighthouse test, multiple issues showed up, leading to low rating for "Best Practices"**<br>
 This happens because of two separate factors:<br>
 - When showing images hosted on Cloudinary, Cloudinary deploys multiple cookies (15 when testing). Google Chrome will stop supporting 3rd party cookies in the future, what leads to a low scoring when it comes to "Best Practices".
-- When loading a page with a form using the datepicker-widget. This widget uses "deprecated APIs" which will be removed from the browser: "DOM Mutation Events, including `DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMNodeInsertedIntoDocument`, and `DOMCharacterDataModified`".<br>
+- When loading a page with a form using the Django-Bootstrap-Datapicker-Plus widget (latest version 5.0.5). This widget uses "deprecated APIs" which will be removed from the browser: "DOM Mutation Events, including `DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMNodeInsertedIntoDocument`, and `DOMCharacterDataModified`".<br>
 <br>
 Both issues are, at this point in time, outside my control and finding alternative solutions would take too much time and would lead me to missing the deadline.<br>
 <br>
@@ -863,77 +868,41 @@ Testing, if the navigation and their items are showing up and are working correc
 
 #### Possible Improvements
 
+In a future version, the following improvements should be made:<br>
+
+- Using an alternative for the Django-Bootstrap-Datapicker-Plus Widget (latest version 5.0.5) to ensure no deprecated code is used in the project (improve "Best Practices" rating on Lighthouse).
+- Find alternative to Cloudinary or optimize the existing implementation to limit use of 3rd party cookies (improve "Best Practices" rating on Lighthouse).
+- Improve search to not be based on a complete list of profiles, showing or hiding using Bootstrap, but use fast and more efficient database requests.
+- Improve gender selector, similar to the search feature.
+- Pagination on list for all guests and all reports, as well as for all reports on a guest's profile page.
+<br>
+
 #### Fixed Bugs
+
+**Guest Update Not Working**
+When adding the Guest Update feature, the updated data for a guest was not saved in the database, because the form validation has noticed the existing database entry as duplicate of the same dataset and so the validation threw an error.<br>
+To solve this, the validation has to ignore the duplicate of their own dataset. So exclude the dataset with given ID in the validation process.<br>
+<br>
+
+**Buggy Modals**
+During the development, a bug with the confirmation modals came up. Modals did not close properly when clicking outside the modal, like it was supposed to.<br>
+After a first fix attempted, it closed correctly, when clicking outside the modal, but the close icon and cancel button stopped working.<br>
+The final fix was to redefine the clickable areas and elements rewriting the according JavaScript code.<br>
+<br>
+
+**Search Bar Not Showing On Mobile**
+During the development, the search bar was missing on smaller screens. This was only noticed later in the development phase.<br>
+The issue was based on Bootstrap hiding the search bar on smaller screens. This worked as intended, but a solution to let the search bar show up again was forgotten to be implemented.<br>
+The final fix was adding a separate search bar, that is only shown when clicking on the search icon in the top navigation.<br>
+<br>
+
 
 
 #### Known Unfixed Bugs
 
+Know bugs are know.
 
 
 ## Credits
 
 ### Acknowledgements
-
-
-User management
-- In the use case of this app only the system admin should be allowed to create new users. So there is no public registration form of any kind.
-
-
-Technologies and services used
-- Heroku
-- Cloudinary
-- Flake8
-
-
-Plugins used
-- bootstrap_datepicker_plus
-
-
-Steps of development:
-- Starting with a basic HTML and CSS layout
-- Adding the core functionality of guest check-in and check-out.
-- Add functionality for searching guests, displaying critical information
-- Building guest profiles and CRUD functionality
-- Adding authentication feature for access controll
-- Adding basic report system
-- Adding guest mentions to report system and showing related reports in guest profile
-
-
-Features:
-- Guest profiles (CRUD)
-- Image upload with default profile image
-- Search (no query but filter)
-- Date selector
-- Gender filter
-- Mobile sidebar
-- Check-in/Check-out
-- Undo Check-in/Check-out
-- Confirmations with modals
-- Dynamic dropout system on guest list
-- Report system (CRUD)
-- Report indicator on guest list
-- Medication indicator on guest list
-- Food indicator on guest list
-- Alternativ pickup with indicator on guest list
-- Messages for user feedback
-- User authentication
-
-Bugs to mention: 
-- Upload of images and the way I fixed it with pillow.
-- Buggy closing of modals. Modals did not close properly when clicking outside the modal.
-- In development it came to the situation that the search field was not showing in the mobile view due to wrong use of bootstrap.
-
-- When adding the Guest Update feature, the updated data was not saves, because the form validation has noticed the existing database entry as duplicate of the same dataset and so the validation threw an error.
-    - To solve this, the validation has to ignore the duplicate of their own dataset. So exclude the dataset with given ID in the validation process.
-
-
-Agile project management:  <br>
-During the process of development, the kanban board and backlog, user stories, tasks and milestones were constantly adapting to new findings and changing requirements. Feature request have been modified, added or the priority was changed.
-
-Unresolved Issues:
-- Cloudinary cookies
-- Depricated code in datepicker-widget
-
-
-Further information:
-Naming conventions for guests: Name addon helps to better distinguish between two guests with the same name. Often fur color, size or breed are used as name addon.
