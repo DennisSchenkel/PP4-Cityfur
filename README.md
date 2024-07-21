@@ -621,6 +621,7 @@ During the development of this application, the following programs and tools hav
 - [Affinity Design 2](https://affinity.serif.com/de/designer/ ) (Image editing)
 - [DALL-E 3](https://openai.com/index/dall-e-3/) (For generating profile images)
 - [Cloudinary](https://cloudinary.com/) (As external hosting services for images)
+- [ui.dev](https://ui.dev/amiresponsive) (For creating a mockup of deployed application)
 
 ### Deployment
 
