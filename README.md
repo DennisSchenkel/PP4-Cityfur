@@ -944,7 +944,7 @@ Testing functionality of the guests list of a selected date, including check-in,
 | --- | --- | --- | --- |
 | **Days Guests List** |  |  |  |
 | --- | --- | --- | --- |
-| Date picker | Used to select the date to list the reports of the day. | When clicking on the date picker and selecting a date, the page with the selected date loads and all guests of the day are showing up correctly. | Pass |
+| Date picker | Used to select the date to list the guests of the day. | When clicking on the date picker and selecting a date, the page with the selected date loads and all guests of the day are showing up correctly. | Pass |
 | Check-in switch | A button on the bottom of the page to switch to the list of not yet checked-in guest on the selected day. | When clicking on the bottom, the button changes to a read "Close Check-In" button and the list of all not yet checked-in guest is shown. | Pass |
 | Close Check-in switch | A button on the bottom of the page to switch back to the list of checked-in and checked-out guest of the day. | When clicking on the red "Close Check-In" button at the bottom of the screen is turning the button back to the blue "Check-In" button and the list of already checked-in and checked-out guest of the selected day is shown. | Pass |
 | Gender selector female | When selected, only the female guests are shown in the list. | When clicking the female icon at the bottom of the page, the list of guests is filtered to show only female guests. | Pass |
@@ -997,7 +997,18 @@ Testing functionality of the list of all guests in the system, including search,
 | --- | --- | --- | --- |
 | **All Guests** |  |  |  |
 | --- | --- | --- | --- |
-|  |  |  | Pass |
+| Date picker | Used to select the date to list the guests of the day. | When clicking on the date picker and selecting a date, the page with the selected date loads and all guests of the day are showing up correctly. | Pass |
+| Gender selector female | When selected, only the female guests are shown in the list. | When clicking the female icon at the bottom of the page, the list of guests is filtered to show only female guests. | Pass |
+| Gender selector male | When selected, only the female guests are shown in the list. | When clicking the male icon at the bottom of the page, the list of guests is filtered to show only male guests. | Pass |
+| Gender selector all | When selected, all guests are shown in the list. | When clicking on "All" at the bottom of the page, the list of guests is not filtered and all guests are shown. | Pass |
+| Search | Only matching guests should show up in the list when using the search. | When entering something in the search field, the list automatically filters to only show the matching guests. | Pass |
+| Profile dropout | Profile in lists expands and shows more information. | When clicking on a profile in the guest list, the profile expands and shows more information and actions to choose from. | Pass |
+| Profile collapse | Collapsing the profile when not in focus. | When clicking somewhere else then on one of the action in the expanded profile, the profile collapses and is small like before. | Pass |
+| Food indicator collapsed | Showing the food indicator in collapsed profile. | When information is saved in database, the indicator shows up in the collapsed profile. | Pass |
+| Food indicator expanded | Showing the food indicator and times in expanded profile. | When information is saved in database, the indicator shows up  in the expanded profile. | Pass |
+| Medication indicator collapsed | Showing the medication indicator in collapsed profile. | When information is saved in database, the indicator shows up in the collapsed profile. | Pass |
+| Medication indicator expanded | Showing the medication indicator and times in expanded profile. | When information is saved in database, the indicator shows up  in the expanded profile. | Pass |
+| Open file button | Open the profile of the selected guest | When clicking on the button, the profile of the guest loads. | Pass |
 </details>
 
 
