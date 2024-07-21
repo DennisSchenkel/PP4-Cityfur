@@ -897,9 +897,19 @@ The final fix was adding a separate search bar, that is only shown when clicking
 
 #### Known Unfixed Bugs
 
-Know bugs are know.
+Know bugs are know.<br>
 
 
 ## Credits
 
+- Use case is based on working experience of Dennis Schenkel in a dog day care center.
+- All content was written and created by Dennis Schenkel.
+- Images were created with the help of DALL-E.
+<br>
+When trying to understand concepts and build this full-stack-application, an unlimited amount of Google searches were conducted and various sources like Stack Overflow, Reddit and the different documentations for Django and Bootstrap were used.
+
 ### Acknowledgements
+
+- Thanks to Gareth McGirr for providing great mentorship as part of the Code Academy course.
+- Thanks to Kay for they efford as a facilitator of the Code Institute team.
+- Great thanks go to [Dajana Isbaner](https://github.com/queenisabaer) for being the best fellow student I could wish for.

@@ -51,12 +51,6 @@
 <body>
 
     {% if user.is_authenticated == False %}
-        <!-- Navbar -->
-        <div>
-            <a href="{% url 'home' %}" class="nav-link">Home</a>
-            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
-        </div>
 
         <!-- Displaying django messages -->
         <div class="container">
@@ -73,37 +67,80 @@
         </div>
 
         <!-- Welcome message -->
-        <div class="welcome-message">
+        <div class="welcome-message mt-5">
             <div class="text-center">
+                <a href="/"><image src="{% static 'images/dog-logo.webp' %}" alt="Dog" class="img-fluid"></a>
                 <h1>Cityfur - Dog Day Care Management System...</h1>
                 <p>Welcome to the Cityfur - Dog Day Care Management System. Please login or register to access the system.</p>
-                <hr>
             </div>
+            <!-- Nav -->
+            <div class="text-center mt-4">
+                <div class="mb-2">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#introductionModal">Introduction</button>
+                </div>
+                <div>
+                    <a class="btn btn-primary {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">
+                        Login
+                    </a>
+                    <a class="btn btn-primary {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">
+                        Register
+                    </a>
+                </div>
+            </div>
+            <hr>
+        </div>
+    
 
-            <div>
-                <p>This application is developed for the real world use in a dog day care center in Cologne, Germany.</p>
-                <p>
-                    On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.
-                    The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. 
-                    It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. 
-                    It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them. 
-                </p>
 
-                <p>With the help of this system, the employees at the facility are always aware of:</p>
 
-                <ul>
-                    <li>Guests present that day</li>
-                    <li>Guests checked-out and how many are still present</li>
-                    <li>Times for applying individual medication</li>
-                    <li>Times for individual feeding schedule</li>
-                    <li>Information about pickup from different individuals</li>
-                    <li>Look of a dog with profile picture</li>
-                    <li>Important information about every dog in an individual profile</li>
-                    <li>Situations that happened and were noted as a report with related dogs tagged</li>
-                </ul>
+
+
+    <div class="modal fade show" id="introductionModal" tabindex="-1" role="dialog" aria-labelledby="introductionModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="text-center">
+                        <image src="{% static 'images/dog-logo.webp' %}" alt="Dog" class="img-fluid">
+                        <h1>Cityfur - Dog Day Care System</h1>
+                        <p>Welcome to the Cityfur - Dog Day Care Management System. Please login or register to access the system.</p>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="welcome-message">          
+                        <div>
+                            <p>This application is developed for the real world use in a dog day care center in Cologne, Germany.</p>
+                            <p>
+                                On a weekday bases, the day care center hosts up to 60 dogs simultaneously and makes sure that all needs of the guests are met.
+                                The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. 
+                                It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. 
+                                It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them. 
+                            </p>
+            
+                            <p>With the help of this system, the employees at the facility are always aware of:</p>
+            
+                            <ul>
+                                <li>Guests present that day</li>
+                                <li>Guests checked-out and how many are still present</li>
+                                <li>Times for applying individual medication</li>
+                                <li>Times for individual feeding schedule</li>
+                                <li>Information about pickup from different individuals</li>
+                                <li>Look of a dog with profile picture</li>
+                                <li>Important information about every dog in an individual profile</li>
+                                <li>Situations that happened and were noted as a report with related dogs tagged</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button>
+                </div>
             </div>
         </div>
+    </div>
+    
     {% endif %}
+
+
 
 
 
