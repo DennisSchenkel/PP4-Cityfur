@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Code Institute - Portfilio Project 3 - Django Full-Stack Application<br>
+Code Institute - Portfolio Project 3 - Django Full-Stack Application<br>
 <br>
 This application is developed for the real world use case in a dog day care center in Cologne, Germany.<br>
 <br>
@@ -74,7 +74,7 @@ In this system, every day has a separate page that is divided into several field
 - Reports of the day
 <br>
 When a Guest checks in, the name of the guests is written down in the according field. Once the guest checks out in the evening, the name is crossed out.<br>
-Annotations do better distinguish guest are written down behind the name. Used are for example GR for Golden Retriever behind Luke or D for Dalmatiner behind Juna.<br>
+Annotations do better distinguish guests, are written down behind the name. Used are for example GR for Golden Retriever behind Luke or D for Dalmatiner behind Juna.<br>
 <br>
 Information like a different person to pick up a guest or other important information are also written down on the bottom in the report area.<br>
 <br>
@@ -101,7 +101,7 @@ When finally rolled out, with the help of this newly developed system, the emplo
 
 #### Color Scheme
 
-The color scheme for this project is very simple and primarily consists of four colores. Two darker blue tones as the main colors for navigation elements. Light blue for confirmation buttons and red as a cancle/delete button.<br>
+The color scheme for this project is very simple and primarily consists of four colors. Two darker blue tones as the main colors for navigation elements. Light blue for confirmation buttons and red as a cancel/delete button.<br>
 <br>
 
 ![Color Scheme](/documentation/images/color-scheme.png)
@@ -858,7 +858,14 @@ All detailed screenshots for mobile results are linked below:
 
 #### Manual Testing
 
-
+The test where conducted on several different devices and browsers:
+- Windows: Edge
+- Windows: Chrome
+- Windows: Firefox
+- MacOS: Safari
+- MacOS: Chrome
+- iOS: Safari
+- iOS: Chrome
 
 <details>
 <summary>Landing Page</summary>
@@ -1194,7 +1201,7 @@ The final fix was adding a separate search bar, that is only shown when clicking
 
 #### Known Unfixed Bugs
 
-Know bugs are know.<br>
+Know bugs are known.<br>
 
 
 ## Credits
@@ -1208,5 +1215,5 @@ When trying to understand concepts and build this full-stack-application, an unl
 ### Acknowledgements
 
 - Thanks to Gareth McGirr for providing great mentorship as part of the Code Academy course.
-- Thanks to Kay for they efford as a facilitator of the Code Institute team.
+- Thanks to Kay for they effort as a facilitator of the Code Institute team.
 - Great thanks go to [Dajana Isbaner](https://github.com/queenisabaer) for being the best fellow student I could wish for.
