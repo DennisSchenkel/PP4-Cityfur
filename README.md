@@ -21,6 +21,7 @@ The application helps with the daily tracking of dogs coming in the morning and 
 
 * [Introduction](#introduction)
 
+* [Important Information](#important-information)
 * [Use Case](#use-case)
 * [User Experience](#user-experience)
   * [Design](#design)
@@ -54,6 +55,16 @@ The application helps with the daily tracking of dogs coming in the morning and 
     * [Known Unfixes Bugs](#known-unfixed-bugs)
 * [Credits](#credits)
   * [Acknowledgements](#acknowledgements)
+
+
+## Important Information
+
+Although I paid great attention to keeping sensible data secure and never commit any to GitHub, it still happened without me noticing.<br>
+A VSCode plugin called "SQLTools", that I was using for regularly inspecting the database, saved sensible information into the the VSCode settings.json that was committed without me being aware of it.<br>
+<br>
+After me noticing the issue, I set up a new database with different credentials and deleted the database with the credentials that have been disclosed.<br>
+<br>
+The final code in the GutHub repo and on Heroku is free of any sensible data and information.<br>
 
 
 ## Use Case
