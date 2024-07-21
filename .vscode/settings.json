@@ -24,23 +24,6 @@
    "workbench.colorTheme": "Default Dark Modern",
    "terminal.integrated.gpuAcceleration": "canvas",
    "editor.defaultFormatter": "HookyQR.beautify",
-   "sqltools.connections": [
-      {
-         "pgOptions": {
-            "ssl": {
-               "rejectUnauthorized": true
-            }
-         },
-         "previewLimit": 50,
-         "server": "ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech",
-         "port": 5432,
-         "driver": "PostgreSQL",
-         "name": "Cityfur DB Connection",
-         "database": "fox_shell_wrist_534587",
-         "username": "u6ske0rhkqb",
-         "password": "4DU68baAJ30H"
-      }
-   ],
    "python.analysis.autoImportCompletions": true,
    "markdown.preview.fontSize": 12,
    "[python]": {
