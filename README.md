@@ -858,8 +858,47 @@ All detailed screenshots for mobile results are linked below:
 
 #### Manual Testing
 
+
+
 <details>
-<summary>Navigation Testing</summary>
+<summary>Landing Page</summary>
+<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Landing Page** |  |  |  |
+| --- | --- | --- | --- |
+| Open introduction | Opening the introduction modal on the landing page. | When clicking on the "Introduction" button, the modal with the introduction opens. | Pass |
+| Closing introduction modal with button | Closing the introduction modal by clicking the "Got it!" button. | When the "Got it!" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing introduction modal clicking outside the modal. | Closing the introduction modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
+| Opening login page | Navigate to the login page. | Clicking on the "Login" button, the login page loads. | Pass |
+| Open register page | Navigate to the register page. | Clicking in the "Register" button, the register page loads. | Pass |
+| Open home page | Navigate to the home page. | Clicking on the dog logo, the home page loads. | Pass |
+<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Login Page** |  |  |  |
+| --- | --- | --- | --- |
+| Wrong login credentials | Using wrong login credentials for existing and non-existing accounts | When entering a wrong username or wrong password, the login does not work, and an error is shown  | Pass |
+| Login | Correctly working login | When using the correct login credentials for an existing account, the login works and the user is directed to the main page of the application | Pass |
+| "Sign up" link | On the login page, a link to the registration page is shown. | When clicking the "sign up" link, the registration page loads. | Pass |
+<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Register Page** |  |  |  |
+| --- | --- | --- | --- |
+| Use existing username | A username can only be used once | If the username was already used by a different account, the registration does not work and an error message is shown | Pass |
+| Use existing email address | A email address can only be used once | If the email address was already used by a different account, the registration does not work and an error message is shown | Pass |
+| Use two different passwords | The password has to be entered two times in the exact same format. | If the two entered passwords are not exactly the same, the registration does not work and an error message is shown. | Pass |
+| Use not save password | A password is not allowed to be too common. | If a too common password is used, the registration does not work and an error message is shown. | Pass |
+| Registration | Registration working, if everything is entered correctly | When everything is entered correctly, a new account is created and the user is automatically logged in and directed to main page | Pass |
+| "Sign in" link | On the registration page, a link to the login page is shown. | When clicking the "sign in" link, the login page loads. | Pass |
+</details>
+
+<details>
+<summary>Navigation</summary>
 <br>
 
 Testing, if the navigation and their items are showing up and are working correctly on each site.<br>
