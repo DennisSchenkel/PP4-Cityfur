@@ -1022,36 +1022,70 @@ Testing functionality of the guest details page, including deletion, tagged repo
 | --- | --- | --- | --- |
 | **Guest Details** |  |  |  |
 | --- | --- | --- | --- |
-|  |  |  | Pass |
+| Food information | Information about feeding times are shown. | When feeding information were saved to the guest, the information is shown on the profiles detail page | Pass |
+| Medication information | Information about medication times are shown. |  When feeding information were saved to the guest, the information is shown on the profiles detail page | Pass |
+| Tagged reports | Reports relevant to guest showing. | Reports in which the guest was tagged are shown on the bottom of the page, sorted with the newest first. | Pass |
+| Tagged guests | Tagged guests are listed in reports. | When one or more guest have been tagged in a report, the tagged guests are showing up. Clicking on the guest's name loads the guest's profile. | Pass |
+| Report details link | Link to go to report details page. | When clicking on the link on the bottom of a report, the details page of the report loads. | Pass |
+| Edit guest profile | Go to editor for guest profile | When clicking on the blue "Edit guest profile" button, the profile editor opens with all existing information for the guest already filled in the form fields and profile image showing up. | Pass |
+| Delete profile | Open deletion confirmation modal | When clicking in the red "Delete profile" button, a modal to confirm the deletion opens. | Pass |
+| Delete profile confirmation modal | Confirming deletion | When clicking on the confirmation for deleting the profile, the profile gets deleted from the database and the user is redirected to to guest list of the most resent day.  | Pass |
+| Closing deletion confirmation modal with button | Closing the deletion confirmation modal by clicking the "Cancel" button. | When the "Cancel" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing deletion confirmation modal with x-button | Closing the deletion confirmation modal by clicking the "X" button. | When the "X" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing deletion confirmation modal by clicking outside the modal. | Closing the deletion confirmation modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
 </details>
 
 
 <details>
-<summary>Add Guest Page</summary>
+<summary>Add/Edit Guest Page</summary>
 <br>
 
-Testing functionality of the form to add new guests to the system.<br>
+Testing functionality of the form to add new guests and edit existing guests.<br>
 
 | **Test** | **Description** | **Expected Outcome** | **Result** |
 | --- | --- | --- | --- |
-| **Add Guest** |  |  |  |
+| **Add/Edit Guest** |  |  |  |
 | --- | --- | --- | --- |
-|  |  |  | Pass |
+| Field: First name | Leave field empty. | Leaving the field empty leads to the profile not being saved and the field getting in focus | Pass |
+| Field: First name | Filling field | Filling the field with a string | Pass |
+| Field: Last name | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Last name | Filling field | Filling the field with a string | Pass |
+| Field: Name addon | Leave field empty when first name not already used. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database. | Pass |
+| Field: Name addon | Leave field empty when first name already used. | Leaving the field empty is not possible and prevents the profile from being saved to the database. An error is shown. | Pass |
+| Field: Name addon | Filling field | Filling the field with a string | Pass |
+| Field: Name addon validation | Filling field with already existing combination of first name and name addon. | Using a combination of first and addon name that already exists is not possible and prevents the profile from being saved to the database. An error is shown with a hint to choose a different name addon. | Pass |
+| Field: Gender | Choosing value | Choosing a value isn't preventing the profile from saving. | Pass |
+| Field: Image | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Image | Uploading image | Uploading a image that is saved to cloudinary and then shown as profile image | Pass |
+| Field: Image | Uploading non image file | Selecting of a non image file is not possible. | Pass |
+| Field: Date of birth | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Date of birth | Picking a date | The picked date is correctly saved to the database | Pass |
+| Field: Additional information | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Additional information | Filling field | Filling the field with a string is possible and it is saved to the database | Pass |
+| Field: Food | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Food | Checking the box | Checking the box and saving to the database is working correctly. | Pass |
+| Field: Food time 1 | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Food time 1 | Pick time | Picking a time and saving to the database works correctly | Pass |
+| Field: Food time 2 | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Food time 2 | Pick time | Picking a time and saving to the database works correctly | Pass |
+| Field: Food time 3 | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Food time 3 | Pick time | Picking a time and saving to the database works correctly | Pass |
+| Field: Medication | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Medication | Checking the box | Checking the box and saving to the database is working correctly. | Pass |
+| Field: Medication time 1 | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Medication time 1 | Pick time | Picking a time and saving to the database works correctly | Pass |
+| Field: Medication time 2 | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Medication time 2 | Pick time | Picking a time and saving to the database works correctly | Pass |
+| Field: Medication time 3 | Leave field empty. | Leaving the field empty is possible and doesn't prevent the profile from being saved to the database | Pass |
+| Field: Medication time 3 | Pick time | Picking a time and saving to the database works correctly | Pass |
+| Field: Owner| Leave field empty. | Leaving the owner field empty shows an error and the profile is not saved. | Pass |
+| Field: Owner| Selecting owner from dropdown list. | An owner can be selected from a list consisting of all customers in the system. | Pass |
+| Cancel button | Cancel process | Pressing the red "Cancel" button redirects the user to the main page with the most current date. | Pass |
+| Add button | Invalid input | Pressing the "Add" button when any field has an invalid input, saving the profile to the database does not work and errors are shown. | Pass |
+| Add button | Correct input | Pressing the "Add" button with valid input saves the profile to the database and redirects the user to the newly created/updated profile. | Pass |
 </details>
 
 
-<details>
-<summary>Edit Guest Page</summary>
-<br>
-
-Testing functionality of the form to edit an existing guest profile.<br>
-
-| **Test** | **Description** | **Expected Outcome** | **Result** |
-| --- | --- | --- | --- |
-| **Edit Guest** |  |  |  |
-| --- | --- | --- | --- |
-|  |  |  | Pass |
-</details>
 
 
 
