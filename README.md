@@ -1150,11 +1150,17 @@ Testing functionality of the form to add or edit reports.<br>
 | --- | --- | --- | --- |
 | **Add/Edit Report** |  |  |  |
 | --- | --- | --- | --- |
-|  |  |  | Pass |
+| Field: Select date | Leaving field empty | When leaving the field empty and not selecting a date, the report is not saved to the database and a hint to select a date is shown. | Pass |
+| Field: Select date | Date picker is used to select the date the report is for. | When clicking on the date picker, selecting a date, and saving the report saved the correct date to the database. | Pass |
+| Field: Report text | Leave field empty. | Leaving the field empty is not possible, and does prevent the report from being saved to the database. A hint to fill the field is shown. | Pass |
+| Field: Report text | Filling field | Filling the field with a string is possible and it is saved to the database | Pass |
+| Field: Tag guests | Leaving field empty | When the field is left empty, the report is correctly saved to the database. | Pass |
+| Field: Tag guests | Tag one guest on a report | When selecting one guest, the report is correctly saved to the database. | Pass |
+| Field: Tag guests | Tag multiple guests on a report | When selecting multiple guests, the report is correctly saved to the database. | Pass |
+| Cancel button | Cancel process | Pressing the red "Cancel" button redirects the user to the main page with the most current date. | Pass |
+| Add button | Invalid input | Pressing the "Add" button when any field has an invalid input, saving the report to the database does not work and errors are shown. | Pass |
+| Add button | Correct input | Pressing the "Add" button with valid input saves the report to the database and redirects the user to the list of reports for the most recent date. | Pass |
 </details>
-
-
-
 
 #### Possible Improvements
 
