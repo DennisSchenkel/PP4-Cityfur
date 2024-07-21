@@ -906,6 +906,8 @@ Testing, if the navigation and their items are showing up and are working correc
 ![Nav-Testing](/documentation/images/tests/nav-test.png)
 <br>
 
+Testing, if the main navigation is working correctly.<br>
+
 | **Test** | **Description** | **Expected Outcome** | **Result** |
 | --- | --- | --- | --- |
 | **Main Navigation** |  |  |  |
@@ -917,7 +919,9 @@ Testing, if the navigation and their items are showing up and are working correc
 | Navigation link to "All Reports" | Clicking on "All Reports" in the main navigation | When clicking on "All Reports" in the main navigation, the page with the list of all reports in the system loads | Pass |
 | Navigation link to "Add Reports" | Clicking on "Add Report" in the main navigation | When clicking on "Add Report" in the main navigation, the page with the form to add a new report loads | Pass |
 | Logout | Clicking on "Logout" in the main navigation | When clicking in "Logout" the user gets logged out and redirected to the landing page | Pass |
-</details>
+<br>
+
+Testing, if the navigation using the date picker works correctly.<br>
 
 | **Test** | **Description** | **Expected Outcome** | **Result** |
 | --- | --- | --- | --- |
@@ -927,6 +931,190 @@ Testing, if the navigation and their items are showing up and are working correc
 | Select date at list of all guests | Selecting a date in the date picker in the top navigation | When selecting a date with the date picker in the top, the page with the results of the selected date loads | Pass |
 | Select date at the days reports list | Selecting a date in the date picker in the top navigation | When selecting a date with the date picker in the top, the page with the results of the selected date loads | Pass |
 | Select date at list of all reports | Selecting a date in the date picker in the top navigation | When selecting a date with the date picker in the top, the page with the results of the selected date loads | Pass |
+</details>
+
+
+<details>
+<summary>Days Guests List</summary>
+<br>
+
+Testing functionality of the guests list of a selected date, including check-in, check-out, undo check-in, undo check-out, search, gender selector, date picker, profile behavior and links.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Days Guests List** |  |  |  |
+| --- | --- | --- | --- |
+| Date picker | Used to select the date to list the reports of the day. | When clicking on the date picker and selecting a date, the page with the selected date loads and all guests of the day are showing up correctly. | Pass |
+| Check-in switch | A button on the bottom of the page to switch to the list of not yet checked-in guest on the selected day. | When clicking on the bottom, the button changes to a read "Close Check-In" button and the list of all not yet checked-in guest is shown. | Pass |
+| Close Check-in switch | A button on the bottom of the page to switch back to the list of checked-in and checked-out guest of the day. | When clicking on the red "Close Check-In" button at the bottom of the screen is turning the button back to the blue "Check-In" button and the list of already checked-in and checked-out guest of the selected day is shown. | Pass |
+| Gender selector female | When selected, only the female guests are shown in the list. | When clicking the female icon at the bottom of the page, the list of guests is filtered to show only female guests. | Pass |
+| Gender selector male | When selected, only the female guests are shown in the list. | When clicking the male icon at the bottom of the page, the list of guests is filtered to show only male guests. | Pass |
+| Gender selector all | When selected, all guests are shown in the list. | When clicking on "All" at the bottom of the page, the list of guests is not filtered and all guests are shown. | Pass |
+| Search | Only matching guests should show up in the list when using the search. | When entering something in the search field, the list automatically filters to only show the matching guests. | Pass |
+| Check-in | Checking in a guest for the selected day. | When clicking on the button "Check-In" of a selected profile, the check-in confirmation modal opens. | Pass |
+| Check-in confirmation modal | Confirming the check-in of the guest for the selected day. | When clicking the confirmation, the guest gets checked in and the list of the selected day reloads. | Pass |
+| Check-in confirmation modal with pickup | Entering information about a different pickup person in the confirmation modal. | When entering the name and clicking the confirmation, the guest gets checked in and the list of the selected day reloads. The pickup information is stored correctly. | Pass |
+| Closing check-in confirmation modal with button | Closing the check-in confirmation modal by clicking the "Stop Check-In" button. | When the "Stop Check-In" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing check-in confirmation modal with x-button | Closing the check-in confirmation modal by clicking the "X" button. | When the "X" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing check-in confirmation modal by clicking outside the modal. | Closing the check-in confirmation modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
+| Undo check-in | Undo check-in for a guest for the selected day. | When clicking on the button "Undo Check-In" of a selected profile, the undo check-in confirmation modal opens. | Pass |
+| Undo check-in confirmation modal | Confirming to undo the check-in of the guest for the selected day. | When clicking "Undo Check-In" in the modal, the check-in is made undone, the information is deleted from the database and the list of the selected day reloads. | Pass |
+| Closing undo check-in confirmation modal with button | Closing the undo check-in confirmation modal by clicking the "Stop Undo Check-In" button. | When the "Stop Undo Check-In" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing undo check-in confirmation modal with x-button | Closing  undo check-in confirmation modal by clicking the "X" button. | When the "X" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing undo check-in confirmation modal by clicking outside the modal. | Closing the undo check-in confirmation modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
+| Check-out | Checking out a guest for the selected day. | When clicking on the button "Check-Out" of a selected profile, the check-out confirmation modal opens. | Pass |
+| Check-out confirmation modal | Confirming the check-out of the guest for the selected day. | When clicking the confirmation, the guest gets checked-out and the list of the selected day reloads. | Pass |
+| Closing check-out confirmation modal with button | Closing the check-out confirmation modal by clicking the "Stop Check-Out" button. | When the "Stop Check-Out" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing check-out confirmation modal with x-button | Closing the check-out confirmation modal by clicking the "X" button. | When the "X" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing check-out confirmation modal by clicking outside the modal. | Closing the check-out confirmation modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
+| Undo check-out | Undo check-out for a guest for the selected day. | When clicking on the button "Undo Check-Out" of a selected profile, the undo check-out confirmation modal opens. | Pass |
+| Undo check-out confirmation modal | Confirming to undo the check-out of the guest for the selected day. | When clicking "Undo Check-Out" in the modal, the check-out is made undone, the information is deleted from the database and the list of the selected day reloads. | Pass |
+| Closing undo check-out confirmation modal with button | Closing the undo check-out confirmation modal by clicking the "Stop Undo Check-Out" button. | When the "Stop Undo Check-Out" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing undo check-out confirmation modal with x-button | Closing the undo check-out confirmation modal by clicking the "X" button. | When the "X" button is clicked, the modal closes and the page is yet again shown like before | Pass |
+| Closing undo check-out confirmation modal by clicking outside the modal. | Closing the undo check-out confirmation modal by clicking outside the modal. | When clicked outside, the modal closes and the page is yet again shown like before | Pass |
+| Profile dropout | Profile in lists expands and shows more information. | When clicking on a profile in the guest list, the profile expands and shows more information and actions to choose from. | Pass |
+| Profile collapse | Collapsing the profile when not in focus. | When clicking somewhere else then on one of the action in the expanded profile, the profile collapses and is small like before. | Pass |
+| Food indicator collapsed | Showing the food indicator in collapsed profile. | When information is saved in database, the indicator shows up in the collapsed profile. | Pass |
+| Food indicator expanded | Showing the food indicator and times in expanded profile. | When information is saved in database, the indicator shows up  in the expanded profile. | Pass |
+| Medication indicator collapsed | Showing the medication indicator in collapsed profile. | When information is saved in database, the indicator shows up in the collapsed profile. | Pass |
+| Medication indicator expanded | Showing the medication indicator and times in expanded profile. | When information is saved in database, the indicator shows up  in the expanded profile. | Pass |
+| Report indicator collapsed | Showing the report indicator in collapsed profile. | When a guest was tagged in a report that day, the indicator is shown in the collapsed profile. | Pass |
+| Report indicator expanded | Showing the report indicator and additional option in expanded profile. | When guest was tagged in a report that day, the indicator is shown and the additional button to show reports is displayed in the expanded profile. | Pass |
+| Pickup indicator collapsed | Showing the pickup indicator in collapsed profile. | When a pickup name was entered during the check-in proces, the indicator is shown in the collapsed profile. | Pass |
+| Pickup indicator expanded | Showing the pickup information in the expanded profile. | When a pickup name was entered during the check-in process, the name is shown in the expanded profile. | Pass |
+| Read report button | When tagged in a report on the selected day, an additional button is shown to read the reports of the day | When expanding a profile of a guest, that has been tagged in a report that day the button shows up. When clicking the button, the user is directed to the list of the reports of the selected day. | Pass |
+| Open file button | Open the profile of the selected guest | When clicking on the button, the profile of the guest loads. | Pass |
+</details>
+
+
+<details>
+<summary>All Guests List</summary>
+<br>
+
+Testing functionality of the list of all guests in the system, including search, gender selector, date picker, profile behavior and links.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **All Guests** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+<details>
+<summary>Guest Details Page</summary>
+<br>
+
+Testing functionality of the guest details page, including deletion, tagged reports and links.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Guest Details** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+<details>
+<summary>Add Guest Page</summary>
+<br>
+
+Testing functionality of the form to add new guests to the system.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Add Guest** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+<details>
+<summary>Edit Guest Page</summary>
+<br>
+
+Testing functionality of the form to edit an existing guest profile.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Edit Guest** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+
+
+
+<details>
+<summary>Days Reports List</summary>
+<br>
+
+Testing functionality of the reports list of a selected date, including tagged guests, links and date picker.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Days Reports List** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+<details>
+<summary>All Reports List</summary>
+<br>
+
+Testing functionality of the list with all reports in the system, including tagged guests, links and date picker.<br>
+
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **All Reports** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+<details>
+<summary>Report Details Page</summary>
+<br>
+
+Testing functionality of the report details page, including deletion, tagged guests and links.<br>
+
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Report Details** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+<details>
+<summary>Add Report Page</summary>
+<br>
+
+Testing functionality of the form to add new reports to the system.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Add Report** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
+</details>
+
+
+<details>
+<summary>Edit Report Page</summary>
+<br>
+
+Testing functionality of the form to edit an existing report.<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Edit Report** |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  | Pass |
 </details>
 
 
