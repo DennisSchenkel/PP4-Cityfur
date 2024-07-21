@@ -91,7 +91,6 @@ When finally rolled out, with the help of this newly developed system, the emplo
 - Creating a better shift change with all relevant information handed over in a structured way
 
 
-
 ## User Experience
 
 ### Design
@@ -831,7 +830,6 @@ All detailed screenshots for desktop results are linked below:
 
 [Landinpage Desktop](/documentation/images/tests/lh-d-landingpage.png)<br>
 
-
 <br>
 All detailed screenshots for mobile results are linked below:
 <br>
@@ -850,7 +848,6 @@ All detailed screenshots for mobile results are linked below:
 
 [Landinpage Mobile](/documentation/images/tests/lh-m-landingpage.png)<br>
 </details>
-
 
 
 #### Manual Testing
@@ -895,7 +892,6 @@ During the development, the search bar was missing on smaller screens. This was 
 The issue was based on Bootstrap hiding the search bar on smaller screens. This worked as intended, but a solution to let the search bar show up again was forgotten to be implemented.<br>
 The final fix was adding a separate search bar, that is only shown when clicking on the search icon in the top navigation.<br>
 <br>
-
 
 
 #### Known Unfixed Bugs

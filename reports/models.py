@@ -4,13 +4,29 @@ from guests.models import Guest
 
 # Create your models for report
 class Report(models.Model):
-    """_summary_
+    """
+    Represents a report.
 
     Args:
-        models (_type_): _description_
+        models: The base model class.
 
-    Returns:
-        _type_: _description_
+    Attributes:
+        id (AutoField): The primary key for the report.
+        report_date (DateField): The date of the report.
+        report_text (TextField): The text content of the report.
+        created_on (DateTimeField): The date and time when the
+            report was created.
+        updated_on (DateTimeField): The date and time when the
+            report was last updated.
+        guests (ManyToManyField): The guests associated with the report.
+
+    Meta:
+        ordering (list): The default ordering for the reports based
+            on the report date.
+
+    Methods:
+        __str__(): Returns a string representation of the report.
+
     """
 
     id = models.AutoField(primary_key=True)

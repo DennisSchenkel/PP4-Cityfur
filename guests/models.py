@@ -7,13 +7,22 @@ GENDER = ((0, "Male"), (1, "Female"), (2, "Other"))
 
 # Create model for customer
 class Customer(models.Model):
-    """_summary_
+    """Creates a model for customers.
 
     Args:
-        models (_type_): _description_
+        models: The base model class.
 
-    Returns:
-        _type_: _description_
+    Attributes:
+        id (int): The unique identifier for the customer.
+        first_name (str): The first name of the customer.
+        last_name (str): The last name of the customer.
+        address (str): The address of the customer.
+        phone (str): The phone number of the customer.
+        email (str): The email address of the customer.
+        information (str): Additional information about the customer.
+        created_on (datetime): The date and time when the customer was created.
+        updated_on (datetime): The date and time when the customer was updated.
+        ___str___: Returns the full name of the customer.
     """
 
     id = models.AutoField(primary_key=True)
@@ -37,15 +46,41 @@ class Customer(models.Model):
 
 # Create model for guest
 class Guest(models.Model):
-    """_summary_
+    """
+    Creates a model for guests.
 
     Args:
-        models (_type_): _description_
+        models: The base model class.
 
-    Returns:
-        _type_: _description_
+    Attributes:
+        id (AutoField): The primary key for the guest.
+        first_name (CharField): The first name of the guest.
+        last_name (CharField): The last name of the guest.
+        name_addon (CharField): An additional name for the guest.
+        gender (IntegerField): The gender of the guest.
+        image (ImageField): An image of the guest.
+        date_of_birth (DateField): The date of birth of the guest.
+        information (TextField): Additional information about the guest.
+        food (BooleanField): Indicates if the guest requires food.
+        food_time_1 (TimeField): The first food time for the guest.
+        food_time_2 (TimeField): The second food time.
+        food_time_3 (TimeField): The third food time.
+        medication (BooleanField): Indicates if the guest requires medication.
+        medication_time_1 (TimeField): The first medication time for the guest.
+        medication_time_2 (TimeField): The second medication time.
+        medication_time_3 (TimeField): The third medication time.
+        created_on (DateTimeField): The date and time the guest was created.
+        updated_on (DateTimeField): The date and time the guest was updated.
+        customer_id (ForeignKey): The foreign key to the associated customer.
+        slug (SlugField): A unique slug for the guest.
+
+    Methods:
+        save: Overrides the save method to automatically
+            generate a slug for the guest.
+        get_gender: Translates the gender coding to categories.
+        get_last_name: Returns the last name of the guest.
+        __str__: Returns a string representation of the guest.
     """
-
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50, null=True, blank=True)
@@ -109,10 +144,13 @@ class Guest(models.Model):
 
 # Create model for tracking guest presence
 class Presence(models.Model):
-    """_summary_
+    """
+    Returns a string representation of the Presence model.
 
     Returns:
-        _type_: _description_
+        str: A string containing the date, check-in time,
+            check-out time, guest's first name,
+            last name, ID, and pickup name.
     """
 
     id = models.AutoField(primary_key=True)

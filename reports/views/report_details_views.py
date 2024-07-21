@@ -5,14 +5,15 @@ from ..models import Report
 
 
 def report_details_view(request, id):
-    """_summary_
+    """
+    Render the report details view.
 
     Args:
-        request (_type_): _description_
-        id (_type_): _description_
+        request (HttpRequest): The HTTP request object.
+        id (int): The ID of the report.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The rendered report details view.
     """
 
     report = get_object_or_404(Report, id=id)

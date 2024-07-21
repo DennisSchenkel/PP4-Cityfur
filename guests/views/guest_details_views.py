@@ -7,14 +7,16 @@ from reports.models import Report
 
 # View function for guest details
 def guest_details_view(request, slug):
-    """_summary_
+    """
+    View function to display the details of a guest.
 
     Args:
-        request (_type_): _description_
-        slug (_type_): _description_
+        request (HttpRequest): The HTTP request object.
+        slug (str): The slug of the guest.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The HTTP response object containing
+            the rendered template.
     """
 
     queryset = Guest.objects.all()

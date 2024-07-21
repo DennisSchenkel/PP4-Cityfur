@@ -5,13 +5,14 @@ from ..models import Report
 
 # View function for report list
 def reports_list_view(request):
-    """_summary_
+    """
+    Render the report list for a selected date.
 
     Args:
-        request (_type_): _description_
+        request (HttpRequest): The HTTP request object.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The rendered response.
     """
 
     # Get the selected date from the request
@@ -41,13 +42,14 @@ def reports_list_view(request):
 
 # View function for report list
 def reports_list_all_view(request):
-    """_summary_
+    """
+    Render the list of all reports.
 
     Args:
-        request (_type_): _description_
+        request (HttpRequest): The HTTP request object.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The rendered response.
     """
 
     queryset = Report.objects.order_by('-report_date')

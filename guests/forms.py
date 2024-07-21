@@ -6,10 +6,14 @@ from .models import Guest, Presence
 
 # Widget for displaying an image preview
 class ImagePreviewWidget(forms.ClearableFileInput):
-    """_summary_
+    """
+    A widget that displays an already existing image for a file input field.
 
     Args:
-        forms (_type_): _description_
+        forms (type): The base class for all Django form fields.
+
+    Methods:
+        render: Renders the widget HTML with the image preview.
     """
 
     def render(self, name, value, attrs=None, renderer=None):
@@ -26,14 +30,14 @@ class ImagePreviewWidget(forms.ClearableFileInput):
 # Form for adding guests
 class AddGuest(forms.ModelForm):
     """
+    Form for adding a guest.
 
     Args:
-        forms (_type_): _description_
+        forms (ModelForm): The base form class.
 
     Returns:
-        _type_: _description_
+        ModelForm: The form class for adding a guest.
     """
-
     class Meta:
         model = Guest
         fields = (
@@ -145,10 +149,21 @@ class AddGuest(forms.ModelForm):
 
 # Form for checking in guests
 class CheckInGuest(forms.ModelForm):
-    """_summary_
+    """
+    A form for checking in a guest.
+
+    This form is used to check-in a guest by providing the necessary
+        information such as the guest's name and optional the name
+        of the person picking the guest up.
 
     Args:
-        forms (_type_): _description_
+        forms (type): The base form class.
+
+    Attributes:
+        model: Presence
+        fields (list): The fields to include in the form.
+        labels (dict): The labels for the form fields.
+        widgets (dict): The widgets to use for the form fields.
     """
 
     class Meta:
@@ -163,10 +178,19 @@ class CheckInGuest(forms.ModelForm):
 
 # Form for checking out guests
 class CheckOutGuest(forms.ModelForm):
-    """_summary_
+    """
+    A form for checking out a guest.
+
+    This form is used to check-out a guest from the presence list.
 
     Args:
-        forms (_type_): _description_
+        forms (type): The base form class.
+
+    Attributes:
+        model: Presence
+        fields (list): The fields to include in the form.
+        labels (dict): The labels for the form fields.
+        widgets (dict): The widgets to use for the form fields.
     """
 
     class Meta:

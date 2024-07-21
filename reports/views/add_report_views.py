@@ -7,13 +7,14 @@ from ..forms import AddReport
 
 # Function for adding guest to database including an image upload.
 def add_report_view(request):
-    """_summary_
+    """
+    View function for adding a report.
 
     Args:
-        request (_type_): _description_
+        request (HttpRequest): The HTTP request object.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The HTTP response object.
     """
 
     if request.method == "POST":
@@ -39,14 +40,15 @@ def add_report_view(request):
 
 # Function for updating report
 def update_report_view(request, id):
-    """_summary_
+    """
+    Update report view.
 
     Args:
-        request (_type_): _description_
-        id (_type_): _description_
+        request (HttpRequest): The HTTP request object.
+        id (int): The ID of the report to be updated.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The HTTP response object.
     """
 
     report = get_object_or_404(Report, id=id)

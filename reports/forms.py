@@ -7,12 +7,13 @@ from guests.models import Guest
 # Form for adding guests
 class AddReport(forms.ModelForm):
     """
+    Form for adding guests.
 
     Args:
-        forms (_type_): _description_
+        forms (type): Description of the forms parameter.
 
     Returns:
-        _type_: _description_
+        type: Description of the return value.
     """
 
     guests = forms.ModelMultipleChoiceField(

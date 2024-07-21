@@ -10,13 +10,15 @@ from ..forms import CheckInGuest, CheckOutGuest
 
 # View function for guest list
 def guests_list_view(request):
-    """_summary_
+    """
+    View function for displaying the list of guests.
 
     Args:
-        request (_type_): _description_
+        request (HttpRequest): The HTTP request object.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The HTTP response object containing
+            the rendered template.
     """
 
     # Get the selected date from the request
@@ -280,13 +282,15 @@ def guests_list_view(request):
 
 # View function for guest list with all guests
 def guests_list_all_view(request):
-    """_summary_
+    """
+    View function to display a list of all guests.
 
     Args:
-        request (_type_): _description_
+        request (HttpRequest): The HTTP request object.
 
     Returns:
-        _type_: _description_
+        HttpResponse: The HTTP response object containing
+            the rendered template.
     """
 
     # Create a queryset for all guests
