@@ -10,6 +10,8 @@ On a weekday bases, the day care center hosts up to 60 dogs simultaneously and m
 The application helps with the daily tracking of dogs coming in the morning and leaving in the afternoon. It also helps with keeping all relevant information on display. Like times for applying medication or feeding schedules, and pickup by different individuals that are not the owner. It also includes a system for daily reports where dogs can be tagged to reports, if the report is about them. 
 <br>
 
+[The deployed version can be found here!](https://ci-pp4-cityfur-4506435722fe.herokuapp.com/)
+<br>
 
 ## Table of Contents
 
@@ -397,60 +399,111 @@ Full CRUD functionality is implemented with the following features:
 
 Since the application is planned to be used in a real facility in Cologne, Germany, the following features are already planned to be developed.
 
-**Customer Management System**
+**Customer Management System**<br>
 The already existing model for customers is planned to be extended to a full-fledged customer management system.<br>
 Users will be able to add new customers to the database, change their information and assign guests to them.<br>
 <br>
 
-**Accounting System**
+**Accounting System**<br>
 Based on the customer management system is the planned accounting system. This will help with managing subscriptions and different subscription plans. With different subscription plans, guest are allowed to come in one, two, three, four or five days a week. Beside choosing a subscription tier, customers can book additional days for bringing their dogs. For example, if a customer has a subscription to bring its dog two days a week, but as an exception needs to bring in the dog for one additional day in a week.<br>
 <br>
 
-**Allergies Alert**
+**Allergies Alert**<br>
 Similar to the alerts for medication or feeding, an alert for allergies is planned. This alert will indicate, that a guest has allergies and more information about the exact allergy is to be found on the profile details page.<br>
 <br>
 
-**To-Do Lists**
+**To-Do Lists**<br>
 This will be a list of to does for the employees. Possible to does are mowing the lawn, fixing a fence or buying needed materials.<br>
 <br>
 
-**Shopping Lists**
+**Shopping Lists**<br>
 This will be a list that can be filled with needed material, that needs to get bought.<br>
 <br>
 
 
 ## Agile Project Management
 
+This project was developed using an agile approach for planning and tracking the development process. The project was separated into several milestones, each containing one or up to eight separate user stories, tasks, features or bugs, each labeled with the MoSCoW methodology. Due to the low complexity of the project, no epics were used to improve workflow. 
+
 ### Milestones
 
-This project was structured in seven milestones with one or multiple user stories or tasks.
+This project was structured in seven milestones with one or multiple user stories, tasks, features or bugs.
 
-- [Basic project setup](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/1)
+- [Basic Project Setup](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/1)
 
-- [Guest list and profiles](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/3)
+- [Guest List And Profiles](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/3)
 
-- [Guests profiles management (Add/Change/Delete)](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/8)
+- [Guests Profiles Management (Add/Change/Delete)](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/8)
 
-- [Report system](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/6)
+- [Report System](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/6)
 
-- [User management & authentication](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/2)
+- [User Management & Authentication](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/2)
 
-- [Final touch](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/9)
+- [Final Touch](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/9)
 
-- [The extra mile](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/10)
+- [The Extra Mile](https://github.com/DennisSchenkel/PP4-Cityfur/milestone/10)
 
 
 ### User Stories
 
+**Basic Project Setup**<br>
 
+- TASK: [Basic project setup](https://github.com/DennisSchenkel/PP4-Cityfur/issues/1)
+- TASK: [Create Django admin backend](https://github.com/DennisSchenkel/PP4-Cityfur/issues/2)
+- USER STORY: [Navigation with sidebar](https://github.com/DennisSchenkel/PP4-Cityfur/issues/11)
+<br>
 
+**Guest List And Profiles**<br>
+
+- USER STORY: [Guests list](https://github.com/DennisSchenkel/PP4-Cityfur/issues/3)
+- USER STORY: [Guest profiles](https://github.com/DennisSchenkel/PP4-Cityfur/issues/4)
+- USER STORY: [Guest check-in](https://github.com/DennisSchenkel/PP4-Cityfur/issues/5)
+- USER STORY: [Filter guests list by gender](https://github.com/DennisSchenkel/PP4-Cityfur/issues/7)
+- USER STORY: [Search for guest name](https://github.com/DennisSchenkel/PP4-Cityfur/issues/13)
+- USER STORY: [Guest check-out](https://github.com/DennisSchenkel/PP4-Cityfur/issues/14)
+- USER STORY: [Guest allergies](https://github.com/DennisSchenkel/PP4-Cityfur/issues/15)
+- USER STORY: [Dynamic alerts for food, medication and pickup](https://github.com/DennisSchenkel/PP4-Cityfur/issues/16)
+- USER STORY: [Reports mentioned in guest profile](https://github.com/DennisSchenkel/PP4-Cityfur/issues/21)
+<br>
+
+**Guests Profiles Management (Add/Change/Delete)**<br>
+
+- USER STORY: [Create new guest profile](https://github.com/DennisSchenkel/PP4-Cityfur/issues/12)
+- FEATURE: [Add image upload to guest profile editor](https://github.com/DennisSchenkel/PP4-Cityfur/issues/9)
+- FEATURE: [Use placeholder image if no guest image is available](https://github.com/DennisSchenkel/PP4-Cityfur/issues/10)
+<br>
+
+**Report System**<br>
+
+- USER STORY: [Write reports](https://github.com/DennisSchenkel/PP4-Cityfur/issues/17)
+- USER STORY: [Connect reports and guest for mentions and alerts](https://github.com/DennisSchenkel/PP4-Cityfur/issues/18)
+<br>
+
+**User Management & Authentication**<br>
+
+- USER STORY: [User authentication](https://github.com/DennisSchenkel/PP4-Cityfur/issues/6)
+<br>
+
+**Final Touch**<br>
+
+- TASK: [Beautidy pages](https://github.com/DennisSchenkel/PP4-Cityfur/issues/19)
+- TASK: [403, 404, 405, 500 pages](https://github.com/DennisSchenkel/PP4-Cityfur/issues/20)
+- TASK: [Add FavIcon](https://github.com/DennisSchenkel/PP4-Cityfur/issues/24)
+- BUG: [Search usable in mobile view](https://github.com/DennisSchenkel/PP4-Cityfur/issues/23)
+<br>
+
+**The Extra Mile**<br>
+
+- USER STORY: [Lost of all guests](https://github.com/DennisSchenkel/PP4-Cityfur/issues/22)
+- USER STORY: [Intro on landing page](https://github.com/DennisSchenkel/PP4-Cityfur/issues/25)
+<br>
 
 
 ## Development
 
 ### Database
 
-The following image illustrated the database structure:<br>
+The following image illustrated the database structure and was made using [dbdiagram](https://dbdiagram.io/home):<br>
 <br>
 
 ![Database Structure](/documentation/images/database-structure.png)
@@ -643,8 +696,10 @@ For using Cloudinary as a hosting provider for images, the following steps have 
 - Heroku will then set up the virtual environment with all packages, modules and libraries needed. (This can take some time)
 - When Heroku is done with the deployment, click "View" and start to use the
 - Use app
+<br>
 
-
+[The deployed version can be found here!](https://ci-pp4-cityfur-4506435722fe.herokuapp.com/)
+<br>
 
 
 ### Testing
@@ -679,7 +734,7 @@ All detailed screenshots are linked below:
 [Add Guest](/documentation/images/tests/html-add-guest.png)<br>
 [Update Guest](/documentation/images/tests/html-update-guest.png)<br>
 
-[Landingpage](/documentation/images/tests/html-landingpage.png)<br>
+[Landing Page](/documentation/images/tests/html-landingpage.png)<br>
 [404 Page](/documentation/images/tests/html-404.png)<br>
 </details>
 
