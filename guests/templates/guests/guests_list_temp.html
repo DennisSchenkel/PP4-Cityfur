@@ -104,7 +104,6 @@
                                                 <span class="fa-solid fa-user fa-lg text-primary"></span>
                                             </div>
                                         {% endif %}
-
                                     </div>
 
                                     <div class="alerts-dropout visually-hidden">
@@ -164,6 +163,8 @@
                                     <span class="fa-solid fa-chevron-down fa-lg mx-2"></span>
                                 </div>
                             </div>
+
+                            <!-- Profile options -->
                             <div class="profile-options-dropout visually-hidden">
                                 <div class="profile-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer" data-toggle="modal" data-target="#undo-checkin-modal-{{ guest.id }}">
                                     Undo Check-In
@@ -399,6 +400,8 @@
                                     <span class="fa-solid fa-chevron-down fa-lg mx-2"></span>
                                 </div>
                             </div>
+
+                            <!-- Profile options -->
                             <div class="profile-options-dropout visually-hidden">
 
                                 <div class="profile-option text-center p-1 border-dark border-bottom mt-1 modal-trigger pointer"  data-toggle="modal" data-target="#undo-checkout-modal-{{ guest.id }}">
@@ -564,6 +567,7 @@
                             </div>
                         </div>
                         
+                        <!-- Profile options -->
                         <div class="profile-options-dropout visually-hidden">
                             <a href="{% url "guest_details_temp" guest.slug %}" class="text-decoration-none">
                                 <div class="profile-option text-center p-1 border-dark border-bottom mt-1">Open file</div>
