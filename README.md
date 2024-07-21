@@ -13,6 +13,10 @@ The application helps with the daily tracking of dogs coming in the morning and 
 [The deployed version can be found here!](https://ci-pp4-cityfur-4506435722fe.herokuapp.com/)
 <br>
 
+![Website Mockups](/documentation/images/mockups/website-mockups.png)
+<br>
+
+
 ## Table of Contents
 
 * [Introduction](#introduction)
@@ -621,7 +625,8 @@ During the development of this application, the following programs and tools hav
 - [Affinity Design 2](https://affinity.serif.com/de/designer/ ) (Image editing)
 - [DALL-E 3](https://openai.com/index/dall-e-3/) (For generating profile images)
 - [Cloudinary](https://cloudinary.com/) (As external hosting services for images)
-- [ui.dev](https://ui.dev/amiresponsive) (For creating a mockup of deployed application)
+- [Website Mockup Generator
+](https://websitemockupgenerator.com/) (For creating a mockup of deployed application)
 
 ### Deployment
 
