@@ -902,9 +902,31 @@ All detailed screenshots for mobile results are linked below:
 <br>
 
 Testing, if the navigation and their items are showing up and are working correctly on each site.<br>
-<br>
 
 ![Nav-Testing](/documentation/images/tests/nav-test.png)
+<br>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Main Navigation** |  |  |  |
+| --- | --- | --- | --- |
+| Navigation link to most resent day's guests list | Clicking on "Guests" in the main navigation | When clicking on "Guests" in the main navigation, the page with the list of all guests of the day loads | Pass |
+| Navigation link to "All Guests" list | Clicking on "All Guests" in the main navigation | When clicking on "All Guests" in the main navigation, the page with the list of all guests registered to the system loads | Pass |
+| Navigation link to "Add Guest" | Clicking on "Add Guest" in the main navigation | Clicking on "Add Guest" in the main navigation | When clicking on "Add Guest" in the main navigation, the page with the form to add a new guest to the system loads | Pass |
+| Navigation link to most resent day's reports list | Clicking on "Reports" in the main navigation | When clicking on "Reports" in the main navigation, the page with the list of all reports of the day loads | Pass |
+| Navigation link to "All Reports" | Clicking on "All Reports" in the main navigation | When clicking on "All Reports" in the main navigation, the page with the list of all reports in the system loads | Pass |
+| Navigation link to "Add Reports" | Clicking on "Add Report" in the main navigation | When clicking on "Add Report" in the main navigation, the page with the form to add a new report loads | Pass |
+| Logout | Clicking on "Logout" in the main navigation | When clicking in "Logout" the user gets logged out and redirected to the landing page | Pass |
+</details>
+
+| **Test** | **Description** | **Expected Outcome** | **Result** |
+| --- | --- | --- | --- |
+| **Date Picker** |  |  |  |
+| --- | --- | --- | --- |
+| Select date at the days guests list | Selecting a date in the date picker in the top navigation | When selecting a date with the date picker in the top, the page with the results of the selected date loads | Pass |
+| Select date at list of all guests | Selecting a date in the date picker in the top navigation | When selecting a date with the date picker in the top, the page with the results of the selected date loads | Pass |
+| Select date at the days reports list | Selecting a date in the date picker in the top navigation | When selecting a date with the date picker in the top, the page with the results of the selected date loads | Pass |
+| Select date at list of all reports | Selecting a date in the date picker in the top navigation | When selecting a date with the date picker in the top, the page with the results of the selected date loads | Pass |
 </details>
 
 
