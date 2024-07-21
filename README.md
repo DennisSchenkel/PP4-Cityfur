@@ -945,8 +945,8 @@ Testing functionality of the guests list of a selected date, including check-in,
 | **Days Guests List** |  |  |  |
 | --- | --- | --- | --- |
 | Date picker | Used to select the date to list the guests of the day. | When clicking on the date picker and selecting a date, the page with the selected date loads and all guests of the day are showing up correctly. | Pass |
-| Check-in switch | A button on the bottom of the page to switch to the list of not yet checked-in guest on the selected day. | When clicking on the bottom, the button changes to a read "Close Check-In" button and the list of all not yet checked-in guest is shown. | Pass |
-| Close Check-in switch | A button on the bottom of the page to switch back to the list of checked-in and checked-out guest of the day. | When clicking on the red "Close Check-In" button at the bottom of the screen is turning the button back to the blue "Check-In" button and the list of already checked-in and checked-out guest of the selected day is shown. | Pass |
+| Check-in mode switch | A button on the bottom of the page to switch to the check-in mode with a list of not yet checked-in guest on the selected day. | When clicking on the bottom, the button changes from "Check-In Mode" to a read "Close Check-In Mode" button and the list of all not yet checked-in guest is shown. | Pass |
+| Close Check-in mode switch | A button on the bottom of the page to switch back to the list of checked-in and checked-out guest of the day. | When clicking on the red "Close Check-In Mode" button at the bottom of the screen is turning the button back to the blue "Check-In Mode" button and the list of already checked-in and checked-out guest of the selected day is shown. | Pass |
 | Gender selector female | When selected, only the female guests are shown in the list. | When clicking the female icon at the bottom of the page, the list of guests is filtered to show only female guests. | Pass |
 | Gender selector male | When selected, only the female guests are shown in the list. | When clicking the male icon at the bottom of the page, the list of guests is filtered to show only male guests. | Pass |
 | Gender selector all | When selected, all guests are shown in the list. | When clicking on "All" at the bottom of the page, the list of guests is not filtered and all guests are shown. | Pass |
@@ -980,7 +980,7 @@ Testing functionality of the guests list of a selected date, including check-in,
 | Medication indicator expanded | Showing the medication indicator and times in expanded profile. | When information is saved in database, the indicator shows up  in the expanded profile. | Pass |
 | Report indicator collapsed | Showing the report indicator in collapsed profile. | When a guest was tagged in a report that day, the indicator is shown in the collapsed profile. | Pass |
 | Report indicator expanded | Showing the report indicator and additional option in expanded profile. | When guest was tagged in a report that day, the indicator is shown and the additional button to show reports is displayed in the expanded profile. | Pass |
-| Pickup indicator collapsed | Showing the pickup indicator in collapsed profile. | When a pickup name was entered during the check-in proces, the indicator is shown in the collapsed profile. | Pass |
+| Pickup indicator collapsed | Showing the pickup indicator in collapsed profile. | When a pickup name was entered during the check-in process, the indicator is shown in the collapsed profile. | Pass |
 | Pickup indicator expanded | Showing the pickup information in the expanded profile. | When a pickup name was entered during the check-in process, the name is shown in the expanded profile. | Pass |
 | Read report button | When tagged in a report on the selected day, an additional button is shown to read the reports of the day | When expanding a profile of a guest, that has been tagged in a report that day the button shows up. When clicking the button, the user is directed to the list of the reports of the selected day. | Pass |
 | Open file button | Open the profile of the selected guest | When clicking on the button, the profile of the guest loads. | Pass |
@@ -1171,7 +1171,6 @@ In a future version, the following improvements should be made:<br>
 - Improve search to not be based on a complete list of profiles, showing or hiding using Bootstrap, but use fast and more efficient database requests.
 - Improve gender selector, similar to the search feature.
 - Pagination on list for all guests and all reports, as well as for all reports on a guest's profile page.
-<br>
 
 #### Fixed Bugs
 
